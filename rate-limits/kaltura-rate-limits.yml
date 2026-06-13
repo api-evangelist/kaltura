@@ -1,0 +1,60 @@
+name: Kaltura API Rate Limits
+description: Kaltura does not publish explicit global rate limit thresholds in its
+  public documentation. Rate limiting is managed at the session level via the Kaltura
+  Session (KS) action limit parameter, and overall API quotas are negotiated as part
+  of enterprise contracts. Developers should contact Kaltura support for plan-specific
+  limits.
+url: https://developer.kaltura.com/api-docs/VPaaS-API-Getting-Started/Kaltura_API_Authentication_and_Security.html
+limits:
+  - name: KS Action Limit
+    description: Each Kaltura Session (KS) token can be created with a configurable
+      action limit that restricts the maximum number of API calls that can be made
+      within that session. This is set at session creation time via the actionslimit
+      privilege. A value of 0 means unlimited calls for that session.
+    type: session
+    scope: per-session
+    notes: >
+      The actionslimit privilege is passed during session.start or user.loginByLoginId.
+      Example: privileges=actionslimit:10 restricts the KS to 10 API calls.
+      Useful for limiting embedded player sessions or third-party integrations.
+
+  - name: KS Expiry Time
+    description: Kaltura Sessions expire between 1 second and 10 years. Short-lived
+      sessions (e.g., 30 minutes for player sessions) reduce the window of abuse.
+      Expired sessions return an authentication error requiring a new KS.
+    type: temporal
+    scope: per-session
+    minimum: 1 second
+    maximum: 10 years
+    recommended: 30 minutes for player/widget sessions
+
+  - name: Upload Chunk Size
+    description: Large file uploads use chunked upload via uploadToken. The
+      recommended chunk size for JavaScript uploads is defined in the client
+      library. Files can be uploaded in parallel chunks for performance.
+    type: upload
+    scope: per-request
+    notes: >
+      Use uploadToken.add to get a token, then uploadToken.upload for each chunk.
+      Chunked upload libraries are available for JavaScript, Java, and jQuery.
+
+  - name: Enterprise API Quotas
+    description: Overall API call volumes, concurrent transcoding jobs, storage
+      limits, CDN bandwidth, and live stream concurrency are governed by
+      enterprise contract terms. Specific numerical limits are not publicly
+      disclosed and vary by plan.
+    type: contract
+    scope: account
+    notes: >
+      Contact Kaltura sales at https://corp.kaltura.com/ for plan-specific
+      rate limit and quota information. Limits vary by tier and use case.
+
+  - name: IP Restriction
+    description: Sessions can be restricted to specific IP addresses using the
+      iprestrict privilege on the KS. Requests from other IP addresses will
+      be rejected for that session.
+    type: security
+    scope: per-session
+    notes: >
+      Set via privileges=iprestrict:192.168.1.100 during session generation.
+      Useful for locking down admin API calls to known server IPs.

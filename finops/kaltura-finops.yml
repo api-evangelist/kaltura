@@ -1,0 +1,89 @@
+name: Kaltura FinOps
+description: Financial operations guidance for managing Kaltura API costs. Kaltura
+  pricing is entirely quote-based and tied to usage metrics including storage volume,
+  transcoding minutes, CDN bandwidth, concurrent live streams, and seat counts.
+  There is no self-serve usage console; cost management requires working with a
+  Kaltura account manager and monitoring usage via the analytics API.
+url: https://corp.kaltura.com/pricing/
+costDrivers:
+  - name: Storage
+    description: Video and media asset storage consumed in GB or TB. Costs increase
+      with the volume of content uploaded and retained on the platform.
+    unit: GB/TB per month
+    notes: >
+      Archive or delete unused media entries via the media.delete API to reduce
+      storage costs. Use entry.list with filters to identify old or unviewed assets.
+
+  - name: Transcoding
+    description: CPU-time consumed converting uploaded media into delivery formats
+      (HLS, MP4, etc.) across multiple renditions and bitrates. Each flavor profile
+      adds transcoding cost per minute of source video.
+    unit: transcoding minutes
+    notes: >
+      Optimize flavor profiles to only the renditions needed for your audience.
+      Avoid re-transcoding by reusing existing flavors where possible. Use the
+      conversionProfile service to manage which profiles are applied.
+
+  - name: CDN Bandwidth
+    description: Egress bandwidth for video delivery to end users via Kaltura's CDN
+      partners. Typically the largest variable cost driver for high-traffic deployments.
+    unit: GB transferred per month
+    notes: >
+      Use adaptive bitrate streaming (HLS/DASH) to serve lower bitrates on poor
+      connections. Monitor delivery analytics to identify high-traffic content and
+      optimize. Consider geographic caching strategies for global audiences.
+
+  - name: Live Streaming
+    description: Concurrent live stream channels and broadcast hours. Live ingest
+      and transcoding of live streams are billed separately from VOD transcoding.
+    unit: concurrent streams / broadcast hours
+    notes: >
+      Terminate live stream entries promptly after events end to avoid idle costs.
+      Use the liveStream.isLive API to monitor active streams and automate shutdown.
+
+  - name: API Call Volume
+    description: High-volume API usage may have contract-level limits or overage
+      charges depending on the enterprise agreement. Not publicly documented.
+    unit: API calls per month
+    notes: >
+      Cache frequently requested data (e.g., media lists, category trees) on your
+      application side. Use bulk operations where available to reduce individual
+      API call counts.
+
+  - name: Seats / Named Users
+    description: Some Kaltura products (Virtual Classroom, Video Portal, Events)
+      are priced per seat or named user. Seat counts directly drive licensing costs.
+    unit: users per month
+    notes: >
+      Audit user accounts periodically and deactivate inactive users to manage
+      seat counts. Use the user.list API to retrieve active user counts.
+
+optimizationStrategies:
+  - name: Use App Tokens for Production
+    description: Use appToken-based sessions instead of admin KS in production to
+      limit privileges to only the actions needed, reducing risk of accidental
+      large-scale operations that could incur costs.
+    url: https://developer.kaltura.com/api-docs/VPaaS-API-Getting-Started/Kaltura_API_Authentication_and_Security.html
+
+  - name: Monitor Usage via Analytics API
+    description: Use the Kaltura Analytics API (report service) to pull usage data
+      including storage, bandwidth, and play counts. Build internal dashboards to
+      track cost drivers over time.
+    url: https://developer.kaltura.com/api-docs/
+
+  - name: Optimize Flavor Profiles
+    description: Review and prune transcoding flavor profiles to only the quality
+      renditions your users actually consume. Unnecessary high-bitrate or
+      rarely-viewed flavors waste transcoding budget.
+    url: https://developer.kaltura.com/api-docs/
+
+  - name: Implement Content Retention Policies
+    description: Use the media.list and media.delete APIs to automate removal of
+      old, unused, or low-value content. This directly reduces storage costs.
+    url: https://developer.kaltura.com/api-docs/
+
+  - name: Contact Account Manager
+    description: Work with your Kaltura account manager to review usage reports,
+      understand your contract structure, and negotiate volume discounts as usage
+      grows or contracts.
+    url: https://corp.kaltura.com/
