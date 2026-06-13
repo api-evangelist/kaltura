@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaRecording",
+  "description": "JSON Schema for KalturaRecording from Kaltura OTT API",
+  "properties": {
+    "assetId": {
+      "description": "Kaltura unique ID representing the program identifier",
+      "type": "integer"
+    },
+    "createDate": {
+      "description": "`readOnly`\n\nSpecifies when was the recording created. Date and time represented as epoch.",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "id": {
+      "description": "`readOnly`\n\nKaltura unique ID representing the recording identifier",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "isProtected": {
+      "description": "`readOnly`\n\nSpecifies whether or not the recording is protected",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "status": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaRecordingStatus`\n\nRecording state: scheduled/recording/recorded/canceled/failed/does_not_exists/deleted",
+      "enum": [
+        "SCHEDULED",
+        "RECORDING",
+        "RECORDED",
+        "CANCELED",
+        "FAILED",
+        "DELETED"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-enumLabels": [
+        "SCHEDULED",
+        "RECORDING",
+        "RECORDED",
+        "CANCELED",
+        "FAILED",
+        "DELETED"
+      ],
+      "x-enumType": "KalturaRecordingStatus"
+    },
+    "type": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaRecordingType`\n\nRecording Type: single/season/series",
+      "enum": [
+        "SINGLE",
+        "SEASON",
+        "SERIES"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-enumLabels": [
+        "SINGLE",
+        "SEASON",
+        "SERIES"
+      ],
+      "x-enumType": "KalturaRecordingType"
+    },
+    "updateDate": {
+      "description": "`readOnly`\n\nSpecifies when was the recording last updated. Date and time represented as epoch.",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "viewableUntilDate": {
+      "description": "`readOnly`\n\nSpecifies until when the recording is available for viewing. Date and time represented as epoch.",
+      "readOnly": true,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

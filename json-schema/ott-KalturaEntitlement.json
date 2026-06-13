@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaEntitlement",
+  "description": "Entitlement",
+  "properties": {
+    "currentDate": {
+      "description": "`readOnly`\n\nCurrent date",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "currentUses": {
+      "description": "`readOnly`\n\nThe current number of uses",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "deviceName": {
+      "description": "`readOnly`\n\nThe name of the device from which the purchase was made",
+      "readOnly": true,
+      "type": "string"
+    },
+    "deviceUdid": {
+      "description": "`readOnly`\n\nThe UDID of the device from which the purchase was made",
+      "readOnly": true,
+      "type": "string"
+    },
+    "endDate": {
+      "description": "`readOnly`\n\nThe end date of the entitlement",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "householdId": {
+      "description": "`readOnly`\n\nThe Identifier of the purchasing household",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "id": {
+      "description": "`readOnly`\n\nPurchase identifier (for subscriptions and collections only)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "isCancelationWindowEnabled": {
+      "description": "`readOnly`\n\nIndicates whether a cancelation window period is enabled",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "lastViewDate": {
+      "description": "`readOnly`\n\nThe last date the item was viewed",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "maxUses": {
+      "description": "`readOnly`\n\nThe maximum number of uses available for this item (only for subscription and PPV)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "paymentMethod": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaPaymentMethodType`\n\nPayment Method",
+      "enum": [
+        "unknown",
+        "credit_card",
+        "sms",
+        "pay_pal",
+        "debit_card",
+        "ideal",
+        "incaso",
+        "gift",
+        "visa",
+        "master_card",
+        "in_app",
+        "m1",
+        "change_subscription",
+        "offline"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-enumLabels": [
+        "UNKNOWN",
+        "CREDIT_CARD",
+        "SMS",
+        "PAY_PAL",
+        "DEBIT_CARD",
+        "IDEAL",
+        "INCASO",
+        "GIFT",
+        "VISA",
+        "MASTER_CARD",
+        "IN_APP",
+        "M1",
+        "CHANGE_SUBSCRIPTION",
+        "OFFLINE"
+      ],
+      "x-enumType": "KalturaPaymentMethodType"
+    },
+    "productId": {
+      "description": "`readOnly`\n\nProduct identifier",
+      "readOnly": true,
+      "type": "string"
+    },
+    "purchaseDate": {
+      "description": "`readOnly`\n\nPurchase date",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "userId": {
+      "description": "`readOnly`\n\nThe Identifier of the purchasing user",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

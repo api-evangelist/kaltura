@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaPlaybackContext",
+  "description": "JSON Schema for KalturaPlaybackContext from Kaltura VPaaS API",
+  "properties": {
+    "actions": {
+      "items": {
+        "$ref": "#/definitions/KalturaRuleAction"
+      },
+      "type": "array"
+    },
+    "bumperData": {
+      "items": {
+        "$ref": "#/definitions/KalturaObject"
+      },
+      "type": "array"
+    },
+    "flavorAssets": {
+      "items": {
+        "$ref": "#/definitions/KalturaFlavorAsset"
+      },
+      "type": "array"
+    },
+    "messages": {
+      "items": {
+        "$ref": "#/definitions/KalturaAccessControlMessage"
+      },
+      "type": "array"
+    },
+    "playbackCaptions": {
+      "items": {
+        "$ref": "#/definitions/KalturaCaptionPlaybackPluginData"
+      },
+      "type": "array"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/definitions/KalturaPlaybackSource"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

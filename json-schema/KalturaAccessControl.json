@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaAccessControl",
+  "description": "JSON Schema for KalturaAccessControl from Kaltura VPaaS API",
+  "properties": {
+    "containsUnsuportedRestrictions": {
+      "description": "`readOnly`\n\nIndicates that the access control profile is new and should be handled using KalturaAccessControlProfile object and accessControlProfile service",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "createdAt": {
+      "description": "`readOnly`\n\nCreation date as Unix timestamp (In seconds)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "description": {
+      "description": "The description of the Access Control Profile",
+      "type": "string"
+    },
+    "id": {
+      "description": "`readOnly`\n\nThe id of the Access Control Profile",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "isDefault": {
+      "description": "Enum Type: `KalturaNullableBoolean`\n\nTrue if this Conversion Profile is the default",
+      "enum": [
+        -1,
+        0,
+        1
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "NULL_VALUE",
+        "FALSE_VALUE",
+        "TRUE_VALUE"
+      ],
+      "x-enumType": "KalturaNullableBoolean"
+    },
+    "name": {
+      "description": "The name of the Access Control Profile",
+      "type": "string"
+    },
+    "partnerId": {
+      "description": "`readOnly`",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "restrictions": {
+      "items": {
+        "$ref": "#/definitions/KalturaBaseRestriction"
+      },
+      "type": "array"
+    },
+    "systemName": {
+      "description": "System name of the Access Control Profile",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

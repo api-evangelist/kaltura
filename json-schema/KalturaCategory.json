@@ -1,0 +1,311 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaCategory",
+  "description": "JSON Schema for KalturaCategory from Kaltura VPaaS API",
+  "properties": {
+    "adminTags": {
+      "type": "string"
+    },
+    "aggregationCategories": {
+      "description": "List of aggregation channels the category belongs to",
+      "type": "string"
+    },
+    "appearInList": {
+      "description": "Enum Type: `KalturaAppearInListType`\n\nIf category will be returned for list action.",
+      "enum": [
+        1,
+        3
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "PARTNER_ONLY",
+        "CATEGORY_MEMBERS_ONLY"
+      ],
+      "x-enumType": "KalturaAppearInListType"
+    },
+    "contributionPolicy": {
+      "description": "Enum Type: `KalturaContributionPolicyType`\n\nwho can assign entries to this category",
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "ALL",
+        "MEMBERS_WITH_CONTRIBUTION_PERMISSION"
+      ],
+      "x-enumType": "KalturaContributionPolicyType"
+    },
+    "createdAt": {
+      "description": "`readOnly`\n\nCreation date as Unix timestamp (In seconds)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "defaultOrderBy": {
+      "description": "Enum Type: `KalturaCategoryOrderBy`\n\nEnable client side applications to define how to sort the category child categories",
+      "enum": [
+        "+createdAt",
+        "+depth",
+        "+directEntriesCount",
+        "+directSubCategoriesCount",
+        "+entriesCount",
+        "+fullName",
+        "+membersCount",
+        "+name",
+        "+partnerSortValue",
+        "+updatedAt",
+        "-createdAt",
+        "-depth",
+        "-directEntriesCount",
+        "-directSubCategoriesCount",
+        "-entriesCount",
+        "-fullName",
+        "-membersCount",
+        "-name",
+        "-partnerSortValue",
+        "-updatedAt"
+      ],
+      "type": "string",
+      "x-enumLabels": [
+        "CREATED_AT_ASC",
+        "DEPTH_ASC",
+        "DIRECT_ENTRIES_COUNT_ASC",
+        "DIRECT_SUB_CATEGORIES_COUNT_ASC",
+        "ENTRIES_COUNT_ASC",
+        "FULL_NAME_ASC",
+        "MEMBERS_COUNT_ASC",
+        "NAME_ASC",
+        "PARTNER_SORT_VALUE_ASC",
+        "UPDATED_AT_ASC",
+        "CREATED_AT_DESC",
+        "DEPTH_DESC",
+        "DIRECT_ENTRIES_COUNT_DESC",
+        "DIRECT_SUB_CATEGORIES_COUNT_DESC",
+        "ENTRIES_COUNT_DESC",
+        "FULL_NAME_DESC",
+        "MEMBERS_COUNT_DESC",
+        "NAME_DESC",
+        "PARTNER_SORT_VALUE_DESC",
+        "UPDATED_AT_DESC"
+      ],
+      "x-enumType": "KalturaCategoryOrderBy"
+    },
+    "defaultPermissionLevel": {
+      "description": "Enum Type: `KalturaCategoryUserPermissionLevel`\n\nDefault permissionLevel for new users",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "MANAGER",
+        "MODERATOR",
+        "CONTRIBUTOR",
+        "MEMBER",
+        "NONE"
+      ],
+      "x-enumType": "KalturaCategoryUserPermissionLevel"
+    },
+    "depth": {
+      "description": "`readOnly`",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "description": {
+      "description": "Category description",
+      "type": "string"
+    },
+    "directEntriesCount": {
+      "description": "`readOnly`\n\nNumber of entries that belong to this category directly",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "directSubCategoriesCount": {
+      "description": "`readOnly`\n\nNumber of direct children categories",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "entriesCount": {
+      "description": "`readOnly`\n\nNumber of entries in this Category (including child categories)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "fullIds": {
+      "description": "`readOnly`\n\nThe full ids of the Category",
+      "readOnly": true,
+      "type": "string"
+    },
+    "fullName": {
+      "description": "`readOnly`\n\nThe full name of the Category",
+      "readOnly": true,
+      "type": "string"
+    },
+    "id": {
+      "description": "`readOnly`\n\nThe id of the Category",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "inheritanceType": {
+      "description": "Enum Type: `KalturaInheritanceType`\n\nIf Category members are inherited from parent category or set manualy.",
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "INHERIT",
+        "MANUAL"
+      ],
+      "x-enumType": "KalturaInheritanceType"
+    },
+    "inheritedParentId": {
+      "description": "`readOnly`\n\nThe category id that this category inherit its members and members permission (for contribution and join)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "isAggregationCategory": {
+      "description": "Enum Type: `KalturaNullableBoolean`\n\nFlag indicating that the category is an aggregation category",
+      "enum": [
+        -1,
+        0,
+        1
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "NULL_VALUE",
+        "FALSE_VALUE",
+        "TRUE_VALUE"
+      ],
+      "x-enumType": "KalturaNullableBoolean"
+    },
+    "membersCount": {
+      "description": "`readOnly`\n\nNumber of active members for this category",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "moderation": {
+      "description": "Enum Type: `KalturaNullableBoolean`\n\nModeration to add entries to this category by users that are not of permission level Manager or Moderator.",
+      "enum": [
+        -1,
+        0,
+        1
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "NULL_VALUE",
+        "FALSE_VALUE",
+        "TRUE_VALUE"
+      ],
+      "x-enumType": "KalturaNullableBoolean"
+    },
+    "name": {
+      "description": "The name of the Category. \n\nThe following characters are not allowed: '<', '>', ','",
+      "type": "string"
+    },
+    "owner": {
+      "description": "Category Owner (User id)",
+      "type": "string"
+    },
+    "parentId": {
+      "type": "integer"
+    },
+    "partnerData": {
+      "description": "Can be used to store various partner related data as a string",
+      "type": "string"
+    },
+    "partnerId": {
+      "description": "`readOnly`",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "partnerSortValue": {
+      "description": "Can be used to store various partner related data as a numeric value",
+      "type": "integer"
+    },
+    "pendingEntriesCount": {
+      "description": "`readOnly`\n\nNunber of pending moderation entries",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "pendingMembersCount": {
+      "description": "`readOnly`\n\nNumber of pending members for this category",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "privacy": {
+      "description": "Enum Type: `KalturaPrivacyType`\n\ndefines the privacy of the entries that assigned to this category",
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "ALL",
+        "AUTHENTICATED_USERS",
+        "MEMBERS_ONLY"
+      ],
+      "x-enumType": "KalturaPrivacyType"
+    },
+    "privacyContext": {
+      "description": "Set privacy context for search entries that assiged to private and public categories. the entries will be private if the search context is set with those categories.",
+      "type": "string"
+    },
+    "privacyContexts": {
+      "description": "`readOnly`\n\ncomma separated parents that defines a privacyContext for search",
+      "readOnly": true,
+      "type": "string"
+    },
+    "referenceId": {
+      "description": "Category external id, controlled and managed by the partner.",
+      "type": "string"
+    },
+    "status": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaCategoryStatus`\n\nStatus",
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "readOnly": true,
+      "type": "integer",
+      "x-enumLabels": [
+        "UPDATING",
+        "ACTIVE",
+        "DELETED",
+        "PURGED"
+      ],
+      "x-enumType": "KalturaCategoryStatus"
+    },
+    "tags": {
+      "description": "Category tags",
+      "type": "string"
+    },
+    "updatedAt": {
+      "description": "`readOnly`\n\nUpdate date as Unix timestamp (In seconds)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "userJoinPolicy": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaUserJoinPolicyType`\n\nWho can ask to join this category",
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "readOnly": true,
+      "type": "integer",
+      "x-enumLabels": [
+        "AUTO_JOIN",
+        "REQUEST_TO_JOIN",
+        "NOT_ALLOWED"
+      ],
+      "x-enumType": "KalturaUserJoinPolicyType"
+    }
+  },
+  "type": "object"
+}

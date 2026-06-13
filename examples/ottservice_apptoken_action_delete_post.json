@@ -1,0 +1,34 @@
+{
+  "path": "/service/apptoken/action/delete",
+  "method": "POST",
+  "operationId": "appToken.delete",
+  "summary": "",
+  "description": "Delete application authentication token by id",
+  "tags": [
+    "appToken"
+  ],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/OTTRequest"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "path": "/service/media/action/list",
+  "method": "POST",
+  "operationId": "media.list",
+  "summary": "",
+  "description": "List media entries by filter with paging support.",
+  "tags": [
+    "media"
+  ],
+  "parameters": [
+    {
+      "$ref": "#/parameters/ks"
+    },
+    {
+      "$ref": "#/parameters/format"
+    },
+    {
+      "$ref": "#/parameters/clientTag"
+    },
+    {
+      "$ref": "#/parameters/partnerId"
+    },
+    {
+      "$ref": "#/parameters/language"
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    }
+  }
+}

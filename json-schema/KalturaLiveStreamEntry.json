@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaLiveStreamEntry",
+  "description": "JSON Schema for KalturaLiveStreamEntry from Kaltura VPaaS API",
+  "allOf": [
+    {
+      "$ref": "#/definitions/KalturaLiveEntry"
+    }
+  ],
+  "anyOf": [
+    {
+      "$ref": "#/definitions/KalturaLiveStreamEntry"
+    },
+    {
+      "$ref": "#/definitions/KalturaLiveStreamAdminEntry"
+    }
+  ],
+  "discriminator": "objectType",
+  "properties": {
+    "bitrates": {
+      "items": {
+        "$ref": "#/definitions/KalturaLiveStreamBitrate"
+      },
+      "type": "array"
+    },
+    "encodingIP1": {
+      "description": "The broadcast primary ip",
+      "type": "string"
+    },
+    "encodingIP2": {
+      "description": "The broadcast secondary ip",
+      "type": "string"
+    },
+    "hlsStreamUrl": {
+      "description": "HLS URL - URL for live stream playback on mobile device",
+      "type": "string"
+    },
+    "objectType": {
+      "enum": [
+        "KalturaLiveStreamEntry",
+        "KalturaLiveStreamAdminEntry"
+      ],
+      "type": "string"
+    },
+    "primaryBroadcastingUrl": {
+      "type": "string"
+    },
+    "primaryRtspBroadcastingUrl": {
+      "type": "string"
+    },
+    "primarySecuredBroadcastingUrl": {
+      "type": "string"
+    },
+    "primaryServerNodeId": {
+      "description": "`readOnly`\n\nThe Streams primary server node id",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "primarySrtBroadcastingUrl": {
+      "type": "string"
+    },
+    "primarySrtStreamId": {
+      "type": "string"
+    },
+    "secondaryBroadcastingUrl": {
+      "type": "string"
+    },
+    "secondaryRtspBroadcastingUrl": {
+      "type": "string"
+    },
+    "secondarySecuredBroadcastingUrl": {
+      "type": "string"
+    },
+    "secondarySrtBroadcastingUrl": {
+      "type": "string"
+    },
+    "secondarySrtStreamId": {
+      "type": "string"
+    },
+    "sipSourceType": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaSipSourceType`",
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "readOnly": true,
+      "type": "integer",
+      "x-enumLabels": [
+        "PICTURE_IN_PICTURE",
+        "TALKING_HEADS",
+        "SCREEN_SHARE"
+      ],
+      "x-enumType": "KalturaSipSourceType"
+    },
+    "sipToken": {
+      "description": "`readOnly`",
+      "readOnly": true,
+      "type": "string"
+    },
+    "srtPass": {
+      "type": "string"
+    },
+    "streamName": {
+      "type": "string"
+    },
+    "streamPassword": {
+      "description": "The broadcast password",
+      "type": "string"
+    },
+    "streamRemoteBackupId": {
+      "description": "`readOnly`\n\nThe backup stream id as provided by the provider",
+      "readOnly": true,
+      "type": "string"
+    },
+    "streamRemoteId": {
+      "description": "`readOnly`\n\nThe stream id as provided by the provider",
+      "readOnly": true,
+      "type": "string"
+    },
+    "streamUrl": {
+      "description": "The stream url",
+      "type": "string"
+    },
+    "streamUsername": {
+      "description": "`readOnly`\n\nThe broadcast username",
+      "readOnly": true,
+      "type": "string"
+    },
+    "urlManager": {
+      "description": "URL Manager to handle the live stream URL (for instance, add token)",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

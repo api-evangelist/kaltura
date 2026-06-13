@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaAnnouncement",
+  "description": "JSON Schema for KalturaAnnouncement from Kaltura OTT API",
+  "properties": {
+    "enabled": {
+      "description": "Announcement enabled",
+      "type": "boolean"
+    },
+    "id": {
+      "description": "`readOnly`\n\nAnnouncement id",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "imageUrl": {
+      "description": "Announcement image URL, relevant for system announcements",
+      "type": "string"
+    },
+    "includeMail": {
+      "description": "Include Mail",
+      "type": "boolean"
+    },
+    "includeSms": {
+      "description": "Include SMS",
+      "type": "boolean"
+    },
+    "mailSubject": {
+      "description": "Mail Subject",
+      "type": "string"
+    },
+    "mailTemplate": {
+      "description": "Mail Template",
+      "type": "string"
+    },
+    "message": {
+      "description": "Announcement message",
+      "type": "string"
+    },
+    "name": {
+      "description": "Announcement name",
+      "type": "string"
+    },
+    "recipients": {
+      "description": "Enum Type: `KalturaAnnouncementRecipientsType`\n\nAnnouncement recipients: All=0/LoggedIn=1/Guests=2/Other=3",
+      "enum": [
+        "All",
+        "LoggedIn",
+        "Guests",
+        "Other"
+      ],
+      "type": "string",
+      "x-enumLabels": [
+        "ALL",
+        "LOGGEDIN",
+        "GUESTS",
+        "OTHER"
+      ],
+      "x-enumType": "KalturaAnnouncementRecipientsType"
+    },
+    "startTime": {
+      "description": "Announcement start time",
+      "type": "integer"
+    },
+    "status": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaAnnouncementStatus`\n\nAnnouncement status: NotSent=0/Sending=1/Sent=2/Aborted=3",
+      "enum": [
+        "NotSent",
+        "Sending",
+        "Sent",
+        "Aborted"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-enumLabels": [
+        "NOTSENT",
+        "SENDING",
+        "SENT",
+        "ABORTED"
+      ],
+      "x-enumType": "KalturaAnnouncementStatus"
+    },
+    "timezone": {
+      "description": "Announcement time zone",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

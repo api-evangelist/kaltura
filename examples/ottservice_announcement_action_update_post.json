@@ -1,0 +1,40 @@
+{
+  "path": "/service/announcement/action/update",
+  "method": "POST",
+  "operationId": "announcement.update",
+  "summary": "",
+  "description": "Update an existing future system announcement push notification. Announcement can only be updated only before sending",
+  "tags": [
+    "announcement"
+  ],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/OTTRequest"
+          }
+        ],
+        "properties": {
+          "announcement": {
+            "$ref": "#/definitions/KalturaAnnouncement"
+          },
+          "announcementId": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    },
+    "x-Errors": {
+      "description": "* `AnnouncementMessageIsEmpty`: undefined\n* `AnnouncementInvalidTimezone`: undefined\n* `AnnouncementUpdateNotAllowed`: undefined\n* `AnnouncementMessageTooLong`: undefined\n* `500039`\n* `AnnouncementNotFound`: undefined\n* `FeatureDisabled`: undefined"
+    }
+  }
+}

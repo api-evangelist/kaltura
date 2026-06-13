@@ -1,0 +1,32 @@
+{
+  "path": "/service/user/action/list",
+  "method": "POST",
+  "operationId": "user.list",
+  "summary": "",
+  "description": "Lists user objects that are associated with an account.\n\nBlocked users are listed unless you use a filter to exclude them.\n\nDeleted users are not listed unless you use a filter to include them.",
+  "tags": [
+    "user"
+  ],
+  "parameters": [
+    {
+      "$ref": "#/parameters/ks"
+    },
+    {
+      "$ref": "#/parameters/format"
+    },
+    {
+      "$ref": "#/parameters/clientTag"
+    },
+    {
+      "$ref": "#/parameters/partnerId"
+    },
+    {
+      "$ref": "#/parameters/language"
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    }
+  }
+}

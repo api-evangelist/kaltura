@@ -1,0 +1,40 @@
+{
+  "path": "/service/announcement/action/list",
+  "method": "POST",
+  "operationId": "announcement.list",
+  "summary": "",
+  "description": "Lists all announcements in the system.",
+  "tags": [
+    "announcement"
+  ],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/OTTRequest"
+          }
+        ],
+        "properties": {
+          "filter": {
+            "$ref": "#/definitions/KalturaAnnouncementFilter"
+          },
+          "pager": {
+            "$ref": "#/definitions/KalturaFilterPager"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    },
+    "x-Errors": {
+      "description": "* `FeatureDisabled`: undefined"
+    }
+  }
+}

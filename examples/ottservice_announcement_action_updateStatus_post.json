@@ -1,0 +1,40 @@
+{
+  "path": "/service/announcement/action/updateStatus",
+  "method": "POST",
+  "operationId": "announcement.updateStatus",
+  "summary": "",
+  "description": "Update a system announcement status",
+  "tags": [
+    "announcement"
+  ],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/OTTRequest"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    },
+    "x-Errors": {
+      "description": "* `FeatureDisabled`: undefined\n* `AnnouncementUpdateNotAllowed`: undefined\n* `AnnouncementNotFound`: undefined"
+    }
+  }
+}

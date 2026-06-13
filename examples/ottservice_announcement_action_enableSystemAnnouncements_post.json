@@ -1,0 +1,33 @@
+{
+  "path": "/service/announcement/action/enableSystemAnnouncements",
+  "method": "POST",
+  "operationId": "announcement.enableSystemAnnouncements",
+  "summary": "",
+  "description": "Enable system announcements",
+  "tags": [
+    "announcement"
+  ],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/OTTRequest"
+          }
+        ],
+        "properties": {},
+        "type": "object"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    },
+    "x-Errors": {
+      "description": "* `FailCreateAnnouncement`: undefined\n* `FeatureDisabled`: undefined"
+    }
+  }
+}

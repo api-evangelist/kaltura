@@ -1,0 +1,30 @@
+{
+  "path": "/service/upload/action/upload",
+  "method": "POST",
+  "operationId": "upload.upload",
+  "summary": "",
+  "description": "",
+  "tags": [
+    "upload"
+  ],
+  "parameters": [
+    {
+      "$ref": "#/parameters/ks"
+    },
+    {
+      "$ref": "#/parameters/format"
+    },
+    {
+      "description": "The file data",
+      "in": "formData",
+      "name": "fileData",
+      "required": true,
+      "type": "file"
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    }
+  }
+}

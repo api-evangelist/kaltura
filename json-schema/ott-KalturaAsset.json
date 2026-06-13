@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaAsset",
+  "description": "`abstract`\n\nAsset info",
+  "discriminator": "objectType",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/KalturaMediaAsset"
+    },
+    {
+      "$ref": "#/definitions/KalturaProgramAsset"
+    }
+  ],
+  "properties": {
+    "createDate": {
+      "description": "`readOnly`\n\nSpecifies when was the Asset was created. Date and time represented as epoch.",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "description": {
+      "description": "Asset description",
+      "type": "string"
+    },
+    "endDate": {
+      "description": "Date and time represented as epoch. For VOD \u2013 till when the asset be available in the catalog. For EPG/Linear \u2013 program end time and date",
+      "type": "integer"
+    },
+    "externalId": {
+      "description": "External identifier for the media file",
+      "type": "string"
+    },
+    "id": {
+      "description": "`readOnly`\n\nUnique identifier for the asset",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "images": {
+      "items": {
+        "$ref": "#/definitions/KalturaMediaImage"
+      },
+      "type": "array"
+    },
+    "mediaFiles": {
+      "items": {
+        "$ref": "#/definitions/KalturaMediaFile"
+      },
+      "type": "array"
+    },
+    "metas": {
+      "items": {
+        "$ref": "#/definitions/KalturaValue"
+      },
+      "type": "array"
+    },
+    "multilingualDescription": {
+      "items": {
+        "$ref": "#/definitions/KalturaTranslationToken"
+      },
+      "type": "array"
+    },
+    "multilingualName": {
+      "items": {
+        "$ref": "#/definitions/KalturaTranslationToken"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "Asset name",
+      "type": "string"
+    },
+    "objectType": {
+      "enum": [
+        "KalturaMediaAsset",
+        "KalturaProgramAsset"
+      ],
+      "type": "string"
+    },
+    "startDate": {
+      "description": "Date and time represented as epoch. For VOD \u2013 since when the asset is available in the catalog. For EPG/Linear \u2013 when the program is aired (can be in the future).",
+      "type": "integer"
+    },
+    "tags": {
+      "items": {
+        "$ref": "#/definitions/KalturaMultilingualStringValueArray"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "`insertOnly`\n\nIdentifies the asset type (EPG, Recording, Movie, TV Series, etc). \r\n            Possible values: 0 \u2013 EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system.",
+      "type": "integer"
+    },
+    "updateDate": {
+      "description": "`readOnly`\n\nSpecifies when was the Asset last updated. Date and time represented as epoch.",
+      "readOnly": true,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

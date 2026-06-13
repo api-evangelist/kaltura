@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaOTTUser",
+  "description": "User",
+  "allOf": [
+    {
+      "$ref": "#/definitions/KalturaBaseOTTUser"
+    }
+  ],
+  "properties": {
+    "address": {
+      "description": "Address",
+      "type": "string"
+    },
+    "affiliateCode": {
+      "description": "`insertOnly`\n\nAffiliate code",
+      "type": "string"
+    },
+    "city": {
+      "description": "City",
+      "type": "string"
+    },
+    "countryId": {
+      "description": "Country identifier",
+      "type": "integer"
+    },
+    "dynamicData": {
+      "items": {
+        "$ref": "#/definitions/KalturaStringValue"
+      },
+      "type": "array"
+    },
+    "email": {
+      "description": "Email",
+      "type": "string"
+    },
+    "externalId": {
+      "description": "External user identifier",
+      "type": "string"
+    },
+    "householdId": {
+      "description": "`readOnly`\n\nHousehold identifier",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "isHouseholdMaster": {
+      "description": "`readOnly`\n\nIs the user the household master",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "phone": {
+      "description": "Phone",
+      "type": "string"
+    },
+    "suspensionState": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaHouseholdSuspensionState`\n\nSuspension state",
+      "enum": [
+        "NOT_SUSPENDED",
+        "SUSPENDED"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-enumLabels": [
+        "NOT_SUSPENDED",
+        "SUSPENDED"
+      ],
+      "x-enumType": "KalturaHouseholdSuspensionState"
+    },
+    "userState": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaUserState`\n\nUser state",
+      "enum": [
+        "ok",
+        "user_with_no_household",
+        "user_created_with_no_role",
+        "user_not_activated"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-enumLabels": [
+        "OK",
+        "USER_WITH_NO_HOUSEHOLD",
+        "USER_CREATED_WITH_NO_ROLE",
+        "USER_NOT_ACTIVATED"
+      ],
+      "x-enumType": "KalturaUserState"
+    },
+    "userType": {
+      "$ref": "#/definitions/KalturaOTTUserType"
+    },
+    "zip": {
+      "description": "Zip code",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

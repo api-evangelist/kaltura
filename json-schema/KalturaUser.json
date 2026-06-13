@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaUser",
+  "description": "JSON Schema for KalturaUser from Kaltura VPaaS API",
+  "allOf": [
+    {
+      "$ref": "#/definitions/KalturaBaseUser"
+    }
+  ],
+  "anyOf": [
+    {
+      "$ref": "#/definitions/KalturaUser"
+    },
+    {
+      "$ref": "#/definitions/KalturaAdminUser"
+    }
+  ],
+  "discriminator": "objectType",
+  "properties": {
+    "attendanceInfo": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "dateOfBirth": {
+      "type": "integer"
+    },
+    "encryptedSeed": {
+      "description": "`readOnly`",
+      "readOnly": true,
+      "type": "string"
+    },
+    "externalId": {
+      "description": "`insertOnly`\n\nThis field should be sent instead of the id field whenever you want to work with hashed user ids",
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "gender": {
+      "description": "Enum Type: `KalturaGender`",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "UNKNOWN",
+        "MALE",
+        "FEMALE"
+      ],
+      "x-enumType": "KalturaGender"
+    },
+    "isAccountOwner": {
+      "description": "`insertOnly`",
+      "type": "boolean"
+    },
+    "isAdmin": {
+      "type": "boolean"
+    },
+    "isGuest": {
+      "description": "`insertOnly`",
+      "type": "boolean"
+    },
+    "isSsoExcluded": {
+      "type": "boolean"
+    },
+    "ksPrivileges": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "loginEnabled": {
+      "description": "`insertOnly`",
+      "type": "boolean"
+    },
+    "objectType": {
+      "enum": [
+        "KalturaUser",
+        "KalturaAdminUser"
+      ],
+      "type": "string"
+    },
+    "password": {
+      "description": "`insertOnly` `writeOnly`",
+      "type": "string",
+      "x-inputType": "password"
+    },
+    "registrationInfo": {
+      "type": "string"
+    },
+    "roleIds": {
+      "type": "string"
+    },
+    "roleNames": {
+      "description": "`readOnly`",
+      "readOnly": true,
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "description": "Enum Type: `KalturaUserType`",
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "USER",
+        "GROUP"
+      ],
+      "x-enumType": "KalturaUserType"
+    }
+  },
+  "type": "object"
+}

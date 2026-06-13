@@ -1,0 +1,37 @@
+{
+  "path": "/service/announcement/action/add",
+  "method": "POST",
+  "operationId": "announcement.add",
+  "summary": "",
+  "description": "Add a new future scheduled system announcement push notification",
+  "tags": [
+    "announcement"
+  ],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/OTTRequest"
+          }
+        ],
+        "properties": {
+          "announcement": {
+            "$ref": "#/definitions/KalturaAnnouncement"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    },
+    "x-Errors": {
+      "description": "* `500039`\n* `FeatureDisabled`: undefined\n* `AnnouncementMessageIsEmpty`: undefined\n* `AnnouncementMessageTooLong`: undefined\n* `AnnouncementInvalidTimezone`: undefined"
+    }
+  }
+}

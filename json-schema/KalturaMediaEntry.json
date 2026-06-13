@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaMediaEntry",
+  "description": "JSON Schema for KalturaMediaEntry from Kaltura VPaaS API",
+  "allOf": [
+    {
+      "$ref": "#/definitions/KalturaPlayableEntry"
+    }
+  ],
+  "anyOf": [
+    {
+      "$ref": "#/definitions/KalturaMediaEntry"
+    },
+    {
+      "$ref": "#/definitions/KalturaExternalMediaEntry"
+    },
+    {
+      "$ref": "#/definitions/KalturaLiveChannel"
+    },
+    {
+      "$ref": "#/definitions/KalturaLiveStreamEntry"
+    },
+    {
+      "$ref": "#/definitions/KalturaLiveStreamAdminEntry"
+    }
+  ],
+  "discriminator": "objectType",
+  "properties": {
+    "conversionQuality": {
+      "description": "`insertOnly`\n\nOverride the default conversion quality",
+      "type": "string"
+    },
+    "creditUrl": {
+      "description": "The URL for credits",
+      "type": "string"
+    },
+    "creditUserName": {
+      "description": "The user name used for credits",
+      "type": "string"
+    },
+    "dataUrl": {
+      "description": "`readOnly`\n\nThe URL used for playback. This is not the download URL.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "flavorParamsIds": {
+      "description": "`readOnly`\n\nComma separated flavor params ids that exists for this media entry",
+      "readOnly": true,
+      "type": "string"
+    },
+    "isTrimDisabled": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaNullableBoolean`\n\nTrue if trim action is disabled for this entry",
+      "enum": [
+        -1,
+        0,
+        1
+      ],
+      "readOnly": true,
+      "type": "integer",
+      "x-enumLabels": [
+        "NULL_VALUE",
+        "FALSE_VALUE",
+        "TRUE_VALUE"
+      ],
+      "x-enumType": "KalturaNullableBoolean"
+    },
+    "mediaDate": {
+      "description": "`readOnly`\n\nThe media date extracted from EXIF data (For images) as Unix timestamp (In seconds)",
+      "readOnly": true,
+      "type": "integer",
+      "x-inputType": "datetime"
+    },
+    "mediaType": {
+      "description": "`insertOnly`\n\nEnum Type: `KalturaMediaType`\n\nThe media type of the entry",
+      "enum": [
+        1,
+        2,
+        5,
+        201,
+        202,
+        203,
+        204
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "VIDEO",
+        "IMAGE",
+        "AUDIO",
+        "LIVE_STREAM_FLASH",
+        "LIVE_STREAM_WINDOWS_MEDIA",
+        "LIVE_STREAM_REAL_MEDIA",
+        "LIVE_STREAM_QUICKTIME"
+      ],
+      "x-enumType": "KalturaMediaType"
+    },
+    "objectType": {
+      "enum": [
+        "KalturaMediaEntry",
+        "KalturaExternalMediaEntry",
+        "KalturaLiveChannel",
+        "KalturaLiveStreamEntry",
+        "KalturaLiveStreamAdminEntry"
+      ],
+      "type": "string"
+    },
+    "searchProviderId": {
+      "description": "`insertOnly`\n\nThe ID of the media in the importing site",
+      "type": "string"
+    },
+    "searchProviderType": {
+      "description": "`insertOnly`\n\nEnum Type: `KalturaSearchProviderType`\n\nThe search provider type used to import this entry",
+      "enum": [
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        20,
+        21,
+        22,
+        23,
+        24,
+        28,
+        100
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "FLICKR",
+        "YOUTUBE",
+        "MYSPACE",
+        "PHOTOBUCKET",
+        "JAMENDO",
+        "CCMIXTER",
+        "NYPL",
+        "CURRENT",
+        "MEDIA_COMMONS",
+        "KALTURA",
+        "KALTURA_USER_CLIPS",
+        "ARCHIVE_ORG",
+        "KALTURA_PARTNER",
+        "METACAFE",
+        "SEARCH_PROXY",
+        "PARTNER_SPECIFIC"
+      ],
+      "x-enumType": "KalturaSearchProviderType"
+    },
+    "sourceType": {
+      "description": "`insertOnly`\n\nEnum Type: `KalturaSourceType`\n\nThe source type of the entry",
+      "enum": [
+        "limeLight.LIVE_STREAM",
+        "velocix.VELOCIX_LIVE",
+        "1",
+        "2",
+        "5",
+        "6",
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "42"
+      ],
+      "type": "string",
+      "x-enumLabels": [
+        "LIMELIGHT_LIVE",
+        "VELOCIX_LIVE",
+        "FILE",
+        "WEBCAM",
+        "URL",
+        "SEARCH_PROVIDER",
+        "AKAMAI_LIVE",
+        "MANUAL_LIVE_STREAM",
+        "AKAMAI_UNIVERSAL_LIVE",
+        "LIVE_STREAM",
+        "LIVE_CHANNEL",
+        "RECORDED_LIVE",
+        "CLIP",
+        "KALTURA_RECORDED_LIVE",
+        "LECTURE_CAPTURE",
+        "LIVE_STREAM_ONTEXTDATA_CAPTIONS"
+      ],
+      "x-enumType": "KalturaSourceType"
+    },
+    "sourceVersion": {
+      "description": "`insertOnly`\n\nThe source version of the entry",
+      "type": "string"
+    },
+    "streams": {
+      "items": {
+        "$ref": "#/definitions/KalturaStreamContainer"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

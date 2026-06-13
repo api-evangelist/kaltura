@@ -1,0 +1,34 @@
+{
+  "path": "/service/apptoken/action/add",
+  "method": "POST",
+  "operationId": "appToken.add",
+  "summary": "",
+  "description": "Add new application authentication token",
+  "tags": [
+    "appToken"
+  ],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/OTTRequest"
+          }
+        ],
+        "properties": {
+          "appToken": {
+            "$ref": "#/definitions/KalturaAppToken"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "path": "/service/media/action/get",
+  "method": "POST",
+  "operationId": "media.get",
+  "summary": "",
+  "description": "Get media entry by ID.",
+  "tags": [
+    "media"
+  ],
+  "parameters": [
+    {
+      "$ref": "#/parameters/ks"
+    },
+    {
+      "$ref": "#/parameters/format"
+    },
+    {
+      "$ref": "#/parameters/clientTag"
+    },
+    {
+      "$ref": "#/parameters/partnerId"
+    },
+    {
+      "$ref": "#/parameters/language"
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    },
+    "x-Errors": {
+      "description": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found"
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaSubscription",
+  "description": "Subscription details",
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/definitions/KalturaBaseChannel"
+      },
+      "type": "array"
+    },
+    "couponsGroups": {
+      "items": {
+        "$ref": "#/definitions/KalturaCouponsGroup"
+      },
+      "type": "array"
+    },
+    "dependencyType": {
+      "description": "Enum Type: `KalturaSubscriptionDependencyType`\n\nDependency Type",
+      "enum": [
+        "NOTAPPLICABLE",
+        "BASE",
+        "ADDON"
+      ],
+      "type": "string",
+      "x-enumLabels": [
+        "NOTAPPLICABLE",
+        "BASE",
+        "ADDON"
+      ],
+      "x-enumType": "KalturaSubscriptionDependencyType"
+    },
+    "description": {
+      "description": "description of the subscription",
+      "type": "string"
+    },
+    "discountModule": {
+      "$ref": "#/definitions/KalturaDiscountModule"
+    },
+    "endDate": {
+      "description": "The last date the subscription is available for purchasing",
+      "type": "integer"
+    },
+    "externalId": {
+      "description": "External ID",
+      "type": "string"
+    },
+    "fileTypes": {
+      "items": {
+        "$ref": "#/definitions/KalturaIntegerValue"
+      },
+      "type": "array"
+    },
+    "gracePeriodMinutes": {
+      "description": "The subscription grace period in minutes",
+      "type": "integer"
+    },
+    "householdLimitationsId": {
+      "description": "The household limitation module identifier associated with this subscription",
+      "type": "integer"
+    },
+    "id": {
+      "description": "Subscription identifier",
+      "type": "string"
+    },
+    "isCancellationBlocked": {
+      "description": "Is cancellation blocked for the subscription",
+      "type": "boolean"
+    },
+    "isInfiniteRenewal": {
+      "description": "Indicates whether the subscription will renew forever",
+      "type": "boolean"
+    },
+    "isRenewable": {
+      "description": "Denotes whether or not this subscription can be renewed",
+      "type": "boolean"
+    },
+    "isWaiverEnabled": {
+      "description": "Indicates whether or not the end user has the right to waive his rights to cancel a purchase",
+      "type": "boolean"
+    },
+    "maxViewsNumber": {
+      "description": "The maximum number of times an item in this usage module can be viewed",
+      "type": "integer"
+    },
+    "mediaId": {
+      "description": "Identifier of the media associated with the subscription",
+      "type": "integer"
+    },
+    "multilingualDescription": {
+      "items": {
+        "$ref": "#/definitions/KalturaTranslationToken"
+      },
+      "type": "array"
+    },
+    "multilingualName": {
+      "items": {
+        "$ref": "#/definitions/KalturaTranslationToken"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "Name of the subscription",
+      "type": "string"
+    },
+    "premiumServices": {
+      "items": {
+        "$ref": "#/definitions/KalturaPremiumService"
+      },
+      "type": "array"
+    },
+    "previewModule": {
+      "$ref": "#/definitions/KalturaPreviewModule"
+    },
+    "price": {
+      "$ref": "#/definitions/KalturaPriceDetails"
+    },
+    "pricePlanIds": {
+      "description": "Comma separated subscription price plan IDs",
+      "type": "string"
+    },
+    "productCodes": {
+      "items": {
+        "$ref": "#/definitions/KalturaProductCode"
+      },
+      "type": "array"
+    },
+    "prorityInOrder": {
+      "description": "Subscription order (when returned in methods that retrieve subscriptions)",
+      "type": "integer"
+    },
+    "renewalsNumber": {
+      "description": "Defines the number of times this subscription will be renewed",
+      "type": "integer"
+    },
+    "startDate": {
+      "description": "The first date the subscription is available for purchasing",
+      "type": "integer"
+    },
+    "userTypes": {
+      "items": {
+        "$ref": "#/definitions/KalturaOTTUserType"
+      },
+      "type": "array"
+    },
+    "viewLifeCycle": {
+      "description": "The amount time an item is available for viewing since a user started watching the item",
+      "type": "integer"
+    },
+    "waiverPeriod": {
+      "description": "Time period during which the end user can waive his rights to cancel a purchase. When the time period is passed, the purchase can no longer be cancelled",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

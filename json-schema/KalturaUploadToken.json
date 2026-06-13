@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaUploadToken",
+  "description": "JSON Schema for KalturaUploadToken from Kaltura VPaaS API",
+  "properties": {
+    "attachedObjectId": {
+      "description": "`readOnly`\n\nThe id of the object this token is attached to.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "attachedObjectType": {
+      "description": "`readOnly`\n\nThe type of the object this token is attached to.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "autoFinalize": {
+      "description": "`insertOnly`\n\nEnum Type: `KalturaNullableBoolean`\n\nautoFinalize - Should the upload be finalized once the file size on disk matches the file size reported when adding the upload token.",
+      "enum": [
+        -1,
+        0,
+        1
+      ],
+      "type": "integer",
+      "x-enumLabels": [
+        "NULL_VALUE",
+        "FALSE_VALUE",
+        "TRUE_VALUE"
+      ],
+      "x-enumType": "KalturaNullableBoolean"
+    },
+    "createdAt": {
+      "description": "`readOnly`\n\nCreation date as Unix timestamp (In seconds)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "fileName": {
+      "description": "`insertOnly`\n\nName of the file for the upload token, can be empty when the upload token is created and will be updated internally after the file is uploaded",
+      "type": "string"
+    },
+    "fileSize": {
+      "description": "`insertOnly`\n\nFile size in bytes, can be empty when the upload token is created and will be updated internally after the file is uploaded",
+      "type": "number"
+    },
+    "id": {
+      "description": "`readOnly`\n\nUpload token unique ID",
+      "readOnly": true,
+      "type": "string"
+    },
+    "partnerId": {
+      "description": "`readOnly`\n\nPartner ID of the upload token",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "status": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaUploadTokenStatus`\n\nStatus of the upload token",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "readOnly": true,
+      "type": "integer",
+      "x-enumLabels": [
+        "PENDING",
+        "PARTIAL_UPLOAD",
+        "FULL_UPLOAD",
+        "CLOSED",
+        "TIMED_OUT",
+        "DELETED"
+      ],
+      "x-enumType": "KalturaUploadTokenStatus"
+    },
+    "updatedAt": {
+      "description": "`readOnly`\n\nLast update date as Unix timestamp (In seconds)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "uploadUrl": {
+      "description": "`readOnly`\n\nUpload url - to explicitly determine to which domain to address the uploadToken->upload call",
+      "readOnly": true,
+      "type": "string"
+    },
+    "uploadedFileSize": {
+      "description": "`readOnly`\n\nUploaded file size in bytes, can be used to identify how many bytes were uploaded before resuming",
+      "readOnly": true,
+      "type": "number"
+    },
+    "userId": {
+      "description": "`readOnly`\n\nUser id for the upload token",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

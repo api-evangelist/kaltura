@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KalturaHousehold",
+  "description": "Household details",
+  "properties": {
+    "concurrentLimit": {
+      "description": "`readOnly`\n\nThe max number of concurrent streams in the household",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "description": {
+      "description": "Household description",
+      "type": "string"
+    },
+    "devicesLimit": {
+      "description": "`readOnly`\n\nThe max number of the devices that can be added to the household",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "externalId": {
+      "description": "`insertOnly`\n\nHousehold external identifier",
+      "type": "string"
+    },
+    "frequencyNextDeviceAction": {
+      "description": "`readOnly`\n\nThe next time a device is allowed to be removed from the household (epoch)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "frequencyNextUserAction": {
+      "description": "`readOnly`\n\nThe next time a user is allowed to be removed from the household (epoch)",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "householdLimitationsId": {
+      "description": "`readOnly`\n\nHousehold limitation module identifier",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "id": {
+      "description": "`readOnly`\n\nHousehold identifier",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "isFrequencyEnabled": {
+      "description": "`readOnly`\n\nIs household frequency enabled",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "name": {
+      "description": "Household name",
+      "type": "string"
+    },
+    "regionId": {
+      "description": "`readOnly`\n\nThe households region identifier",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "restriction": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaHouseholdRestriction`\n\nHousehold restriction",
+      "enum": [
+        "not_restricted",
+        "user_master_restricted",
+        "device_master_restricted",
+        "device_user_master_restricted"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-enumLabels": [
+        "NOT_RESTRICTED",
+        "USER_MASTER_RESTRICTED",
+        "DEVICE_MASTER_RESTRICTED",
+        "DEVICE_USER_MASTER_RESTRICTED"
+      ],
+      "x-enumType": "KalturaHouseholdRestriction"
+    },
+    "roleId": {
+      "description": "`readOnly`\n\nsuspended roleId",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "state": {
+      "description": "`readOnly`\n\nEnum Type: `KalturaHouseholdState`\n\nHousehold state",
+      "enum": [
+        "ok",
+        "created_without_npvr_account",
+        "suspended",
+        "no_users_in_household",
+        "pending"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-enumLabels": [
+        "OK",
+        "CREATED_WITHOUT_NPVR_ACCOUNT",
+        "SUSPENDED",
+        "NO_USERS_IN_HOUSEHOLD",
+        "PENDING"
+      ],
+      "x-enumType": "KalturaHouseholdState"
+    },
+    "usersLimit": {
+      "description": "`readOnly`\n\nThe max number of the users that can be added to the household",
+      "readOnly": true,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

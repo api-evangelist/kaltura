@@ -1,0 +1,35 @@
+{
+  "path": "/service/media/action/addContent",
+  "method": "POST",
+  "operationId": "media.addContent",
+  "summary": "",
+  "description": "Add content to media entry which is not yet associated with content (therefore is in status NO_CONTENT).\n     If the requirement is to replace the entry's associated content, use action updateContent.",
+  "tags": [
+    "media"
+  ],
+  "parameters": [
+    {
+      "$ref": "#/parameters/ks"
+    },
+    {
+      "$ref": "#/parameters/format"
+    },
+    {
+      "$ref": "#/parameters/clientTag"
+    },
+    {
+      "$ref": "#/parameters/partnerId"
+    },
+    {
+      "$ref": "#/parameters/language"
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    },
+    "x-Errors": {
+      "description": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found\n* `ENTRY_ALREADY_WITH_CONTENT`: Entry already associated with content"
+    }
+  }
+}

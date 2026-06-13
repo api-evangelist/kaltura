@@ -1,0 +1,37 @@
+{
+  "path": "/service/announcement/action/delete",
+  "method": "POST",
+  "operationId": "announcement.delete",
+  "summary": "",
+  "description": "Delete an existing announcing. Announcement cannot be delete while being sent.",
+  "tags": [
+    "announcement"
+  ],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/OTTRequest"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "Success"
+    },
+    "x-Errors": {
+      "description": "* `AnnouncementNotFound`: undefined\n* `FeatureDisabled`: undefined"
+    }
+  }
+}
