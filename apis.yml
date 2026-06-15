@@ -10,94 +10,95 @@ created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.19'
 tags:
-  - Video
+- Video
+- Live Streaming
+- Transcoding
+- Media Management
+- Player
+- Analytics
+- Virtual Classroom
+- OTT
+- Open Source
+apis:
+- aid: kaltura:vpaas-api
+  name: Kaltura VPaaS API
+  description: The Kaltura Video Platform as a Service (VPaaS) REST API enables developers
+    to manage media assets, perform live streaming, transcode content, deliver video
+    to players, collect analytics, and control access and security for video workflows.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.kaltura.com/
+  baseURL: https://www.kaltura.com/api_v3
+  tags:
+  - Video Management
+  - Media Ingestion
   - Live Streaming
   - Transcoding
-  - Media Management
-  - Player
   - Analytics
-  - Virtual Classroom
-  - OTT
-  - Open Source
-apis:
-  - aid: kaltura:vpaas-api
-    name: Kaltura VPaaS API
-    description: The Kaltura Video Platform as a Service (VPaaS) REST API enables
-      developers to manage media assets, perform live streaming, transcode content,
-      deliver video to players, collect analytics, and control access and security
-      for video workflows.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://developer.kaltura.com/
-    baseURL: https://www.kaltura.com/api_v3
-    tags:
-      - Video Management
-      - Media Ingestion
-      - Live Streaming
-      - Transcoding
-      - Analytics
-      - Player
-      - Access Control
-    properties:
-      - type: Documentation
-        url: https://developer.kaltura.com/api-docs/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/kaltura/developer-platform/master/ovp.openapi.json
-      - type: Authentication
-        url: https://developer.kaltura.com/api-docs/VPaaS-API-Getting-Started/Kaltura_API_Authentication_and_Security.html
-      - type: GettingStarted
-        url: https://developer.kaltura.com/api-docs/VPaaS-API-Getting-Started/Getting-Started-VPaaS-API.html
-      - type: Console
-        url: https://developer.kaltura.com/console
-    contact:
-      - FN: Kaltura Developer Support
-        url: https://developer.kaltura.com/
-  - aid: kaltura:ott-api
-    name: Kaltura OTT Backend API
-    description: The Kaltura OTT Backend API provides hundreds of REST-based endpoints
-      giving programmable access to every OTT service including asset management,
-      entitlements, subscriptions, live channels, EPG, and user management for
-      over-the-top video delivery.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://devdocs.api.ott.kaltura.com/
-    baseURL: https://api.ott.kaltura.com
-    tags:
-      - OTT
-      - Live TV
-      - EPG
-      - Subscriptions
-      - Entitlements
-      - Asset Management
-    properties:
-      - type: Documentation
-        url: https://devdocs.api.ott.kaltura.com/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/kaltura/developer-platform/master/ott.openapi.json
-    contact:
-      - FN: Kaltura Developer Support
-        url: https://developer.kaltura.com/
-common:
-  - type: Website
-    url: https://corp.kaltura.com/
+  - Player
+  - Access Control
+  properties:
   - type: Documentation
+    url: https://developer.kaltura.com/api-docs/
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/kaltura/developer-platform/master/ovp.openapi.json
+  - type: Authentication
+    url: https://developer.kaltura.com/api-docs/VPaaS-API-Getting-Started/Kaltura_API_Authentication_and_Security.html
+  - type: GettingStarted
+    url: https://developer.kaltura.com/api-docs/VPaaS-API-Getting-Started/Getting-Started-VPaaS-API.html
+  - type: Console
+    url: https://developer.kaltura.com/console
+  - url: graphql/kaltura-graphql.md
+    type: GraphQL
+  contact:
+  - FN: Kaltura Developer Support
     url: https://developer.kaltura.com/
-  - type: GitHubOrg
-    url: https://github.com/kaltura
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/kaltura
-  - type: Blog
-    url: https://corp.kaltura.com/blog/
-  - type: Pricing
-    url: https://corp.kaltura.com/pricing/
-  - type: StatusPage
-    url: https://status.kaltura.com/
-  - type: X
-    url: https://x.com/kaltura
-  - type: Plans
-    url: plans/kaltura-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/kaltura-rate-limits.yml
-  - type: FinOps
-    url: finops/kaltura-finops.yml
+- aid: kaltura:ott-api
+  name: Kaltura OTT Backend API
+  description: The Kaltura OTT Backend API provides hundreds of REST-based endpoints
+    giving programmable access to every OTT service including asset management, entitlements,
+    subscriptions, live channels, EPG, and user management for over-the-top video
+    delivery.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://devdocs.api.ott.kaltura.com/
+  baseURL: https://api.ott.kaltura.com
+  tags:
+  - OTT
+  - Live TV
+  - EPG
+  - Subscriptions
+  - Entitlements
+  - Asset Management
+  properties:
+  - type: Documentation
+    url: https://devdocs.api.ott.kaltura.com/
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/kaltura/developer-platform/master/ott.openapi.json
+  contact:
+  - FN: Kaltura Developer Support
+    url: https://developer.kaltura.com/
+common:
+- type: Website
+  url: https://corp.kaltura.com/
+- type: Documentation
+  url: https://developer.kaltura.com/
+- type: GitHubOrg
+  url: https://github.com/kaltura
+- type: LinkedIn
+  url: https://www.linkedin.com/company/kaltura
+- type: Blog
+  url: https://corp.kaltura.com/blog/
+- type: Pricing
+  url: https://corp.kaltura.com/pricing/
+- type: StatusPage
+  url: https://status.kaltura.com/
+- type: X
+  url: https://x.com/kaltura
+- type: Plans
+  url: plans/kaltura-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/kaltura-rate-limits.yml
+- type: FinOps
+  url: finops/kaltura-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

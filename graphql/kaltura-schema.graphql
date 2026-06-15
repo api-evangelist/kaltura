@@ -1,0 +1,1512 @@
+"""
+Kaltura GraphQL Schema
+Derived from Kaltura VPaaS REST API (https://developer.kaltura.com/api-docs/)
+Covers media entries, playlists, categories, user management, video analytics,
+live streaming, virtual classroom integrations, Kaltura sessions, and content moderation.
+"""
+
+scalar DateTime
+scalar JSON
+scalar Upload
+
+# ─────────────────────────────────────────────
+# Enums
+# ─────────────────────────────────────────────
+
+enum MediaEntryStatus {
+  IMPORT
+  PRECONVERT
+  READY
+  DELETED
+  PENDING
+  MODERATE
+  BLOCKED
+  NO_CONTENT
+}
+
+enum MediaType {
+  VIDEO
+  IMAGE
+  AUDIO
+  LIVE_STREAM_FLASH
+  LIVE_STREAM_WINDOWS_MEDIA
+  LIVE_STREAM_REAL_MEDIA
+  LIVE_STREAM_QUICKTIME
+}
+
+enum EntryModerationStatus {
+  PENDING_MODERATION
+  APPROVED
+  REJECTED
+  FLAGGED_FOR_REVIEW
+  AUTO_APPROVED
+}
+
+enum FlavorAssetStatus {
+  ERROR
+  QUEUED
+  CONVERTING
+  READY
+  DELETED
+  NOT_APPLICABLE
+  TEMP
+  WAIT_FOR_CONVERT
+  IMPORTING
+  VALIDATING
+  EXPORTING
+}
+
+enum AssetType {
+  FLAVOR
+  THUMBNAIL
+  DOCUMENT
+  VIDEO_CLIP
+  WIDEVINE_FLAVOR
+}
+
+enum CategoryStatus {
+  UPDATING
+  ACTIVE
+  DELETED
+  PURGED
+}
+
+enum UserStatus {
+  BLOCKED
+  ACTIVE
+  DELETED
+}
+
+enum UserRole {
+  PUBLISHER_ADMIN_ROLE
+  PUBLISHER_RESTRICTED_ROLE
+  PARTNER_ONLY_ROLE
+}
+
+enum LiveStreamStatus {
+  STOPPED
+  PLAYBACK_ONLY
+  BROADCASTING
+}
+
+enum PlaylistType {
+  STATIC_LIST
+  DYNAMIC
+  EXTERNAL
+}
+
+enum CaptionType {
+  SRT
+  DFXP
+  WEBVTT
+  CAP
+  SCC
+}
+
+enum TranscodingProfileStatus {
+  DISABLED
+  ENABLED
+}
+
+enum AccessControlScope {
+  ENTRY_PLAYBACK_CONTEXT_SCOPE
+  DOWNLOAD_SCOPE
+  THUMBNAIL_SCOPE
+  METADATA_SCOPE
+  SEARCH_SCOPE
+  EXPORT_SCOPE
+}
+
+enum ScheduledTaskStatus {
+  DISABLED
+  ACTIVE
+  DELETED
+  SUSPENDED
+  IDLE
+}
+
+enum ConversionProfileType {
+  MEDIA
+  LIVE_STREAM
+}
+
+enum AnnotationType {
+  ANNOTATION
+  CODE_CUE_POINT
+  AD_CUE_POINT
+  DATA_CUE_POINT
+  SCENE_CUE_POINT
+  THUMB_CUE_POINT
+  EVENT_CUE_POINT
+  QUIZ_QUESTION
+  CHAPTER
+}
+
+enum NotificationObjectType {
+  ENTRY
+  CATEGORY
+  USER
+  PARTNER
+  BATCH_JOB
+}
+
+enum OrderDirection {
+  ASC
+  DESC
+}
+
+# ─────────────────────────────────────────────
+# Core Types
+# ─────────────────────────────────────────────
+
+"""A Kaltura partner (account/tenant)."""
+type Partner {
+  id: Int!
+  name: String!
+  website: String
+  notificationUrl: String
+  appearInSearch: Int
+  createdAt: DateTime!
+  adminName: String
+  adminEmail: String
+  description: String
+  commercialUse: Int
+  landingPage: String
+  userLandingPage: String
+  contentCategories: String
+  type: Int
+  phone: String
+  describeYourself: String
+  adultContent: Boolean
+  defConversionProfileType: String
+  notify: Int
+  status: Int
+  allowQuickEdit: Int
+  mergeEntryLists: Int
+  notificationsConfig: String
+  maxUploadSize: Int
+  partnerPackage: Int
+  secret: String
+  adminSecret: String
+  cmsPassword: String
+  allowMultiNotification: Int
+  adminLoginUsersQuota: Int
+  storageSize: Float
+  monthlyBandwidthQuota: Float
+  monthlyUsage: Float
+  currentMonthlyBandwidth: Float
+  currentMonthlyStorage: Float
+}
+
+"""A Kaltura media entry (video, audio, image, or live stream)."""
+type MediaEntry {
+  id: ID!
+  name: String!
+  description: String
+  partnerId: Int!
+  userId: String
+  creatorId: String
+  tags: String
+  categories: String
+  categoriesIds: String
+  status: MediaEntryStatus!
+  moderationStatus: EntryModerationStatus
+  moderationCount: Int
+  type: MediaType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  rank: Float
+  totalRank: Float
+  votes: Int
+  downloadUrl: String
+  searchText: String
+  licenseType: Int
+  version: String
+  thumbnailUrl: String
+  accessControlId: Int
+  startDate: DateTime
+  endDate: DateTime
+  referenceId: String
+  replacingEntryId: String
+  replacedEntryId: String
+  replacementStatus: String
+  partnerSortValue: Int
+  conversionProfileId: Int
+  rootEntryId: String
+  operationAttributes: [OperationAttribute]
+  entitledUsersEdit: String
+  entitledUsersPublish: String
+  entitledUsersView: String
+  capabilities: String
+  templateEntryId: String
+  displayInSearch: Int
+  application: String
+  applicationVersion: String
+  blockAutoTranscript: Boolean
+  dataUrl: String
+  flavorParamsIds: String
+  isMini: Boolean
+  sourceType: String
+  sourceVersion: String
+  plays: Int
+  views: Int
+  lastPlayedAt: DateTime
+  width: Int
+  height: Int
+  duration: Int
+  msDuration: Int
+  durationType: String
+  mediaType: MediaType
+  conversionQuality: String
+  sourcePartnerId: Int
+  operationName: String
+  scenes: [Scene]
+  flavorAssets: [FlavorAsset]
+  captions: [CaptionAsset]
+  thumbnails: [ThumbnailAsset]
+  metadata: [MetadataProfile]
+  cuePoints: [CuePoint]
+  accessControl: AccessControl
+}
+
+"""A flavor (transcoded rendition) asset attached to a media entry."""
+type FlavorAsset {
+  id: ID!
+  entryId: String!
+  partnerId: Int!
+  version: String
+  size: Int
+  tags: String
+  fileExt: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime
+  description: String
+  partnerData: String
+  partnerDescription: String
+  actualSourceAssetParamsIds: String
+  sizeInBytes: Float
+  status: FlavorAssetStatus!
+  flavorParamsId: Int
+  width: Int
+  height: Int
+  bitrate: Int
+  frameRate: Float
+  isOriginal: Boolean
+  isWeb: Boolean
+  containerFormat: String
+  videoCodecId: String
+  language: String
+  label: String
+  isDefault: Boolean
+  downloadUrl: String
+  flavorParams: FlavorParams
+}
+
+"""Flavor conversion parameters (codec, bitrate, resolution)."""
+type FlavorParams {
+  id: ID!
+  partnerId: Int
+  name: String!
+  systemName: String
+  description: String
+  createdAt: DateTime!
+  isSystemDefault: Int
+  tags: String
+  format: String
+  videoCodec: String
+  videoBitrate: Int
+  audioCodec: String
+  audioBitrate: Int
+  audioChannels: Int
+  audioSampleRate: Int
+  width: Int
+  height: Int
+  frameRate: Float
+  gopSize: Int
+  conversionEngines: String
+  conversionEnginesExtraParams: String
+  twoPass: Boolean
+  deinterlice: Int
+  rotate: Int
+  operators: String
+  engineVersion: Int
+  contentAwareness: Float
+  clipOffset: Int
+  clipDuration: Int
+}
+
+"""A thumbnail (image) asset."""
+type ThumbnailAsset {
+  id: ID!
+  entryId: String!
+  partnerId: Int!
+  version: String
+  size: Int
+  tags: String
+  fileExt: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: Int
+  width: Int
+  height: Int
+  isDefault: Boolean
+  url: String
+}
+
+"""A caption (subtitle) asset."""
+type CaptionAsset {
+  id: ID!
+  entryId: String!
+  partnerId: Int!
+  version: String
+  size: Int
+  tags: String
+  fileExt: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: Int
+  captionParamsId: Int
+  language: String
+  languageCode: String
+  isDefault: Boolean
+  label: String
+  format: CaptionType
+  source: String
+  accuracy: Int
+  displayOnPlayer: Boolean
+  associatedTranscriptIds: String
+  url: String
+}
+
+"""A playlist of media entries."""
+type Playlist {
+  id: ID!
+  name: String!
+  description: String
+  tags: String
+  partnerId: Int!
+  userId: String
+  creatorId: String
+  status: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  type: PlaylistType!
+  totalResults: Int
+  playlistContent: String
+  filters: [PlaylistFilter]
+  rank: Float
+  totalRank: Int
+  votes: Int
+  referenceId: String
+  categories: String
+  categoriesIds: String
+  displayInSearch: Int
+  version: String
+  thumbnailUrl: String
+  entries: [MediaEntry]
+}
+
+"""A filter applied to a dynamic playlist."""
+type PlaylistFilter {
+  orderBy: String
+  advancedSearch: JSON
+}
+
+"""A content category."""
+type Category {
+  id: ID!
+  parentId: Int
+  depth: Int
+  partnerId: Int!
+  name: String!
+  fullName: String
+  fullIds: String
+  entriesCount: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  description: String
+  tags: String
+  appearInList: Int
+  privacy: Int
+  inheritanceType: Int
+  userJoinPolicy: Int
+  defaultPermissionLevel: Int
+  owner: String
+  directEntriesCount: Int
+  referenceId: String
+  contributionPolicy: Int
+  membersCount: Int
+  pendingMembersCount: Int
+  privacyContext: String
+  privacyContexts: String
+  status: CategoryStatus!
+  partnerSortValue: Int
+  partnerData: String
+  defaultOrderBy: String
+  directSubCategoriesCount: Int
+  moderation: Int
+  pendingEntriesCount: Int
+  isAggregationCategory: Int
+  aggregationCategories: String
+  adminTags: String
+  thumbnailUrl: String
+}
+
+"""A Kaltura user."""
+type KalturaUser {
+  id: ID!
+  partnerId: Int!
+  screenName: String
+  fullName: String
+  email: String
+  dateOfBirth: Int
+  country: String
+  state: String
+  city: String
+  zip: String
+  thumbnailUrl: String
+  description: String
+  tags: String
+  adminTags: String
+  gender: Int
+  status: UserStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  partnerData: String
+  indexedPartnerDataInt: Int
+  indexedPartnerDataString: String
+  storageSize: Float
+  language: String
+  lastLoginTime: DateTime
+  statusUpdatedAt: DateTime
+  deletedAt: DateTime
+  allowedPartnerIds: String
+  allowedPartnerPackages: String
+  userMode: Int
+  capabilities: String
+  type: Int
+  isAdmin: Boolean
+  roleIds: String
+  roleNames: String
+  isAccountOwner: Boolean
+  firstName: String
+  lastName: String
+  loginEnabled: Boolean
+  pushNotificationToken: String
+}
+
+"""A user role defining permissions."""
+type UserRole {
+  id: ID!
+  name: String!
+  systemName: String
+  description: String
+  status: Int
+  partnerId: Int!
+  permissionNames: String
+  tags: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A Kaltura Session (KS) token."""
+type KalturaSession {
+  ks: String!
+  sessionType: Int!
+  partnerId: Int!
+  userId: String
+  expiry: DateTime
+  privileges: String
+}
+
+"""A live stream entry."""
+type LiveStreamEntry {
+  id: ID!
+  name: String!
+  description: String
+  tags: String
+  partnerId: Int!
+  userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: MediaEntryStatus!
+  liveStatus: LiveStreamStatus
+  streamRemoteId: String
+  streamRemoteBackupId: String
+  bitrates: [LiveStreamBitrate]
+  primaryBroadcastingUrl: String
+  secondaryBroadcastingUrl: String
+  primaryRtspBroadcastingUrl: String
+  secondaryRtspBroadcastingUrl: String
+  streamName: String
+  streamUrl: String
+  hlsStreamUrl: String
+  urlManager: String
+  encodingIP1: String
+  encodingIP2: String
+  streamPassword: String
+  streamUsername: String
+  primaryServerNodeId: Int
+  isCameraControl: Boolean
+  cameraPassword: String
+  recordStatus: Int
+  dvrStatus: Int
+  dvrWindow: Int
+  lastElapsedRecordingTime: Int
+  liveStreamConfigurations: [LiveStreamConfiguration]
+  recordedEntryId: String
+  pushPublishEnabled: Int
+  publishConfigurations: [LiveStreamPushPublishConfiguration]
+  firstBroadcast: DateTime
+  lastBroadcast: DateTime
+  currentBroadcastStartTime: Float
+  recordingOptions: LiveEntryRecordingOptions
+}
+
+"""Bitrate configuration for a live stream."""
+type LiveStreamBitrate {
+  bitrate: Int!
+  width: Int
+  height: Int
+  tags: String
+}
+
+"""Live stream playback configuration."""
+type LiveStreamConfiguration {
+  protocol: String
+  url: String
+  publishUrl: String
+  backupUrl: String
+  streamName: String
+}
+
+"""Push-publish configuration for a live stream."""
+type LiveStreamPushPublishConfiguration {
+  publishUrl: String
+  backupPublishUrl: String
+  port: String
+  protocol: String
+  ksProvider: String
+  sendStreamName: Boolean
+  createProvider: Boolean
+}
+
+"""Live entry recording options."""
+type LiveEntryRecordingOptions {
+  shouldCopyEntitlement: Int
+  shouldCopyScheduling: Int
+  shouldCopyThumbnail: Int
+  shouldMakeHidden: Int
+}
+
+"""Analytics/report data point."""
+type ReportTotal {
+  header: String
+  data: String
+}
+
+"""An analytics report."""
+type Report {
+  id: ID!
+  partnerId: Int
+  reportType: Int
+  reportSubType: Int
+  startDate: String
+  endDate: String
+  objectIds: String
+  status: Int
+  data: [ReportDataPoint]
+  graph: ReportGraph
+  total: ReportTotal
+}
+
+"""A single analytics data point."""
+type ReportDataPoint {
+  header: String
+  data: String
+}
+
+"""Graph data for a report."""
+type ReportGraph {
+  id: String
+  data: String
+}
+
+"""A metadata profile schema."""
+type MetadataProfile {
+  id: ID!
+  partnerId: Int!
+  metadataObjectType: Int
+  version: Int
+  name: String!
+  systemName: String
+  description: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: Int
+  xsd: String
+  views: String
+  xslt: String
+  createMode: Int
+  disableReIndexing: Boolean
+}
+
+"""Metadata instance attached to an object."""
+type Metadata {
+  id: ID!
+  partnerId: Int!
+  metadataProfileId: Int!
+  metadataProfileVersion: Int
+  metadataObjectType: Int
+  objectId: String!
+  version: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: Int
+  xml: String
+}
+
+"""An access control profile."""
+type AccessControl {
+  id: ID!
+  partnerId: Int!
+  name: String!
+  systemName: String
+  description: String
+  createdAt: DateTime!
+  isDefault: Int
+  restrictions: [AccessControlRestriction]
+}
+
+"""A single restriction rule within an access control profile."""
+type AccessControlRestriction {
+  type: String
+  values: [String]
+  limit: Int
+  privacyType: Int
+  domains: [String]
+  countries: [String]
+}
+
+"""A cue point (annotation, chapter, quiz question, etc.) on a media entry."""
+type CuePoint {
+  id: ID!
+  entryId: String!
+  partnerId: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  triggeredAt: DateTime
+  tags: String
+  startTime: Int
+  userId: String
+  partnerData: String
+  partnerSortValue: Int
+  forceStop: Int
+  thumbOffset: Int
+  systemName: String
+  isMomentary: Boolean
+  copiedFrom: String
+  type: AnnotationType
+  title: String
+  text: String
+  endTime: Int
+  duration: Int
+  depth: Int
+  childrenCount: Int
+  directChildrenCount: Int
+  isPublic: Int
+  searchableOnEntry: Int
+}
+
+"""A scene object for a video entry."""
+type Scene {
+  id: ID!
+  entryId: String!
+  startTime: Int
+  endTime: Int
+  title: String
+  tags: String
+}
+
+"""A conversion (transcoding) profile."""
+type ConversionProfile {
+  id: ID!
+  partnerId: Int!
+  status: TranscodingProfileStatus
+  type: ConversionProfileType
+  name: String!
+  systemName: String
+  tags: String
+  description: String
+  defaultEntryId: String
+  createdAt: DateTime!
+  flavorParamsIds: String
+  isDefault: Int
+  isPartnerDefault: Boolean
+  cropDimensions: CropDimensions
+  clipStart: Int
+  clipDuration: Int
+  xslTransformation: String
+  storageProfileId: Int
+  mediaParserType: String
+  calculateComplexity: Int
+  collectionTags: String
+  conditionalProfiles: String
+  detectGOP: Int
+  mediaInfoXslTransformation: String
+  defaultReplacementOptions: String
+  defaultAudioLang: String
+}
+
+"""Crop dimensions for a transcoding profile."""
+type CropDimensions {
+  left: Int
+  top: Int
+  width: Int
+  height: Int
+}
+
+"""A storage profile for remote/CDN storage."""
+type StorageProfile {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  partnerId: Int!
+  name: String!
+  systemName: String
+  desciption: String
+  status: Int
+  protocol: String
+  storageUrl: String
+  storageFtpPassiveMode: Int
+  storageBaseDir: String
+  pathPrefix: String
+  storageUsername: String
+  storagePassword: String
+  storageFtpPort: Int
+  pathManagerClass: String
+  urlPrefix: String
+  urlSuffix: String
+  deliveryProfileIds: String
+  readyBehavior: Int
+  allowAutoDelete: Int
+  createFileLink: Boolean
+  rules: [StorageProfileRule]
+  deliveryProfilesExist: Boolean
+  shouldExportThumbs: Boolean
+  shouldExportCaptions: Boolean
+}
+
+"""A rule within a storage profile."""
+type StorageProfileRule {
+  writable: Boolean
+  matchExpression: String
+}
+
+"""A delivery profile for CDN/origin configuration."""
+type DeliveryProfile {
+  id: ID!
+  partnerId: Int!
+  name: String!
+  type: String
+  systemName: String
+  description: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  streamerType: String
+  url: String
+  hostName: String
+  status: Int
+  recognizer: JSON
+  tokenizer: JSON
+  akamaiSharedSecret: String
+  akamaiUserAgent: String
+  akamaiSwfUrl: String
+  akamaiEdgeServerIpFamily: Int
+}
+
+"""A notification template for event-driven alerts."""
+type EventNotificationTemplate {
+  id: ID!
+  partnerId: Int!
+  name: String!
+  systemName: String
+  description: String
+  type: String
+  status: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  manualDispatchEnabled: Boolean
+  automaticDispatchEnabled: Boolean
+  eventType: Int
+  eventObjectType: NotificationObjectType
+  conditions: [NotificationCondition]
+  contentParameters: [NotificationContentParameter]
+  userParameters: [NotificationUserParameter]
+}
+
+"""A condition for event notification dispatch."""
+type NotificationCondition {
+  type: String
+  description: String
+  not: Boolean
+}
+
+"""A content parameter for event notification."""
+type NotificationContentParameter {
+  key: String
+  description: String
+  value: String
+}
+
+"""A user parameter for event notification."""
+type NotificationUserParameter {
+  key: String
+  description: String
+  value: String
+}
+
+"""A scheduled task profile."""
+type ScheduledTaskProfile {
+  id: ID!
+  partnerId: Int!
+  name: String!
+  systemName: String
+  description: String
+  status: ScheduledTaskStatus!
+  objectFilterEngineType: String
+  objectFilter: JSON
+  objectTasks: [ObjectTask]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  lastExecutionStartedAt: DateTime
+  maxTotalCountAllowed: Int
+}
+
+"""A task to execute on matched objects."""
+type ObjectTask {
+  type: String
+  stopProcessingOnError: Boolean
+}
+
+"""A batch job in the Kaltura processing queue."""
+type BatchJob {
+  id: ID!
+  partnerId: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime
+  lockExpiration: DateTime
+  executionAttempts: Int
+  lockVersion: Int
+  entryId: String
+  entryName: String
+  jobType: String
+  jobSubType: Int
+  data: JSON
+  status: Int
+  abort: Int
+  checkAgainTimeout: Int
+  message: String
+  description: String
+  priority: Int
+  history: [BatchJobHistory]
+  bulkJobId: Int
+  parentJobId: Int
+  rootJobId: Int
+  queueTime: DateTime
+  finishTime: DateTime
+  errType: Int
+  errNumber: Int
+  fileSize: Int
+  lastWorkerRemote: Boolean
+  schedulerId: Int
+  workerId: Int
+  processorExpiration: Int
+  executionProgress: Int
+  startedAt: DateTime
+  estimatedEffort: Int
+}
+
+"""A history entry for a batch job."""
+type BatchJobHistory {
+  schedulerId: Int
+  workerId: Int
+  batchIndex: Int
+  timeStamp: DateTime
+  message: String
+  errType: Int
+  errNumber: Int
+  hostName: String
+  sessionId: String
+  schedulerJobId: Int
+}
+
+"""A bulk upload job."""
+type BulkUpload {
+  id: ID!
+  uploadedBy: String
+  uploadedByUserId: String
+  uploadedOn: DateTime
+  numOfEntries: Int
+  status: Int
+  logFileUrl: String
+  csvFileUrl: String
+  bulkUploadType: String
+  results: [BulkUploadResult]
+  error: String
+  errorType: Int
+  errorNumber: Int
+  fileName: String
+  description: String
+  numOfObjects: Int
+  bulkUploadObjectType: String
+}
+
+"""A single result from a bulk upload job."""
+type BulkUploadResult {
+  id: Int
+  bulkUploadResultObjectType: String
+  bulkUploadJobId: Int
+  lineIndex: Int
+  partnerId: Int
+  status: Int
+  action: Int
+  objectId: String
+  objectStatus: Int
+  rowData: String
+  partnerData: String
+  objectErrorDescription: String
+  pluginsData: [BulkUploadPluginData]
+  errorDescription: String
+  errorCode: String
+  errorType: Int
+}
+
+"""Plugin data for a bulk upload result."""
+type BulkUploadPluginData {
+  field: String
+  value: String
+}
+
+"""A document entry (PDF, PPT, etc.)."""
+type DocumentEntry {
+  id: ID!
+  name: String!
+  description: String
+  tags: String
+  partnerId: Int!
+  userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: MediaEntryStatus
+  documentType: Int
+  assetParamsIds: String
+  mediaDate: DateTime
+  contentData: JSON
+}
+
+"""A virtual classroom (Kaltura Meetings/Newrow) session."""
+type VirtualClassroomSession {
+  id: ID!
+  partnerId: Int!
+  name: String!
+  description: String
+  tags: String
+  entryId: String
+  userId: String
+  status: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  sessionUrl: String
+  recordingEntryId: String
+  scheduledEventId: Int
+}
+
+"""A scheduled event (room booking, broadcast schedule)."""
+type ScheduledEvent {
+  id: ID!
+  partnerId: Int!
+  summary: String
+  entryIds: String
+  templateEntryId: String
+  startDate: DateTime
+  endDate: DateTime
+  recurrence: String
+  recurrenceType: Int
+  duration: Int
+  status: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  ownerId: String
+  organizerId: String
+  referenceId: String
+  linkedTo: [ScheduledEventResource]
+}
+
+"""A resource linked to a scheduled event."""
+type ScheduledEventResource {
+  id: ID!
+  partnerId: Int!
+  name: String!
+  systemName: String
+  description: String
+  tags: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  parentId: Int
+}
+
+"""A content moderation flag."""
+type ModerationFlag {
+  id: ID!
+  partnerId: Int
+  userId: String
+  moderationObjectType: String
+  flaggedEntryId: String
+  flaggedUserId: String
+  reviewedUserId: String
+  flagType: Int
+  status: Int
+  description: String
+  comments: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""An operation attribute (e.g., clip/trim settings)."""
+type OperationAttribute {
+  type: String
+  offset: Int
+  duration: Int
+}
+
+"""Paged list of media entries."""
+type MediaEntryListResponse {
+  objects: [MediaEntry!]!
+  totalCount: Int!
+}
+
+"""Paged list of categories."""
+type CategoryListResponse {
+  objects: [Category!]!
+  totalCount: Int!
+}
+
+"""Paged list of playlists."""
+type PlaylistListResponse {
+  objects: [Playlist!]!
+  totalCount: Int!
+}
+
+"""Paged list of users."""
+type UserListResponse {
+  objects: [KalturaUser!]!
+  totalCount: Int!
+}
+
+"""Paged list of flavor assets."""
+type FlavorAssetListResponse {
+  objects: [FlavorAsset!]!
+  totalCount: Int!
+}
+
+"""Paged list of cue points."""
+type CuePointListResponse {
+  objects: [CuePoint!]!
+  totalCount: Int!
+}
+
+"""Paged list of batch jobs."""
+type BatchJobListResponse {
+  objects: [BatchJob!]!
+  totalCount: Int!
+}
+
+"""Paged list of moderation flags."""
+type ModerationFlagListResponse {
+  objects: [ModerationFlag!]!
+  totalCount: Int!
+}
+
+# ─────────────────────────────────────────────
+# Input Types
+# ─────────────────────────────────────────────
+
+"""Input for session (KS) generation."""
+input StartSessionInput {
+  secret: String!
+  type: Int!
+  partnerId: Int!
+  userId: String
+  expiry: Int
+  privileges: String
+}
+
+"""Input for creating or updating a media entry."""
+input MediaEntryInput {
+  name: String!
+  description: String
+  tags: String
+  categories: String
+  categoriesIds: String
+  type: MediaType
+  accessControlId: Int
+  startDate: DateTime
+  endDate: DateTime
+  referenceId: String
+  conversionProfileId: Int
+  partnerSortValue: Int
+  partnerData: String
+  entitledUsersEdit: String
+  entitledUsersPublish: String
+  entitledUsersView: String
+  templateEntryId: String
+}
+
+"""Input for filtering media entries."""
+input MediaEntryFilter {
+  idEqual: ID
+  idIn: String
+  nameLike: String
+  tagsLike: String
+  categoriesIdsMatchAnd: String
+  categoriesIdsMatchOr: String
+  statusEqual: MediaEntryStatus
+  statusIn: String
+  mediaTypeEqual: MediaType
+  createdAtGreaterThanOrEqual: DateTime
+  createdAtLessThanOrEqual: DateTime
+  updatedAtGreaterThanOrEqual: DateTime
+  updatedAtLessThanOrEqual: DateTime
+  userIdEqual: String
+  userIdIn: String
+  freeText: String
+  referenceIdEqual: String
+  orderBy: String
+}
+
+"""Input for creating or updating a category."""
+input CategoryInput {
+  name: String!
+  parentId: Int
+  description: String
+  tags: String
+  appearInList: Int
+  privacy: Int
+  inheritanceType: Int
+  userJoinPolicy: Int
+  defaultPermissionLevel: Int
+  owner: String
+  referenceId: String
+  contributionPolicy: Int
+  privacyContext: String
+  partnerSortValue: Int
+  partnerData: String
+  moderation: Int
+}
+
+"""Input for creating or updating a user."""
+input KalturaUserInput {
+  id: String!
+  screenName: String
+  fullName: String
+  email: String
+  dateOfBirth: Int
+  country: String
+  state: String
+  city: String
+  zip: String
+  description: String
+  tags: String
+  language: String
+  partnerData: String
+  roleIds: String
+  firstName: String
+  lastName: String
+  loginEnabled: Boolean
+  isAdmin: Boolean
+}
+
+"""Input for creating or updating a playlist."""
+input PlaylistInput {
+  name: String!
+  description: String
+  tags: String
+  type: PlaylistType!
+  totalResults: Int
+  playlistContent: String
+  referenceId: String
+}
+
+"""Input for creating a live stream entry."""
+input LiveStreamEntryInput {
+  name: String!
+  description: String
+  tags: String
+  bitrates: [LiveStreamBitrateInput]
+  encodingIP1: String
+  encodingIP2: String
+  streamPassword: String
+  recordStatus: Int
+  dvrStatus: Int
+  dvrWindow: Int
+  conversionProfileId: Int
+}
+
+"""Input for a live stream bitrate configuration."""
+input LiveStreamBitrateInput {
+  bitrate: Int!
+  width: Int
+  height: Int
+  tags: String
+}
+
+"""Input for filtering analytics reports."""
+input ReportInput {
+  reportType: Int!
+  startDate: String!
+  endDate: String!
+  objectIds: String
+  filters: [ReportFilterInput]
+  order: String
+}
+
+"""Filter for an analytics report."""
+input ReportFilterInput {
+  dimension: String
+  values: [String]
+}
+
+"""Pagination input."""
+input PagerInput {
+  pageSize: Int
+  pageIndex: Int
+}
+
+"""Input for adding a cue point."""
+input CuePointInput {
+  entryId: String!
+  type: AnnotationType!
+  startTime: Int!
+  endTime: Int
+  title: String
+  text: String
+  tags: String
+  partnerData: String
+  systemName: String
+  isMomentary: Boolean
+}
+
+"""Input for moderating an entry."""
+input ModerationActionInput {
+  entryId: String!
+  status: EntryModerationStatus!
+  comments: String
+}
+
+# ─────────────────────────────────────────────
+# Root Types
+# ─────────────────────────────────────────────
+
+type Query {
+  """Get a single media entry by ID."""
+  mediaEntry(id: ID!): MediaEntry
+
+  """List media entries with optional filtering and paging."""
+  mediaEntries(filter: MediaEntryFilter, pager: PagerInput): MediaEntryListResponse!
+
+  """Get a single category by ID."""
+  category(id: ID!): Category
+
+  """List categories."""
+  categories(parentId: Int, freeText: String, pager: PagerInput): CategoryListResponse!
+
+  """Get a single playlist by ID."""
+  playlist(id: ID!): Playlist
+
+  """List playlists."""
+  playlists(freeText: String, pager: PagerInput): PlaylistListResponse!
+
+  """Get a single user by ID."""
+  user(id: ID!): KalturaUser
+
+  """List users."""
+  users(freeText: String, pager: PagerInput): UserListResponse!
+
+  """Get a live stream entry by ID."""
+  liveStreamEntry(id: ID!): LiveStreamEntry
+
+  """Get flavor assets for an entry."""
+  flavorAssets(entryId: String!, pager: PagerInput): FlavorAssetListResponse!
+
+  """Get a single flavor asset."""
+  flavorAsset(id: ID!): FlavorAsset
+
+  """Get caption assets for an entry."""
+  captionAssets(entryId: String!): [CaptionAsset]
+
+  """Get thumbnail assets for an entry."""
+  thumbnailAssets(entryId: String!): [ThumbnailAsset]
+
+  """Get cue points for an entry."""
+  cuePoints(entryId: String!, pager: PagerInput): CuePointListResponse!
+
+  """Get an analytics report."""
+  report(input: ReportInput!): Report
+
+  """Get current partner info."""
+  partner: Partner
+
+  """List access control profiles."""
+  accessControlProfiles(pager: PagerInput): [AccessControl]
+
+  """Get a single access control profile."""
+  accessControl(id: ID!): AccessControl
+
+  """List conversion profiles."""
+  conversionProfiles(pager: PagerInput): [ConversionProfile]
+
+  """Get a single conversion profile."""
+  conversionProfile(id: ID!): ConversionProfile
+
+  """List flavor parameters."""
+  flavorParams(pager: PagerInput): [FlavorParams]
+
+  """List metadata profiles."""
+  metadataProfiles(pager: PagerInput): [MetadataProfile]
+
+  """Get metadata for an object."""
+  metadata(objectId: String!, metadataProfileId: Int): [Metadata]
+
+  """List storage profiles."""
+  storageProfiles(pager: PagerInput): [StorageProfile]
+
+  """List delivery profiles."""
+  deliveryProfiles(pager: PagerInput): [DeliveryProfile]
+
+  """List batch jobs."""
+  batchJobs(jobType: String, status: Int, pager: PagerInput): BatchJobListResponse!
+
+  """List moderation flags."""
+  moderationFlags(entryId: String, pager: PagerInput): ModerationFlagListResponse!
+
+  """List scheduled task profiles."""
+  scheduledTaskProfiles(pager: PagerInput): [ScheduledTaskProfile]
+
+  """List event notification templates."""
+  eventNotificationTemplates(pager: PagerInput): [EventNotificationTemplate]
+
+  """List user roles."""
+  userRoles(pager: PagerInput): [UserRole]
+
+  """List scheduled events."""
+  scheduledEvents(entryId: String, pager: PagerInput): [ScheduledEvent]
+
+  """List virtual classroom sessions."""
+  virtualClassroomSessions(pager: PagerInput): [VirtualClassroomSession]
+
+  """List document entries."""
+  documentEntries(pager: PagerInput): [DocumentEntry]
+
+  """Get bulk upload job."""
+  bulkUpload(id: ID!): BulkUpload
+
+  """List bulk upload jobs."""
+  bulkUploads(pager: PagerInput): [BulkUpload]
+}
+
+type Mutation {
+  """Start a new Kaltura Session."""
+  startSession(input: StartSessionInput!): KalturaSession!
+
+  """Create a new media entry."""
+  createMediaEntry(entry: MediaEntryInput!): MediaEntry!
+
+  """Update a media entry."""
+  updateMediaEntry(id: ID!, entry: MediaEntryInput!): MediaEntry!
+
+  """Delete a media entry."""
+  deleteMediaEntry(id: ID!): Boolean!
+
+  """Approve a media entry (moderation)."""
+  approveEntry(id: ID!): MediaEntry!
+
+  """Reject a media entry (moderation)."""
+  rejectEntry(id: ID!): MediaEntry!
+
+  """Flag a media entry for moderation."""
+  flagEntry(input: ModerationActionInput!): ModerationFlag!
+
+  """Create a category."""
+  createCategory(category: CategoryInput!): Category!
+
+  """Update a category."""
+  updateCategory(id: ID!, category: CategoryInput!): Category!
+
+  """Delete a category."""
+  deleteCategory(id: ID!): Boolean!
+
+  """Create a user."""
+  createUser(user: KalturaUserInput!): KalturaUser!
+
+  """Update a user."""
+  updateUser(id: ID!, user: KalturaUserInput!): KalturaUser!
+
+  """Delete a user."""
+  deleteUser(id: ID!): Boolean!
+
+  """Block a user."""
+  blockUser(id: ID!): KalturaUser!
+
+  """Unblock a user."""
+  unblockUser(id: ID!): KalturaUser!
+
+  """Create a playlist."""
+  createPlaylist(playlist: PlaylistInput!): Playlist!
+
+  """Update a playlist."""
+  updatePlaylist(id: ID!, playlist: PlaylistInput!): Playlist!
+
+  """Delete a playlist."""
+  deletePlaylist(id: ID!): Boolean!
+
+  """Create a live stream entry."""
+  createLiveStreamEntry(entry: LiveStreamEntryInput!): LiveStreamEntry!
+
+  """Update a live stream entry."""
+  updateLiveStreamEntry(id: ID!, entry: LiveStreamEntryInput!): LiveStreamEntry!
+
+  """Delete a live stream entry."""
+  deleteLiveStreamEntry(id: ID!): Boolean!
+
+  """Add a cue point to a media entry."""
+  addCuePoint(cuePoint: CuePointInput!): CuePoint!
+
+  """Update a cue point."""
+  updateCuePoint(id: ID!, cuePoint: CuePointInput!): CuePoint!
+
+  """Delete a cue point."""
+  deleteCuePoint(id: ID!): Boolean!
+
+  """Trigger a bulk upload."""
+  bulkUploadEntries(file: Upload!, bulkUploadType: String): BulkUpload!
+
+  """Abort a batch job."""
+  abortBatchJob(id: ID!): BatchJob!
+}
+
+type Subscription {
+  """Subscribe to live stream status changes."""
+  liveStreamStatusChanged(entryId: ID!): LiveStreamEntry!
+
+  """Subscribe to media entry status changes."""
+  mediaEntryStatusChanged(entryId: ID!): MediaEntry!
+
+  """Subscribe to batch job completion."""
+  batchJobCompleted(jobType: String): BatchJob!
+
+  """Subscribe to new moderation flags."""
+  newModerationFlag(partnerId: Int): ModerationFlag!
+}
