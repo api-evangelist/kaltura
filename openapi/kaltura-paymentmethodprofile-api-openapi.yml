@@ -1,0 +1,4527 @@
+swagger: '2.0'
+info:
+  description: The Kaltura OTT API
+  title: Kaltura OTT accessControl paymentMethodProfile API
+  version: 3.6.287.20720
+host: tvpapi-us-preprod.ott.kaltura.com
+basePath: /api_v3
+schemes:
+- https
+- http
+produces:
+- application/json
+- text/xml
+security:
+- ks: []
+tags:
+- name: paymentMethodProfile
+paths:
+  /service/paymentmethodprofile/action/add:
+    post:
+      description: TBD
+      operationId: paymentMethodProfile.add
+      parameters:
+      - in: body
+        name: body
+        schema:
+          allOf:
+          - $ref: '#/definitions/OTTRequest'
+          properties:
+            paymentMethod:
+              $ref: '#/definitions/KalturaPaymentMethodProfile'
+          type: object
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/KalturaPaymentMethodProfile'
+        x-Errors:
+          description: '* `PaymentGatewayIdRequired`: undefined
+
+            * `PaymentMethodNameRequired`: undefined
+
+            * `PaymentGatewayNotExist`: undefined'
+      tags:
+      - paymentMethodProfile
+      x-kaltura-format: post
+      x-kaltura-parameters:
+      - paymentMethod
+  /service/paymentmethodprofile/action/delete:
+    post:
+      description: Delete payment method profile
+      operationId: paymentMethodProfile.delete
+      parameters:
+      - in: body
+        name: body
+        schema:
+          allOf:
+          - $ref: '#/definitions/OTTRequest'
+          properties:
+            paymentMethodId:
+              type: integer
+          type: object
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: boolean
+        x-Errors:
+          description: '* `PaymentMethodIdRequired`: undefined
+
+            * `PaymentGatewayIdRequired`: undefined
+
+            * `PaymentGatewayNotExist`: undefined
+
+            * `PaymentMethodNotExist`: undefined'
+      tags:
+      - paymentMethodProfile
+      x-kaltura-format: post
+      x-kaltura-parameters:
+      - paymentMethodId
+  /service/paymentmethodprofile/action/list:
+    post:
+      description: TBD
+      operationId: paymentMethodProfile.list
+      parameters:
+      - in: body
+        name: body
+        schema:
+          allOf:
+          - $ref: '#/definitions/OTTRequest'
+          properties:
+            filter:
+              $ref: '#/definitions/KalturaPaymentMethodProfileFilter'
+          type: object
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/KalturaPaymentMethodProfileListResponse'
+        x-Errors:
+          description: '* `PaymentGatewayNotExist`: undefined'
+      tags:
+      - paymentMethodProfile
+      x-kaltura-format: post
+      x-kaltura-parameters:
+      - filter
+  /service/paymentmethodprofile/action/update:
+    post:
+      description: Update payment method
+      operationId: paymentMethodProfile.update
+      parameters:
+      - in: body
+        name: body
+        schema:
+          allOf:
+          - $ref: '#/definitions/OTTRequest'
+          properties:
+            paymentMethod:
+              $ref: '#/definitions/KalturaPaymentMethodProfile'
+            paymentMethodId:
+              type: integer
+          type: object
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/KalturaPaymentMethodProfile'
+        x-Errors:
+          description: '* `PaymentGatewayIdRequired`: undefined
+
+            * `PaymentMethodIdRequired`: undefined
+
+            * `PaymentGatewayNotExist`: undefined
+
+            * `PaymentMethodNotExist`: undefined'
+      tags:
+      - paymentMethodProfile
+      x-kaltura-format: post
+      x-kaltura-parameters:
+      - paymentMethodId
+      - paymentMethod
+definitions:
+  KalturaAssetReminderFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaReminderFilter'
+    properties:
+      orderBy:
+        enum:
+        - RELEVANCY_DESC
+        - NAME_ASC
+        - NAME_DESC
+        - VIEWS_DESC
+        - RATINGS_DESC
+        - VOTES_DESC
+        - START_DATE_DESC
+        - START_DATE_ASC
+        - LIKES_DESC
+        type: string
+        x-enumLabels:
+        - RELEVANCY_DESC
+        - NAME_ASC
+        - NAME_DESC
+        - VIEWS_DESC
+        - RATINGS_DESC
+        - VOTES_DESC
+        - START_DATE_DESC
+        - START_DATE_ASC
+        - LIKES_DESC
+        x-enumType: KalturaAssetReminderOrderBy
+    title: KalturaAssetReminderFilter
+    type: object
+  KalturaSeasonsReminderFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaReminderFilter'
+    properties:
+      epgChannelIdEqual:
+        description: EPG channel ID
+        type: integer
+      seasonNumberIn:
+        description: Comma separated season numbers
+        type: string
+      seriesIdEqual:
+        description: Series ID
+        type: string
+    title: KalturaSeasonsReminderFilter
+    type: object
+  KalturaSocialActionFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      actionTypeIn:
+        description: Comma separated list of social actions to filter by
+        type: string
+      assetIdIn:
+        description: Comma separated list of asset identifiers.
+        type: string
+      assetTypeEqual:
+        description: 'Enum Type: `KalturaAssetType`
+
+
+          Asset Type'
+        enum:
+        - media
+        - recording
+        - epg
+        type: string
+        x-enumLabels:
+        - MEDIA
+        - RECORDING
+        - EPG
+        x-enumType: KalturaAssetType
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaSocialActionOrderBy
+    title: KalturaSocialActionFilter
+    type: object
+  KalturaPersonalFeedFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      orderBy:
+        enum:
+        - RELEVANCY_DESC
+        - NAME_ASC
+        - NAME_DESC
+        - VIEWS_DESC
+        - RATINGS_DESC
+        - VOTES_DESC
+        - START_DATE_DESC
+        - START_DATE_ASC
+        type: string
+        x-enumLabels:
+        - RELEVANCY_DESC
+        - NAME_ASC
+        - NAME_DESC
+        - VIEWS_DESC
+        - RATINGS_DESC
+        - VOTES_DESC
+        - START_DATE_DESC
+        - START_DATE_ASC
+        x-enumType: KalturaPersonalFeedOrderBy
+    title: KalturaPersonalFeedFilter
+    type: object
+  KalturaConfigurationGroupTagFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Configuration group tag filter
+    properties:
+      configurationGroupIdEqual:
+        description: the ID of the configuration group for which to return related configurations group tags
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaConfigurationGroupTagOrderBy
+    title: KalturaConfigurationGroupTagFilter
+    type: object
+  KalturaSocialCommentFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      assetIdEqual:
+        description: Asset ID to filter by
+        type: integer
+      assetTypeEqual:
+        description: 'Enum Type: `KalturaAssetType`
+
+
+          Asset type to filter by, currently only VOD (media)'
+        enum:
+        - media
+        - recording
+        - epg
+        type: string
+        x-enumLabels:
+        - MEDIA
+        - RECORDING
+        - EPG
+        x-enumType: KalturaAssetType
+      createDateGreaterThan:
+        description: The create date from which to get the comments
+        type: integer
+      orderBy:
+        enum:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        x-enumType: KalturaSocialCommentOrderBy
+      socialPlatformEqual:
+        description: 'Enum Type: `KalturaSocialPlatform`
+
+
+          Comma separated list of social actions to filter by'
+        enum:
+        - IN_APP
+        - FACEBOOK
+        - TWITTER
+        type: string
+        x-enumLabels:
+        - IN_APP
+        - FACEBOOK
+        - TWITTER
+        x-enumType: KalturaSocialPlatform
+    title: KalturaSocialCommentFilter
+    type: object
+  KalturaPersistedFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: '`abstract`'
+    discriminator: objectType
+    oneOf:
+    - $ref: '#/definitions/KalturaAssetFilter'
+    properties:
+      name:
+        description: Name for the presisted filter. If empty, no action will be done. If has value, the filter will be saved and persisted in user&#39;s search history.
+        type: string
+      objectType:
+        enum:
+        - KalturaAssetFilter
+        type: string
+    title: KalturaPersistedFilter
+    type: object
+  KalturaInboxMessageFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      createdAtGreaterThanOrEqual:
+        description: createdAtGreaterThanOrEqual
+        type: integer
+      createdAtLessThanOrEqual:
+        description: createdAtLessThanOrEqual
+        type: integer
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaInboxMessageOrderBy
+      typeIn:
+        description: List of inbox message types to search within.
+        type: string
+    title: KalturaInboxMessageFilter
+    type: object
+  KalturaEntitlementFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Entitlements filter
+    properties:
+      entityReferenceEqual:
+        description: 'Enum Type: `KalturaEntityReferenceBy`
+
+
+          Reference type to filter by'
+        enum:
+        - user
+        - household
+        type: string
+        x-enumLabels:
+        - USER
+        - HOUSEHOLD
+        x-enumType: KalturaEntityReferenceBy
+      isExpiredEqual:
+        description: Is expired
+        type: boolean
+      orderBy:
+        enum:
+        - PURCHASE_DATE_ASC
+        - PURCHASE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - PURCHASE_DATE_ASC
+        - PURCHASE_DATE_DESC
+        x-enumType: KalturaEntitlementOrderBy
+      productTypeEqual:
+        description: 'Enum Type: `KalturaTransactionType`
+
+
+          The type of the entitlements to return'
+        enum:
+        - ppv
+        - subscription
+        - collection
+        type: string
+        x-enumLabels:
+        - PPV
+        - SUBSCRIPTION
+        - COLLECTION
+        x-enumType: KalturaTransactionType
+    title: KalturaEntitlementFilter
+    type: object
+  KalturaPaymentMethodProfileListResponse:
+    allOf:
+    - $ref: '#/definitions/KalturaListResponse'
+    description: List of payment method profiles.
+    properties:
+      objects:
+        items:
+          $ref: '#/definitions/KalturaPaymentMethodProfile'
+        type: array
+    title: KalturaPaymentMethodProfileListResponse
+    type: object
+  KalturaFollowTvSeriesFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      orderBy:
+        enum:
+        - START_DATE_DESC
+        - START_DATE_ASC
+        type: string
+        x-enumLabels:
+        - START_DATE_DESC
+        - START_DATE_ASC
+        x-enumType: KalturaFollowTvSeriesOrderBy
+    title: KalturaFollowTvSeriesFilter
+    type: object
+  KalturaCountryFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Country filter
+    properties:
+      idIn:
+        description: Country identifiers
+        type: string
+      ipEqual:
+        description: Ip to identify the country
+        type: string
+      ipEqualCurrent:
+        description: Indicates if to get the IP from the request
+        type: boolean
+      orderBy:
+        enum:
+        - NAME_ASC
+        type: string
+        x-enumLabels:
+        - NAME_ASC
+        x-enumType: KalturaCountryOrderBy
+    title: KalturaCountryFilter
+    type: object
+  KalturaFilter:
+    description: '`abstract`'
+    discriminator: objectType
+    oneOf:
+    - $ref: '#/definitions/KalturaRelatedObjectFilter'
+    - $ref: '#/definitions/KalturaChannelsFilter'
+    - $ref: '#/definitions/KalturaMediaFileFilter'
+    - $ref: '#/definitions/KalturaImageFilter'
+    - $ref: '#/definitions/KalturaImageTypeFilter'
+    - $ref: '#/definitions/KalturaTagFilter'
+    - $ref: '#/definitions/KalturaAssetStructFilter'
+    - $ref: '#/definitions/KalturaCurrencyFilter'
+    - $ref: '#/definitions/KalturaPersistedFilter'
+    - $ref: '#/definitions/KalturaCollectionFilter'
+    - $ref: '#/definitions/KalturaPricePlanFilter'
+    - $ref: '#/definitions/KalturaPriceDetailsFilter'
+    - $ref: '#/definitions/KalturaSubscriptionSetFilter'
+    - $ref: '#/definitions/KalturaLanguageFilter'
+    - $ref: '#/definitions/KalturaMetaFilter'
+    - $ref: '#/definitions/KalturaCountryFilter'
+    - $ref: '#/definitions/KalturaSearchHistoryFilter'
+    - $ref: '#/definitions/KalturaConfigurationsFilter'
+    - $ref: '#/definitions/KalturaReportFilter'
+    - $ref: '#/definitions/KalturaConfigurationGroupTagFilter'
+    - $ref: '#/definitions/KalturaConfigurationGroupDeviceFilter'
+    - $ref: '#/definitions/KalturaHouseholdDeviceFilter'
+    - $ref: '#/definitions/KalturaRegionFilter'
+    - $ref: '#/definitions/KalturaUserAssetRuleFilter'
+    - $ref: '#/definitions/KalturaParentalRuleFilter'
+    - $ref: '#/definitions/KalturaExportTaskFilter'
+    - $ref: '#/definitions/KalturaAssetCommentFilter'
+    - $ref: '#/definitions/KalturaBookmarkFilter'
+    - $ref: '#/definitions/KalturaSeriesRecordingFilter'
+    - $ref: '#/definitions/KalturaProductPriceFilter'
+    - $ref: '#/definitions/KalturaEntitlementFilter'
+    - $ref: '#/definitions/KalturaTransactionHistoryFilter'
+    - $ref: '#/definitions/KalturaUserRoleFilter'
+    - $ref: '#/definitions/KalturaPaymentMethodProfileFilter'
+    - $ref: '#/definitions/KalturaAssetHistoryFilter'
+    - $ref: '#/definitions/KalturaRecordingContextFilter'
+    - $ref: '#/definitions/KalturaRecordingFilter'
+    - $ref: '#/definitions/KalturaHouseholdUserFilter'
+    - $ref: '#/definitions/KalturaEngagementFilter'
+    - $ref: '#/definitions/KalturaReminderFilter'
+    - $ref: '#/definitions/KalturaFollowTvSeriesFilter'
+    - $ref: '#/definitions/KalturaInboxMessageFilter'
+    - $ref: '#/definitions/KalturaAnnouncementFilter'
+    - $ref: '#/definitions/KalturaPersonalFeedFilter'
+    - $ref: '#/definitions/KalturaTopicFilter'
+    - $ref: '#/definitions/KalturaSubscriptionFilter'
+    - $ref: '#/definitions/KalturaSocialCommentFilter'
+    - $ref: '#/definitions/KalturaSocialFriendActivityFilter'
+    - $ref: '#/definitions/KalturaSocialActionFilter'
+    - $ref: '#/definitions/KalturaFavoriteFilter'
+    - $ref: '#/definitions/KalturaOTTUserFilter'
+    properties:
+      objectType:
+        enum:
+        - KalturaRelatedObjectFilter
+        - KalturaChannelsFilter
+        - KalturaMediaFileFilter
+        - KalturaImageFilter
+        - KalturaImageTypeFilter
+        - KalturaTagFilter
+        - KalturaAssetStructFilter
+        - KalturaCurrencyFilter
+        - KalturaPersistedFilter
+        - KalturaCollectionFilter
+        - KalturaPricePlanFilter
+        - KalturaPriceDetailsFilter
+        - KalturaSubscriptionSetFilter
+        - KalturaLanguageFilter
+        - KalturaMetaFilter
+        - KalturaCountryFilter
+        - KalturaSearchHistoryFilter
+        - KalturaConfigurationsFilter
+        - KalturaReportFilter
+        - KalturaConfigurationGroupTagFilter
+        - KalturaConfigurationGroupDeviceFilter
+        - KalturaHouseholdDeviceFilter
+        - KalturaRegionFilter
+        - KalturaUserAssetRuleFilter
+        - KalturaParentalRuleFilter
+        - KalturaExportTaskFilter
+        - KalturaAssetCommentFilter
+        - KalturaBookmarkFilter
+        - KalturaSeriesRecordingFilter
+        - KalturaProductPriceFilter
+        - KalturaEntitlementFilter
+        - KalturaTransactionHistoryFilter
+        - KalturaUserRoleFilter
+        - KalturaPaymentMethodProfileFilter
+        - KalturaAssetHistoryFilter
+        - KalturaRecordingContextFilter
+        - KalturaRecordingFilter
+        - KalturaHouseholdUserFilter
+        - KalturaEngagementFilter
+        - KalturaReminderFilter
+        - KalturaFollowTvSeriesFilter
+        - KalturaInboxMessageFilter
+        - KalturaAnnouncementFilter
+        - KalturaPersonalFeedFilter
+        - KalturaTopicFilter
+        - KalturaSubscriptionFilter
+        - KalturaSocialCommentFilter
+        - KalturaSocialFriendActivityFilter
+        - KalturaSocialActionFilter
+        - KalturaFavoriteFilter
+        - KalturaOTTUserFilter
+        type: string
+      orderBy:
+        description: order by
+        type: string
+    title: KalturaFilter
+    type: object
+  OTTRequest:
+    properties:
+      ks:
+        type: string
+      version:
+        default: 3.6.287.20720
+        type: string
+    type: object
+  KalturaListResponse:
+    description: Base list wrapper
+    properties:
+      totalCount:
+        description: Total items
+        type: integer
+    title: KalturaListResponse
+    type: object
+  KalturaAnnouncementFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: order announcements
+    properties:
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaAnnouncementOrderBy
+    title: KalturaAnnouncementFilter
+    type: object
+  KalturaPaymentMethodProfileFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaPaymentMethodProfileOrderBy
+      paymentGatewayIdEqual:
+        description: Payment gateway identifier to list the payment methods for
+        type: integer
+    title: KalturaPaymentMethodProfileFilter
+    type: object
+  KalturaSubscriptionFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      externalIdIn:
+        description: Comma separated subscription external IDs to get the subscriptions by
+        type: string
+      mediaFileIdEqual:
+        description: Media-file ID to get the subscriptions by
+        type: integer
+      orderBy:
+        enum:
+        - START_DATE_ASC
+        - START_DATE_DESC
+        type: string
+        x-enumLabels:
+        - START_DATE_ASC
+        - START_DATE_DESC
+        x-enumType: KalturaSubscriptionOrderBy
+      subscriptionIdIn:
+        description: Comma separated subscription IDs to get the subscriptions by
+        type: string
+    title: KalturaSubscriptionFilter
+    type: object
+  KalturaRecordingContextFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Filtering assets
+    properties:
+      assetIdIn:
+        description: Comma separated asset ids
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaRecordingContextOrderBy
+    title: KalturaRecordingContextFilter
+    type: object
+  KalturaRegionFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      externalIdIn:
+        description: List of comma separated regions external identifiers
+        type: string
+      orderBy:
+        enum:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        x-enumType: KalturaRegionOrderBy
+    title: KalturaRegionFilter
+    type: object
+  KalturaCurrencyFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Currency filter
+    properties:
+      codeIn:
+        description: Currency codes
+        type: string
+      orderBy:
+        enum:
+        - NAME_ASC
+        - NAME_DESC
+        - CODE_ASC
+        - CODE_DESC
+        type: string
+        x-enumLabels:
+        - NAME_ASC
+        - NAME_DESC
+        - CODE_ASC
+        - CODE_DESC
+        x-enumType: KalturaCurrencyOrderBy
+    title: KalturaCurrencyFilter
+    type: object
+  KalturaOTTUserFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: OTT User filter
+    properties:
+      externalIdEqual:
+        description: User external identifier
+        type: string
+      idIn:
+        description: List of user identifiers separated by &#39;,&#39;
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaOTTUserOrderBy
+      usernameEqual:
+        description: Username
+        type: string
+    title: KalturaOTTUserFilter
+    type: object
+  KalturaImageTypeFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      idIn:
+        description: IDs to filter by
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaImageTypeOrderBy
+      ratioIdIn:
+        description: Ratio IDs to filter by
+        type: string
+    title: KalturaImageTypeFilter
+    type: object
+  KalturaSeriesReminderFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaReminderFilter'
+    properties:
+      epgChannelIdEqual:
+        description: EPG channel ID
+        type: integer
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaSeriesReminderOrderBy
+      seriesIdIn:
+        description: Comma separated series IDs
+        type: string
+    title: KalturaSeriesReminderFilter
+    type: object
+  KalturaPaymentMethodProfile:
+    properties:
+      allowMultiInstance:
+        description: Indicates whether the payment method allow multiple instances
+        type: boolean
+      id:
+        description: '`readOnly`
+
+
+          Payment method identifier (internal)'
+        readOnly: true
+        type: integer
+      name:
+        description: Payment method name
+        type: string
+      paymentGatewayId:
+        description: Payment gateway identifier (internal)
+        type: integer
+    title: KalturaPaymentMethodProfile
+    type: object
+  KalturaEngagementFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaEngagementOrderBy
+      sendTimeGreaterThanOrEqual:
+        description: SendTime GreaterThanOrEqual
+        type: integer
+      typeIn:
+        description: List of inbox message types to search within.
+        type: string
+    title: KalturaEngagementFilter
+    type: object
+  KalturaParentalRuleFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      entityReferenceEqual:
+        description: 'Enum Type: `KalturaEntityReferenceBy`
+
+
+          Reference type to filter by'
+        enum:
+        - user
+        - household
+        type: string
+        x-enumLabels:
+        - USER
+        - HOUSEHOLD
+        x-enumType: KalturaEntityReferenceBy
+      orderBy:
+        enum:
+        - PARTNER_SORT_VALUE
+        type: string
+        x-enumLabels:
+        - PARTNER_SORT_VALUE
+        x-enumType: KalturaParentalRuleOrderBy
+    title: KalturaParentalRuleFilter
+    type: object
+  KalturaImageFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      idIn:
+        description: IDs to filter by
+        type: string
+      imageObjectIdEqual:
+        description: ID of the object the is related to, to filter by
+        type: integer
+      imageObjectTypeEqual:
+        description: 'Enum Type: `KalturaImageObjectType`
+
+
+          Type of the object the image is related to, to filter by'
+        enum:
+        - MEDIA_ASSET
+        - PROGRAM_ASSET
+        - CHANNEL
+        - CATEGORY
+        - PARTNER
+        - IMAGE_TYPE
+        type: string
+        x-enumLabels:
+        - MEDIA_ASSET
+        - PROGRAM_ASSET
+        - CHANNEL
+        - CATEGORY
+        - PARTNER
+        - IMAGE_TYPE
+        x-enumType: KalturaImageObjectType
+      isDefaultEqual:
+        description: Filter images that are default on atleast on image type or not default at any
+        type: boolean
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaImageOrderBy
+    title: KalturaImageFilter
+    type: object
+  KalturaReminderFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: '`abstract`'
+    discriminator: objectType
+    oneOf:
+    - $ref: '#/definitions/KalturaAssetReminderFilter'
+    - $ref: '#/definitions/KalturaSeriesReminderFilter'
+    - $ref: '#/definitions/KalturaSeasonsReminderFilter'
+    properties:
+      objectType:
+        enum:
+        - KalturaAssetReminderFilter
+        - KalturaSeriesReminderFilter
+        - KalturaSeasonsReminderFilter
+        type: string
+    title: KalturaReminderFilter
+    type: object
+  KalturaAssetHistoryFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      assetIdIn:
+        description: Comma separated list of asset identifiers.
+        type: string
+      daysLessThanOrEqual:
+        description: How many days back to return the watched media. If omitted, default to 7 days
+        type: integer
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaAssetHistoryOrderBy
+      statusEqual:
+        description: "Enum Type: `KalturaWatchStatus`\n\nWhich type of recently watched media to include in the result – those that finished watching, those that are in progress or both.\r\n            If omitted or specified filter = all – return all types.\r\n            Allowed values: progress – return medias that are in-progress, done – return medias that finished watching."
+        enum:
+        - progress
+        - done
+        - all
+        type: string
+        x-enumLabels:
+        - PROGRESS
+        - DONE
+        - ALL
+        x-enumType: KalturaWatchStatus
+      typeIn:
+        description: "Comma separated list of asset types to search within.\r\n            Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).\r\n            If omitted – all types should be included."
+        type: string
+    title: KalturaAssetHistoryFilter
+    type: object
+  KalturaAssetFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaPersistedFilter'
+    properties:
+      dynamicOrderBy:
+        $ref: '#/definitions/KalturaDynamicOrderBy'
+      orderBy:
+        enum:
+        - RELEVANCY_DESC
+        - NAME_ASC
+        - NAME_DESC
+        - VIEWS_DESC
+        - RATINGS_DESC
+        - VOTES_DESC
+        - START_DATE_DESC
+        - START_DATE_ASC
+        - LIKES_DESC
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - RELEVANCY_DESC
+        - NAME_ASC
+        - NAME_DESC
+        - VIEWS_DESC
+        - RATINGS_DESC
+        - VOTES_DESC
+        - START_DATE_DESC
+        - START_DATE_ASC
+        - LIKES_DESC
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        x-enumType: KalturaAssetOrderBy
+    title: KalturaAssetFilter
+    type: object
+  KalturaExportTaskFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Bulk export tasks filter
+    properties:
+      idIn:
+        description: Comma separated tasks identifiers
+        type: string
+      orderBy:
+        enum:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        x-enumType: KalturaExportTaskOrderBy
+    title: KalturaExportTaskFilter
+    type: object
+  KalturaTopicFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaTopicOrderBy
+    title: KalturaTopicFilter
+    type: object
+  KalturaMediaFileFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      assetIdEqual:
+        description: Asset identifier to filter by
+        type: integer
+      idEqual:
+        description: Asset file identifier to filter by
+        type: integer
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaMediaFileOrderBy
+    title: KalturaMediaFileFilter
+    type: object
+  KalturaSocialFriendActivityFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      actionTypeIn:
+        description: Comma separated list of social actions to filter by
+        type: string
+      assetIdEqual:
+        description: Asset ID to filter by
+        type: integer
+      assetTypeEqual:
+        description: 'Enum Type: `KalturaAssetType`
+
+
+          Asset type to filter by, currently only VOD (media)'
+        enum:
+        - media
+        - recording
+        - epg
+        type: string
+        x-enumLabels:
+        - MEDIA
+        - RECORDING
+        - EPG
+        x-enumType: KalturaAssetType
+      orderBy:
+        enum:
+        - NONE
+        - UPDATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - NONE
+        - UPDATE_DATE_DESC
+        x-enumType: KalturaSocialFriendActivityOrderBy
+    title: KalturaSocialFriendActivityFilter
+    type: object
+  KalturaReportFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: '`abstract`
+
+
+      Report filter'
+    discriminator: objectType
+    oneOf:
+    - $ref: '#/definitions/KalturaDeviceReportFilter'
+    properties:
+      objectType:
+        enum:
+        - KalturaDeviceReportFilter
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaReportOrderBy
+    title: KalturaReportFilter
+    type: object
+  KalturaDeviceReportFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaReportFilter'
+    description: Report filter
+    properties:
+      lastAccessDateGreaterThanOrEqual:
+        description: Filter device configuration later than specific date
+        type: integer
+    title: KalturaDeviceReportFilter
+    type: object
+  KalturaUserAssetRuleFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: User asset rule filter
+    properties:
+      assetIdEqual:
+        description: Asset identifier to filter by
+        type: integer
+      assetTypeEqual:
+        description: Asset type to filter by - 0 = EPG, 1 = media
+        type: integer
+      orderBy:
+        enum:
+        - NAME_ASC
+        - NAME_DESC
+        type: string
+        x-enumLabels:
+        - NAME_ASC
+        - NAME_DESC
+        x-enumType: KalturaUserAssetRuleOrderBy
+    title: KalturaUserAssetRuleFilter
+    type: object
+  KalturaBookmarkFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Filtering Assets requests
+    properties:
+      assetIdIn:
+        description: Comma separated list of assets identifiers
+        type: string
+      assetTypeEqual:
+        description: 'Enum Type: `KalturaAssetType`
+
+
+          Asset type'
+        enum:
+        - media
+        - recording
+        - epg
+        type: string
+        x-enumLabels:
+        - MEDIA
+        - RECORDING
+        - EPG
+        x-enumType: KalturaAssetType
+      orderBy:
+        enum:
+        - POSITION_ASC
+        - POSITION_DESC
+        type: string
+        x-enumLabels:
+        - POSITION_ASC
+        - POSITION_DESC
+        x-enumType: KalturaBookmarkOrderBy
+    title: KalturaBookmarkFilter
+    type: object
+  KalturaUserRoleFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: User roles filter
+    properties:
+      currentUserRoleIdsContains:
+        description: Indicates whether the results should be filtered by userId using the current
+        type: boolean
+      idIn:
+        description: Comma separated roles identifiers
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaUserRoleOrderBy
+    title: KalturaUserRoleFilter
+    type: object
+  KalturaRecordingFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Filtering recordings
+    properties:
+      filterExpression:
+        description: KSQL expression
+        type: string
+      orderBy:
+        enum:
+        - TITLE_ASC
+        - TITLE_DESC
+        - START_DATE_ASC
+        - START_DATE_DESC
+        type: string
+        x-enumLabels:
+        - TITLE_ASC
+        - TITLE_DESC
+        - START_DATE_ASC
+        - START_DATE_DESC
+        x-enumType: KalturaRecordingOrderBy
+      statusIn:
+        description: Recording Statuses
+        type: string
+    title: KalturaRecordingFilter
+    type: object
+  KalturaConfigurationsFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Configuration filter
+    properties:
+      configurationGroupIdEqual:
+        description: the ID of the configuration group for which to return related configurations
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaConfigurationsOrderBy
+    title: KalturaConfigurationsFilter
+    type: object
+  KalturaPriceDetailsFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      idIn:
+        description: Comma separated price identifiers
+        type: string
+      orderBy:
+        enum:
+        - NAME_ASC
+        type: string
+        x-enumLabels:
+        - NAME_ASC
+        x-enumType: KalturaPriceDetailsOrderBy
+    title: KalturaPriceDetailsFilter
+    type: object
+  KalturaSeriesRecordingFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Filtering recordings
+    properties:
+      orderBy:
+        enum:
+        - START_DATE_ASC
+        - START_DATE_DESC
+        - ID_ASC
+        - ID_DESC
+        - SERIES_ID_ASC
+        - SERIES_ID_DESC
+        type: string
+        x-enumLabels:
+        - START_DATE_ASC
+        - START_DATE_DESC
+        - ID_ASC
+        - ID_DESC
+        - SERIES_ID_ASC
+        - SERIES_ID_DESC
+        x-enumType: KalturaSeriesRecordingOrderBy
+    title: KalturaSeriesRecordingFilter
+    type: object
+  KalturaFavoriteFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Favorite request filter
+    properties:
+      mediaIdIn:
+        description: Media identifiers from which to filter the favorite assets
+        type: string
+      mediaTypeEqual:
+        description: Media type to filter by the favorite assets
+        type: integer
+      orderBy:
+        enum:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        x-enumType: KalturaFavoriteOrderBy
+      udidEqualCurrent:
+        description: Indicates whether the results should be filtered by origin UDID using the current
+        type: boolean
+    title: KalturaFavoriteFilter
+    type: object
+  KalturaMetaFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Meta filter
+    properties:
+      assetStructIdEqual:
+        description: Filter Metas that are contained in a specific asset struct
+        type: integer
+      dataTypeEqual:
+        description: 'Enum Type: `KalturaMetaDataType`
+
+
+          Meta data type to filter by'
+        enum:
+        - STRING
+        - MULTILINGUAL_STRING
+        - NUMBER
+        - BOOLEAN
+        - DATE
+        type: string
+        x-enumLabels:
+        - STRING
+        - MULTILINGUAL_STRING
+        - NUMBER
+        - BOOLEAN
+        - DATE
+        x-enumType: KalturaMetaDataType
+      idIn:
+        description: Comma separated identifiers
+        type: string
+      multipleValueEqual:
+        description: Filter metas by multipleValueEqual value
+        type: boolean
+      orderBy:
+        enum:
+        - NAME_ASC
+        - NAME_DESC
+        - SYSTEM_NAME_ASC
+        - SYSTEM_NAME_DESC
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        - UPDATE_DATE_ASC
+        - UPDATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - NAME_ASC
+        - NAME_DESC
+        - SYSTEM_NAME_ASC
+        - SYSTEM_NAME_DESC
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        - UPDATE_DATE_ASC
+        - UPDATE_DATE_DESC
+        x-enumType: KalturaMetaOrderBy
+    title: KalturaMetaFilter
+    type: object
+  KalturaHouseholdDeviceFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      deviceFamilyIdIn:
+        description: Device family Ids
+        type: string
+      householdIdEqual:
+        description: The identifier of the household
+        type: integer
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaHouseholdDeviceOrderBy
+    title: KalturaHouseholdDeviceFilter
+    type: object
+  KalturaLanguageFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Language filter
+    properties:
+      codeIn:
+        description: Language codes
+        type: string
+      orderBy:
+        enum:
+        - SYSTEM_NAME_ASC
+        - SYSTEM_NAME_DESC
+        - CODE_ASC
+        - CODE_DESC
+        type: string
+        x-enumLabels:
+        - SYSTEM_NAME_ASC
+        - SYSTEM_NAME_DESC
+        - CODE_ASC
+        - CODE_DESC
+        x-enumType: KalturaLanguageOrderBy
+    title: KalturaLanguageFilter
+    type: object
+  KalturaChannelsFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      idEqual:
+        description: channel identifier to filter by
+        type: integer
+      nameEqual:
+        description: Exact channel name to filter by
+        type: string
+      nameStartsWith:
+        description: Channel name starts with (autocomplete)
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        - NAME_ASC
+        - NAME_DESC
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - NONE
+        - NAME_ASC
+        - NAME_DESC
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        x-enumType: KalturaChannelsOrderBy
+    title: KalturaChannelsFilter
+    type: object
+  KalturaSubscriptionSetFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      idIn:
+        description: Comma separated identifiers
+        type: string
+      orderBy:
+        enum:
+        - NAME_ASC
+        - NAME_DESC
+        type: string
+        x-enumLabels:
+        - NAME_ASC
+        - NAME_DESC
+        x-enumType: KalturaSubscriptionSetOrderBy
+      subscriptionIdContains:
+        description: Comma separated subscription identifiers
+        type: string
+      typeEqual:
+        description: 'Enum Type: `KalturaSubscriptionSetType`
+
+
+          Subscription Type'
+        enum:
+        - SWITCH
+        - DEPENDENCY
+        type: string
+        x-enumLabels:
+        - SWITCH
+        - DEPENDENCY
+        x-enumType: KalturaSubscriptionSetType
+    title: KalturaSubscriptionSetFilter
+    type: object
+  KalturaTagFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      languageEqual:
+        description: Language to filter by
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaTagOrderBy
+      tagEqual:
+        description: Tag to filter by
+        type: string
+      tagStartsWith:
+        description: Tag to filter by
+        type: string
+      typeEqual:
+        description: Type identifier
+        type: integer
+    title: KalturaTagFilter
+    type: object
+  KalturaAssetStructFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Filtering Asset Structs
+    properties:
+      idIn:
+        description: Comma separated identifiers
+        type: string
+      isProtectedEqual:
+        description: Filter Asset Structs by isProtectedEqual value
+        type: boolean
+      metaIdEqual:
+        description: Filter Asset Structs that contain a specific meta id
+        type: integer
+      orderBy:
+        enum:
+        - NAME_ASC
+        - NAME_DESC
+        - SYSTEM_NAME_ASC
+        - SYSTEM_NAME_DESC
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        - UPDATE_DATE_ASC
+        - UPDATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - NAME_ASC
+        - NAME_DESC
+        - SYSTEM_NAME_ASC
+        - SYSTEM_NAME_DESC
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        - UPDATE_DATE_ASC
+        - UPDATE_DATE_DESC
+        x-enumType: KalturaAssetStructOrderBy
+    title: KalturaAssetStructFilter
+    type: object
+  KalturaSearchHistoryFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaSearchHistoryOrderBy
+    title: KalturaSearchHistoryFilter
+    type: object
+  KalturaProductPriceFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      collectionIdIn:
+        description: Comma separated collections identifiers
+        type: string
+      couponCodeEqual:
+        description: Discount coupon code
+        type: string
+      fileIdIn:
+        description: Comma separated media files identifiers
+        type: string
+      isLowest:
+        description: A flag that indicates if only the lowest price of an item should return
+        type: boolean
+      orderBy:
+        enum:
+        - PRODUCT_ID_ASC
+        - PRODUCT_ID_DESC
+        type: string
+        x-enumLabels:
+        - PRODUCT_ID_ASC
+        - PRODUCT_ID_DESC
+        x-enumType: KalturaProductPriceOrderBy
+      subscriptionIdIn:
+        description: Comma separated subscriptions identifiers
+        type: string
+    title: KalturaProductPriceFilter
+    type: object
+  KalturaHouseholdUserFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      householdIdEqual:
+        description: The identifier of the household
+        type: integer
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaHouseholdUserOrderBy
+    title: KalturaHouseholdUserFilter
+    type: object
+  KalturaDynamicOrderBy:
+    description: Kaltura Asset Order
+    properties:
+      name:
+        description: order by name
+        type: string
+      orderBy:
+        description: 'Enum Type: `KalturaMetaTagOrderBy`
+
+
+          order by meta asc/desc'
+        enum:
+        - META_ASC
+        - META_DESC
+        type: string
+        x-enumLabels:
+        - META_ASC
+        - META_DESC
+        x-enumType: KalturaMetaTagOrderBy
+    title: KalturaDynamicOrderBy
+    type: object
+  KalturaAssetCommentFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      assetIdEqual:
+        description: Asset Id
+        type: integer
+      assetTypeEqual:
+        description: 'Enum Type: `KalturaAssetType`
+
+
+          Asset Type'
+        enum:
+        - media
+        - recording
+        - epg
+        type: string
+        x-enumLabels:
+        - MEDIA
+        - RECORDING
+        - EPG
+        x-enumType: KalturaAssetType
+      orderBy:
+        enum:
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - CREATE_DATE_DESC
+        x-enumType: KalturaAssetCommentOrderBy
+    title: KalturaAssetCommentFilter
+    type: object
+  KalturaRelatedObjectFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: '`abstract`
+
+
+      Define KalturaRelatedObjectFilter'
+    discriminator: objectType
+    oneOf:
+    - $ref: '#/definitions/KalturaAggregationCountFilter'
+    properties:
+      objectType:
+        enum:
+        - KalturaAggregationCountFilter
+        type: string
+    title: KalturaRelatedObjectFilter
+    type: object
+  KalturaConfigurationGroupDeviceFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Configuration group device filter
+    properties:
+      configurationGroupIdEqual:
+        description: the ID of the configuration group for which to return related configurations group devices
+        type: string
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaConfigurationGroupDeviceOrderBy
+    title: KalturaConfigurationGroupDeviceFilter
+    type: object
+  KalturaPricePlanFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    properties:
+      idIn:
+        description: Comma separated price plans identifiers
+        type: string
+      orderBy:
+        enum:
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - CREATE_DATE_DESC
+        x-enumType: KalturaPricePlanOrderBy
+    title: KalturaPricePlanFilter
+    type: object
+  KalturaTransactionHistoryFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Transactions filter
+    properties:
+      endDateLessThanOrEqual:
+        description: Filter transactions earlier than specific date
+        type: integer
+      entityReferenceEqual:
+        description: 'Enum Type: `KalturaEntityReferenceBy`
+
+
+          Reference type to filter by'
+        enum:
+        - user
+        - household
+        type: string
+        x-enumLabels:
+        - USER
+        - HOUSEHOLD
+        x-enumType: KalturaEntityReferenceBy
+      orderBy:
+        enum:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        type: string
+        x-enumLabels:
+        - CREATE_DATE_ASC
+        - CREATE_DATE_DESC
+        x-enumType: KalturaTransactionHistoryOrderBy
+      startDateGreaterThanOrEqual:
+        description: Filter transactions later than specific date
+        type: integer
+    title: KalturaTransactionHistoryFilter
+    type: object
+  KalturaCollectionFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaFilter'
+    description: Collection Filter
+    properties:
+      collectionIdIn:
+        description: Comma separated collection IDs
+        type: string
+      mediaFileIdEqual:
+        description: Media-file ID to get the subscriptions by
+        type: integer
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaCollectionOrderBy
+    title: KalturaCollectionFilter
+    type: object
+  KalturaAggregationCountFilter:
+    allOf:
+    - $ref: '#/definitions/KalturaRelatedObjectFilter'
+    description: Kaltura Aggregation CountFilter
+    properties:
+      orderBy:
+        enum:
+        - NONE
+        type: string
+        x-enumLabels:
+        - NONE
+        x-enumType: KalturaAggregationCountOrderBy
+    title: KalturaAggregationCountFilter
+    type: object
+securityDefinitions:
+  ks:
+    description: A Kaltura session ID
+    in: body
+    name: ks
+    type: apiKey
+x-enums:
+  KalturaAdsPolicy:
+    oneOf:
+    - enum:
+      - NO_ADS
+      title: NO_ADS
+    - enum:
+      - KEEP_ADS
+      title: KEEP_ADS
+    title: KalturaAdsPolicy
+  KalturaAggregationCountOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaAggregationCountOrderBy
+  KalturaAnnouncementOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaAnnouncementOrderBy
+  KalturaAnnouncementRecipientsType:
+    oneOf:
+    - enum:
+      - All
+      title: ALL
+    - enum:
+      - LoggedIn
+      title: LOGGEDIN
+    - enum:
+      - Guests
+      title: GUESTS
+    - enum:
+      - Other
+      title: OTHER
+    title: KalturaAnnouncementRecipientsType
+  KalturaAnnouncementStatus:
+    oneOf:
+    - enum:
+      - NotSent
+      title: NOTSENT
+    - enum:
+      - Sending
+      title: SENDING
+    - enum:
+      - Sent
+      title: SENT
+    - enum:
+      - Aborted
+      title: ABORTED
+    title: KalturaAnnouncementStatus
+  KalturaApiParameterPermissionItemAction:
+    oneOf:
+    - enum:
+      - READ
+      title: READ
+    - enum:
+      - INSERT
+      title: INSERT
+    - enum:
+      - UPDATE
+      title: UPDATE
+    - enum:
+      - USAGE
+      title: USAGE
+    title: KalturaApiParameterPermissionItemAction
+  KalturaAppTokenHashType:
+    oneOf:
+    - enum:
+      - SHA1
+      title: SHA1
+    - enum:
+      - SHA256
+      title: SHA256
+    - enum:
+      - SHA512
+      title: SHA512
+    - enum:
+      - MD5
+      title: MD5
+    title: KalturaAppTokenHashType
+  KalturaAssetCommentOrderBy:
+    oneOf:
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaAssetCommentOrderBy
+  KalturaAssetHistoryOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaAssetHistoryOrderBy
+  KalturaAssetOrderBy:
+    oneOf:
+    - enum:
+      - RELEVANCY_DESC
+      title: RELEVANCY_DESC
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    - enum:
+      - VIEWS_DESC
+      title: VIEWS_DESC
+    - enum:
+      - RATINGS_DESC
+      title: RATINGS_DESC
+    - enum:
+      - VOTES_DESC
+      title: VOTES_DESC
+    - enum:
+      - START_DATE_DESC
+      title: START_DATE_DESC
+    - enum:
+      - START_DATE_ASC
+      title: START_DATE_ASC
+    - enum:
+      - LIKES_DESC
+      title: LIKES_DESC
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaAssetOrderBy
+  KalturaAssetReferenceType:
+    oneOf:
+    - enum:
+      - media
+      title: MEDIA
+    - enum:
+      - epg_internal
+      title: EPG_INTERNAL
+    - enum:
+      - epg_external
+      title: EPG_EXTERNAL
+    title: KalturaAssetReferenceType
+  KalturaAssetReminderOrderBy:
+    oneOf:
+    - enum:
+      - RELEVANCY_DESC
+      title: RELEVANCY_DESC
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    - enum:
+      - VIEWS_DESC
+      title: VIEWS_DESC
+    - enum:
+      - RATINGS_DESC
+      title: RATINGS_DESC
+    - enum:
+      - VOTES_DESC
+      title: VOTES_DESC
+    - enum:
+      - START_DATE_DESC
+      title: START_DATE_DESC
+    - enum:
+      - START_DATE_ASC
+      title: START_DATE_ASC
+    - enum:
+      - LIKES_DESC
+      title: LIKES_DESC
+    title: KalturaAssetReminderOrderBy
+  KalturaAssetStructOrderBy:
+    oneOf:
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    - enum:
+      - SYSTEM_NAME_ASC
+      title: SYSTEM_NAME_ASC
+    - enum:
+      - SYSTEM_NAME_DESC
+      title: SYSTEM_NAME_DESC
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    - enum:
+      - UPDATE_DATE_ASC
+      title: UPDATE_DATE_ASC
+    - enum:
+      - UPDATE_DATE_DESC
+      title: UPDATE_DATE_DESC
+    title: KalturaAssetStructOrderBy
+  KalturaAssetType:
+    oneOf:
+    - enum:
+      - media
+      title: MEDIA
+    - enum:
+      - recording
+      title: RECORDING
+    - enum:
+      - epg
+      title: EPG
+    title: KalturaAssetType
+  KalturaBillingAction:
+    oneOf:
+    - enum:
+      - unknown
+      title: UNKNOWN
+    - enum:
+      - purchase
+      title: PURCHASE
+    - enum:
+      - renew_payment
+      title: RENEW_PAYMENT
+    - enum:
+      - renew_canceled_subscription
+      title: RENEW_CANCELED_SUBSCRIPTION
+    - enum:
+      - cancel_subscription_order
+      title: CANCEL_SUBSCRIPTION_ORDER
+    - enum:
+      - subscription_date_changed
+      title: SUBSCRIPTION_DATE_CHANGED
+    title: KalturaBillingAction
+  KalturaBillingItemsType:
+    oneOf:
+    - enum:
+      - unknown
+      title: UNKNOWN
+    - enum:
+      - ppv
+      title: PPV
+    - enum:
+      - subscription
+      title: SUBSCRIPTION
+    - enum:
+      - pre_paid
+      title: PRE_PAID
+    - enum:
+      - pre_paid_expired
+      title: PRE_PAID_EXPIRED
+    - enum:
+      - collection
+      title: COLLECTION
+    title: KalturaBillingItemsType
+  KalturaBillingPriceType:
+    oneOf:
+    - enum:
+      - FullPeriod
+      title: FULLPERIOD
+    - enum:
+      - PartialPeriod
+      title: PARTIALPERIOD
+    title: KalturaBillingPriceType
+  KalturaBookmarkActionType:
+    oneOf:
+    - enum:
+      - HIT
+      title: HIT
+    - enum:
+      - PLAY
+      title: PLAY
+    - enum:
+      - STOP
+      title: STOP
+    - enum:
+      - PAUSE
+      title: PAUSE
+    - enum:
+      - FIRST_PLAY
+      title: FIRST_PLAY
+    - enum:
+      - SWOOSH
+      title: SWOOSH
+    - enum:
+      - FULL_SCREEN
+      title: FULL_SCREEN
+    - enum:
+      - SEND_TO_FRIEND
+      title: SEND_TO_FRIEND
+    - enum:
+      - LOAD
+      title: LOAD
+    - enum:
+      - FULL_SCREEN_EXIT
+      title: FULL_SCREEN_EXIT
+    - enum:
+      - FINISH
+      title: FINISH
+    - enum:
+      - ERROR
+      title: ERROR
+    - enum:
+      - BITRATE_CHANGE
+      title: BITRATE_CHANGE
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaBookmarkActionType
+  KalturaBookmarkOrderBy:
+    oneOf:
+    - enum:
+      - POSITION_ASC
+      title: POSITION_ASC
+    - enum:
+      - POSITION_DESC
+      title: POSITION_DESC
+    title: KalturaBookmarkOrderBy
+  KalturaBundleType:
+    oneOf:
+    - enum:
+      - subscription
+      title: SUBSCRIPTION
+    - enum:
+      - collection
+      title: COLLECTION
+    title: KalturaBundleType
+  KalturaCatalogReferenceBy:
+    oneOf:
+    - enum:
+      - MEDIA
+      title: MEDIA
+    - enum:
+      - EPG_INTERNAL
+      title: EPG_INTERNAL
+    - enum:
+      - EPG_EXTERNAL
+      title: EPG_EXTERNAL
+    title: KalturaCatalogReferenceBy
+  KalturaCatalogWith:
+    oneOf:
+    - enum:
+      - images
+      title: IMAGES
+    - enum:
+      - files
+      title: FILES
+    - enum:
+      - stats
+      title: STATS
+    title: KalturaCatalogWith
+  KalturaChannelEnrichment:
+    oneOf:
+    - enum:
+      - ClientLocation
+      title: CLIENTLOCATION
+    - enum:
+      - UserId
+      title: USERID
+    - enum:
+      - HouseholdId
+      title: HOUSEHOLDID
+    - enum:
+      - DeviceId
+      title: DEVICEID
+    - enum:
+      - DeviceType
+      title: DEVICETYPE
+    - enum:
+      - UTCOffset
+      title: UTCOFFSET
+    - enum:
+      - Language
+      title: LANGUAGE
+    - enum:
+      - NPVRSupport
+      title: NPVRSUPPORT
+    - enum:
+      - Catchup
+      title: CATCHUP
+    - enum:
+      - Parental
+      title: PARENTAL
+    - enum:
+      - DTTRegion
+      title: DTTREGION
+    - enum:
+      - AtHome
+      title: ATHOME
+    title: KalturaChannelEnrichment
+  KalturaChannelOrderBy:
+    oneOf:
+    - enum:
+      - ORDER_NUM
+      title: ORDER_NUM
+    - enum:
+      - RELEVANCY_DESC
+      title: RELEVANCY_DESC
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    - enum:
+      - VIEWS_DESC
+      title: VIEWS_DESC
+    - enum:
+      - RATINGS_DESC
+      title: RATINGS_DESC
+    - enum:
+      - VOTES_DESC
+      title: VOTES_DESC
+    - enum:
+      - START_DATE_DESC
+      title: START_DATE_DESC
+    - enum:
+      - START_DATE_ASC
+      title: START_DATE_ASC
+    - enum:
+      - LIKES_DESC
+      title: LIKES_DESC
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaChannelOrderBy
+  KalturaChannelsOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaChannelsOrderBy
+  KalturaCollectionOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaCollectionOrderBy
+  KalturaCompensationType:
+    oneOf:
+    - enum:
+      - PERCENTAGE
+      title: PERCENTAGE
+    - enum:
+      - FIXED_AMOUNT
+      title: FIXED_AMOUNT
+    title: KalturaCompensationType
+  KalturaConfigurationGroupDeviceOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaConfigurationGroupDeviceOrderBy
+  KalturaConfigurationGroupTagOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaConfigurationGroupTagOrderBy
+  KalturaConfigurationsOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaConfigurationsOrderBy
+  KalturaContextType:
+    oneOf:
+    - enum:
+      - none
+      title: NONE
+    - enum:
+      - recording
+      title: RECORDING
+    title: KalturaContextType
+  KalturaCountryOrderBy:
+    oneOf:
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    title: KalturaCountryOrderBy
+  KalturaCouponGroupType:
+    oneOf:
+    - enum:
+      - COUPON
+      title: COUPON
+    - enum:
+      - GIFT_CARD
+      title: GIFT_CARD
+    title: KalturaCouponGroupType
+  KalturaCouponStatus:
+    oneOf:
+    - enum:
+      - VALID
+      title: VALID
+    - enum:
+      - NOT_EXISTS
+      title: NOT_EXISTS
+    - enum:
+      - ALREADY_USED
+      title: ALREADY_USED
+    - enum:
+      - EXPIRED
+      title: EXPIRED
+    - enum:
+      - INACTIVE
+      title: INACTIVE
+    title: KalturaCouponStatus
+  KalturaCurrencyOrderBy:
+    oneOf:
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    - enum:
+      - CODE_ASC
+      title: CODE_ASC
+    - enum:
+      - CODE_DESC
+      title: CODE_DESC
+    title: KalturaCurrencyOrderBy
+  KalturaCutWith:
+    oneOf:
+    - enum:
+      - or
+      title: OR
+    - enum:
+      - and
+      title: AND
+    title: KalturaCutWith
+  KalturaDeviceRegistrationStatus:
+    oneOf:
+    - enum:
+      - not_registered
+      title: NOT_REGISTERED
+    - enum:
+      - registered
+      title: REGISTERED
+    - enum:
+      - registered_to_another_household
+      title: REGISTERED_TO_ANOTHER_HOUSEHOLD
+    title: KalturaDeviceRegistrationStatus
+  KalturaDeviceStatus:
+    oneOf:
+    - enum:
+      - PENDING
+      title: PENDING
+    - enum:
+      - ACTIVATED
+      title: ACTIVATED
+    - enum:
+      - NOT_ACTIVATED
+      title: NOT_ACTIVATED
+    title: KalturaDeviceStatus
+  KalturaDrmSchemeName:
+    oneOf:
+    - enum:
+      - PLAYREADY_CENC
+      title: PLAYREADY_CENC
+    - enum:
+      - WIDEVINE_CENC
+      title: WIDEVINE_CENC
+    - enum:
+      - FAIRPLAY
+      title: FAIRPLAY
+    - enum:
+      - WIDEVINE
+      title: WIDEVINE
+    - enum:
+      - PLAYREADY
+      title: PLAYREADY
+    - enum:
+      - CUSTOM_DRM
+      title: CUSTOM_DRM
+    title: KalturaDrmSchemeName
+  KalturaDummyOrderBy:
+    oneOf: []
+    title: KalturaDummyOrderBy
+  KalturaEngagementOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaEngagementOrderBy
+  KalturaEngagementType:
+    oneOf:
+    - enum:
+      - Churn
+      title: CHURN
+    title: KalturaEngagementType
+  KalturaEntitlementOrderBy:
+    oneOf:
+    - enum:
+      - PURCHASE_DATE_ASC
+      title: PURCHASE_DATE_ASC
+    - enum:
+      - PURCHASE_DATE_DESC
+      title: PURCHASE_DATE_DESC
+    title: KalturaEntitlementOrderBy
+  KalturaEntityReferenceBy:
+    oneOf:
+    - enum:
+      - user
+      title: USER
+    - enum:
+      - household
+      title: HOUSEHOLD
+    title: KalturaEntityReferenceBy
+  KalturaExportDataType:
+    oneOf:
+    - enum:
+      - vod
+      title: VOD
+    - enum:
+      - epg
+      title: EPG
+    - enum:
+      - users
+      title: USERS
+    title: KalturaExportDataType
+  KalturaExportTaskOrderBy:
+    oneOf:
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaExportTaskOrderBy
+  KalturaExportType:
+    oneOf:
+    - enum:
+      - full
+      title: FULL
+    - enum:
+      - incremental
+      title: INCREMENTAL
+    title: KalturaExportType
+  KalturaFavoriteOrderBy:
+    oneOf:
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaFavoriteOrderBy
+  KalturaFollowTvSeriesOrderBy:
+    oneOf:
+    - enum:
+      - START_DATE_DESC
+      title: START_DATE_DESC
+    - enum:
+      - START_DATE_ASC
+      title: START_DATE_ASC
+    title: KalturaFollowTvSeriesOrderBy
+  KalturaGroupByField:
+    oneOf:
+    - enum:
+      - media_type_id
+      title: MEDIA_TYPE_ID
+    title: KalturaGroupByField
+  KalturaHouseholdDeviceOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaHouseholdDeviceOrderBy
+  KalturaHouseholdFrequencyType:
+    oneOf:
+    - enum:
+      - devices
+      title: DEVICES
+    - enum:
+      - users
+      title: USERS
+    title: KalturaHouseholdFrequencyType
+  KalturaHouseholdPaymentGatewaySelectedBy:
+    oneOf:
+    - enum:
+      - none
+      title: NONE
+    - enum:
+      - account
+      title: ACCOUNT
+    - enum:
+      - household
+      title: HOUSEHOLD
+    title: KalturaHouseholdPaymentGatewaySelectedBy
+  KalturaHouseholdRestriction:
+    oneOf:
+    - enum:
+      - not_restricted
+      title: NOT_RESTRICTED
+    - enum:
+      - user_master_restricted
+      title: USER_MASTER_RESTRICTED
+    - enum:
+      - device_master_restricted
+      title: DEVICE_MASTER_RESTRICTED
+    - enum:
+      - device_user_master_restricted
+      title: DEVICE_USER_MASTER_RESTRICTED
+    title: KalturaHouseholdRestriction
+  KalturaHouseholdState:
+    oneOf:
+    - enum:
+      - ok
+      title: OK
+    - enum:
+      - created_without_npvr_account
+      title: CREATED_WITHOUT_NPVR_ACCOUNT
+    - enum:
+      - suspended
+      title: SUSPENDED
+    - enum:
+      - no_users_in_household
+      title: NO_USERS_IN_HOUSEHOLD
+    - enum:
+      - pending
+      title: PENDING
+    title: KalturaHouseholdState
+  KalturaHouseholdSuspensionState:
+    oneOf:
+    - enum:
+      - NOT_SUSPENDED
+      title: NOT_SUSPENDED
+    - enum:
+      - SUSPENDED
+      title: SUSPENDED
+    title: KalturaHouseholdSuspensionState
+  KalturaHouseholdUserOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaHouseholdUserOrderBy
+  KalturaHouseholdUserStatus:
+    oneOf:
+    - enum:
+      - OK
+      title: OK
+    - enum:
+      - PENDING
+      title: PENDING
+    title: KalturaHouseholdUserStatus
+  KalturaHouseholdWith:
+    oneOf:
+    - enum:
+      - users_base_info
+      title: USERS_BASE_INFO
+    - enum:
+      - users_full_info
+      title: USERS_FULL_INFO
+    title: KalturaHouseholdWith
+  KalturaIdentifierTypeBy:
+    oneOf:
+    - enum:
+      - internal_id
+      title: INTERNAL_ID
+    - enum:
+      - external_id
+      title: EXTERNAL_ID
+    title: KalturaIdentifierTypeBy
+  KalturaImageObjectType:
+    oneOf:
+    - enum:
+      - MEDIA_ASSET
+      title: MEDIA_ASSET
+    - enum:
+      - PROGRAM_ASSET
+      title: PROGRAM_ASSET
+    - enum:
+      - CHANNEL
+      title: CHANNEL
+    - enum:
+      - CATEGORY
+      title: CATEGORY
+    - enum:
+      - PARTNER
+      title: PARTNER
+    - enum:
+      - IMAGE_TYPE
+      title: IMAGE_TYPE
+    title: KalturaImageObjectType
+  KalturaImageOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaImageOrderBy
+  KalturaImageStatus:
+    oneOf:
+    - enum:
+      - PENDING
+      title: PENDING
+    - enum:
+      - READY
+      title: READY
+    - enum:
+      - FAILED
+      title: FAILED
+    title: KalturaImageStatus
+  KalturaImageTypeOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaImageTypeOrderBy
+  KalturaInboxMessageOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaInboxMessageOrderBy
+  KalturaInboxMessageStatus:
+    oneOf:
+    - enum:
+      - Unread
+      title: UNREAD
+    - enum:
+      - Read
+      title: READ
+    - enum:
+      - Deleted
+      title: DELETED
+    title: KalturaInboxMessageStatus
+  KalturaInboxMessageType:
+    oneOf:
+    - enum:
+      - SystemAnnouncement
+      title: SYSTEMANNOUNCEMENT
+    - enum:
+      - Followed
+      title: FOLLOWED
+    - enum:
+      - Engagement
+      title: ENGAGEMENT
+    - enum:
+      - Interest
+      title: INTEREST
+    title: KalturaInboxMessageType
+  KalturaLanguageOrderBy:
+    oneOf:
+    - enum:
+      - SYSTEM_NAME_ASC
+      title: SYSTEM_NAME_ASC
+    - enum:
+      - SYSTEM_NAME_DESC
+      title: SYSTEM_NAME_DESC
+    - enum:
+      - CODE_ASC
+      title: CODE_ASC
+    - enum:
+      - CODE_DESC
+      title: CODE_DESC
+    title: KalturaLanguageOrderBy
+  KalturaMediaFileOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaMediaFileOrderBy
+  KalturaMediaFileStreamerType:
+    oneOf:
+    - enum:
+      - APPLE_HTTP
+      title: APPLE_HTTP
+    - enum:
+      - MPEG_DASH
+      title: MPEG_DASH
+    - enum:
+      - URL
+      title: URL
+    - enum:
+      - SMOOTH_STREAMING
+      title: SMOOTH_STREAMING
+    title: KalturaMediaFileStreamerType
+  KalturaMediaFileTypeQuality:
+    oneOf:
+    - enum:
+      - ADAPTIVE
+      title: ADAPTIVE
+    - enum:
+      - SD
+      title: SD
+    - enum:
+      - HD_720
+      title: HD_720
+    - enum:
+      - HD_1080
+      title: HD_1080
+    - enum:
+      - UHD_4K
+      title: UHD_4K
+    title: KalturaMediaFileTypeQuality
+  KalturaMessageTemplateType:
+    oneOf:
+    - enum:
+      - Series
+      title: SERIES
+    - enum:
+      - Reminder
+      title: REMINDER
+    - enum:
+      - Churn
+      title: CHURN
+    - enum:
+      - SeriesReminder
+      title: SERIESREMINDER
+    - enum:
+      - InterestVod
+      title: INTERESTVOD
+    - enum:
+      - InterestEPG
+      title: INTERESTEPG
+    title: KalturaMessageTemplateType
+  KalturaMetaDataType:
+    oneOf:
+    - enum:
+      - STRING
+      title: STRING
+    - enum:
+      - MULTILINGUAL_STRING
+      title: MULTILINGUAL_STRING
+    - enum:
+      - NUMBER
+      title: NUMBER
+    - enum:
+      - BOOLEAN
+      title: BOOLEAN
+    - enum:
+      - DATE
+      title: DATE
+    title: KalturaMetaDataType
+  KalturaMetaFieldName:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    - enum:
+      - SERIES_ID
+      title: SERIES_ID
+    - enum:
+      - SEASON_NUMBER
+      title: SEASON_NUMBER
+    - enum:
+      - EPISODE_NUMBER
+      title: EPISODE_NUMBER
+    title: KalturaMetaFieldName
+  KalturaMetaOrderBy:
+    oneOf:
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    - enum:
+      - SYSTEM_NAME_ASC
+      title: SYSTEM_NAME_ASC
+    - enum:
+      - SYSTEM_NAME_DESC
+      title: SYSTEM_NAME_DESC
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    - enum:
+      - UPDATE_DATE_ASC
+      title: UPDATE_DATE_ASC
+    - enum:
+      - UPDATE_DATE_DESC
+      title: UPDATE_DATE_DESC
+    title: KalturaMetaOrderBy
+  KalturaMetaTagOrderBy:
+    oneOf:
+    - enum:
+      - META_ASC
+      title: META_ASC
+    - enum:
+      - META_DESC
+      title: META_DESC
+    title: KalturaMetaTagOrderBy
+  KalturaMetaType:
+    oneOf:
+    - enum:
+      - STRING
+      title: STRING
+    - enum:
+      - NUMBER
+      title: NUMBER
+    - enum:
+      - BOOLEAN
+      title: BOOLEAN
+    - enum:
+      - STRING_ARRAY
+      title: STRING_ARRAY
+    title: KalturaMetaType
+  KalturaNotificationType:
+    oneOf:
+    - enum:
+      - announcement
+      title: ANNOUNCEMENT
+    - enum:
+      - system
+      title: SYSTEM
+    - enum:
+      - Reminder
+      title: REMINDER
+    - enum:
+      - series_reminder
+      title: SERIES_REMINDER
+    title: KalturaNotificationType
+  KalturaOTTUserOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaOTTUserOrderBy
+  KalturaParentalRuleOrderBy:
+    oneOf:
+    - enum:
+      - PARTNER_SORT_VALUE
+      title: PARTNER_SORT_VALUE
+    title: KalturaParentalRuleOrderBy
+  KalturaParentalRuleType:
+    oneOf:
+    - enum:
+      - ALL
+      title: ALL
+    - enum:
+      - MOVIES
+      title: MOVIES
+    - enum:
+      - TV_SERIES
+      title: TV_SERIES
+    title: KalturaParentalRuleType
+  KalturaPartnerConfigurationType:
+    oneOf:
+    - enum:
+      - DefaultPaymentGateway
+      title: DEFAULTPAYMENTGATEWAY
+    - enum:
+      - EnablePaymentGatewaySelection
+      title: ENABLEPAYMENTGATEWAYSELECTION
+    - enum:
+      - OSSAdapter
+      title: OSSADAPTER
+    title: KalturaPartnerConfigurationType
+  KalturaPaymentMethodProfileOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaPaymentMethodProfileOrderBy
+  KalturaPaymentMethodType:
+    oneOf:
+    - enum:
+      - unknown
+      title: UNKNOWN
+    - enum:
+      - credit_card
+      title: CREDIT_CARD
+    - enum:
+      - sms
+      title: SMS
+    - enum:
+      - pay_pal
+      title: PAY_PAL
+    - enum:
+      - debit_card
+      title: DEBIT_CARD
+    - enum:
+      - ideal
+      title: IDEAL
+    - enum:
+      - incaso
+      title: INCASO
+    - enum:
+      - gift
+      title: GIFT
+    - enum:
+      - visa
+      title: VISA
+    - enum:
+      - master_card
+      title: MASTER_CARD
+    - enum:
+      - in_app
+      title: IN_APP
+    - enum:
+      - m1
+      title: M1
+    - enum:
+      - change_subscription
+      title: CHANGE_SUBSCRIPTION
+    - enum:
+      - offline
+      title: OFFLINE
+    title: KalturaPaymentMethodType
+  KalturaPersonalFeedOrderBy:
+    oneOf:
+    - enum:
+      - RELEVANCY_DESC
+      title: RELEVANCY_DESC
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    - enum:
+      - VIEWS_DESC
+      title: VIEWS_DESC
+    - enum:
+      - RATINGS_DESC
+      title: RATINGS_DESC
+    - enum:
+      - VOTES_DESC
+      title: VOTES_DESC
+    - enum:
+      - START_DATE_DESC
+      title: START_DATE_DESC
+    - enum:
+      - START_DATE_ASC
+      title: START_DATE_ASC
+    title: KalturaPersonalFeedOrderBy
+  KalturaPinType:
+    oneOf:
+    - enum:
+      - purchase
+      title: PURCHASE
+    - enum:
+      - parental
+      title: PARENTAL
+    title: KalturaPinType
+  KalturaPlatform:
+    oneOf:
+    - enum:
+      - Android
+      title: ANDROID
+    - enum:
+      - iOS
+      title: IOS
+    - enum:
+      - WindowsPhone
+      title: WINDOWSPHONE
+    - enum:
+      - Blackberry
+      title: BLACKBERRY
+    - enum:
+      - STB
+      title: STB
+    - enum:
+      - CTV
+      title: CTV
+    - enum:
+      - Other
+      title: OTHER
+    title: KalturaPlatform
+  KalturaPlaybackContextType:
+    oneOf:
+    - enum:
+      - TRAILER
+      title: TRAILER
+    - enum:
+      - CATCHUP
+      title: CATCHUP
+    - enum:
+      - START_OVER
+      title: START_OVER
+    - enum:
+      - PLAYBACK
+      title: PLAYBACK
+    title: KalturaPlaybackContextType
+  KalturaPositionOwner:
+    oneOf:
+    - enum:
+      - household
+      title: HOUSEHOLD
+    - enum:
+      - user
+      title: USER
+    title: KalturaPositionOwner
+  KalturaPriceDetailsOrderBy:
+    oneOf:
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    title: KalturaPriceDetailsOrderBy
+  KalturaPricePlanOrderBy:
+    oneOf:
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaPricePlanOrderBy
+  KalturaProductPriceOrderBy:
+    oneOf:
+    - enum:
+      - PRODUCT_ID_ASC
+      title: PRODUCT_ID_ASC
+    - enum:
+      - PRODUCT_ID_DESC
+      title: PRODUCT_ID_DESC
+    title: KalturaProductPriceOrderBy
+  KalturaProtectionPolicy:
+    oneOf:
+    - enum:
+      - ExtendingRecordingLifetime
+      title: EXTENDINGRECORDINGLIFETIME
+    - enum:
+      - LimitedByRecordingLifetime
+      title: LIMITEDBYRECORDINGLIFETIME
+    title: KalturaProtectionPolicy
+  KalturaPurchaseSettingsType:
+    oneOf:
+    - enum:
+      - block
+      title: BLOCK
+    - enum:
+      - ask
+      title: ASK
+    - enum:
+      - allow
+      title: ALLOW
+    title: KalturaPurchaseSettingsType
+  KalturaPurchaseStatus:
+    oneOf:
+    - enum:
+      - ppv_purchased
+      title: PPV_PURCHASED
+    - enum:
+      - free
+      title: FREE
+    - enum:
+      - for_purchase_subscription_only
+      title: FOR_PURCHASE_SUBSCRIPTION_ONLY
+    - enum:
+      - subscription_purchased
+      title: SUBSCRIPTION_PURCHASED
+    - enum:
+      - for_purchase
+      title: FOR_PURCHASE
+    - enum:
+      - subscription_purchased_wrong_currency
+      title: SUBSCRIPTION_PURCHASED_WRONG_CURRENCY
+    - enum:
+      - pre_paid_purchased
+      title: PRE_PAID_PURCHASED
+    - enum:
+      - geo_commerce_blocked
+      title: GEO_COMMERCE_BLOCKED
+    - enum:
+      - entitled_to_preview_module
+      title: ENTITLED_TO_PREVIEW_MODULE
+    - enum:
+      - first_device_limitation
+      title: FIRST_DEVICE_LIMITATION
+    - enum:
+      - collection_purchased
+      title: COLLECTION_PURCHASED
+    - enum:
+      - user_suspended
+      title: USER_SUSPENDED
+    - enum:
+      - not_for_purchase
+      title: NOT_FOR_PURCHASE
+    - enum:
+      - invalid_currency
+      title: INVALID_CURRENCY
+    - enum:
+      - currency_not_defined_on_price_code
+      title: CURRENCY_NOT_DEFINED_ON_PRICE_CODE
+    title: KalturaPurchaseStatus
+  KalturaQuotaOveragePolicy:
+    oneOf:
+    - enum:
+      - StopAtQuota
+      title: STOPATQUOTA
+    - enum:
+      - FIFOAutoDelete
+      title: FIFOAUTODELETE
+    title: KalturaQuotaOveragePolicy
+  KalturaRecordingContextOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaRecordingContextOrderBy
+  KalturaRecordingOrderBy:
+    oneOf:
+    - enum:
+      - TITLE_ASC
+      title: TITLE_ASC
+    - enum:
+      - TITLE_DESC
+      title: TITLE_DESC
+    - enum:
+      - START_DATE_ASC
+      title: START_DATE_ASC
+    - enum:
+      - START_DATE_DESC
+      title: START_DATE_DESC
+    title: KalturaRecordingOrderBy
+  KalturaRecordingStatus:
+    oneOf:
+    - enum:
+      - SCHEDULED
+      title: SCHEDULED
+    - enum:
+      - RECORDING
+      title: RECORDING
+    - enum:
+      - RECORDED
+      title: RECORDED
+    - enum:
+      - CANCELED
+      title: CANCELED
+    - enum:
+      - FAILED
+      title: FAILED
+    - enum:
+      - DELETED
+      title: DELETED
+    title: KalturaRecordingStatus
+  KalturaRecordingType:
+    oneOf:
+    - enum:
+      - SINGLE
+      title: SINGLE
+    - enum:
+      - SEASON
+      title: SEASON
+    - enum:
+      - SERIES
+      title: SERIES
+    title: KalturaRecordingType
+  KalturaRegionOrderBy:
+    oneOf:
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaRegionOrderBy
+  KalturaReminderType:
+    oneOf:
+    - enum:
+      - ASSET
+      title: ASSET
+    - enum:
+      - SERIES
+      title: SERIES
+    title: KalturaReminderType
+  KalturaReportOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaReportOrderBy
+  KalturaRuleActionType:
+    oneOf:
+    - enum:
+      - BLOCK
+      title: BLOCK
+    title: KalturaRuleActionType
+  KalturaRuleLevel:
+    oneOf:
+    - enum:
+      - invalid
+      title: INVALID
+    - enum:
+      - user
+      title: USER
+    - enum:
+      - household
+      title: HOUSEHOLD
+    - enum:
+      - account
+      title: ACCOUNT
+    title: KalturaRuleLevel
+  KalturaRuleType:
+    oneOf:
+    - enum:
+      - parental
+      title: PARENTAL
+    - enum:
+      - geo
+      title: GEO
+    - enum:
+      - user_type
+      title: USER_TYPE
+    - enum:
+      - device
+      title: DEVICE
+    title: KalturaRuleType
+  KalturaScheduledRecordingAssetType:
+    oneOf:
+    - enum:
+      - single
+      title: SINGLE
+    - enum:
+      - series
+      title: SERIES
+    - enum:
+      - all
+      title: ALL
+    title: KalturaScheduledRecordingAssetType
+  KalturaSearchHistoryOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaSearchHistoryOrderBy
+  KalturaSeriesRecordingOrderBy:
+    oneOf:
+    - enum:
+      - START_DATE_ASC
+      title: START_DATE_ASC
+    - enum:
+      - START_DATE_DESC
+      title: START_DATE_DESC
+    - enum:
+      - ID_ASC
+      title: ID_ASC
+    - enum:
+      - ID_DESC
+      title: ID_DESC
+    - enum:
+      - SERIES_ID_ASC
+      title: SERIES_ID_ASC
+    - enum:
+      - SERIES_ID_DESC
+      title: SERIES_ID_DESC
+    title: KalturaSeriesRecordingOrderBy
+  KalturaSeriesReminderOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaSeriesReminderOrderBy
+  KalturaSocialActionOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaSocialActionOrderBy
+  KalturaSocialActionPrivacy:
+    oneOf:
+    - enum:
+      - ALLOW
+      title: ALLOW
+    - enum:
+      - DONT_ALLOW
+      title: DONT_ALLOW
+    title: KalturaSocialActionPrivacy
+  KalturaSocialActionType:
+    oneOf:
+    - enum:
+      - LIKE
+      title: LIKE
+    - enum:
+      - WATCH
+      title: WATCH
+    - enum:
+      - RATE
+      title: RATE
+    - enum:
+      - SHARE
+      title: SHARE
+    title: KalturaSocialActionType
+  KalturaSocialCommentOrderBy:
+    oneOf:
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaSocialCommentOrderBy
+  KalturaSocialFriendActivityOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    - enum:
+      - UPDATE_DATE_DESC
+      title: UPDATE_DATE_DESC
+    title: KalturaSocialFriendActivityOrderBy
+  KalturaSocialNetwork:
+    oneOf:
+    - enum:
+      - facebook
+      title: FACEBOOK
+    title: KalturaSocialNetwork
+  KalturaSocialPlatform:
+    oneOf:
+    - enum:
+      - IN_APP
+      title: IN_APP
+    - enum:
+      - FACEBOOK
+      title: FACEBOOK
+    - enum:
+      - TWITTER
+      title: TWITTER
+    title: KalturaSocialPlatform
+  KalturaSocialPrivacy:
+    oneOf:
+    - enum:
+      - UNKNOWN
+      title: UNKNOWN
+    - enum:
+      - EVERYONE
+      title: EVERYONE
+    - enum:
+      - ALL_FRIENDS
+      title: ALL_FRIENDS
+    - enum:
+      - FRIENDS_OF_FRIENDS
+      title: FRIENDS_OF_FRIENDS
+    - enum:
+      - SELF
+      title: SELF
+    - enum:
+      - CUSTOM
+      title: CUSTOM
+    title: KalturaSocialPrivacy
+  KalturaSocialStatus:
+    oneOf:
+    - enum:
+      - error
+      title: ERROR
+    - enum:
+      - ok
+      title: OK
+    - enum:
+      - user_does_not_exist
+      title: USER_DOES_NOT_EXIST
+    - enum:
+      - no_user_social_settings_found
+      title: NO_USER_SOCIAL_SETTINGS_FOUND
+    - enum:
+      - asset_already_liked
+      title: ASSET_ALREADY_LIKED
+    - enum:
+      - not_allowed
+      title: NOT_ALLOWED
+    - enum:
+      - invalid_parameters
+      title: INVALID_PARAMETERS
+    - enum:
+      - no_facebook_action
+      title: NO_FACEBOOK_ACTION
+    - enum:
+      - asset_already_rated
+      title: ASSET_ALREADY_RATED
+    - enum:
+      - asset_dose_not_exists
+      title: ASSET_DOSE_NOT_EXISTS
+    - enum:
+      - invalid_platform_request
+      title: INVALID_PLATFORM_REQUEST
+    - enum:
+      - invalid_access_token
+      title: INVALID_ACCESS_TOKEN
+    title: KalturaSocialStatus
+  KalturaStreamType:
+    oneOf:
+    - enum:
+      - catchup
+      title: CATCHUP
+    - enum:
+      - start_over
+      title: START_OVER
+    - enum:
+      - trick_play
+      title: TRICK_PLAY
+    title: KalturaStreamType
+  KalturaSubscriptionDependencyType:
+    oneOf:
+    - enum:
+      - NOTAPPLICABLE
+      title: NOTAPPLICABLE
+    - enum:
+      - BASE
+      title: BASE
+    - enum:
+      - ADDON
+      title: ADDON
+    title: KalturaSubscriptionDependencyType
+  KalturaSubscriptionOrderBy:
+    oneOf:
+    - enum:
+      - START_DATE_ASC
+      title: START_DATE_ASC
+    - enum:
+      - START_DATE_DESC
+      title: START_DATE_DESC
+    title: KalturaSubscriptionOrderBy
+  KalturaSubscriptionSetOrderBy:
+    oneOf:
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    title: KalturaSubscriptionSetOrderBy
+  KalturaSubscriptionSetType:
+    oneOf:
+    - enum:
+      - SWITCH
+      title: SWITCH
+    - enum:
+      - DEPENDENCY
+      title: DEPENDENCY
+    title: KalturaSubscriptionSetType
+  KalturaTagOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaTagOrderBy
+  KalturaTopicAutomaticIssueNotification:
+    oneOf:
+    - enum:
+      - Inherit
+      title: INHERIT
+    - enum:
+      - 'Yes'
+      title: 'YES'
+    - enum:
+      - 'No'
+      title: 'NO'
+    title: KalturaTopicAutomaticIssueNotification
+  KalturaTopicOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaTopicOrderBy
+  KalturaTransactionAdapterStatus:
+    oneOf:
+    - enum:
+      - OK
+      title: OK
+    - enum:
+      - PENDING
+      title: PENDING
+    - enum:
+      - FAILED
+      title: FAILED
+    title: KalturaTransactionAdapterStatus
+  KalturaTransactionHistoryOrderBy:
+    oneOf:
+    - enum:
+      - CREATE_DATE_ASC
+      title: CREATE_DATE_ASC
+    - enum:
+      - CREATE_DATE_DESC
+      title: CREATE_DATE_DESC
+    title: KalturaTransactionHistoryOrderBy
+  KalturaTransactionType:
+    oneOf:
+    - enum:
+      - ppv
+      title: PPV
+    - enum:
+      - subscription
+      title: SUBSCRIPTION
+    - enum:
+      - collection
+      title: COLLECTION
+    title: KalturaTransactionType
+  KalturaUploadTokenStatus:
+    oneOf:
+    - enum:
+      - PENDING
+      title: PENDING
+    - enum:
+      - FULL_UPLOAD
+      title: FULL_UPLOAD
+    - enum:
+      - CLOSED
+      title: CLOSED
+    title: KalturaUploadTokenStatus
+  KalturaUserAssetRuleOrderBy:
+    oneOf:
+    - enum:
+      - NAME_ASC
+      title: NAME_ASC
+    - enum:
+      - NAME_DESC
+      title: NAME_DESC
+    title: KalturaUserAssetRuleOrderBy
+  KalturaUserAssetsListItemType:
+    oneOf:
+    - enum:
+      - all
+      title: ALL
+    - enum:
+      - media
+      title: MEDIA
+    title: KalturaUserAssetsListItemType
+  KalturaUserAssetsListType:
+    oneOf:
+    - enum:
+      - all
+      title: ALL
+    - enum:
+      - watch
+      title: WATCH
+    - enum:
+      - purchase
+      title: PURCHASE
+    - enum:
+      - library
+      title: LIBRARY
+    title: KalturaUserAssetsListType
+  KalturaUserRoleOrderBy:
+    oneOf:
+    - enum:
+      - NONE
+      title: NONE
+    title: KalturaUserRoleOrderBy
+  KalturaUserState:
+    oneOf:
+    - enum:
+      - ok
+      title: OK
+    - enum:
+      - user_with_no_household
+      title: USER_WITH_NO_HOUSEHOLD
+    - enum:
+      - user_created_with_no_role
+      title: USER_CREATED_WITH_NO_ROLE
+    - enum:
+      - user_not_activated
+      title: USER_NOT_ACTIVATED
+    title: KalturaUserState
+  KalturaWatchStatus:
+    oneOf:
+    - enum:
+      - progress
+      title: PROGRESS
+    - enum:
+      - done
+      title: DONE
+    - enum:
+      - all
+      title: ALL
+    title: KalturaWatchStatus
+x-errors:
+- code: '1000'
+  description: The household you entered already exists in the system
+  name: DomainAlreadyExists
+- code: '1001'
+  description: The number of devices or users has exceeded the household limit
+  name: ExceededLimit
+- code: '1002'
+  description: The device type you selected is not supported by the system
+  name: DeviceTypeNotAllowed
+- code: '1003'
+  description: The device you selected is not part of the current household
+  name: DeviceNotInDomain
+- code: '1004'
+  description: The master email address you entered already exists in the system
+  name: MasterEmailAlreadyExists
+- code: '1005'
+  description: The user you selected is not part of the current household
+  name: UserNotInDomain
+- code: '1006'
+  description: The household you selected does not exist
+  name: DomainNotExists
+- code: '1007'
+  description: The system was unable to register this household user
+  name: HouseholdUserFailed
+- code: '1008'
+  description: The household was created without an external NPVR account
+  name: DomainCreatedWithoutNPVRAccount
+- code: '1009'
+  description: Unable to perform the action requested because the household has been suspended
+  name: DomainSuspended
+- code: '1010'
+  description: The device limitation module (DLM) you entered does not exist in the system
+  name: DlmNotExist
+- code: '1011'
+  description: Unable to authenticate this user - the user name or password are incorrect. Please re-enter this information
+  name: WrongPasswordOrUserName
+- code: '1012'
+  description: This household has already been suspended
+  name: DomainAlreadySuspended
+- code: '1013'
+  description: This household has already been activated
+  name: DomainAlreadyActive
+- code: '1014'
+  description: Unable to remove the device or user from the household at this time because of the limitation period
+  name: LimitationPeriod
+- code: '1015'
+  description: The device you are trying to add already exists in the system
+  name: DeviceAlreadyExists
+- code: '1016'
+  description: Unable to add this device to this household because the device is already associated with another household
+  name: DeviceExistsInOtherDomains
+- code: '1017'
+  description: There are no users associated with this household
+  name: NoUsersInDomain
+- code: '1018'
+  description: Unable to add this user to this household because the user is already associated with another household
+  name: UserExistsInOtherDomains
+- code: '1019'
+  description: The device you selected for this action does not exist in the household
+  name: DeviceNotExists
+- code: '1020'
+  description: The user you selected for this action does not exist in the household
+  name: UserNotExistsInDomain
+- code: '1021'
+  description: 'Unable to perform this action: the user is not the household master'
+  name: ActionUserNotMaster
+- code: '1022'
+  description: 'Unable to perform this action: you have exceeded the number of users for this household'
+  name: ExceededUserLimit
+- code: '1023'
+  description: This household has not been initialized
+  name: DomainNotInitialized
+- code: '1024'
+  description: Unable to confirm this device
+  name: DeviceNotConfirmed
+- code: '1025'
+  description: The request you entered could not be completed at this time
+  name: RequestFailed
+- code: '1026'
+  description: The user you selected for this action is not a valid user
+  name: InvalidUser
+- code: '1027'
+  description: The user you selected for this action doesn't have the necessary permissions
+  name: UserNotAllowed
+- code: '1028'
+  description: The PIN number you entered is already being used in this household
+  name: DuplicatePin
+- code: '1029'
+  description: Unable to add a user to the same household twice
+  name: UserAlreadyInDomain
+- code: '1030'
+  description: Unable to delete this user from the account due to permission limitations
+  name: NotAllowedToDelete
+- code: '1031'
+  description: Unable to add a home network to the same household twice
+  name: HomeNetworkAlreadyExists
+- code: '1032'
+  description: The number of home networks in the household has been exceeded
+  name: HomeNetworkLimitation
+- code: '1033'
+  description: The home network you specified does not exis
+  name: HomeNetworkDoesNotExist
+- code: '1034'
+  description: Unable to remove the home network from the household because of the frequency limitation
+  name: HomeNetworkFrequency
+- code: '2000'
+  description: This user doesn't exist
+  name: UserDoesNotExist
+- code: '2001'
+  description: Unable to perform this action due to a household suspension
+  name: UserSuspended
+- code: '2003'
+  description: The PIN provided does not exist in the system
+  name: PinNotExists
+- code: '2004'
+  description: The PIN provided has expired
+  name: PinExpired
+- code: '2006'
+  description: The PIN provided is not valid
+  name: NoValidPin
+- code: '2007'
+  description: The security answer for the PIN code is missing
+  name: MissingSecurityParameter
+- code: '2008'
+  description: The secret provided is incorrect
+  name: SecretIsWrong
+- code: '2009'
+  description: Log in using a PIN is not enabled for this account
+  name: LoginViaPinNotAllowed
+- code: '2010'
+  description: The PIN provided is not valid.(does not match the required number of digits).
+  name: PinNotInTheRightLength
+- code: '2011'
+  description: The PIN that you entered already exists in the system
+  name: PinAlreadyExists
+- code: '2014'
+  description: The user you are trying to add already exists
+  name: UserExists
+- code: '2015'
+  description: The account has been locked
+  name: InsideLockTime
+- code: '2016'
+  description: The user must be activated to log in
+  name: UserNotActivated
+- code: '2017'
+  description: This user is already logged in
+  name: UserAllreadyLoggedIn
+- code: '2018'
+  description: The user can't be logged in on more than one device
+  name: UserDoubleLogIn
+- code: '2019'
+  description: The device you are trying to connect is not registered
+  name: DeviceNotRegistered
+- code: '2021'
+  description: ''
+  name: ErrorOnInitUser
+- code: '2023'
+  description: The user must be approved by the household master
+  name: UserNotMasterApproved
+- code: '2024'
+  description: This user is not associated with any household.
+  name: UserWithNoDomain
+- code: '2025'
+  description: The specified user type does not exist
+  name: UserTypeDoesNotExist
+- code: '2026'
+  description: The activation token is incorrec
+  name: ActivationTokenNotFound
+- code: '2027'
+  description: This user has already been approved by the household master
+  name: UserAlreadyMasterApproved
+- code: '2028'
+  description: The login server is not available. Please try again
+  name: LoginServerDown
+- code: '2029'
+  description: This role has already been associated with this user
+  name: RoleAlreadyAssignedToUser
+- code: '2030'
+  description: Unable to delete the default household user
+  name: DefaultUserCannotBeDeleted
+- code: '2031'
+  description: The exclusive household master user can't be deleted
+  name: ExclusiveMasterUserCannotBeDeleted
+- code: '2032'
+  description: Unable to find the item you requested
+  name: ItemNotFound
+- code: '2054'
+  description: The external ID you are trying to add / update already exists
+  name: ExternalIdAlreadyExists
+- code: '500063'
+  message: 'externalCode: [@externalCode@], externalMessage: [@externalMessage@]'
+  name: ExternalError
+- code: '3000'
+  description: Unable to complete the purchase of the item requested
+  name: InvalidPurchase
+- code: '3001'
+  description: Unable to cancel the product request because the cancellation window has expired.
+  name: CancelationWindowPeriodExpired
+- code: '3002'
+  description: Unable to perform this action on a subscription that is not renewable
+  name: SubscriptionNotRenewable
+- code: '3003'
+  description: The user is not entitled to the premium service that he or she is trying to access
+  name: ServiceNotAllowed
+- code: '3004'
+  description: The CDN code that was provided is incorrect
+  name: InvalidBaseLink
+- code: '3005'
+  description: Unable to complete this request - content cannot be cancelled after being viewed.
+  name: ContentAlreadyConsumed
+- code: '3011'
+  description: The request failed for an unknown reason
+  name: ReasonUnknown
+- code: '3015'
+  description: The charge status for this purchase is unknown
+  name: ChargeStatusUnknown
+- code: '3016'
+  description: The Content ID is missing
+  name: ContentIDMissing
+- code: '3017'
+  description: There is no media for the file you requested.
+  name: NoMediaRelatedToFile
+- code: '3018'
+  description: Please enter the content ID and try again
+  name: NoContentID
+- code: '3019'
+  description: Please enter the product ID and try again
+  name: NoProductID
+- code: '3020'
+  description: The coupon you entered is not valid
+  name: CouponNotValid
+- code: '3021'
+  description: Pay-Per-View was already purchased by this household
+  name: UnableToPurchasePPVPurchased
+- code: '3022'
+  description: The product you are trying to purchase is free
+  name: UnableToPurchaseFree
+- code: '3023'
+  description: The product you are trying to purchase is restricted to subscription purchases only
+  name: UnableToPurchaseForPurchaseSubscriptionOnly
+- code: '3024'
+  description: This subscription was already purchased by this household.
+  name: UnableToPurchaseSubscriptionPurchased
+- code: '3025'
+  description: The Content ID entered is not available for purchase.
+  name: NotForPurchase
+- code: '3026'
+  description: ''
+  name: Fail
+- code: '3027'
+  description: This collection has already been purchased by this household
+  name: UnableToPurchaseCollectionPurchased
+- code: '3028'
+  description: The file and media don't match
+  name: FileToMediaMismatch
+- code: '3029'
+  description: ''
+  name: ReconciliationFrequencyLimitation
+- code: '3030'
+  description: The custom data identifier you entered is invalid
+  name: InvalidCustomDataIdentifier
+- code: '3031'
+  description: The file type provided is invalid
+  name: InvalidFileType
+- code: '3032'
+  description: The user does not have permission to access this content
+  name: NotEntitled
+- code: '3033'
+  description: Your account is not enabled for the C-DVR (recording) feature
+  name: AccountCdvrNotEnabled
+- code: '3034'
+  description: Your account is not enabled for the catch-up feature
+  name: AccountCatchUpNotEnabled
+- code: '3035'
+  description: This program is not recordable
+  name: ProgramCdvrNotEnabled
+- code: '3036'
+  description: This program does not support catch-up
+  name: ProgramCatchUpNotEnabled
+- code: '3037'
+  description: You've reach the maximum limit for the catch up buffer
+  name: CatchUpBufferLimitation
+- code: '3038'
+  description: This program cannot be recorded because it is not in the recording schedule window
+  name: ProgramNotInRecordingScheduleWindow
+- code: '3039'
+  description: The program ID provided is invalid
+  name: RecordingNotFound
+- code: '3040'
+  description: The program recording failed
+  name: RecordingFailed
+- code: '3041'
+  description: ''
+  name: PaymentMethodIsUsedByHousehold
+- code: '3042'
+  description: You've reached the maximum quote buffer for your household
+  name: ExceededQuota
+- code: '3043'
+  description: Unable to perform the action requested because of the current recording status. Actions are only allowed for these statuses:Recorded, Recording, Scheduled
+  name: RecordingStatusNotValid
+- code: '3044'
+  description: You've reached the maximum quota on protected programs, and can't protect any additional programs
+  name: ExceededProtectionQuota
+- code: '3045'
+  description: The account recording protection feature is disabled
+  name: AccountProtectRecordNotEnabled
+- code: '3046'
+  description: The account series recording feature is disabled
+  name: AccountSeriesRecordingNotEnabled
+- code: '3047'
+  description: This program has already been recorded as part of a series/season recording
+  name: AlreadyRecordedAsSeriesOrSeason
+- code: '3048'
+  description: Unable to find the requested series recording
+  name: SeriesRecordingNotFound
+- code: '3049'
+  description: Unable to cancel or delete an EPG program that is not part of the series
+  name: EpgIdNotPartOfSeries
+- code: '3050'
+  description: Recording playback is not allowed for a non-existing linear channel
+  name: RecordingPlaybackNotAllowedForNonExistingEpgChannel
+- code: '3051'
+  description: Recording playback is not allowed for non-entitled linear channels
+  name: RecordingPlaybackNotAllowedForNotEntitledEpgChannel
+- code: '3052'
+  description: The season number you entered doesn't match the season number that was recorded
+  name: SeasonNumberNotMatch
+- code: '3074'
+  description: ''
+  name: SubscriptionCancellationIsBlocked
+- code: '4000'
+  description: Media concurrency limitation (according to DLM configuration)
+  name: MediaConcurrencyLimitation
+- code: '4001'
+  description: Concurrency limitation (according to DLM configuration)
+  name: ConcurrencyLimitation
+- code: '4002'
+  description: ''
+  name: BadSearchRequest
+- code: '4003'
+  description: Relevant ElasticSearch index doesn't exist, either because it wasn't built or some other error.
+  name: IndexMissing
+- code: '4004'
+  description: KSQL query string contains a syntax error. It is not in the correct and expected format.
+  name: SyntaxError
+- code: '4005'
+  description: ''
+  name: InvalidSearchField
+- code: '4006'
+  description: There's no available recommendation engine to connect
+  name: NoRecommendationEngineToInsert
+- code: '4007'
+  description: The recommendation engine specified doesn't exist
+  name: RecommendationEngineNotExist
+- code: '4008'
+  description: The mandatory recommendation engine identifier field is missing from the request
+  name: RecommendationEngineIdentifierRequired
+- code: '4009'
+  description: The mandatory recommendation engine parameter fields are missing from the request
+  name: RecommendationEngineParamsRequired
+- code: '4010'
+  description: There's no external channel to connect
+  name: NoExternalChannelToInsert
+- code: '4011'
+  description: The external channel specified doesn't exist
+  name: ExternalChannelNotExist
+- code: '4012'
+  description: There's no external channel to update
+  name: NoExternalChannelToUpdate
+- code: '4013'
+  description: The mandatory external channel identifier field is missing from the request
+  name: ExternalChannelIdentifierRequired
+- code: '4014'
+  description: The external channel isn't connected to a recommendation engine
+  name: ExternalChannelHasNoRecommendationEngine
+- code: '4015'
+  description: There's no recommendation engine to update
+  name: NoRecommendationEngineToUpdate
+- code: '4016'
+  description: The specified external channel enrichment is not available
+  name: InactiveExternalChannelEnrichment
+- code: '4017'
+  description: Please specify the channel ID identifier
+  name: IdentifierRequired
+- code: '4018'
+  description: The object requested doesn't exist
+  name: ObjectNotExist
+- code: '4019'
+  description: There's no channel to add
+  name: NoObjectToInsert
+- code: '4020'
+  description: The asset type does not match one of the group asset types
+  name: InvalidMediaType
+- code: '4021'
+  description: The asset requested is not a valid asset type
+  name: InvalidAssetType
+- code: '4022'
+  description: The EPG program requested doesn't exist
+  name: ProgramDoesntExist
+- code: '4023'
+  description: Unable to recognize the action you specified
+  name: ActionNotRecognized
+- code: '4024'
+  description: The specified asset ID is invalid
+  name: InvalidAssetId
+- code: '4025'
+  description: Unable to find the country code specified
+  name: CountryNotFound
+- code: '4026'
+  description: The asset struct name is already in use
+  name: AssetStructNameAlreadyInUse
+- code: '4027'
+  description: The asset struct system name is already in use
+  name: AssetStructSystemNameAlreadyInUse
+- code: '4031'
+  description: One or more of the specified meta ids does not exist
+  name: MetaIdsDoesNotExist
+- code: '4028'
+  description: The specified asset strcut id does not exist
+  name: AssetStructDoesNotExist
+- code: '4029'
+  description: can not change predefined asset struct name
+  name: CanNotChangePredefinedAssetStructSystemName
+- code: '4030'
+  description: can not delete predefined asset struct
+  name: CanNotDeletePredefinedAssetStruct
+- code: '4032'
+  description: The meta system name is already in use
+  name: MetaSystemNameAlreadyInUse
+- code: '4036'
+  description: ''
+  name: InvalidMutlipleValueForMetaType
+- code: '4033'
+  description: The specified meta id does not exist
+  name: MetaDoesNotExist
+- code: '4034'
+  description: can not change predefined meta name
+  name: CanNotChangePredefinedMetaSystemName
+- code: '4035'
+  description: can not delete predefined meta
+  name: CanNotDeletePredefinedMeta
+- code: '4037'
+  description: One or more of the basic meta ids was not sent
+  name: AssetStructMissingBasicMetaIds
+- code: '4038'
+  description: ''
+  name: AssetExternalIdMustBeUnique
+- code: '4040'
+  description: ''
+  name: InvalidMetaType
+- code: '4041'
+  description: ''
+  name: InvalidValueSentForMeta
+- code: '4042'
+  description: ''
+  name: DeviceRuleDoesNotExistForGroup
+- code: '4043'
+  description: ''
+  name: GeoBlockRuleDoesNotExistForGroup
+- code: '4039'
+  description: ''
+  name: AssetDoesNotExist
+- code: '4050'
+  description: One or more of the specified meta ids does not exist
+  name: MetaIdsDoesNotExistOnAsset
+- code: '4051'
+  description: ''
+  name: MediaFileTypeNameAlreadyInUse
+- code: '4052'
+  description: ''
+  name: MediaFileTypeDoesNotExist
+- code: '4055'
+  description: ''
+  name: CanNotRemoveBasicMetaIds
+- code: '4049'
+  description: ''
+  name: RatioAlreadyExist
+- code: '500064'
+  message: 'languageCode: @lngCode@ has been sent more than once'
+  name: DuplicateLanguageSent
+- code: '500065'
+  message: 'Invalid value for feature: @feature@. feature can only contain alphanumeric values and/or underscore up until 64 characters'
+  name: InvalidValueForFeature
+- code: '500066'
+  message: Default language must be one of the values sent for @object@
+  name: DefaultLanguageMustBeSent
+- code: '500067'
+  message: 'language: @lng@ is not part of group supported languages'
+  name: GroupDoesNotContainLanguage
+- code: '500068'
+  message: Global language parameter must be asterisk for write actions of multilingualName
+  name: GlobalLanguageParameterMustBeAsterisk
+- code: '500069'
+  message: multipleValue property must have a value when KalturaMetaDataType equals STRING
+  name: MultiValueWasNotSentForMetaDataTypeString
+- code: '500070'
+  message: Tag translations are not allowed using asset contoller, please use tag controller
+  name: TagTranslationNotAllowed
+- code: '4060'
+  description: The channel system name is already in use
+  name: ChannelSystemNameAlreadyInUse
+- code: '5001'
+  description: No parental PIN was defined for this user/household
+  name: NoPinDefined
+- code: '5002'
+  description: The parental PIN provided doesn't match the user/household PIN
+  name: PinMismatch
+- code: '5003'
+  description: This rule doesn't exist in the system
+  name: RuleNotExists
+- code: '5004'
+  description: There's no OSS Adapater Profile to add to the system
+  name: NoOSSAdapterToInsert
+- code: '5005'
+  description: The mandatory name field is missing from the request
+  name: NameRequired
+- code: '5006'
+  description: The mandatory shared secret field is missing from the request
+  name: SharedSecretRequired
+- code: '5007'
+  description: The mandatory OSS adapter identifier field is missing from the request
+  name: OSSAdapterIdentifierRequired
+- code: '5008'
+  description: The requested OSS adapter doesn't exist
+  name: OSSAdapterNotExist
+- code: '5009'
+  description: The mandatory OSS adapter parameter fields are missing from the request
+  name: OSSAdapterParamsRequired
+- code: '5010'
+  description: The status of the OSS adapter is unknown
+  name: UnknownOSSAdapterState
+- code: '5011'
+  description: The action requested is not allowed
+  name: ActionIsNotAllowed
+- code: '5012'
+  description: There's no OSS adapter to update
+  name: NoOSSAdapterToUpdate
+- code: '5013'
+  description: The mandatory adapter URL field is missing from the request
+  name: AdapterUrlRequired
+- code: '5014'
+  description: The system has detected conflicts between parameters
+  name: ConflictedParams
+- code: '5015'
+  description: The specified purchase settings type is Invalid
+  name: PurchaseSettingsTypeInvalid
+- code: '5016'
+  description: The requested export task wasn't found
+  name: ExportTaskNotFound
+- code: '5017'
+  description: The mandatory export notification URL field is missing from the request
+  name: ExportNotificationUrlRequired
+- code: '5018'
+  description: The export frequency set is below the minimum allowed
+  name: ExportFrequencyMinValue
+- code: '5019'
+  description: 'Invalid entry: the alias value must be unique'
+  name: AliasMustBeUnique
+- code: '5020'
+  description: The mandatory alias value field is missing from the request
+  name: AliasRequired
+- code: '5021'
+  description: There is no parental rule associated with this user
+  name: UserParentalRuleNotExists
+- code: '5022'
+  description: The system did not find any TimeShiftedTvPartner-related settings
+  name: TimeShiftedTvPartnerSettingsNotFound
+- code: '5023'
+  description: The TimeShiftedTvPartner settings specified are null
+  name: TimeShiftedTvPartnerSettingsNotSent
+- code: '5024'
+  description: You've configured a negative buffer value in the TimeShiftedTvPartnerr settings
+  name: TimeShiftedTvPartnerSettingsNegativeBufferSent
+- code: '5025'
+  description: The system didn't find any CDN partner -related settings for the group account
+  name: CDNPartnerSettingsNotFound
+- code: '6000'
+  description: The price shown for the item in the request is not the actual price.
+  name: IncorrectPrice
+- code: '6001'
+  description: This PPVModule does not belong to the item.
+  name: UnKnownPPVModule
+- code: '6002'
+  description: The specified credit card has expired.
+  name: ExpiredCard
+- code: '6003'
+  description: Cellular Permissions Error
+  name: CellularPermissionsError
+- code: '6004'
+  description: The billing provider specified is not a recognized provider.
+  name: UnKnownBillingProvider
+- code: '6005'
+  description: The mandatory Payment Gateway ID field is missing from the request.
+  name: PaymentGatewayIdRequired
+- code: '6006'
+  description: The mandatory Payment Gateway settings field is missing from the request.
+  name: PaymentGatewayParamsRequired
+- code: '6007'
+  description: There's no Payment Gateway set up for this household.
+  name: PaymentGatewayNotSetForHousehold
+- code: '6008'
+  description: The requested Payment Gateway doesn't exist.
+  name: PaymentGatewayNotExist
+- code: '6009'
+  description: The mandatory Payment Gateway charge ID field is missing from the request.
+  name: PaymentGatewayChargeIdRequired
+- code: '6011'
+  description: The configuration for the credit card clearing has not been set.
+  name: NoConfigurationFound
+- code: '6012'
+  description: The adapter failed to complete the request.
+  name: AdapterAppFailure
+- code: '6013'
+  description: The signature provide doesn't match the signature on record.
+  name: SignatureMismatch
+- code: '6014'
+  description: An error occurred while trying to save the Payment Gateway transaction.
+  name: ErrorSavingPaymentGatewayTransaction
+- code: '6015'
+  description: An error occurred while trying to save the pending Payment Gateway
+  name: ErrorSavingPaymentGatewayPending
+- code: '6016'
+  description: The mandatory external identifier field is missing from the request.
+  name: ExternalIdentifierRequired
+- code: '6017'
+  description: An error occurred while trying to set a Payment Gateway for this household.
+  name: ErrorSavingPaymentGatewayHousehold
+- code: '6018'
+  description: No Payment Gateway specified in the request.
+  name: NoPaymentGateway
+- code: '6020'
+  description: The mandatory Payment Gateway name field is missing from the request.
+  name: PaymentGatewayNameRequired
+- code: '6021'
+  description: The mandatory Payment Gateway shared secret field is missing from the request.
+  name: PaymentGatewaySharedSecretRequired
+- code: '6024'
+  description: The household is already set to a Payment Gateway.
+  name: HouseholdAlreadySetToPaymentGateway
+- code: '6025'
+  description: The charge ID was already set for the household Payment Gateway.
+  name: ChargeIdAlreadySetToHouseholdPaymentGateway
+- code: '6026'
+  description: There's no charge ID set for this household.
+  name: ChargeIdNotSetToHousehold
+- code: '6027'
+  description: There's no Payment Gateway set for this household.
+  name: HouseholdNotSetToPaymentGateway
+- code: '6028'
+  description: The multiple Payment Gateway selection feature is disabled.
+  name: PaymentGatewaySelectionIsDisabled
+- code: '6030'
+  description: The Payment Gateway failed to respond to the request because of a problem with the Payment Gateway adapter.
+  name: NoResponseFromPaymentGateway
+- code: '6031'
+  description: 'The account specified is invalid: there is a problem with the Payment Gateway adapter.'
+  name: InvalidAccount
+- code: '6032'
+  description: The payment method selected doesn't have sufficient funds for the transaction requested.
+  name: InsufficientFunds
+- code: '6033'
+  description: An unknown error occurred with the Payment Gateway adapter.
+  name: UnknownPaymentGatewayResponse
+- code: '6034'
+  description: ''
+  name: PaymentGatewayAdapterUserKnown
+- code: '6035'
+  description: ''
+  name: PaymentGatewayAdapterReasonUnknown
+- code: '6036'
+  description: The payment method signatures don't match.
+  name: SignatureDoesNotMatch
+- code: '6037'
+  description: An error occurred when updating the pending transaction.
+  name: ErrorUpdatingPendingTransaction
+- code: '6038'
+  description: The requested Payment Gateway transaction was not found.
+  name: PaymentGatewayTransactionNotFound
+- code: '6039'
+  description: This transaction isn't in a Pending state.
+  name: PaymentGatewayTransactionIsNotPending
+- code: '6040'
+  description: External identifier must be unique.
+  name: ExternalIdentifierMustBeUnique
+- code: '6041'
+  description: 'Unable to complete the request: there''s no new Payment Gateway to insert.'
+  name: NoPaymentGatewayToInsert
+- code: '6042'
+  description: The transaction's state is currently unknown.
+  name: UnknownTransactionState
+- code: '6043'
+  description: The specified Payment Gateway is not valid.
+  name: PaymentGatewayNotValid
+- code: '6044'
+  description: The mandatory household field is missing from the request.
+  name: HouseholdRequired
+- code: '6045'
+  description: The Payment Gateway adapter failed for an unknown reason.
+  name: PaymentGatewayAdapterFailReasonUnknown
+- code: '6046'
+  description: The partner configuration pair (type and configuration value) you've asked to update is an empty pair.
+  name: NoPartnerConfigurationToUpdate
+- code: '6047'
+  description: The configuration value being updated is empty.
+  name: NoConfigurationValueToUpdate
+- code: '6048'
+  description: No payment method was set for this household.
+  name: PaymentMethodNotSetForHousehold
+- code: '6049'
+  description: The selected payment method doesn't exist.
+  name: PaymentMethodNotExist
+- code: '6050'
+  description: The mandatory payment method ID field is missing from the request.
+  name: PaymentMethodIdRequired
+- code: '6051'
+  description: The mandatory payment method external ID field is missing from the request.
+  name: PaymentMethodExternalIdRequired
+- code: '6052'
+  description: An error occurred while trying to save the payment method of the household  Payment Gateway. Please try again.
+  name: ErrorSavingPaymentGatewayHouseholdPaymentMethod
+- code: '6054'
+  description: A payment method was already set for the household Payment Gateway.
+  name: PaymentMethodAlreadySetToHouseholdPaymentGateway
+- code: '6055'
+  description: The mandatory payment method name field is missing in the request.
+  name: PaymentMethodNameRequired
+- code: '6056'
+  description: The Payment Gateway doesn't support this payment method.
+  name: PaymentGatewayNotSupportPaymentMethod
+- code: '7000'
+  description: A conflict has occurred.
+  name: Conflict
+- code: '7001'
+  description: Minimum friends limitation
+  name: MinFriendsLimitation
+- code: '8000'
+  description: The updated or new notification settings weren't received by the Web service because of an internal error.
+  name: NoNotificationSettingsSent
+- code: '8001'
+  description: Push notifications are disabled.
+  name: PushNotificationFalse
+- code: '8002'
+  description: The updated or new partner notification settings weren't received by the Web service because of an internal error.
+  name: NoNotificationPartnerSettings
+- code: '8003'
+  description: The updated or new notification settings weren't received by the Web service because of an internal error.
+  name: NoNotificationSettings
+- code: '8004'
+  description: The mandatory message field in the announcement message Is empty.
+  name: AnnouncementMessageIsEmpty
+- code: '8005'
+  description: The announcement start time is invalid. Please check and try again.
+  name: AnnouncementInvalidStartTime
+- code: '8006'
+  description: The announcement requested couldn't be found.
+  name: AnnouncementNotFound
+- code: '8007'
+  description: Unable to update the announcement; the announcement was already sent.
+  name: AnnouncementUpdateNotAllowed
+- code: '8008'
+  description: The announcement time zone is invalid (for example "UTC" or "Pacific Standard Time").
+  name: AnnouncementInvalidTimezone
+- code: '8009'
+  description: This feature is disabled.
+  name: FeatureDisabled
+- code: '8010'
+  description: The announcement message exceeds the permitted message length.
+  name: AnnouncementMessageTooLong
+- code: '8011'
+  description: An error occurred while creating the announcement.
+  name: FailCreateAnnouncement
+- code: '8012'
+  description: The user is not following this series.
+  name: UserNotFollowing
+- code: '8013'
+  description: The user is already following the requested series.
+  name: UserAlreadyFollowing
+- code: '8014'
+  description: The message placeholder is invalid.
+  name: MessagePlaceholdersInvalid
+- code: '8015'
+  description: The message date-time format Is Invalid.
+  name: DatetimeFormatIsInvalid
+- code: '8016'
+  description: Unable to find the message template.
+  name: MessageTemplateNotFound
+- code: '8017'
+  description: The URL placeholder specified is invalid.
+  name: URLPlaceholdersInvalid
+- code: '8018'
+  description: Invalid message TTL
+  name: InvalidMessageTTL
+- code: '8019'
+  description: The mandatory message ID field is missing in the request.
+  name: MessageIdentifierRequired
+- code: '8020'
+  description: Requested inbox message was not found.
+  name: UserInboxMessagesNotExist
+- code: '9000'
+  description: 'Invalid price code: The price code entered doesn''t exist for this account'
+  name: InvalidPriceCode
+- code: '9001'
+  description: The value specified, such as FullLifeCycle/ ViewLifeCycle, is invalid
+  name: InvalidValue
+- code: '9002'
+  description: 'Invalid discount code: The discount code entered doesn''t exist for this account'
+  name: InvalidDiscountCode
+- code: '9003'
+  description: 'Invalid price plan: The price plan entered isn''t in use with this account'
+  name: InvalidPricePlan
+- code: '9004'
+  description: The billing code entered must be unique
+  name: CodeMustBeUnique
+- code: '9005'
+  description: The billing code entered doesn't exist
+  name: CodeNotExist
+- code: '9006'
+  description: The code entered is invalid
+  name: InvalidCodeNotExist
+- code: '9008'
+  description: 'Invalid channel: This channel doesn''t exist in this account'
+  name: InvalidChannels
+- code: '9009'
+  description: 'Invalid file type: This file type doesn''t exist for this account'
+  name: InvalidFileTypes
+- code: '9010'
+  description: 'Invalid preview module: The preview module doesn''t exist in this account'
+  name: InvalidPreviewModule
+- code: '9011'
+  description: Mandatory fields in a request must be completed
+  name: MandatoryField
+- code: '9012'
+  description: ''
+  name: UniqueFiled
+- code: '9013'
+  description: The usage module specified related to PPV doesn't exist in this account
+  name: InvalidUsageModule
+- code: '9014'
+  description: 'Invalid coupon group: The coupon group specified doesn''t exist in this account'
+  name: InvalidCouponGroup
+- code: '9015'
+  description: 'Invalid currency: The currency specified is not configured for this account'
+  name: InvalidCurrency
+- code: '9016'
+  description: The PPV module doesn't exist in the database
+  name: ModuleNotExists
+- code: '9017'
+  description: The price plan doesn't exist in the database
+  name: PricePlanDoesNotExist
+- code: '9018'
+  description: The price details doesn't exist in the database
+  name: PriceDetailsDoesNotExist
+- code: '10000'
+  description: The adapter you're trying to connect doesn't exist
+  name: AdapterNotExists
+- code: '10001'
+  description: The mandatory adapter ID field is missing from the request
+  name: AdapterIdentifierRequired
+- code: '10002'
+  description: ''
+  name: AdapterIsRequired
+- code: '10003'
+  description: ''
+  name: NoAdapterToInsert
+- code: '11000'
+  description: The XML is formatted incorrectly. Please check the file for format errors
+  name: IllegalXml
+- code: '11001'
+  description: The external ID is missing
+  name: MissingExternalIdentifier
+- code: '11002'
+  description: The Ingest type is not known
+  name: UnknownIngestType
+- code: '11003'
+  description: The EPG program dates specified are incorrectly formatted
+  name: EPGSProgramDatesError
+- code: '500003'
+  message: Bad request
+  name: BadRequest
+- code: '500057'
+  message: Invalid version [@version@]
+  name: InvalidVersion
+- code: '500004'
+  message: Service Forbidden
+  name: ServiceForbidden
+- code: '500051'
+  message: Action [@action@] is forbidden for property [@type@].[@property@]
+  name: PropertyActionForbidden
+- code: '500052'
+  message: Argument [@argument@] in action [@service@].[@action@] is forbidden
+  name: ActionArgumentForbidden
+- code: '500015'
+  message: Invalid KS format
+  name: InvalidKS
+- code: '500016'
+  message: KS expired
+  name: ExpiredKS
+- code: '500008'
+  message: Partner invalid
+  name: PartnerInvalid
+- code: '500017'
+  message: Invalid refresh token
+  name: InvalidRefreshToken
+- code: '500034'
+  message: Refresh token failed
+  name: RefreshTokenFailed
+- code: '500035'
+  message: Invalid user [@id@]
+  name: UnauthorizedUser
+- code: '500060'
+  message: Invalid UDID [@id@]
+  name: InvalidUdid
+- code: '500011'
+  message: Service [@service@] not found
+  name: InvalidService
+- code: '500012'
+  message: Action [@service@.@action@] not found
+  name: InvalidAction
+- code: '500033'
+  message: Action not specified
+  name: ActionNotSpecified
+- code: '500054'
+  message: Invalid action parameter [@parameter@]
+  name: InvalidActionParameter
+- code: '500013'
+  message: Invalid action parameters
+  name: InvalidActionParameters
+- code: '50026'
+  message: Argument [@argument@] is invalid
+  name: InvalidArgument
+- code: '500031'
+  message: Argument [@argument@] must be numeric
+  name: ArgumentMustBeNumeric
+- code: '50027'
+  message: Argument [@argument@] cannot be empty
+  name: ArgumentCannotBeEmpty
+- code: '500036'
+  message: Argument [@argument@] is not writeable
+  name: ArgumentReadonly
+- code: '500037'
+  message: Argument [@argument@] is not updateable
+  name: ArgumentInsertonly
+- code: '500041'
+  message: Enumerator value [@value@] is not supported for argument [@argument@]
+  name: EnumValueNotSupported
+- code: '500044'
+  message: Argument [@argument@] values must be of type [@enum@]
+  name: ArgumentShouldBeEnum
+- code: '500058'
+  message: Argument [@argument@] values must have minimum value of [@value@]
+  name: ArgumentShouldContainMinValueCrossed
+- code: '500059'
+  message: Argument [@argument@] values must have max value of [@value@]
+  name: ArgumentShouldContainMaxValueCrossed
+- code: '500056'
+  message: One of the arguments [@arguments@] must have a value
+  name: ArgumentsCannotBeEmpty
+- code: '500038'
+  message: Only one of @argument1@ or @argument2@ can be used, not both of them
+  name: ArgumentsConflictsEachOther
+- code: '500039'
+  message: Argument [@argument@] time have passed
+  name: TimeInPast
+- code: '500045'
+  message: Argument [@argument@] maximum length is [@value@]
+  name: ArgumentMaxLengthCrossed
+- code: '500046'
+  message: Argument [@argument@] minimum length is [@value@]
+  name: ArgumentMinLengthCrossed
+- code: '500047'
+  message: Argument [@argument@] maximum value is [@value@]
+  name: ArgumentMaxValueCrossed
+- code: '500048'
+  message: Argument [@argument@] minimum value is [@value@]
+  name: ArgumentMinValueCrossed
+- code: '500061'
+  message: Argument [@argument1@] value conflicts Argument [@argument2@] value
+  name: ArgumentsConflictEachOther
+- code: '500029'
+  message: Media ids must be numeric
+  name: MediaIdsMustBeNumeric
+- code: '500030'
+  message: EPG internal ids must be numeric
+  name: EpgInternalIdsMustBeNumeric
+- code: '500032'
+  message: Argument [@argument@] cannot be empty or all
+  name: ListTypeCannotBeEmptyOrAll
+- code: '500049'
+  message: 'Duplicate asset: id [@id@] type = [@type@]'
+  name: DuplicateAsset
+- code: '500050'
+  message: 'Duplicate file: id [@id@]'
+  name: DuplicateFile
+- code: '500062'
+  message: Unable to create household for role
+  name: UnableToCreateHouseholdForRole
+- code: '500028'
+  message: Household [@household@] forbidden
+  name: HouseholdForbidden
+- code: '50024'
+  message: Switching users is not allowed for partner
+  name: SwitchingUsersIsNotAllowedForPartner
+- code: '50023'
+  message: Application-token [@id@] is not active
+  name: NotActiveAppToken
+- code: '50022'
+  message: Invalid application-token hash
+  name: InvalidAppTokenHash
+- code: '50021'
+  message: Application-token is expired
+  name: ExpiredAppToken
+- code: '7013'
+  message: Action not allowed due to roleId [@roleId@]
+  name: NotAllowed
+- code: '1'
+  message: error
+  name: Error
+- code: '500006'
+  message: Missing configuration [@configuration@]
+  name: MissingConfiguration
+- code: '500007'
+  message: '@objectType@ not found'
+  name: NotFound
+- code: '500055'
+  message: '@objectType@ id [@id@] not found'
+  name: ObjectIdNotFound
+- code: '50025'
+  message: Invalid multirequest token
+  name: InvalidMultirequestToken
+- code: '500018'
+  message: Abstract parameter type [@type@]
+  name: AbstractParameter
+- code: '500053'
+  message: Missing parameter [@parameter@]
+  name: MissingParameter
+- code: '500042'
+  message: Invalid multirequest token, response index is not zero based
+  name: MultirequestIndexNotZeroBased
+- code: '500043'
+  message: Invalid multirequest token, invalid response index
+  name: MultirequestInvalidIndex
