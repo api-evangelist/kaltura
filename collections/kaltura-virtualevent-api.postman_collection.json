@@ -1,0 +1,955 @@
+{
+  "item": [
+    {
+      "id": "9842d496-33c9-4605-948d-52b02be47380",
+      "name": "virtualEvent",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "218993f4-6add-4d5f-968c-531ba628e381",
+          "name": "virtual Event.add",
+          "request": {
+            "name": "virtual Event.add",
+            "description": {
+              "content": "Add a new virtual event",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "virtualevent_virtualevent",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57e04a7a-a11b-4fe8-bef1-50a43142d94f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "virtualevent_virtualevent",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adminsGroupIds\": \"string\",\n  \"agendaScheduleEventId\": 7748,\n  \"attendeesGroupIds\": \"string\",\n  \"createdAt\": 3870,\n  \"deletionDueDate\": 9287,\n  \"description\": \"string\",\n  \"id\": 3344,\n  \"mainEventScheduleEventId\": 8342,\n  \"name\": \"string\",\n  \"partnerId\": 5473,\n  \"registrationFormSchema\": \"string\",\n  \"registrationScheduleEventId\": 4683,\n  \"status\": 2,\n  \"tags\": \"string\",\n  \"updatedAt\": 8309\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfc5782f-78e9-4136-9a8c-8a168d01d4d4",
+          "name": "virtual Event.delete",
+          "request": {
+            "name": "virtual Event.delete",
+            "description": {
+              "content": "Delete a virtual event",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "virtualevent_virtualevent",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21a7254f-35c9-49ef-8937-706b96952509",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "virtualevent_virtualevent",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4edbcd23-2dac-4226-a334-3fb8ffa742f1",
+              "name": "* `VIRTUAL_EVENT_NOT_FOUND`: Virtual Event [@ID@] not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "virtualevent_virtualevent",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1dfb18fc-f1d7-4829-8852-ca8af823f0b2",
+          "name": "virtual Event.get",
+          "request": {
+            "name": "virtual Event.get",
+            "description": {
+              "content": "Retrieve a virtual event by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "virtualevent_virtualevent",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d404d88e-c616-47ad-9f2e-7ba56972a23d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "virtualevent_virtualevent",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adminsGroupIds\": \"string\",\n  \"agendaScheduleEventId\": 7748,\n  \"attendeesGroupIds\": \"string\",\n  \"createdAt\": 3870,\n  \"deletionDueDate\": 9287,\n  \"description\": \"string\",\n  \"id\": 3344,\n  \"mainEventScheduleEventId\": 8342,\n  \"name\": \"string\",\n  \"partnerId\": 5473,\n  \"registrationFormSchema\": \"string\",\n  \"registrationScheduleEventId\": 4683,\n  \"status\": 2,\n  \"tags\": \"string\",\n  \"updatedAt\": 8309\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2c7471b-52a6-4af8-9248-c63bd14dbc77",
+              "name": "* `VIRTUAL_EVENT_NOT_FOUND`: Virtual Event [@ID@] not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "virtualevent_virtualevent",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fbb8dfc-b749-46e1-872d-56aaa5eeddcc",
+          "name": "virtual Event.list",
+          "request": {
+            "name": "virtual Event.list",
+            "description": {
+              "content": "List virtual events",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "virtualevent_virtualevent",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "895a1ea9-7566-4976-b621-36006f5b360b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "virtualevent_virtualevent",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0feea106-aa54-41bf-bb86-376beafae541",
+          "name": "virtual Event.update",
+          "request": {
+            "name": "virtual Event.update",
+            "description": {
+              "content": "Update an existing virtual event",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "virtualevent_virtualevent",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd7e17b1-639d-423f-8b87-df4eb3f82ebd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "virtualevent_virtualevent",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adminsGroupIds\": \"string\",\n  \"agendaScheduleEventId\": 7748,\n  \"attendeesGroupIds\": \"string\",\n  \"createdAt\": 3870,\n  \"deletionDueDate\": 9287,\n  \"description\": \"string\",\n  \"id\": 3344,\n  \"mainEventScheduleEventId\": 8342,\n  \"name\": \"string\",\n  \"partnerId\": 5473,\n  \"registrationFormSchema\": \"string\",\n  \"registrationScheduleEventId\": 4683,\n  \"status\": 2,\n  \"tags\": \"string\",\n  \"updatedAt\": 8309\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb696c82-6554-4d2c-87cf-dcf0aa7db45e",
+              "name": "* `VIRTUAL_EVENT_NOT_FOUND`: Virtual Event [@ID@] not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "virtualevent_virtualevent",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0a078364-4e7c-4126-8d5f-b039f47cf7ac",
+    "name": "Kaltura OTT accessControl virtualEvent API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

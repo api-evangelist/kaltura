@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "e10689ba-4121-4415-9a3a-1b0c47ba261b",
+      "name": "deviceFamily",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a29aebc8-fec7-407d-8739-444ff16b8dbd",
+          "name": "device Family.list",
+          "request": {
+            "name": "device Family.list",
+            "description": {
+              "content": "Return a list of the available device families.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "devicefamily",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8780752e-af4a-4e55-9fac-1368601c9f6e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "devicefamily",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"id\": 5566,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 4399,\n      \"name\": \"string\"\n    }\n  ],\n  \"totalCount\": 19\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "49d3dbe6-6cf0-4993-9947-49d7551ed454",
+    "name": "Kaltura OTT accessControl deviceFamily API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

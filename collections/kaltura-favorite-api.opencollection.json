@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl favorite API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "favorite",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "favorite.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/favorite/action/add"
+          },
+          "docs": "Add media to user&#39;s favorite list"
+        },
+        {
+          "info": {
+            "name": "favorite.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/favorite/action/delete"
+          },
+          "docs": "Remove media from user&#39;s favorite list"
+        },
+        {
+          "info": {
+            "name": "favorite.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/favorite/action/list"
+          },
+          "docs": "Retrieving users&#39; favorites"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

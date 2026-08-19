@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl social API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "social",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "social.UpdateConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/social/action/UpdateConfiguration"
+          },
+          "docs": "Set the user social network’s configuration information"
+        },
+        {
+          "info": {
+            "name": "social.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/social/action/get"
+          },
+          "docs": "List social accounts"
+        },
+        {
+          "info": {
+            "name": "social.getByToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/social/action/getByToken"
+          },
+          "docs": "Return the user object with social information according to a provided external social token"
+        },
+        {
+          "info": {
+            "name": "social.getConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/social/action/getConfiguration"
+          },
+          "docs": "Retrieve the social network’s configuration information"
+        },
+        {
+          "info": {
+            "name": "social.login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/social/action/login"
+          },
+          "docs": "Login using social token"
+        },
+        {
+          "info": {
+            "name": "social.merge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/social/action/merge"
+          },
+          "docs": "Connect an existing user in the system to an external social network user"
+        },
+        {
+          "info": {
+            "name": "social.register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/social/action/register"
+          },
+          "docs": "Create a new user in the system using a provided external social token"
+        },
+        {
+          "info": {
+            "name": "social.unmerge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/social/action/unmerge"
+          },
+          "docs": "Disconnect an existing user in the system from its external social network user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

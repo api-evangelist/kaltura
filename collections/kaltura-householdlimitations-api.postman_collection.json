@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "60adf69b-99a3-42ea-abee-d665d0d3b9d2",
+      "name": "householdLimitations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a9c47cfd-a774-45bb-8f98-ac865131ead3",
+          "name": "household Limitations.get",
+          "request": {
+            "name": "household Limitations.get",
+            "description": {
+              "content": "Get the limitation module by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householdlimitations",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41cf27f4-b15d-4871-b3df-fc65ea82720f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householdlimitations",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"concurrentLimit\": 7560,\n  \"deviceFamiliesLimitations\": [\n    {\n      \"concurrentLimit\": 8644,\n      \"deviceLimit\": 5457,\n      \"frequency\": 5538,\n      \"id\": 7760,\n      \"name\": \"string\"\n    },\n    {\n      \"concurrentLimit\": 4072,\n      \"deviceLimit\": 5317,\n      \"frequency\": 4922,\n      \"id\": 6074,\n      \"name\": \"string\"\n    }\n  ],\n  \"deviceFrequency\": 3260,\n  \"deviceFrequencyDescription\": \"string\",\n  \"deviceLimit\": 8198,\n  \"id\": 6092,\n  \"name\": \"string\",\n  \"npvrQuotaInSeconds\": 7893,\n  \"userFrequency\": 4037,\n  \"userFrequencyDescription\": \"string\",\n  \"usersLimit\": 9279\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1077399-a948-4fe9-9970-85ae9694c9c3",
+    "name": "Kaltura OTT accessControl householdLimitations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

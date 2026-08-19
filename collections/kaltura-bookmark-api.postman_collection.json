@@ -1,0 +1,359 @@
+{
+  "item": [
+    {
+      "id": "e15adb11-57d6-4478-a944-da0e5c37f83f",
+      "name": "bookmark",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "342d3d83-49af-4fbc-a751-726e7602d5d0",
+          "name": "bookmark.add",
+          "request": {
+            "name": "bookmark.add",
+            "description": {
+              "content": "Report player position and action for the user on the watched asset. Player position is used to later allow resume watching.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "bookmark",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookmark\": {\n    \"playerData\": {\n      \"action\": \"<string>\",\n      \"averageBitrate\": \"<integer>\",\n      \"currentBitrate\": \"<integer>\",\n      \"fileId\": \"<integer>\",\n      \"totalBitrate\": \"<integer>\"\n    },\n    \"position\": \"<integer>\",\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abda7300-926b-45ed-8392-d25e394ee196",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "bookmark",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bookmark\": {\n    \"playerData\": {\n      \"action\": \"<string>\",\n      \"averageBitrate\": \"<integer>\",\n      \"currentBitrate\": \"<integer>\",\n      \"fileId\": \"<integer>\",\n      \"totalBitrate\": \"<integer>\"\n    },\n    \"position\": \"<integer>\",\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3d7faa0-7e9c-44a3-bb0d-7833d5ec32b9",
+              "name": "* `InvalidAssetType`: undefined\n* `ConcurrencyLimitation`: undefined\n* `ProgramDoesntExist`: undefined\n* `ActionNotRecognized`: undefined\n* `InvalidAssetId`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "bookmark",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bookmark\": {\n    \"playerData\": {\n      \"action\": \"<string>\",\n      \"averageBitrate\": \"<integer>\",\n      \"currentBitrate\": \"<integer>\",\n      \"fileId\": \"<integer>\",\n      \"totalBitrate\": \"<integer>\"\n    },\n    \"position\": \"<integer>\",\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96aec025-9ef8-44f5-a473-96cea833cff2",
+          "name": "bookmark.list",
+          "request": {
+            "name": "bookmark.list",
+            "description": {
+              "content": "Returns player position record/s for the requested asset and the requesting user. \r\n            If default user makes the request – player position records are provided for all of the users in the household.\r\n            If non-default user makes the request - player position records are provided for the requesting user and the default user of the household.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "bookmark",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"assetIdIn\": \"<string>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "726e55ff-cb9f-48b3-9ad6-66937b9a4d2a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "bookmark",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"assetIdIn\": \"<string>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"finishedWatching\": false,\n      \"playerData\": {\n        \"action\": \"<string>\",\n        \"averageBitrate\": \"<integer>\",\n        \"currentBitrate\": \"<integer>\",\n        \"fileId\": \"<integer>\",\n        \"totalBitrate\": \"<integer>\"\n      },\n      \"position\": \"<integer>\",\n      \"positionOwner\": \"household\",\n      \"userId\": \"string\",\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"finishedWatching\": false,\n      \"playerData\": {\n        \"action\": \"<string>\",\n        \"averageBitrate\": \"<integer>\",\n        \"currentBitrate\": \"<integer>\",\n        \"fileId\": \"<integer>\",\n        \"totalBitrate\": \"<integer>\"\n      },\n      \"position\": \"<integer>\",\n      \"positionOwner\": \"user\",\n      \"userId\": \"string\",\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"totalCount\": 4654\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c76714b-0b53-4f33-a8e8-39ae75dab15e",
+              "name": "* `InvalidUser`: undefined\n* `UserNotExistsInDomain`: undefined\n* `InvalidAssetType`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "bookmark",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"assetIdIn\": \"<string>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "36ab31c6-881d-4f4d-8687-23d9f693efae",
+    "name": "Kaltura OTT accessControl bookmark API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

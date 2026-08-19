@@ -1,0 +1,931 @@
+{
+  "item": [
+    {
+      "id": "e6978dd3-b053-4e0d-8f00-42248d3c4bf1",
+      "name": "recording",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4b225e85-1042-470b-a4b6-ff4b7491b8fa",
+          "name": "recording.add",
+          "request": {
+            "name": "recording.add",
+            "description": {
+              "content": "Issue a record request for a program",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "recording",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recording\": {\n    \"assetId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39c748e3-fd33-4446-bb88-78f9ac43d7ed",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recording\": {\n    \"assetId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"<integer>\",\n  \"createDate\": 5688,\n  \"id\": 3757,\n  \"isProtected\": true,\n  \"status\": \"FAILED\",\n  \"type\": \"SEASON\",\n  \"updateDate\": 934,\n  \"viewableUntilDate\": 8478\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae286052-0d88-441a-b299-3bc798ff9b5a",
+              "name": "* `AccountCatchUpNotEnabled`: undefined\n* `UserNotInDomain`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined\n* `UserWithNoDomain`: undefined\n* `ServiceNotAllowed`: undefined\n* `NotEntitled`: undefined\n* `AccountCdvrNotEnabled`: undefined\n* `ProgramCdvrNotEnabled`: undefined\n* `ProgramCatchUpNotEnabled`: undefined\n* `CatchUpBufferLimitation`: undefined\n* `ProgramNotInRecordingScheduleWindow`: undefined\n* `ExceededQuota`: undefined\n* `AlreadyRecordedAsSeriesOrSeason`: undefined\n* `InvalidAssetId`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recording\": {\n    \"assetId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c8a873d-bf1e-4ba1-998d-75a4ccb6d191",
+          "name": "recording.cancel",
+          "request": {
+            "name": "recording.cancel",
+            "description": {
+              "content": "Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "recording",
+                "action",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70fcd088-fc09-4c48-a027-bbc742701576",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"<integer>\",\n  \"createDate\": 5688,\n  \"id\": 3757,\n  \"isProtected\": true,\n  \"status\": \"FAILED\",\n  \"type\": \"SEASON\",\n  \"updateDate\": 934,\n  \"viewableUntilDate\": 8478\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96535642-e4ea-4dac-bb27-a6ce67bd32ab",
+              "name": "* `RecordingStatusNotValid`: undefined\n* `UserNotInDomain`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined\n* `UserWithNoDomain`: undefined\n* `RecordingNotFound`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "166a4312-304b-4e04-bff9-9ef3c45fd31f",
+          "name": "recording.delete",
+          "request": {
+            "name": "recording.delete",
+            "description": {
+              "content": "Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "recording",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d183facd-ed65-49e7-9569-860c09f18c0a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"<integer>\",\n  \"createDate\": 5688,\n  \"id\": 3757,\n  \"isProtected\": true,\n  \"status\": \"FAILED\",\n  \"type\": \"SEASON\",\n  \"updateDate\": 934,\n  \"viewableUntilDate\": 8478\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "411746e2-ecfa-4184-aadf-5454054039d0",
+              "name": "* `RecordingStatusNotValid`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined\n* `RecordingNotFound`: undefined\n* `UserNotInDomain`: undefined\n* `UserWithNoDomain`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "409ca6d7-c75c-4880-8009-f90cd5401d14",
+          "name": "recording.get",
+          "request": {
+            "name": "recording.get",
+            "description": {
+              "content": "Returns recording object by internal identifier",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "recording",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb636e8e-5192-4455-865d-ac9caa7fa5b5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"<integer>\",\n  \"createDate\": 5688,\n  \"id\": 3757,\n  \"isProtected\": true,\n  \"status\": \"FAILED\",\n  \"type\": \"SEASON\",\n  \"updateDate\": 934,\n  \"viewableUntilDate\": 8478\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f343ea2e-0f34-4c02-867e-577b99858e5e",
+              "name": "* `RecordingNotFound`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10e76daf-7f80-4118-bd6c-2835aabefb22",
+          "name": "recording.list",
+          "request": {
+            "name": "recording.list",
+            "description": {
+              "content": "Return a list of recordings for the household with optional filter by status and KSQL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "recording",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"filterExpression\": \"<string>\",\n    \"orderBy\": \"<string>\",\n    \"statusIn\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da63e3d5-531c-4d63-b127-c024dcc5b818",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"filterExpression\": \"<string>\",\n    \"orderBy\": \"<string>\",\n    \"statusIn\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"assetId\": \"<integer>\",\n      \"createDate\": 2081,\n      \"id\": 6600,\n      \"isProtected\": true,\n      \"status\": \"DELETED\",\n      \"type\": \"SERIES\",\n      \"updateDate\": 2883,\n      \"viewableUntilDate\": 2856\n    },\n    {\n      \"assetId\": \"<integer>\",\n      \"createDate\": 7038,\n      \"id\": 1080,\n      \"isProtected\": true,\n      \"status\": \"DELETED\",\n      \"type\": \"SEASON\",\n      \"updateDate\": 9426,\n      \"viewableUntilDate\": 5274\n    }\n  ],\n  \"totalCount\": 7254\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d5e7297-3284-4942-a0e8-9380195ae422",
+              "name": "* `UserWithNoDomain`: undefined\n* `UserNotInDomain`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"filterExpression\": \"<string>\",\n    \"orderBy\": \"<string>\",\n    \"statusIn\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7832649-3167-43fe-ac98-98b837f02c76",
+          "name": "recording.protect",
+          "request": {
+            "name": "recording.protect",
+            "description": {
+              "content": "Protects an existing recording from the cleanup process for the defined protection period",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "recording",
+                "action",
+                "protect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d6e4947-7fc5-418c-9ba4-080ca11be9f0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "protect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"<integer>\",\n  \"createDate\": 5688,\n  \"id\": 3757,\n  \"isProtected\": true,\n  \"status\": \"FAILED\",\n  \"type\": \"SEASON\",\n  \"updateDate\": 934,\n  \"viewableUntilDate\": 8478\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fb5d650-70f9-4e97-8eac-e2b2e0f3f927",
+              "name": "* `UserWithNoDomain`: undefined\n* `RecordingStatusNotValid`: undefined\n* `ExceededProtectionQuota`: undefined\n* `AccountProtectRecordNotEnabled`: undefined\n* `UserNotInDomain`: undefined\n* `UserDoesNotExist`: undefined\n* `RecordingNotFound`: undefined\n* `UserSuspended`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "recording",
+                    "action",
+                    "protect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c83faddf-0d7d-4c69-bead-4c8d3ea89f20",
+    "name": "Kaltura OTT accessControl recording API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

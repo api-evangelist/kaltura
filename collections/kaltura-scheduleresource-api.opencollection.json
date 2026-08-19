@@ -1,0 +1,288 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl scheduleResource API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "scheduleResource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "scheduleResource.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/schedule_scheduleresource/action/add",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Allows you to add a new KalturaScheduleResource object"
+        },
+        {
+          "info": {
+            "name": "scheduleResource.addFromBulkUpload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/schedule_scheduleresource/action/addFromBulkUpload",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "bulkUploadData[objectType]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bulkUploadData[fileName]",
+                "value": "",
+                "type": "query",
+                "description": "Friendly name of the file, used to be recognized later in the logs."
+              },
+              {
+                "name": "bulkUploadData[objectData][objectType]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bulkUploadData[emailRecipients]",
+                "value": "",
+                "type": "query",
+                "description": "Recipients of the email for bulk upload success/failure"
+              },
+              {
+                "name": "bulkUploadData[numOfErrorObjects]",
+                "value": "",
+                "type": "query",
+                "description": "Number of objects that finished on error status"
+              },
+              {
+                "name": "bulkUploadData[privileges]",
+                "value": "",
+                "type": "query",
+                "description": "privileges for the job"
+              },
+              {
+                "name": "bulkUploadData[columns]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bulkUploadData[processObjectId]",
+                "value": "",
+                "type": "query",
+                "description": "The object in process"
+              },
+              {
+                "name": "bulkUploadData[processObjectType]",
+                "value": "",
+                "type": "query",
+                "description": "The type of the object in process"
+              }
+            ]
+          },
+          "docs": "Add new bulk upload batch job"
+        },
+        {
+          "info": {
+            "name": "scheduleResource.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/schedule_scheduleresource/action/delete",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Mark the KalturaScheduleResource object as deleted"
+        },
+        {
+          "info": {
+            "name": "scheduleResource.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/schedule_scheduleresource/action/get",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a KalturaScheduleResource object by ID"
+        },
+        {
+          "info": {
+            "name": "scheduleResource.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/schedule_scheduleresource/action/list",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List KalturaScheduleResource objects"
+        },
+        {
+          "info": {
+            "name": "scheduleResource.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/schedule_scheduleresource/action/update",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Update an existing KalturaScheduleResource object"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

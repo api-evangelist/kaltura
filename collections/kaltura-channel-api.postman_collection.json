@@ -1,0 +1,773 @@
+{
+  "item": [
+    {
+      "id": "46707d85-0951-4192-87f0-2f3d84e9374b",
+      "name": "channel",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7b56c06-584a-462b-8d2c-81a7f7d95ee9",
+          "name": "channel.add",
+          "request": {
+            "name": "channel.add",
+            "description": {
+              "content": "Insert new channel for partner. Supports KalturaDynamicChannel or KalturaManualChannel",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "channel",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel\": {\n    \"description\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"multilingualDescription\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"orderBy\": {\n      \"dynamicOrderBy\": {\n        \"name\": \"<string>\",\n        \"orderBy\": \"<string>\"\n      },\n      \"orderBy\": \"<string>\",\n      \"period\": \"<integer>\"\n    },\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1630d89c-dd9f-4fea-b96c-b3d1dfbda910",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": {\n    \"description\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"multilingualDescription\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"orderBy\": {\n      \"dynamicOrderBy\": {\n        \"name\": \"<string>\",\n        \"orderBy\": \"<string>\"\n      },\n      \"orderBy\": \"<string>\",\n      \"period\": \"<integer>\"\n    },\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createDate\": 26,\n  \"description\": \"<string>\",\n  \"id\": 3569,\n  \"isActive\": \"<boolean>\",\n  \"multilingualDescription\": [\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"multilingualName\": [\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"orderBy\": {\n    \"dynamicOrderBy\": {\n      \"name\": \"<string>\",\n      \"orderBy\": \"<string>\"\n    },\n    \"orderBy\": \"<string>\",\n    \"period\": \"<integer>\"\n  },\n  \"systemName\": \"<string>\",\n  \"updateDate\": 5554\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0292788c-f767-4e10-b0bc-9336d10c6e0d",
+              "name": "* `ChannelSystemNameAlreadyInUse`: undefined\n* `NameRequired`: undefined\n* `NoObjectToInsert`: undefined\n* `AssetDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": {\n    \"description\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"multilingualDescription\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"orderBy\": {\n      \"dynamicOrderBy\": {\n        \"name\": \"<string>\",\n        \"orderBy\": \"<string>\"\n      },\n      \"orderBy\": \"<string>\",\n      \"period\": \"<integer>\"\n    },\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40f58f65-6d7e-4c51-8c6e-a38bb7fc248c",
+          "name": "channel.delete",
+          "request": {
+            "name": "channel.delete",
+            "description": {
+              "content": "Delete channel by its channel id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "channel",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf763f3c-6e21-4208-b00c-fb90f615c1a5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3e6ec00-e9e5-431c-b007-7a0e1e7d2ae8",
+              "name": "* `IdentifierRequired`: undefined\n* `ObjectNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cbae9c8-5600-4c34-ab00-c49a1c0f633f",
+          "name": "channel.get",
+          "request": {
+            "name": "channel.get",
+            "description": {
+              "content": "Returns channel",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "channel",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8dbfe41b-b68e-4598-8f63-eda1164b8697",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createDate\": 26,\n  \"description\": \"<string>\",\n  \"id\": 3569,\n  \"isActive\": \"<boolean>\",\n  \"multilingualDescription\": [\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"multilingualName\": [\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"orderBy\": {\n    \"dynamicOrderBy\": {\n      \"name\": \"<string>\",\n      \"orderBy\": \"<string>\"\n    },\n    \"orderBy\": \"<string>\",\n    \"period\": \"<integer>\"\n  },\n  \"systemName\": \"<string>\",\n  \"updateDate\": 5554\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47c9e86c-84ae-49fd-a9e5-1e0b9df5e470",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a39580b6-94e7-4e24-9b14-3c6612d6285c",
+          "name": "channel.list",
+          "request": {
+            "name": "channel.list",
+            "description": {
+              "content": "Get the list of tags for the partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "channel",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"idEqual\": \"<integer>\",\n    \"nameEqual\": \"<string>\",\n    \"nameStartsWith\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bde40886-1a81-4295-8ad6-43d1d98030ab",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"idEqual\": \"<integer>\",\n    \"nameEqual\": \"<string>\",\n    \"nameStartsWith\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"createDate\": 7244,\n      \"description\": \"<string>\",\n      \"id\": 6503,\n      \"isActive\": \"<boolean>\",\n      \"multilingualDescription\": [\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"multilingualName\": [\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"orderBy\": {\n        \"dynamicOrderBy\": {\n          \"name\": \"<string>\",\n          \"orderBy\": \"<string>\"\n        },\n        \"orderBy\": \"<string>\",\n        \"period\": \"<integer>\"\n      },\n      \"systemName\": \"<string>\",\n      \"updateDate\": 4285\n    },\n    {\n      \"createDate\": 326,\n      \"description\": \"<string>\",\n      \"id\": 4413,\n      \"isActive\": \"<boolean>\",\n      \"multilingualDescription\": [\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"multilingualName\": [\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"orderBy\": {\n        \"dynamicOrderBy\": {\n          \"name\": \"<string>\",\n          \"orderBy\": \"<string>\"\n        },\n        \"orderBy\": \"<string>\",\n        \"period\": \"<integer>\"\n      },\n      \"systemName\": \"<string>\",\n      \"updateDate\": 9568\n    }\n  ],\n  \"totalCount\": 3734\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71a49408-3b72-48aa-bc3a-3dd26224ee7f",
+          "name": "channel.update",
+          "request": {
+            "name": "channel.update",
+            "description": {
+              "content": "Update channel details. Supports KalturaDynamicChannel or KalturaManualChannel",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "channel",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel\": {\n    \"description\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"multilingualDescription\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"orderBy\": {\n      \"dynamicOrderBy\": {\n        \"name\": \"<string>\",\n        \"orderBy\": \"<string>\"\n      },\n      \"orderBy\": \"<string>\",\n      \"period\": \"<integer>\"\n    },\n    \"systemName\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82b2f9cf-da98-4f69-8311-ec12d3ecbf0c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": {\n    \"description\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"multilingualDescription\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"orderBy\": {\n      \"dynamicOrderBy\": {\n        \"name\": \"<string>\",\n        \"orderBy\": \"<string>\"\n      },\n      \"orderBy\": \"<string>\",\n      \"period\": \"<integer>\"\n    },\n    \"systemName\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createDate\": 26,\n  \"description\": \"<string>\",\n  \"id\": 3569,\n  \"isActive\": \"<boolean>\",\n  \"multilingualDescription\": [\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"multilingualName\": [\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"orderBy\": {\n    \"dynamicOrderBy\": {\n      \"name\": \"<string>\",\n      \"orderBy\": \"<string>\"\n    },\n    \"orderBy\": \"<string>\",\n    \"period\": \"<integer>\"\n  },\n  \"systemName\": \"<string>\",\n  \"updateDate\": 5554\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbb54a11-ecec-4480-90d0-1f2e09ad0159",
+              "name": "* `NameRequired`: undefined\n* `ObjectNotExist`: undefined\n* `NoObjectToInsert`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "channel",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": {\n    \"description\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"multilingualDescription\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"orderBy\": {\n      \"dynamicOrderBy\": {\n        \"name\": \"<string>\",\n        \"orderBy\": \"<string>\"\n      },\n      \"orderBy\": \"<string>\",\n      \"period\": \"<integer>\"\n    },\n    \"systemName\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7c06a4ea-b70b-4132-9f67-33e2bf4ea5d7",
+    "name": "Kaltura OTT accessControl channel API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

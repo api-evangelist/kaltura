@@ -1,0 +1,154 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl adminUser API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "adminUser",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "adminUser.login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/adminuser/action/login",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get an admin session using admin email and password (Used for login to the KMC application)"
+        },
+        {
+          "info": {
+            "name": "adminUser.resetPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/adminuser/action/resetPassword",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Reset admin user password and send it to the users email address"
+        },
+        {
+          "info": {
+            "name": "adminUser.setInitialPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/adminuser/action/setInitialPassword",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Set initial users password"
+        },
+        {
+          "info": {
+            "name": "adminUser.updatePassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/adminuser/action/updatePassword",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Update admin user password and email"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

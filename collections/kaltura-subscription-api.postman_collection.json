@@ -1,0 +1,259 @@
+{
+  "item": [
+    {
+      "id": "3cc19116-ac5c-4894-bf3d-5d02e5625704",
+      "name": "subscription",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "495308ff-86c8-491b-ac4b-3f77ceee2c9f",
+          "name": "subscription.list",
+          "request": {
+            "name": "subscription.list",
+            "description": {
+              "content": "Returns a list of subscriptions requested by Subscription ID or file ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "subscription",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"externalIdIn\": \"<string>\",\n    \"mediaFileIdEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\",\n    \"subscriptionIdIn\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "680e68b3-9910-4d3e-a903-a834ad7000b5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "subscription",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"externalIdIn\": \"<string>\",\n    \"mediaFileIdEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\",\n    \"subscriptionIdIn\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"channels\": [\n        {\n          \"id\": 2572,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 5333,\n          \"name\": \"string\"\n        }\n      ],\n      \"couponsGroups\": [\n        {\n          \"couponGroupType\": \"GIFT_CARD\",\n          \"descriptions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"endDate\": 5122,\n          \"id\": \"string\",\n          \"maxUsesNumber\": 6810,\n          \"maxUsesNumberOnRenewableSub\": 8661,\n          \"name\": \"string\",\n          \"startDate\": 3500\n        },\n        {\n          \"couponGroupType\": \"GIFT_CARD\",\n          \"descriptions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"endDate\": 879,\n          \"id\": \"string\",\n          \"maxUsesNumber\": 9050,\n          \"maxUsesNumberOnRenewableSub\": 9142,\n          \"name\": \"string\",\n          \"startDate\": 8145\n        }\n      ],\n      \"dependencyType\": \"ADDON\",\n      \"description\": \"string\",\n      \"discountModule\": {\n        \"endDate\": 8131,\n        \"percent\": 791.5301259705532,\n        \"startDate\": 613\n      },\n      \"endDate\": 5402,\n      \"externalId\": \"string\",\n      \"fileTypes\": [\n        {\n          \"value\": 8880\n        },\n        {\n          \"value\": 2247\n        }\n      ],\n      \"gracePeriodMinutes\": 9235,\n      \"householdLimitationsId\": 7440,\n      \"id\": \"string\",\n      \"isCancellationBlocked\": false,\n      \"isInfiniteRenewal\": true,\n      \"isRenewable\": true,\n      \"isWaiverEnabled\": false,\n      \"maxViewsNumber\": 1153,\n      \"mediaId\": 7241,\n      \"multilingualDescription\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"multilingualName\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"premiumServices\": [\n        {\n          \"id\": 8229,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 9611,\n          \"name\": \"string\"\n        }\n      ],\n      \"previewModule\": {\n        \"id\": 2472,\n        \"lifeCycle\": 8001,\n        \"name\": \"string\",\n        \"nonRenewablePeriod\": 7672\n      },\n      \"price\": {\n        \"descriptions\": [\n          {\n            \"language\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"language\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"id\": 7048,\n        \"multiCurrencyPrice\": [\n          {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencySign\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencySign\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"name\": \"string\",\n        \"price\": {\n          \"amount\": 5306.377310617244,\n          \"countryId\": 9834,\n          \"currency\": \"string\",\n          \"currencySign\": \"string\"\n        }\n      },\n      \"pricePlanIds\": \"string\",\n      \"productCodes\": [\n        {\n          \"code\": \"string\",\n          \"inappProvider\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"inappProvider\": \"string\"\n        }\n      ],\n      \"prorityInOrder\": 2931,\n      \"renewalsNumber\": 6123,\n      \"startDate\": 2340,\n      \"userTypes\": [\n        {\n          \"description\": \"string\",\n          \"id\": 7375\n        },\n        {\n          \"description\": \"string\",\n          \"id\": 6085\n        }\n      ],\n      \"viewLifeCycle\": 9703,\n      \"waiverPeriod\": 7541\n    },\n    {\n      \"channels\": [\n        {\n          \"id\": 6434,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 2776,\n          \"name\": \"string\"\n        }\n      ],\n      \"couponsGroups\": [\n        {\n          \"couponGroupType\": \"COUPON\",\n          \"descriptions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"endDate\": 6393,\n          \"id\": \"string\",\n          \"maxUsesNumber\": 4775,\n          \"maxUsesNumberOnRenewableSub\": 4029,\n          \"name\": \"string\",\n          \"startDate\": 6756\n        },\n        {\n          \"couponGroupType\": \"COUPON\",\n          \"descriptions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"endDate\": 9200,\n          \"id\": \"string\",\n          \"maxUsesNumber\": 6565,\n          \"maxUsesNumberOnRenewableSub\": 3751,\n          \"name\": \"string\",\n          \"startDate\": 584\n        }\n      ],\n      \"dependencyType\": \"BASE\",\n      \"description\": \"string\",\n      \"discountModule\": {\n        \"endDate\": 3703,\n        \"percent\": 9171.726394326259,\n        \"startDate\": 9883\n      },\n      \"endDate\": 7236,\n      \"externalId\": \"string\",\n      \"fileTypes\": [\n        {\n          \"value\": 7052\n        },\n        {\n          \"value\": 3899\n        }\n      ],\n      \"gracePeriodMinutes\": 9190,\n      \"householdLimitationsId\": 3450,\n      \"id\": \"string\",\n      \"isCancellationBlocked\": true,\n      \"isInfiniteRenewal\": false,\n      \"isRenewable\": false,\n      \"isWaiverEnabled\": false,\n      \"maxViewsNumber\": 2355,\n      \"mediaId\": 7888,\n      \"multilingualDescription\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"multilingualName\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"premiumServices\": [\n        {\n          \"id\": 4739,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8194,\n          \"name\": \"string\"\n        }\n      ],\n      \"previewModule\": {\n        \"id\": 9107,\n        \"lifeCycle\": 7166,\n        \"name\": \"string\",\n        \"nonRenewablePeriod\": 9106\n      },\n      \"price\": {\n        \"descriptions\": [\n          {\n            \"language\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"language\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"id\": 3912,\n        \"multiCurrencyPrice\": [\n          {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencySign\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencySign\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"name\": \"string\",\n        \"price\": {\n          \"amount\": 9953.475875913133,\n          \"countryId\": 9811,\n          \"currency\": \"string\",\n          \"currencySign\": \"string\"\n        }\n      },\n      \"pricePlanIds\": \"string\",\n      \"productCodes\": [\n        {\n          \"code\": \"string\",\n          \"inappProvider\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"inappProvider\": \"string\"\n        }\n      ],\n      \"prorityInOrder\": 3530,\n      \"renewalsNumber\": 8740,\n      \"startDate\": 4402,\n      \"userTypes\": [\n        {\n          \"description\": \"string\",\n          \"id\": 3240\n        },\n        {\n          \"description\": \"string\",\n          \"id\": 4397\n        }\n      ],\n      \"viewLifeCycle\": 9246,\n      \"waiverPeriod\": 8409\n    }\n  ],\n  \"totalCount\": 5271\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9172967-e593-4260-b9de-ef7b9e6a18fe",
+          "name": "subscription.validate Coupon",
+          "request": {
+            "name": "subscription.validate Coupon",
+            "description": {
+              "content": "Returns information about a coupon for subscription",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "subscription",
+                "action",
+                "validateCoupon"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d23a5101-830c-4d41-8da5-c5ee567e4e8a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "subscription",
+                    "action",
+                    "validateCoupon"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"couponsGroup\": {\n    \"couponGroupType\": \"COUPON\",\n    \"descriptions\": [\n      {\n        \"language\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"language\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"endDate\": 4839,\n    \"id\": \"string\",\n    \"maxUsesNumber\": 5386,\n    \"maxUsesNumberOnRenewableSub\": 1085,\n    \"name\": \"string\",\n    \"startDate\": 5511\n  },\n  \"status\": \"VALID\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1276efc7-bd54-45dd-801c-16c45d22db02",
+    "name": "Kaltura OTT accessControl subscription API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

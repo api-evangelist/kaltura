@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl topic API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "topic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "topic.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/topic/action/delete"
+          },
+          "docs": "Deleted a topic"
+        },
+        {
+          "info": {
+            "name": "topic.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/topic/action/get"
+          },
+          "docs": "Gets a topic"
+        },
+        {
+          "info": {
+            "name": "topic.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/topic/action/list"
+          },
+          "docs": "Get list of topics"
+        },
+        {
+          "info": {
+            "name": "topic.updateStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/topic/action/updateStatus"
+          },
+          "docs": "Updates a topic &quot;automatic issue notification&quot; behavior."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

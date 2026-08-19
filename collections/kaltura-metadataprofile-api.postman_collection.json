@@ -1,0 +1,2658 @@
+{
+  "item": [
+    {
+      "id": "586349b4-9515-4432-acb3-8a13fbb66b8e",
+      "name": "metadataProfile",
+      "description": {
+        "content": "Metadata Profile service",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9f1c04e-10e9-42b6-981e-9f64632aef58",
+          "name": "metadata Profile.add",
+          "request": {
+            "name": "metadata Profile.add",
+            "description": {
+              "content": "Allows you to add a metadata profile object and metadata profile content associated with Kaltura object type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "af3c7ca9-a1be-46cd-8c6a-b87fac672970",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createMode\": 3,\n  \"createdAt\": 8410,\n  \"description\": \"string\",\n  \"disableReIndexing\": true,\n  \"id\": 8810,\n  \"metadataObjectType\": \"5\",\n  \"name\": \"string\",\n  \"partnerId\": 6544,\n  \"status\": 3,\n  \"systemName\": \"string\",\n  \"updatedAt\": 7216,\n  \"version\": 6151,\n  \"views\": \"string\",\n  \"xsd\": \"string\",\n  \"xslt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb8d9b04-4572-401d-afca-bc724d956bdc",
+          "name": "metadata Profile.add From File",
+          "request": {
+            "name": "metadata Profile.add From File",
+            "description": {
+              "content": "Allows you to add a metadata profile object and metadata profile file associated with Kaltura object type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "addFromFile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataProfile[metadataObjectType]",
+                  "value": "<string>",
+                  "description": "Enum Type: `KalturaMetadataObjectType`"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataProfile[name]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataProfile[systemName]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataProfile[description]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataProfile[createMode]",
+                  "value": "<integer>",
+                  "description": "Enum Type: `KalturaMetadataProfileCreateMode`"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataProfile[disableReIndexing]",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "xsdFile",
+                  "value": "<binary>",
+                  "description": "(Required) XSD metadata definition"
+                },
+                {
+                  "disabled": false,
+                  "key": "viewsFile",
+                  "value": "<binary>",
+                  "description": "UI views definition"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1452d250-8f9c-4d2d-a279-7988510a14cd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "addFromFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "metadataProfile[metadataObjectType]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataProfile[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataProfile[systemName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataProfile[description]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataProfile[createMode]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "metadataProfile[disableReIndexing]",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) XSD metadata definition",
+                        "type": "text/plain"
+                      },
+                      "key": "xsdFile",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "UI views definition",
+                        "type": "text/plain"
+                      },
+                      "key": "viewsFile",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createMode\": 3,\n  \"createdAt\": 8410,\n  \"description\": \"string\",\n  \"disableReIndexing\": true,\n  \"id\": 8810,\n  \"metadataObjectType\": \"5\",\n  \"name\": \"string\",\n  \"partnerId\": 6544,\n  \"status\": 3,\n  \"systemName\": \"string\",\n  \"updatedAt\": 7216,\n  \"version\": 6151,\n  \"views\": \"string\",\n  \"xsd\": \"string\",\n  \"xslt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66f0ea9e-17b9-4e8b-a5ed-ef1c35b8eeb2",
+              "name": "* `METADATA_FILE_NOT_FOUND`: Metadata file not found [@FILE_NAME@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "addFromFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "metadataProfile[metadataObjectType]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataProfile[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataProfile[systemName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataProfile[description]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataProfile[createMode]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "metadataProfile[disableReIndexing]",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) XSD metadata definition",
+                        "type": "text/plain"
+                      },
+                      "key": "xsdFile",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "UI views definition",
+                        "type": "text/plain"
+                      },
+                      "key": "viewsFile",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57bcc064-2c79-4602-8528-831415a8348b",
+          "name": "metadata Profile.delete",
+          "request": {
+            "name": "metadata Profile.delete",
+            "description": {
+              "content": "Delete an existing metadata profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "544f808b-336b-4b9c-83e2-a01066c4e0c2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53ead82b-14c8-4b6c-98f9-9d17db345e32",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eca12b09-e957-4cd2-b459-8881d408725c",
+          "name": "metadata Profile.get",
+          "request": {
+            "name": "metadata Profile.get",
+            "description": {
+              "content": "Retrieve a metadata profile object by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "54b6a1ad-8375-4504-8f44-548d9125b9d6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createMode\": 3,\n  \"createdAt\": 8410,\n  \"description\": \"string\",\n  \"disableReIndexing\": true,\n  \"id\": 8810,\n  \"metadataObjectType\": \"5\",\n  \"name\": \"string\",\n  \"partnerId\": 6544,\n  \"status\": 3,\n  \"systemName\": \"string\",\n  \"updatedAt\": 7216,\n  \"version\": 6151,\n  \"views\": \"string\",\n  \"xsd\": \"string\",\n  \"xslt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c99099e6-99cf-4a5a-8130-6cc61afddbb5",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0bdb799c-e488-4fc7-941e-3f2937a1d176",
+          "name": "metadata Profile.list",
+          "request": {
+            "name": "metadata Profile.list",
+            "description": {
+              "content": "List metadata profile objects by filter and pager",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0606e817-9c52-44bc-b888-ffeaecdf51d6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38bee249-a941-49a3-8881-25aaa5eb02d3",
+          "name": "metadata Profile.list Fields",
+          "request": {
+            "name": "metadata Profile.list Fields",
+            "description": {
+              "content": "List metadata profile fields by metadata profile id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "listFields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd8ca6f3-9659-4391-978e-ee8fe1ad8ebd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "listFields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f201a2e-a317-4ccb-affc-cfdde33f5775",
+          "name": "metadata Profile.revert",
+          "request": {
+            "name": "metadata Profile.revert",
+            "description": {
+              "content": "Update an existing metadata object definition file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "revert"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "38d27f56-37f4-4bf5-8278-ff7f5a3a947c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "revert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createMode\": 3,\n  \"createdAt\": 8410,\n  \"description\": \"string\",\n  \"disableReIndexing\": true,\n  \"id\": 8810,\n  \"metadataObjectType\": \"5\",\n  \"name\": \"string\",\n  \"partnerId\": 6544,\n  \"status\": 3,\n  \"systemName\": \"string\",\n  \"updatedAt\": 7216,\n  \"version\": 6151,\n  \"views\": \"string\",\n  \"xsd\": \"string\",\n  \"xslt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba411985-fffd-4aaa-9e21-59a57e65de8a",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]\n* `METADATA_FILE_NOT_FOUND`: Metadata file not found [@FILE_NAME@]\n* `METADATA_UNABLE_TO_TRANSFORM`: Unable to transform metadata [@ERR_MSG@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "revert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a12180b2-beaa-4f5a-904b-df8ed86b97ec",
+          "name": "metadata Profile.serve",
+          "request": {
+            "name": "metadata Profile.serve",
+            "description": {
+              "content": "Serves metadata profile XSD file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "serve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4406c742-4ec1-489d-9c9e-f4433dc64234",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "serve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2b49a67-5c0e-4433-964d-cc92da97a740",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]\n* `FILE_DOESNT_EXIST`: File doesnt exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "serve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7fcfeef-e398-4107-824d-ab1a444881a3",
+          "name": "metadata Profile.serve View",
+          "request": {
+            "name": "metadata Profile.serve View",
+            "description": {
+              "content": "Serves metadata profile view file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "serveView"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da2ceb69-fb01-4abf-96b2-e80d933ed296",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "serveView"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c07b05bf-d4d6-4088-902e-f74c3e2eca6c",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]\n* `FILE_DOESNT_EXIST`: File doesnt exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "serveView"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9085631e-0c18-4210-b159-27751cd8cce6",
+          "name": "metadata Profile.update",
+          "request": {
+            "name": "metadata Profile.update",
+            "description": {
+              "content": "Update an existing metadata object",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6cf93178-ec07-4546-a3e5-5e7b73098454",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createMode\": 3,\n  \"createdAt\": 8410,\n  \"description\": \"string\",\n  \"disableReIndexing\": true,\n  \"id\": 8810,\n  \"metadataObjectType\": \"5\",\n  \"name\": \"string\",\n  \"partnerId\": 6544,\n  \"status\": 3,\n  \"systemName\": \"string\",\n  \"updatedAt\": 7216,\n  \"version\": 6151,\n  \"views\": \"string\",\n  \"xsd\": \"string\",\n  \"xslt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32796655-9497-48f3-a315-1b19f192ca91",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]\n* `METADATA_UNABLE_TO_TRANSFORM`: Unable to transform metadata [@ERR_MSG@]\n* `METADATA_TRANSFORMING`: Metadata profile is currently transforming\n* `METADATA_PROFILE_FILE_NOT_FOUND`: Metadata profile file not found [@FILE_NAME@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50b533f3-8cb0-4290-bb9b-566bfaf5bc10",
+          "name": "metadata Profile.update Definition From File",
+          "request": {
+            "name": "metadata Profile.update Definition From File",
+            "description": {
+              "content": "Update an existing metadata object definition file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "updateDefinitionFromFile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "xsdFile",
+                  "value": "<binary>",
+                  "description": "(Required) XSD metadata definition"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ec387f79-1015-4d79-b11b-788e4a8ceb49",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "updateDefinitionFromFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) XSD metadata definition",
+                        "type": "text/plain"
+                      },
+                      "key": "xsdFile",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createMode\": 3,\n  \"createdAt\": 8410,\n  \"description\": \"string\",\n  \"disableReIndexing\": true,\n  \"id\": 8810,\n  \"metadataObjectType\": \"5\",\n  \"name\": \"string\",\n  \"partnerId\": 6544,\n  \"status\": 3,\n  \"systemName\": \"string\",\n  \"updatedAt\": 7216,\n  \"version\": 6151,\n  \"views\": \"string\",\n  \"xsd\": \"string\",\n  \"xslt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6097f7bc-fee6-4620-99a2-52cc1be7126a",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]\n* `METADATA_FILE_NOT_FOUND`: Metadata file not found [@FILE_NAME@]\n* `METADATA_UNABLE_TO_TRANSFORM`: Unable to transform metadata [@ERR_MSG@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "updateDefinitionFromFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) XSD metadata definition",
+                        "type": "text/plain"
+                      },
+                      "key": "xsdFile",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32718115-0f28-48f7-8e29-b2cc89e59c2c",
+          "name": "metadata Profile.update Transformation From File",
+          "request": {
+            "name": "metadata Profile.update Transformation From File",
+            "description": {
+              "content": "Update an existing metadata object XSLT file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "updateTransformationFromFile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "xsltFile",
+                  "value": "<binary>",
+                  "description": "(Required) XSLT file, will be executed on every metadata add/update"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6ae62177-e687-4233-9380-840612382186",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "updateTransformationFromFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) XSLT file, will be executed on every metadata add/update",
+                        "type": "text/plain"
+                      },
+                      "key": "xsltFile",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createMode\": 3,\n  \"createdAt\": 8410,\n  \"description\": \"string\",\n  \"disableReIndexing\": true,\n  \"id\": 8810,\n  \"metadataObjectType\": \"5\",\n  \"name\": \"string\",\n  \"partnerId\": 6544,\n  \"status\": 3,\n  \"systemName\": \"string\",\n  \"updatedAt\": 7216,\n  \"version\": 6151,\n  \"views\": \"string\",\n  \"xsd\": \"string\",\n  \"xslt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36caa2a9-c432-469d-bf45-7e8f0ad6f41b",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]\n* `METADATA_FILE_NOT_FOUND`: Metadata file not found [@FILE_NAME@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "updateTransformationFromFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) XSLT file, will be executed on every metadata add/update",
+                        "type": "text/plain"
+                      },
+                      "key": "xsltFile",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6430433-c1d4-44d0-97bc-f9dfc5b10c52",
+          "name": "metadata Profile.update Views From File",
+          "request": {
+            "name": "metadata Profile.update Views From File",
+            "description": {
+              "content": "Update an existing metadata object views file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "metadata_metadataprofile",
+                "action",
+                "updateViewsFromFile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "viewsFile",
+                  "value": "<binary>",
+                  "description": "(Required) UI views file"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e1dc0e8f-b9ef-46f3-83f1-2e26a9ac6ad2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "updateViewsFromFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) UI views file",
+                        "type": "text/plain"
+                      },
+                      "key": "viewsFile",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createMode\": 3,\n  \"createdAt\": 8410,\n  \"description\": \"string\",\n  \"disableReIndexing\": true,\n  \"id\": 8810,\n  \"metadataObjectType\": \"5\",\n  \"name\": \"string\",\n  \"partnerId\": 6544,\n  \"status\": 3,\n  \"systemName\": \"string\",\n  \"updatedAt\": 7216,\n  \"version\": 6151,\n  \"views\": \"string\",\n  \"xsd\": \"string\",\n  \"xslt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a54f3d1f-bb2a-4e48-b415-1c1e4ec698ec",
+              "name": "* `METADATA_PROFILE_NOT_FOUND`: metadata profile not found, id [@ID@]\n* `METADATA_FILE_NOT_FOUND`: Metadata file not found [@FILE_NAME@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "metadata_metadataprofile",
+                    "action",
+                    "updateViewsFromFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) UI views file",
+                        "type": "text/plain"
+                      },
+                      "key": "viewsFile",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e14baa18-90ca-401a-aeb8-96c9a156c7b7",
+    "name": "Kaltura OTT accessControl metadataProfile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

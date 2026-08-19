@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl engagementAdapter API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "engagementAdapter",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "engagementAdapter.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagementadapter/action/add"
+          },
+          "docs": "Insert new Engagement adapter for partner"
+        },
+        {
+          "info": {
+            "name": "engagementAdapter.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagementadapter/action/delete"
+          },
+          "docs": "Delete Engagement adapter by Engagement adapter id"
+        },
+        {
+          "info": {
+            "name": "engagementAdapter.generateSharedSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagementadapter/action/generateSharedSecret"
+          },
+          "docs": "Generate engagement adapter shared secret"
+        },
+        {
+          "info": {
+            "name": "engagementAdapter.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagementadapter/action/get"
+          },
+          "docs": "Returns all Engagement adapters for partner : id + name"
+        },
+        {
+          "info": {
+            "name": "engagementAdapter.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagementadapter/action/list"
+          },
+          "docs": "Returns all Engagement adapters for partner : id + name"
+        },
+        {
+          "info": {
+            "name": "engagementAdapter.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagementadapter/action/update"
+          },
+          "docs": "Update Engagement adapter details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

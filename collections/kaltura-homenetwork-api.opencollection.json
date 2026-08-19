@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl homeNetwork API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "homeNetwork",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "homeNetwork.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/homenetwork/action/add"
+          },
+          "docs": "Add a new home network to a household"
+        },
+        {
+          "info": {
+            "name": "homeNetwork.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/homenetwork/action/delete"
+          },
+          "docs": "Delete household’s existing home network"
+        },
+        {
+          "info": {
+            "name": "homeNetwork.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/homenetwork/action/list"
+          },
+          "docs": "Retrieve the household’s home networks"
+        },
+        {
+          "info": {
+            "name": "homeNetwork.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/homenetwork/action/update"
+          },
+          "docs": "Update and existing home network for a household"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

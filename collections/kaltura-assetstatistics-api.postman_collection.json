@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "ceb91a35-a3f8-4117-a5fb-658e50e17713",
+      "name": "assetStatistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "01166003-98f8-4588-82fe-4aca53a6e4b4",
+          "name": "asset Statistics.query",
+          "request": {
+            "name": "asset Statistics.query",
+            "description": {
+              "content": "Returns statistics for given list of assets by type and / or time period",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "assetstatistics",
+                "action",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"assetIdIn\": \"<string>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"endDateGreaterThanOrEqual\": \"<integer>\",\n    \"startDateGreaterThanOrEqual\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "46023399-3501-4879-a14a-9db1cfdf8d2d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "assetstatistics",
+                    "action",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"assetIdIn\": \"<string>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"endDateGreaterThanOrEqual\": \"<integer>\",\n    \"startDateGreaterThanOrEqual\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"assetId\": 1938,\n      \"buzzScore\": {\n        \"avgScore\": 4915.327069493061,\n        \"normalizedAvgScore\": 5631.066050419548,\n        \"updateDate\": 4898\n      },\n      \"likes\": 453,\n      \"rating\": 9635.223006242686,\n      \"ratingCount\": 8588,\n      \"views\": 6103\n    },\n    {\n      \"assetId\": 5353,\n      \"buzzScore\": {\n        \"avgScore\": 2771.206413144961,\n        \"normalizedAvgScore\": 239.98572758374138,\n        \"updateDate\": 5001\n      },\n      \"likes\": 1818,\n      \"rating\": 4046.245787919616,\n      \"ratingCount\": 2411,\n      \"views\": 9018\n    }\n  ],\n  \"totalCount\": 5798\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "45f76a31-e9c6-45b4-bf00-1a7a7b7e213b",
+    "name": "Kaltura OTT accessControl assetStatistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

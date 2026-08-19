@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl ossAdapterProfile API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ossAdapterProfile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ossAdapterProfile.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ossadapterprofile/action/add"
+          },
+          "docs": "Insert new OSS adapter for partner"
+        },
+        {
+          "info": {
+            "name": "ossAdapterProfile.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ossadapterprofile/action/delete"
+          },
+          "docs": "Delete OSS adapter by OSS adapter id"
+        },
+        {
+          "info": {
+            "name": "ossAdapterProfile.generateSharedSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ossadapterprofile/action/generateSharedSecret"
+          },
+          "docs": "Generate oss adapter shared secret"
+        },
+        {
+          "info": {
+            "name": "ossAdapterProfile.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ossadapterprofile/action/get"
+          },
+          "docs": "Returns all OSS adapters for partner : id + name"
+        },
+        {
+          "info": {
+            "name": "ossAdapterProfile.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ossadapterprofile/action/list"
+          },
+          "docs": "Returns all OSS adapters for partner : id + name"
+        },
+        {
+          "info": {
+            "name": "ossAdapterProfile.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ossadapterprofile/action/update"
+          },
+          "docs": "Update OSS adapter details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

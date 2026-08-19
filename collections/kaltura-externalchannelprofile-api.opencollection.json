@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl externalChannelProfile API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "externalChannelProfile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "externalChannelProfile.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/externalchannelprofile/action/add"
+          },
+          "docs": "Insert new External channel for partner"
+        },
+        {
+          "info": {
+            "name": "externalChannelProfile.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/externalchannelprofile/action/delete"
+          },
+          "docs": "Delete External channel by External channel id"
+        },
+        {
+          "info": {
+            "name": "externalChannelProfile.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/externalchannelprofile/action/list"
+          },
+          "docs": "Returns all External channels for partner"
+        },
+        {
+          "info": {
+            "name": "externalChannelProfile.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/externalchannelprofile/action/update"
+          },
+          "docs": "Update External channel details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

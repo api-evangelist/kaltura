@@ -1,0 +1,2221 @@
+{
+  "item": [
+    {
+      "id": "663377c1-a3db-46ed-b161-a4ca86321ed7",
+      "name": "batchcontrol",
+      "description": {
+        "content": "batch service lets you handle different batch process from remote machines.\n As opposed to other objects in the system, locking mechanism is critical in this case.\n For this reason the GetExclusiveXX, UpdateExclusiveXX and FreeExclusiveXX actions are important for the system's integrity.\n In general - updating batch object should be done only using the UpdateExclusiveXX which in turn can be called only after \n acquiring a batch object properly (using  GetExclusiveXX).\n If an object was acquired and should be returned to the pool in it's initial state - use the FreeExclusiveXX action \n Terminology:\n LocationId\n ServerID\n ParternGroups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2689d2c5-555c-4b3c-8e35-057937f6cdf8",
+          "name": "batchcontrol.config Loaded",
+          "request": {
+            "name": "batchcontrol.config Loaded",
+            "description": {
+              "content": "batch configLoaded action saves the configuration as loaded by a remote scheduler",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "configLoaded"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "87f95978-f8dd-45fc-b9df-badbe83cbc59",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "configLoaded"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"commandId\": \"string\",\n  \"commandStatus\": \"string\",\n  \"createdBy\": \"string\",\n  \"id\": 4018,\n  \"schedulerConfiguredId\": 3967,\n  \"schedulerId\": 364,\n  \"schedulerName\": \"string\",\n  \"updatedBy\": \"string\",\n  \"value\": \"string\",\n  \"variable\": \"string\",\n  \"variablePart\": \"string\",\n  \"workerConfiguredId\": 9035,\n  \"workerId\": 6002,\n  \"workerName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2108ea91-5fc3-4ed8-a06d-5fff3e10b094",
+          "name": "batchcontrol.get Command",
+          "request": {
+            "name": "batchcontrol.get Command",
+            "description": {
+              "content": "batch getCommand action returns the command with its current status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "getCommand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "48cc46d7-e693-4577-852d-ea7157855d2b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "getCommand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchIndex\": 2500,\n  \"cause\": \"string\",\n  \"createdAt\": 5570,\n  \"createdBy\": \"string\",\n  \"createdById\": 394,\n  \"description\": \"string\",\n  \"errorDescription\": \"string\",\n  \"id\": 9871,\n  \"schedulerId\": 4296,\n  \"status\": 4,\n  \"targetType\": 4,\n  \"type\": 4,\n  \"updatedAt\": 2158,\n  \"updatedBy\": \"string\",\n  \"workerConfiguredId\": 8728,\n  \"workerId\": 7131,\n  \"workerName\": 5151\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a33ec8f9-8e91-4e83-9fda-637c8dd11acc",
+          "name": "batchcontrol.get Full Status",
+          "request": {
+            "name": "batchcontrol.get Full Status",
+            "description": {
+              "content": "batch getFullStatus action returns the status of all schedulers and queues",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "getFullStatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8ae91cb-34cd-404c-ab4d-32fd08f997f1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "getFullStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"queuesStatus\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"schedulers\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81b493f9-da0e-405a-9544-7d4437d18b39",
+          "name": "batchcontrol.get Or Create Scheduler",
+          "request": {
+            "name": "batchcontrol.get Or Create Scheduler",
+            "description": {},
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "getOrCreateScheduler"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da72b6c9-187b-4d8b-9f59-4113680ed467",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "getOrCreateScheduler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"configs\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"configuredId\": 9346,\n  \"createdAt\": 6692,\n  \"host\": \"string\",\n  \"id\": 3800,\n  \"lastStatus\": 6306,\n  \"lastStatusStr\": \"string\",\n  \"name\": \"string\",\n  \"statuses\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"workers\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0ab284d-a6d5-4190-bbb0-b583d0c804fe",
+          "name": "batchcontrol.kill",
+          "request": {
+            "name": "batchcontrol.kill",
+            "description": {
+              "content": "batch kill action forces stop of a batch on a remote scheduler",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "kill"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b139d73-35ab-4a72-b856-488632e7d8cb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "kill"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchIndex\": 2500,\n  \"cause\": \"string\",\n  \"createdAt\": 5570,\n  \"createdBy\": \"string\",\n  \"createdById\": 394,\n  \"description\": \"string\",\n  \"errorDescription\": \"string\",\n  \"id\": 9871,\n  \"schedulerId\": 4296,\n  \"status\": 4,\n  \"targetType\": 4,\n  \"type\": 4,\n  \"updatedAt\": 2158,\n  \"updatedBy\": \"string\",\n  \"workerConfiguredId\": 8728,\n  \"workerId\": 7131,\n  \"workerName\": 5151\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08bc0fd7-ef1b-4bd9-b991-6c82554ab250",
+          "name": "batchcontrol.list Commands",
+          "request": {
+            "name": "batchcontrol.list Commands",
+            "description": {
+              "content": "list batch control commands",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "listCommands"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "52bef314-d239-41f5-9d03-4e4769ccfdac",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "listCommands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b516610-fe03-40a7-a22e-4c86643dc973",
+          "name": "batchcontrol.list Schedulers",
+          "request": {
+            "name": "batchcontrol.list Schedulers",
+            "description": {
+              "content": "list all Schedulers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "listSchedulers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8421334e-2ff1-4094-a326-38dc49b0de16",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "listSchedulers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5fadb68-ff93-49ff-889d-c35c915159ea",
+          "name": "batchcontrol.list Workers",
+          "request": {
+            "name": "batchcontrol.list Workers",
+            "description": {
+              "content": "list all Workers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "listWorkers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fe0f53bc-31ea-4e30-8754-5ce676ba890c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "listWorkers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b748923f-cde7-4677-9056-d6a7f56c1ade",
+          "name": "batchcontrol.report Status",
+          "request": {
+            "name": "batchcontrol.report Status",
+            "description": {
+              "content": "batch reportStatus action saves the status attribute from a remote scheduler and returns pending commands for the scheduler",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "reportStatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c4432b62-e989-4ae3-b6c9-13d8eb8a6422",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "reportStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"controlPanelCommands\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"queuesStatus\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"schedulerConfigs\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "284d44b3-c5af-46f1-8376-9b69e2fe5757",
+          "name": "batchcontrol.set Command Result",
+          "request": {
+            "name": "batchcontrol.set Command Result",
+            "description": {
+              "content": "batch setCommandResult action saves the results of a command as received from a remote scheduler",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "setCommandResult"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71d06e6b-0537-4e96-a99b-f9128867006a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "setCommandResult"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchIndex\": 2500,\n  \"cause\": \"string\",\n  \"createdAt\": 5570,\n  \"createdBy\": \"string\",\n  \"createdById\": 394,\n  \"description\": \"string\",\n  \"errorDescription\": \"string\",\n  \"id\": 9871,\n  \"schedulerId\": 4296,\n  \"status\": 4,\n  \"targetType\": 4,\n  \"type\": 4,\n  \"updatedAt\": 2158,\n  \"updatedBy\": \"string\",\n  \"workerConfiguredId\": 8728,\n  \"workerId\": 7131,\n  \"workerName\": 5151\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b0f9b80-84ee-488d-bd4d-6c27a64e50d8",
+          "name": "batchcontrol.set Scheduler Config",
+          "request": {
+            "name": "batchcontrol.set Scheduler Config",
+            "description": {
+              "content": "batch sets a configuration parameter to be loaded by a scheduler",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "setSchedulerConfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df2faeb1-1d64-4fc4-9228-646adbf77ce7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "setSchedulerConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchIndex\": 2500,\n  \"cause\": \"string\",\n  \"createdAt\": 5570,\n  \"createdBy\": \"string\",\n  \"createdById\": 394,\n  \"description\": \"string\",\n  \"errorDescription\": \"string\",\n  \"id\": 9871,\n  \"schedulerId\": 4296,\n  \"status\": 4,\n  \"targetType\": 4,\n  \"type\": 4,\n  \"updatedAt\": 2158,\n  \"updatedBy\": \"string\",\n  \"workerConfiguredId\": 8728,\n  \"workerId\": 7131,\n  \"workerName\": 5151\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8158918-8aba-4f96-8391-a51142d7b144",
+          "name": "batchcontrol.set Worker Config",
+          "request": {
+            "name": "batchcontrol.set Worker Config",
+            "description": {
+              "content": "batch sets a configuration parameter to be loaded by a worker",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "setWorkerConfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24fc7352-1d12-4317-a64f-173b6cb2a7eb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "setWorkerConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchIndex\": 2500,\n  \"cause\": \"string\",\n  \"createdAt\": 5570,\n  \"createdBy\": \"string\",\n  \"createdById\": 394,\n  \"description\": \"string\",\n  \"errorDescription\": \"string\",\n  \"id\": 9871,\n  \"schedulerId\": 4296,\n  \"status\": 4,\n  \"targetType\": 4,\n  \"type\": 4,\n  \"updatedAt\": 2158,\n  \"updatedBy\": \"string\",\n  \"workerConfiguredId\": 8728,\n  \"workerId\": 7131,\n  \"workerName\": 5151\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa57c26d-6d01-4239-a69e-1bf657c8a10c",
+          "name": "batchcontrol.start Worker",
+          "request": {
+            "name": "batchcontrol.start Worker",
+            "description": {
+              "content": "batch start action starts a job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "startWorker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "483da8b1-717c-4731-952a-858d1a6e1094",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "startWorker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchIndex\": 2500,\n  \"cause\": \"string\",\n  \"createdAt\": 5570,\n  \"createdBy\": \"string\",\n  \"createdById\": 394,\n  \"description\": \"string\",\n  \"errorDescription\": \"string\",\n  \"id\": 9871,\n  \"schedulerId\": 4296,\n  \"status\": 4,\n  \"targetType\": 4,\n  \"type\": 4,\n  \"updatedAt\": 2158,\n  \"updatedBy\": \"string\",\n  \"workerConfiguredId\": 8728,\n  \"workerId\": 7131,\n  \"workerName\": 5151\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c8f0fa6-1514-4734-bf88-f0d1fa8b71b3",
+          "name": "batchcontrol.stop Scheduler",
+          "request": {
+            "name": "batchcontrol.stop Scheduler",
+            "description": {
+              "content": "batch stop action stops a scheduler",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "stopScheduler"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "add54bee-5b23-4abb-80e1-bb3bc371a81f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "stopScheduler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchIndex\": 2500,\n  \"cause\": \"string\",\n  \"createdAt\": 5570,\n  \"createdBy\": \"string\",\n  \"createdById\": 394,\n  \"description\": \"string\",\n  \"errorDescription\": \"string\",\n  \"id\": 9871,\n  \"schedulerId\": 4296,\n  \"status\": 4,\n  \"targetType\": 4,\n  \"type\": 4,\n  \"updatedAt\": 2158,\n  \"updatedBy\": \"string\",\n  \"workerConfiguredId\": 8728,\n  \"workerId\": 7131,\n  \"workerName\": 5151\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71ae9137-2a11-4020-8f63-9934c5b99822",
+          "name": "batchcontrol.stop Worker",
+          "request": {
+            "name": "batchcontrol.stop Worker",
+            "description": {
+              "content": "batch stop action stops a worker",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "batchcontrol",
+                "action",
+                "stopWorker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0fa6dfe3-e8bf-44df-b9d3-98c88b2a5e35",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "batchcontrol",
+                    "action",
+                    "stopWorker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchIndex\": 2500,\n  \"cause\": \"string\",\n  \"createdAt\": 5570,\n  \"createdBy\": \"string\",\n  \"createdById\": 394,\n  \"description\": \"string\",\n  \"errorDescription\": \"string\",\n  \"id\": 9871,\n  \"schedulerId\": 4296,\n  \"status\": 4,\n  \"targetType\": 4,\n  \"type\": 4,\n  \"updatedAt\": 2158,\n  \"updatedBy\": \"string\",\n  \"workerConfiguredId\": 8728,\n  \"workerId\": 7131,\n  \"workerName\": 5151\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "de5af82b-ab24-496e-a4a2-1762338c7d8b",
+    "name": "Kaltura OTT accessControl batchcontrol API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

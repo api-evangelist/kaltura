@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl purchaseSettings API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "purchaseSettings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "purchaseSettings.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/purchasesettings/action/get"
+          },
+          "docs": "Retrieve the purchase settings.\r\n            Includes specification of where these settings were defined – account, household or user"
+        },
+        {
+          "info": {
+            "name": "purchaseSettings.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/purchasesettings/action/update"
+          },
+          "docs": "Set a purchase PIN for the household or user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

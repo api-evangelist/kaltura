@@ -1,0 +1,2960 @@
+{
+  "item": [
+    {
+      "id": "6492dbdd-af7a-40a0-bf61-898b36a70bdd",
+      "name": "documents",
+      "description": {
+        "content": "Document service lets you upload and manage document files",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "98d974c3-1c28-4012-8420-0c04fe2e4e22",
+          "name": "documents.add From Entry",
+          "request": {
+            "name": "documents.add From Entry",
+            "description": {
+              "content": "Copy entry into new entry",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "addFromEntry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4eade6d3-e7da-4034-9a01-637473493390",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "addFromEntry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetParamsIds\": \"string\",\n  \"documentType\": 11\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41a2f4d7-4f3d-476d-9a20-4a550f840d0a",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found\n* `ORIGINAL_FLAVOR_ASSET_IS_MISSING`: The original flavor asset is missing\n* `FLAVOR_PARAMS_NOT_FOUND`: Flavor params not found\n* `ORIGINAL_FLAVOR_ASSET_NOT_CREATED`: The original flavor asset could not be created [@DATA@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "addFromEntry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1bc2868-8df0-4d1c-8f4e-5c9dce7305a3",
+          "name": "documents.add From Flavor Asset",
+          "request": {
+            "name": "documents.add From Flavor Asset",
+            "description": {
+              "content": "Copy flavor asset into new entry",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "addFromFlavorAsset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "adfef804-d685-4ca4-9082-b189b6b26ff8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "addFromFlavorAsset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetParamsIds\": \"string\",\n  \"documentType\": 11\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04ae745b-c4c2-4496-9a4e-4f46174234b7",
+              "name": "* `FLAVOR_ASSET_ID_NOT_FOUND`: Flavor asset id \"@ID@\" not found\n* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found\n* `ORIGINAL_FLAVOR_ASSET_NOT_CREATED`: The original flavor asset could not be created [@DATA@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "addFromFlavorAsset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25510dfe-d604-4f03-b0bf-5f2e1e7d25a4",
+          "name": "documents.add From Uploaded File",
+          "request": {
+            "name": "documents.add From Uploaded File",
+            "description": {
+              "content": "Add new document entry after the specific document file was uploaded and the upload token id exists",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "addFromUploadedFile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71b3883b-ea3f-4929-97b3-e6c1e58ce08f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "addFromUploadedFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetParamsIds\": \"string\",\n  \"documentType\": 11\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23eae2b4-9fee-41e8-a049-31b34f677c55",
+              "name": "* `PROPERTY_VALIDATION_MIN_LENGTH`: The property \"@PROP_NAME@\" must have a min length of @MIN_LEN@ characters\n* `PROPERTY_VALIDATION_CANNOT_BE_NULL`: The property \"@PROP_NAME@\" cannot be null\n* `UPLOADED_FILE_NOT_FOUND_BY_TOKEN`: The uploaded file was not found by the given token id, or was already used",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "addFromUploadedFile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9490e69-b758-4105-be0c-0c31a73a519f",
+          "name": "documents.approve Replace",
+          "request": {
+            "name": "documents.approve Replace",
+            "description": {
+              "content": "Approves document replacement",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "approveReplace"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ca6ab77-4f8d-4ac1-a0d5-6f6b37b66c54",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "approveReplace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetParamsIds\": \"string\",\n  \"documentType\": 11\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9445c68-889a-4b7a-88d9-ab54ca3f902a",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "approveReplace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fc31ffa-3161-4b8e-a939-24dcdb88aff7",
+          "name": "documents.cancel Replace",
+          "request": {
+            "name": "documents.cancel Replace",
+            "description": {
+              "content": "Cancels document replacement",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "cancelReplace"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee9a4760-88b4-4ed8-9f95-316e5debf2ea",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "cancelReplace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetParamsIds\": \"string\",\n  \"documentType\": 11\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43ac89bd-5309-4324-8582-b70952607801",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "cancelReplace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79eef1c1-ead7-4abe-adb5-94e1c7a5321b",
+          "name": "documents.convert",
+          "request": {
+            "name": "documents.convert",
+            "description": {
+              "content": "Convert entry",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "convert"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afb3c15c-054e-4a9e-a350-8277184508d1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "convert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "411",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c6a7ee8-1154-4ec2-89d5-b216c9cac022",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found\n* `CONVERSION_PROFILE_ID_NOT_FOUND`: Conversion profile id \"@ID@\" not found\n* `FLAVOR_PARAMS_NOT_FOUND`: Flavor params not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "convert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18b67947-5106-465e-b22c-f65f7b742a2c",
+          "name": "documents.convert Ppt To Swf",
+          "request": {
+            "name": "documents.convert Ppt To Swf",
+            "description": {
+              "content": "This will queue a batch job for converting the document file to swf\n\nReturns the URL where the new swf will be available",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "convertPptToSwf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eebe71d4-4961-44f6-b16d-d0e84ec21a72",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "convertPptToSwf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "698b88ee-bd85-4b79-8660-5cdde4ad76cc",
+          "name": "documents.delete",
+          "request": {
+            "name": "documents.delete",
+            "description": {
+              "content": "Delete a document entry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5a719ec5-011a-4598-a59d-75e3bcf32f57",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1143e8e0-6090-458c-b3f1-e4370c0acdfd",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b888ae3a-6e8c-4066-b95f-48a84d350695",
+          "name": "documents.get",
+          "request": {
+            "name": "documents.get",
+            "description": {
+              "content": "Get document entry by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53dde3d6-b99a-40ee-9796-bb0a33022cf0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetParamsIds\": \"string\",\n  \"documentType\": 11\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e84d4354-097b-4043-a14d-7693fc78f462",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98c5ddb4-a597-4bf0-a400-5a3add800764",
+          "name": "documents.list",
+          "request": {
+            "name": "documents.list",
+            "description": {
+              "content": "List document entries by filter with paging support.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d5de091-073b-402d-9b7a-d842d9aa60e3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93dff66c-0d44-44ad-a4d4-850a5dc720d4",
+          "name": "documents.serve",
+          "request": {
+            "name": "documents.serve",
+            "description": {
+              "content": "Serves the file content",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "serve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7d2819e-e4c0-4c95-a19e-46e55f47c9dc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "serve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f08b8ac0-52b1-420c-8065-560c97da272c",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found\n* `FLAVOR_ASSET_IS_NOT_READY`: The flavor asset is not ready\n* `FLAVOR_ASSET_ID_NOT_FOUND`: Flavor asset id \"@ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "serve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d657d125-a298-4150-b8d8-08a175a47a93",
+          "name": "documents.serve By Flavor Params Id",
+          "request": {
+            "name": "documents.serve By Flavor Params Id",
+            "description": {
+              "content": "Serves the file content",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "serveByFlavorParamsId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e5ab706-c150-448a-82cb-b9f94e1f7da2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "serveByFlavorParamsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9b7e3c1-5de2-4daf-995a-7e4f8be425ae",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found\n* `FLAVOR_ASSET_IS_NOT_READY`: The flavor asset is not ready\n* `FLAVOR_ASSET_ID_NOT_FOUND`: Flavor asset id \"@ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "serveByFlavorParamsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61684fa3-3e7b-44d3-b774-0bb3a501e1a4",
+          "name": "documents.update",
+          "request": {
+            "name": "documents.update",
+            "description": {
+              "content": "Update document entry. Only the properties that were set will be updated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e854435-8830-460e-b08b-8c99c7e64dd5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetParamsIds\": \"string\",\n  \"documentType\": 11\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d35925d7-b6dd-4d13-893e-6baf91095098",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bce7871-51ac-4fa4-bed2-d0570a4e1f19",
+          "name": "documents.update Content",
+          "request": {
+            "name": "documents.update Content",
+            "description": {
+              "content": "Replace content associated with the given document entry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "updateContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0a2c337-2d42-406b-bd66-5c61fd2f21a1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "updateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetParamsIds\": \"string\",\n  \"documentType\": 11\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01aca8dd-65ae-4012-9d69-34fa5716635c",
+              "name": "* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found\n* `ENTRY_REPLACEMENT_ALREADY_EXISTS`: Entry already in replacement\n* `INVALID_OBJECT_ID`: Invalid object id [@ID@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "updateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e041ca97-8d09-43dd-b035-9fc72c92e43e",
+          "name": "documents.upload",
+          "request": {
+            "name": "documents.upload",
+            "description": {
+              "content": "Upload a document file to Kaltura, then the file can be used to create a document entry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "document_documents",
+                "action",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "fileData",
+                  "value": "<binary>",
+                  "description": "(Required) The file data"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2945fcae-f345-49a0-849e-4184014d7c8e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "document_documents",
+                    "action",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The file data",
+                        "type": "text/plain"
+                      },
+                      "key": "fileData",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "61cb9057-7a48-4392-8446-aa002864efa8",
+    "name": "Kaltura OTT accessControl documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,700 @@
+{
+  "item": [
+    {
+      "id": "b4f65b2a-08a2-4573-b0db-6cf8058db197",
+      "name": "playReadyDrm",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "081814e3-172f-4518-8e42-48a21e431320",
+          "name": "play Ready Drm.generate Key",
+          "request": {
+            "name": "play Ready Drm.generate Key",
+            "description": {
+              "content": "Generate key id and content key for PlayReady encryption",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "playready_playreadydrm",
+                "action",
+                "generateKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "02df0611-8325-44a7-9e55-0c87b1c50699",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "playready_playreadydrm",
+                    "action",
+                    "generateKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"contentKey\": \"string\",\n  \"keyId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "793b7158-6f51-4244-a05b-785309b8463c",
+          "name": "play Ready Drm.get Content Keys",
+          "request": {
+            "name": "play Ready Drm.get Content Keys",
+            "description": {
+              "content": "Get content keys for input key ids",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "playready_playreadydrm",
+                "action",
+                "getContentKeys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "813520a4-dbbf-4c7b-8bc8-a53b0b388cfc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "playready_playreadydrm",
+                    "action",
+                    "getContentKeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"contentKey\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"keyId\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  {\n    \"contentKey\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"keyId\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1d306c4-7ff0-42bf-ac8a-97c43bfd2027",
+          "name": "play Ready Drm.get Entry Content Key",
+          "request": {
+            "name": "play Ready Drm.get Entry Content Key",
+            "description": {
+              "content": "Get content key and key id for the given entry",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "playready_playreadydrm",
+                "action",
+                "getEntryContentKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ebd5f661-4fcf-49e0-8c7a-d0ecb58676b0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "playready_playreadydrm",
+                    "action",
+                    "getEntryContentKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"contentKey\": \"string\",\n  \"keyId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d68a9a2c-1d4e-4cf9-ae58-318d8fed87f0",
+          "name": "play Ready Drm.get License Details",
+          "request": {
+            "name": "play Ready Drm.get License Details",
+            "description": {
+              "content": "Get Play Ready policy and dates for license creation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "playready_playreadydrm",
+                "action",
+                "getLicenseDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fecb4456-947b-4c6c-a087-47f1669177d8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "playready_playreadydrm",
+                    "action",
+                    "getLicenseDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"beginDate\": 4777,\n  \"expirationDate\": 3315,\n  \"policy\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"removalDate\": 3042\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc32b9f4-17b0-4ebe-8387-8e83372a2dee",
+              "name": "* `MISSING_MANDATORY_PARAMETER`: Missing parameter \"@PARAM_NAME@\"\n* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found\n* `ENTRY_NOT_FOUND_BY_KEY_ID`: Entry not found by PlayReady key id [@KEY_ID@].\n* `PLAYREADY_POLICY_NOT_FOUND`: PlayReady policy not found for entry [@ENTRY_ID@].",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "playready_playreadydrm",
+                    "action",
+                    "getLicenseDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "68e7f5d5-a2cf-4670-a5e6-bb3327b46ada",
+    "name": "Kaltura OTT accessControl playReadyDrm API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

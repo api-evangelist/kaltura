@@ -1,0 +1,259 @@
+{
+  "item": [
+    {
+      "id": "680f54e7-b731-46f6-9c9f-23448058f86b",
+      "name": "messageTemplate",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b1b0607-e825-4255-a7b7-044c6a37baae",
+          "name": "message Template.get",
+          "request": {
+            "name": "message Template.get",
+            "description": {
+              "content": "Retrieve a message template used in push notifications and inbox",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "messagetemplate",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messageType\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9716ea1-53db-467a-8630-ffd60f1a0189",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "messagetemplate",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"messageType\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action\": \"string\",\n  \"dateFormat\": \"string\",\n  \"mailSubject\": \"string\",\n  \"mailTemplate\": \"string\",\n  \"message\": \"string\",\n  \"messageType\": \"Series\",\n  \"ratioId\": \"string\",\n  \"sound\": \"string\",\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63694654-7bf6-4a17-9ecc-10b0a91f7cfc",
+          "name": "message Template.update",
+          "request": {
+            "name": "message Template.update",
+            "description": {
+              "content": "Set the account’s push notifications and inbox messages templates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "messagetemplate",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messageType\": \"<string>\",\n  \"template\": {\n    \"action\": \"<string>\",\n    \"dateFormat\": \"<string>\",\n    \"mailSubject\": \"<string>\",\n    \"mailTemplate\": \"<string>\",\n    \"message\": \"<string>\",\n    \"messageType\": \"<string>\",\n    \"ratioId\": \"<string>\",\n    \"sound\": \"<string>\",\n    \"url\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df82896b-ea7c-4c1a-b194-72155e3a7f0d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "messagetemplate",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"messageType\": \"<string>\",\n  \"template\": {\n    \"action\": \"<string>\",\n    \"dateFormat\": \"<string>\",\n    \"mailSubject\": \"<string>\",\n    \"mailTemplate\": \"<string>\",\n    \"message\": \"<string>\",\n    \"messageType\": \"<string>\",\n    \"ratioId\": \"<string>\",\n    \"sound\": \"<string>\",\n    \"url\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action\": \"<string>\",\n  \"dateFormat\": \"<string>\",\n  \"mailSubject\": \"<string>\",\n  \"mailTemplate\": \"<string>\",\n  \"message\": \"<string>\",\n  \"messageType\": \"<string>\",\n  \"ratioId\": \"<string>\",\n  \"sound\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c4006214-aa93-4e17-abc7-021a1fecdbb4",
+    "name": "Kaltura OTT accessControl messageTemplate API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

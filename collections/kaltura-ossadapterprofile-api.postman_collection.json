@@ -1,0 +1,847 @@
+{
+  "item": [
+    {
+      "id": "29bede61-b731-471c-922e-98eb88dc951d",
+      "name": "ossAdapterProfile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f68120d-97e7-4fd7-b62c-0fb9f15f252e",
+          "name": "oss Adapter Profile.add",
+          "request": {
+            "name": "oss Adapter Profile.add",
+            "description": {
+              "content": "Insert new OSS adapter for partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ossadapterprofile",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ossAdapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"ossAdapterSettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80dfdf42-2b07-4b58-bd37-5d6a6585ec12",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ossAdapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"ossAdapterSettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"externalIdentifier\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"ossAdapterSettings\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"sharedSecret\": \"string\",\n  \"id\": 8956,\n  \"name\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a371647-e566-4d6e-b12b-aff23113da2d",
+              "name": "* `NoOSSAdapterToInsert`: undefined\n* `NameRequired`: undefined\n* `ExternalIdentifierMustBeUnique`: undefined\n* `ExternalIdentifierRequired`: undefined\n* `AdapterUrlRequired`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ossAdapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"ossAdapterSettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39a4224b-c285-404a-8e35-cd0e684e3e46",
+          "name": "oss Adapter Profile.delete",
+          "request": {
+            "name": "oss Adapter Profile.delete",
+            "description": {
+              "content": "Delete OSS adapter by OSS adapter id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ossadapterprofile",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ossAdapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24c1f6df-72b6-41a9-b24f-a23944d87707",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf99fc52-d2bc-4b69-b3a5-acf1d7c24e2a",
+              "name": "* `OSSAdapterIdentifierRequired`: undefined\n* `OSSAdapterNotExist`: undefined\n* `ActionIsNotAllowed`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01074dfb-b48a-4507-95d5-8e303d5d9ec5",
+          "name": "oss Adapter Profile.generate Shared Secret",
+          "request": {
+            "name": "oss Adapter Profile.generate Shared Secret",
+            "description": {
+              "content": "Generate oss adapter shared secret",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ossadapterprofile",
+                "action",
+                "generateSharedSecret"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ossAdapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4788ee44-7731-4c19-9c99-cf80113ad212",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "generateSharedSecret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"externalIdentifier\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"ossAdapterSettings\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"sharedSecret\": \"string\",\n  \"id\": 8956,\n  \"name\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "308502ec-81c6-420c-a0db-af3c866b84bb",
+              "name": "* `OSSAdapterIdentifierRequired`: undefined\n* `OSSAdapterNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "generateSharedSecret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "211f819d-a6eb-47b5-ad3c-6fd9a9db177d",
+          "name": "oss Adapter Profile.get",
+          "request": {
+            "name": "oss Adapter Profile.get",
+            "description": {
+              "content": "Returns all OSS adapters for partner : id + name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ossadapterprofile",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8f0da1b-1968-4157-b883-e81185334ba6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"externalIdentifier\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"ossAdapterSettings\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"sharedSecret\": \"string\",\n  \"id\": 8956,\n  \"name\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab018e06-e0c5-41b8-80d1-9e5053252104",
+          "name": "oss Adapter Profile.list",
+          "request": {
+            "name": "oss Adapter Profile.list",
+            "description": {
+              "content": "Returns all OSS adapters for partner : id + name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ossadapterprofile",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9cb72db1-8325-4218-9b81-82158b779641",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"adapterUrl\": \"<string>\",\n      \"externalIdentifier\": \"<string>\",\n      \"isActive\": \"<boolean>\",\n      \"ossAdapterSettings\": [\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"sharedSecret\": \"string\",\n      \"id\": 8585,\n      \"name\": \"<string>\"\n    },\n    {\n      \"adapterUrl\": \"<string>\",\n      \"externalIdentifier\": \"<string>\",\n      \"isActive\": \"<boolean>\",\n      \"ossAdapterSettings\": [\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"sharedSecret\": \"string\",\n      \"id\": 1135,\n      \"name\": \"<string>\"\n    }\n  ],\n  \"totalCount\": 2170\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d4a4bb8-7e21-49ef-b555-b1bda6a3e719",
+          "name": "oss Adapter Profile.update",
+          "request": {
+            "name": "oss Adapter Profile.update",
+            "description": {
+              "content": "Update OSS adapter details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ossadapterprofile",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ossAdapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"ossAdapterSettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\"\n  },\n  \"ossAdapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "34fd3430-e9f7-4934-b9f3-0768b3db4756",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ossAdapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"ossAdapterSettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\"\n  },\n  \"ossAdapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"externalIdentifier\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"ossAdapterSettings\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"sharedSecret\": \"string\",\n  \"id\": 8956,\n  \"name\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d846adf-2730-4a8d-a713-626f614ef134",
+              "name": "* `AdapterUrlRequired`: undefined\n* `OSSAdapterIdentifierRequired`: undefined\n* `NameRequired`: undefined\n* `NoOSSAdapterToUpdate`: undefined\n* `ExternalIdentifierRequired`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ossadapterprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ossAdapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"ossAdapterSettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\"\n  },\n  \"ossAdapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5ce15d5e-f517-4799-8d1f-713ff146affc",
+    "name": "Kaltura OTT accessControl ossAdapterProfile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

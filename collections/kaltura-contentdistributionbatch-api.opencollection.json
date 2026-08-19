@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl contentDistributionBatch API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "contentDistributionBatch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "contentDistributionBatch.createRequiredJobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/contentdistribution_contentdistributionbatch/action/createRequiredJobs",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "creates all required jobs according to entry distribution dirty flags"
+        },
+        {
+          "info": {
+            "name": "contentDistributionBatch.getAssetUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/contentdistribution_contentdistributionbatch/action/getAssetUrl",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "returns absolute valid url for asset file"
+        },
+        {
+          "info": {
+            "name": "contentDistributionBatch.updateSunStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/contentdistribution_contentdistributionbatch/action/updateSunStatus",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "updates entry distribution sun status in the search engine"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

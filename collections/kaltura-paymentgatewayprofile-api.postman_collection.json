@@ -1,0 +1,897 @@
+{
+  "item": [
+    {
+      "id": "3991cf53-49e2-4f6d-8937-bce453a596b6",
+      "name": "paymentGatewayProfile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a08f9dd9-6b26-4b06-aedf-0ae09e54ef2b",
+          "name": "payment Gateway Profile.add",
+          "request": {
+            "name": "payment Gateway Profile.add",
+            "description": {
+              "content": "Insert new payment gateway for partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "paymentgatewayprofile",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentGateway\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"externalVerification\": \"<boolean>\",\n    \"isActive\": \"<integer>\",\n    \"paymentGatewaySettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"pendingInterval\": \"<integer>\",\n    \"pendingRetries\": \"<integer>\",\n    \"renewIntervalMinutes\": \"<integer>\",\n    \"renewStartMinutes\": \"<integer>\",\n    \"renewUrl\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"statusUrl\": \"<string>\",\n    \"transactUrl\": \"<string>\",\n    \"isDefault\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"selectedBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e81190c7-e497-42f7-8d09-bfbf53f46a09",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"paymentGateway\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"externalVerification\": \"<boolean>\",\n    \"isActive\": \"<integer>\",\n    \"paymentGatewaySettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"pendingInterval\": \"<integer>\",\n    \"pendingRetries\": \"<integer>\",\n    \"renewIntervalMinutes\": \"<integer>\",\n    \"renewStartMinutes\": \"<integer>\",\n    \"renewUrl\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"statusUrl\": \"<string>\",\n    \"transactUrl\": \"<string>\",\n    \"isDefault\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"selectedBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"externalIdentifier\": \"<string>\",\n  \"externalVerification\": \"<boolean>\",\n  \"isActive\": \"<integer>\",\n  \"paymentGatewaySettings\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"pendingInterval\": \"<integer>\",\n  \"pendingRetries\": \"<integer>\",\n  \"renewIntervalMinutes\": \"<integer>\",\n  \"renewStartMinutes\": \"<integer>\",\n  \"renewUrl\": \"<string>\",\n  \"sharedSecret\": \"<string>\",\n  \"statusUrl\": \"<string>\",\n  \"transactUrl\": \"<string>\",\n  \"id\": 8811,\n  \"isDefault\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"selectedBy\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7a521e5-512a-4c1e-be3c-cbf602f9d647",
+              "name": "* `NameRequired`: undefined\n* `ExternalIdentifierRequired`: undefined\n* `ExternalIdentifierMustBeUnique`: undefined\n* `SharedSecretRequired`: undefined\n* `NoPaymentGatewayToInsert`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"paymentGateway\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"externalVerification\": \"<boolean>\",\n    \"isActive\": \"<integer>\",\n    \"paymentGatewaySettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"pendingInterval\": \"<integer>\",\n    \"pendingRetries\": \"<integer>\",\n    \"renewIntervalMinutes\": \"<integer>\",\n    \"renewStartMinutes\": \"<integer>\",\n    \"renewUrl\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"statusUrl\": \"<string>\",\n    \"transactUrl\": \"<string>\",\n    \"isDefault\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"selectedBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "599ea3e6-35ef-4c69-b291-a8df38dfe3c8",
+          "name": "payment Gateway Profile.delete",
+          "request": {
+            "name": "payment Gateway Profile.delete",
+            "description": {
+              "content": "Delete payment gateway by payment gateway id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "paymentgatewayprofile",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentGatewayId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "67ead117-4428-4098-b7c3-b6c9534a3e49",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0f0f18a-01dc-4c07-9435-8234e3e07e84",
+              "name": "* `PaymentGatewayNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c4bf538-5da0-4b0b-827e-74e1d692a708",
+          "name": "payment Gateway Profile.generate Shared Secret",
+          "request": {
+            "name": "payment Gateway Profile.generate Shared Secret",
+            "description": {
+              "content": "Generate payment gateway shared secret",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "paymentgatewayprofile",
+                "action",
+                "generateSharedSecret"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentGatewayId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80e7a01b-cffd-453d-9def-a7ed226e8293",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "generateSharedSecret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"externalIdentifier\": \"<string>\",\n  \"externalVerification\": \"<boolean>\",\n  \"isActive\": \"<integer>\",\n  \"paymentGatewaySettings\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"pendingInterval\": \"<integer>\",\n  \"pendingRetries\": \"<integer>\",\n  \"renewIntervalMinutes\": \"<integer>\",\n  \"renewStartMinutes\": \"<integer>\",\n  \"renewUrl\": \"<string>\",\n  \"sharedSecret\": \"<string>\",\n  \"statusUrl\": \"<string>\",\n  \"transactUrl\": \"<string>\",\n  \"id\": 8811,\n  \"isDefault\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"selectedBy\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afa134f5-d111-4fbe-8175-9c15fffb0708",
+              "name": "* `PaymentGatewayIdRequired`: undefined\n* `PaymentGatewayNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "generateSharedSecret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d13face-e676-4b09-a8c9-ac2702feb2aa",
+          "name": "payment Gateway Profile.get Configuration",
+          "request": {
+            "name": "payment Gateway Profile.get Configuration",
+            "description": {
+              "content": "Gets the Payment Gateway Configuration for the payment gateway identifier given",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "paymentgatewayprofile",
+                "action",
+                "getConfiguration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"alias\": \"<string>\",\n  \"intent\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "adf2a90f-f776-49a7-b6e6-67b9da1e9644",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "getConfiguration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alias\": \"<string>\",\n  \"intent\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paymentGatewayConfiguration\": [\n    {\n      \"key\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5267a1f-0e48-48b2-9118-c01699a62dd9",
+              "name": "* `SignatureMismatch`: undefined\n* `PaymentGatewayNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "getConfiguration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alias\": \"<string>\",\n  \"intent\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43fa910a-164a-4397-950d-a28b8f6dd144",
+          "name": "payment Gateway Profile.list",
+          "request": {
+            "name": "payment Gateway Profile.list",
+            "description": {
+              "content": "Returns all payment gateways for partner : id + name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "paymentgatewayprofile",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7f32b38d-c088-4d31-b4ba-5965b4b840bb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"adapterUrl\": \"<string>\",\n      \"externalIdentifier\": \"<string>\",\n      \"externalVerification\": \"<boolean>\",\n      \"isActive\": \"<integer>\",\n      \"paymentGatewaySettings\": [\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"pendingInterval\": \"<integer>\",\n      \"pendingRetries\": \"<integer>\",\n      \"renewIntervalMinutes\": \"<integer>\",\n      \"renewStartMinutes\": \"<integer>\",\n      \"renewUrl\": \"<string>\",\n      \"sharedSecret\": \"<string>\",\n      \"statusUrl\": \"<string>\",\n      \"transactUrl\": \"<string>\",\n      \"id\": 3308,\n      \"isDefault\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"selectedBy\": \"<string>\"\n    },\n    {\n      \"adapterUrl\": \"<string>\",\n      \"externalIdentifier\": \"<string>\",\n      \"externalVerification\": \"<boolean>\",\n      \"isActive\": \"<integer>\",\n      \"paymentGatewaySettings\": [\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"pendingInterval\": \"<integer>\",\n      \"pendingRetries\": \"<integer>\",\n      \"renewIntervalMinutes\": \"<integer>\",\n      \"renewStartMinutes\": \"<integer>\",\n      \"renewUrl\": \"<string>\",\n      \"sharedSecret\": \"<string>\",\n      \"statusUrl\": \"<string>\",\n      \"transactUrl\": \"<string>\",\n      \"id\": 8937,\n      \"isDefault\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"selectedBy\": \"<string>\"\n    }\n  ],\n  \"totalCount\": 2984\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f459a0d2-5ccf-4130-940e-c3c7b26081a5",
+          "name": "payment Gateway Profile.update",
+          "request": {
+            "name": "payment Gateway Profile.update",
+            "description": {
+              "content": "Update payment gateway details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "paymentgatewayprofile",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentGateway\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"externalVerification\": \"<boolean>\",\n    \"isActive\": \"<integer>\",\n    \"paymentGatewaySettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"pendingInterval\": \"<integer>\",\n    \"pendingRetries\": \"<integer>\",\n    \"renewIntervalMinutes\": \"<integer>\",\n    \"renewStartMinutes\": \"<integer>\",\n    \"renewUrl\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"statusUrl\": \"<string>\",\n    \"transactUrl\": \"<string>\",\n    \"isDefault\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"selectedBy\": \"<string>\"\n  },\n  \"paymentGatewayId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff63bfaf-937d-4e4f-a073-069e91c9da34",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"paymentGateway\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"externalVerification\": \"<boolean>\",\n    \"isActive\": \"<integer>\",\n    \"paymentGatewaySettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"pendingInterval\": \"<integer>\",\n    \"pendingRetries\": \"<integer>\",\n    \"renewIntervalMinutes\": \"<integer>\",\n    \"renewStartMinutes\": \"<integer>\",\n    \"renewUrl\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"statusUrl\": \"<string>\",\n    \"transactUrl\": \"<string>\",\n    \"isDefault\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"selectedBy\": \"<string>\"\n  },\n  \"paymentGatewayId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"externalIdentifier\": \"<string>\",\n  \"externalVerification\": \"<boolean>\",\n  \"isActive\": \"<integer>\",\n  \"paymentGatewaySettings\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"pendingInterval\": \"<integer>\",\n  \"pendingRetries\": \"<integer>\",\n  \"renewIntervalMinutes\": \"<integer>\",\n  \"renewStartMinutes\": \"<integer>\",\n  \"renewUrl\": \"<string>\",\n  \"sharedSecret\": \"<string>\",\n  \"statusUrl\": \"<string>\",\n  \"transactUrl\": \"<string>\",\n  \"id\": 8811,\n  \"isDefault\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"selectedBy\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "259fa135-a679-43d8-9c0f-e0a9c10143cb",
+              "name": "* `ExternalIdentifierRequired`: undefined\n* `NameRequired`: undefined\n* `SharedSecretRequired`: undefined\n* `ActionIsNotAllowed`: undefined\n* `PaymentGatewayIdRequired`: undefined\n* `ExternalIdentifierMustBeUnique`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "paymentgatewayprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"paymentGateway\": {\n    \"adapterUrl\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"externalVerification\": \"<boolean>\",\n    \"isActive\": \"<integer>\",\n    \"paymentGatewaySettings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"pendingInterval\": \"<integer>\",\n    \"pendingRetries\": \"<integer>\",\n    \"renewIntervalMinutes\": \"<integer>\",\n    \"renewStartMinutes\": \"<integer>\",\n    \"renewUrl\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"statusUrl\": \"<string>\",\n    \"transactUrl\": \"<string>\",\n    \"isDefault\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"selectedBy\": \"<string>\"\n  },\n  \"paymentGatewayId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "adb5c3c5-87a2-4578-ae80-97e426005ed7",
+    "name": "Kaltura OTT accessControl paymentGatewayProfile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

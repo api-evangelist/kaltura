@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl cdnAdapterProfile API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cdnAdapterProfile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "cdnAdapterProfile.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdnadapterprofile/action/add"
+          },
+          "docs": "Insert new CDN adapter for partner"
+        },
+        {
+          "info": {
+            "name": "cdnAdapterProfile.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdnadapterprofile/action/delete"
+          },
+          "docs": "Delete CDN adapter by CDN adapter id"
+        },
+        {
+          "info": {
+            "name": "cdnAdapterProfile.generateSharedSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdnadapterprofile/action/generateSharedSecret"
+          },
+          "docs": "Generate CDN adapter shared secret"
+        },
+        {
+          "info": {
+            "name": "cdnAdapterProfile.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdnadapterprofile/action/list"
+          },
+          "docs": "Returns all CDN adapters for partner"
+        },
+        {
+          "info": {
+            "name": "cdnAdapterProfile.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdnadapterprofile/action/update"
+          },
+          "docs": "Update CDN adapter details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

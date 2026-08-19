@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl varConsole API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "varConsole",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "varConsole.getPartnerUsage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/varconsole_varconsole/action/getPartnerUsage",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Function which calulates partner usage of a group of a VAR's sub-publishers"
+        },
+        {
+          "info": {
+            "name": "varConsole.updateStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/varconsole_varconsole/action/updateStatus",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Function to change a sub-publisher's status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

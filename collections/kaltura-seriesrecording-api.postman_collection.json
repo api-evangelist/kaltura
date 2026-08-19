@@ -1,0 +1,1070 @@
+{
+  "item": [
+    {
+      "id": "ab6a3414-7f74-4d46-9551-2847100c09a9",
+      "name": "seriesRecording",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53bea0de-ffd7-4016-9455-53f10b3ec7a0",
+          "name": "series Recording.add",
+          "request": {
+            "name": "series Recording.add",
+            "description": {
+              "content": "Issue a record request for a complete season or series",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "seriesrecording",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recording\": {\n    \"channelId\": \"<integer>\",\n    \"epgId\": \"<integer>\",\n    \"excludedSeasons\": [\n      {\n        \"value\": \"<integer>\"\n      },\n      {\n        \"value\": \"<integer>\"\n      }\n    ],\n    \"seasonNumber\": \"<integer>\",\n    \"seriesId\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6c10b65-15b4-4651-b7b9-56f56f71d7d7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recording\": {\n    \"channelId\": \"<integer>\",\n    \"epgId\": \"<integer>\",\n    \"excludedSeasons\": [\n      {\n        \"value\": \"<integer>\"\n      },\n      {\n        \"value\": \"<integer>\"\n      }\n    ],\n    \"seasonNumber\": \"<integer>\",\n    \"seriesId\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channelId\": \"<integer>\",\n  \"createDate\": 7820,\n  \"epgId\": \"<integer>\",\n  \"excludedSeasons\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"id\": 2262,\n  \"seasonNumber\": \"<integer>\",\n  \"seriesId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updateDate\": 5902\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8314ae0c-cf58-4468-b856-6e6ce39bf06a",
+              "name": "* `ProgramCdvrNotEnabled`: undefined\n* `AccountSeriesRecordingNotEnabled`: undefined\n* `InvalidAssetId`: undefined\n* `UserNotInDomain`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined\n* `UserWithNoDomain`: undefined\n* `ServiceNotAllowed`: undefined\n* `NotEntitled`: undefined\n* `AccountCdvrNotEnabled`: undefined\n* `AlreadyRecordedAsSeriesOrSeason`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recording\": {\n    \"channelId\": \"<integer>\",\n    \"epgId\": \"<integer>\",\n    \"excludedSeasons\": [\n      {\n        \"value\": \"<integer>\"\n      },\n      {\n        \"value\": \"<integer>\"\n      }\n    ],\n    \"seasonNumber\": \"<integer>\",\n    \"seriesId\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab8f5a1b-ab85-44c1-a544-069860a16a8d",
+          "name": "series Recording.cancel",
+          "request": {
+            "name": "series Recording.cancel",
+            "description": {
+              "content": "Cancel a previously requested series recording. Cancel series recording can be called for recording in status Scheduled or Recording Only",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "seriesrecording",
+                "action",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4ba2bfa-349a-47bc-b98c-ea8d945ffd68",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channelId\": \"<integer>\",\n  \"createDate\": 7820,\n  \"epgId\": \"<integer>\",\n  \"excludedSeasons\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"id\": 2262,\n  \"seasonNumber\": \"<integer>\",\n  \"seriesId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updateDate\": 5902\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a8b7dc2-d7bc-42b6-945a-5796262d6a7b",
+              "name": "* `UserSuspended`: undefined\n* `RecordingStatusNotValid`: undefined\n* `SeriesRecordingNotFound`: undefined\n* `UserNotInDomain`: undefined\n* `RecordingNotFound`: undefined\n* `UserDoesNotExist`: undefined\n* `UserWithNoDomain`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e1dd0a9-8db7-45d5-9270-374b83f0ac0b",
+          "name": "series Recording.cancel By Epg Id",
+          "request": {
+            "name": "series Recording.cancel By Epg Id",
+            "description": {
+              "content": "Cancel EPG recording that was recorded as part of series",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "seriesrecording",
+                "action",
+                "cancelByEpgId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"epgId\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bce9bddc-b83a-4605-a6e4-18ba2aba76c2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "cancelByEpgId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"epgId\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channelId\": \"<integer>\",\n  \"createDate\": 7820,\n  \"epgId\": \"<integer>\",\n  \"excludedSeasons\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"id\": 2262,\n  \"seasonNumber\": \"<integer>\",\n  \"seriesId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updateDate\": 5902\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fc7642d-cf61-472d-9ded-5e9b17c01cf2",
+              "name": "* `SeriesRecordingNotFound`: undefined\n* `EpgIdNotPartOfSeries`: undefined\n* `UserNotInDomain`: undefined\n* `RecordingStatusNotValid`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined\n* `UserWithNoDomain`: undefined\n* `RecordingNotFound`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "cancelByEpgId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"epgId\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cfd22341-71bb-4ee8-84c2-8905146d9c0b",
+          "name": "series Recording.cancel By Season Number",
+          "request": {
+            "name": "series Recording.cancel By Season Number",
+            "description": {
+              "content": "Cancel Season recording epgs that was recorded as part of series",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "seriesrecording",
+                "action",
+                "cancelBySeasonNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"seasonNumber\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61ca8199-4b15-4e8b-a172-af646d4885ae",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "cancelBySeasonNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channelId\": \"<integer>\",\n  \"createDate\": 7820,\n  \"epgId\": \"<integer>\",\n  \"excludedSeasons\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"id\": 2262,\n  \"seasonNumber\": \"<integer>\",\n  \"seriesId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updateDate\": 5902\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "143071dc-f412-4907-9a47-7b415ecc661a",
+              "name": "* `UserSuspended`: undefined\n* `UserWithNoDomain`: undefined\n* `RecordingNotFound`: undefined\n* `RecordingStatusNotValid`: undefined\n* `SeriesRecordingNotFound`: undefined\n* `SeasonNumberNotMatch`: undefined\n* `UserNotInDomain`: undefined\n* `UserDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "cancelBySeasonNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14934dac-755c-468b-913e-fcd08a81f7d1",
+          "name": "series Recording.delete",
+          "request": {
+            "name": "series Recording.delete",
+            "description": {
+              "content": "Delete series recording(s). Delete series recording can be called recordings in any status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "seriesrecording",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f05e15ac-fa52-4bc0-8731-f4bd38d7702e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channelId\": \"<integer>\",\n  \"createDate\": 7820,\n  \"epgId\": \"<integer>\",\n  \"excludedSeasons\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"id\": 2262,\n  \"seasonNumber\": \"<integer>\",\n  \"seriesId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updateDate\": 5902\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eec6ae5e-9be4-49b3-975a-1c64ecf89eee",
+              "name": "* `UserDoesNotExist`: undefined\n* `RecordingNotFound`: undefined\n* `RecordingStatusNotValid`: undefined\n* `SeriesRecordingNotFound`: undefined\n* `UserNotInDomain`: undefined\n* `UserWithNoDomain`: undefined\n* `UserSuspended`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9d05d8d-f66f-4754-818a-acabd07a9cfa",
+          "name": "series Recording.delete By Season Number",
+          "request": {
+            "name": "series Recording.delete By Season Number",
+            "description": {
+              "content": "Delete Season recording epgs that was recorded as part of series",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "seriesrecording",
+                "action",
+                "deleteBySeasonNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"seasonNumber\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd421ccf-58df-4034-a7a3-a5d2a10b30ed",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "deleteBySeasonNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channelId\": \"<integer>\",\n  \"createDate\": 7820,\n  \"epgId\": \"<integer>\",\n  \"excludedSeasons\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"id\": 2262,\n  \"seasonNumber\": \"<integer>\",\n  \"seriesId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updateDate\": 5902\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c7e002e-1e1f-4424-9601-d2eb32522906",
+              "name": "* `UserNotInDomain`: undefined\n* `UserWithNoDomain`: undefined\n* `UserSuspended`: undefined\n* `RecordingStatusNotValid`: undefined\n* `SeriesRecordingNotFound`: undefined\n* `SeasonNumberNotMatch`: undefined\n* `RecordingNotFound`: undefined\n* `UserDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "deleteBySeasonNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddf486d4-c711-4ac8-866e-d7aca1565ea6",
+          "name": "series Recording.list",
+          "request": {
+            "name": "series Recording.list",
+            "description": {
+              "content": "Return a list of series recordings for the household with optional filter by status and KSQL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "seriesrecording",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ea7b8a0-d031-4e70-a57f-528e8deba6ba",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"channelId\": \"<integer>\",\n      \"createDate\": 4837,\n      \"epgId\": \"<integer>\",\n      \"excludedSeasons\": [\n        {\n          \"value\": \"<integer>\"\n        },\n        {\n          \"value\": \"<integer>\"\n        }\n      ],\n      \"id\": 9298,\n      \"seasonNumber\": \"<integer>\",\n      \"seriesId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"updateDate\": 646\n    },\n    {\n      \"channelId\": \"<integer>\",\n      \"createDate\": 6317,\n      \"epgId\": \"<integer>\",\n      \"excludedSeasons\": [\n        {\n          \"value\": \"<integer>\"\n        },\n        {\n          \"value\": \"<integer>\"\n        }\n      ],\n      \"id\": 4950,\n      \"seasonNumber\": \"<integer>\",\n      \"seriesId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"updateDate\": 2044\n    }\n  ],\n  \"totalCount\": 3084\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f137f71-22ee-4c3c-8805-02bbcd63777e",
+              "name": "* `UserWithNoDomain`: undefined\n* `UserNotInDomain`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "seriesrecording",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a2f77903-c11d-410e-a3b9-c8125044838c",
+    "name": "Kaltura OTT accessControl seriesRecording API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

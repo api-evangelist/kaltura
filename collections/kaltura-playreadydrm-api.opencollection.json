@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl playReadyDrm API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "playReadyDrm",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "playReadyDrm.generateKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/playready_playreadydrm/action/generateKey",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Generate key id and content key for PlayReady encryption"
+        },
+        {
+          "info": {
+            "name": "playReadyDrm.getContentKeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/playready_playreadydrm/action/getContentKeys",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get content keys for input key ids"
+        },
+        {
+          "info": {
+            "name": "playReadyDrm.getEntryContentKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/playready_playreadydrm/action/getEntryContentKey",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get content key and key id for the given entry"
+        },
+        {
+          "info": {
+            "name": "playReadyDrm.getLicenseDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/playready_playreadydrm/action/getLicenseDetails",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Play Ready policy and dates for license creation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

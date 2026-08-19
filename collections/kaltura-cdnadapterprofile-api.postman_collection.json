@@ -1,0 +1,742 @@
+{
+  "item": [
+    {
+      "id": "f99f6f06-f125-4dcc-a7bf-f3a8eff2d36a",
+      "name": "cdnAdapterProfile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4724f3f2-5021-425e-8150-9596fb60590c",
+          "name": "cdn Adapter Profile.add",
+          "request": {
+            "name": "cdn Adapter Profile.add",
+            "description": {
+              "content": "Insert new CDN adapter for partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdnadapterprofile",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"baseUrl\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f27b351-478b-476e-b777-65b94b76cbf7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"baseUrl\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"baseUrl\": \"<string>\",\n  \"id\": 4603,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"settings\": [\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    },\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    }\n  ],\n  \"sharedSecret\": \"string\",\n  \"systemName\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58769add-f857-4a3d-8f33-ef9c180ec79c",
+              "name": "* `NameRequired`: undefined\n* `AdapterUrlRequired`: undefined\n* `AliasRequired`: undefined\n* `AliasMustBeUnique`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"baseUrl\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f840281-677b-47eb-9982-7a98afcc868d",
+          "name": "cdn Adapter Profile.delete",
+          "request": {
+            "name": "cdn Adapter Profile.delete",
+            "description": {
+              "content": "Delete CDN adapter by CDN adapter id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdnadapterprofile",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bfc37178-b6b2-4c07-b2d5-5c1ce8ad8755",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13b6b2c1-d3c4-4089-b2ee-7912cf636626",
+              "name": "* `AdapterNotExists`: undefined\n* `AdapterIdentifierRequired`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "226c128c-2d0d-4314-84cd-c5f2ce283b10",
+          "name": "cdn Adapter Profile.generate Shared Secret",
+          "request": {
+            "name": "cdn Adapter Profile.generate Shared Secret",
+            "description": {
+              "content": "Generate CDN adapter shared secret",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdnadapterprofile",
+                "action",
+                "generateSharedSecret"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1793a90-7032-48a2-bc72-8b456a9f10cf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "generateSharedSecret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"baseUrl\": \"<string>\",\n  \"id\": 4603,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"settings\": [\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    },\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    }\n  ],\n  \"sharedSecret\": \"string\",\n  \"systemName\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc2c7168-85f7-435c-b64c-f9cf3bb1d8df",
+              "name": "* `AdapterNotExists`: undefined\n* `AdapterIdentifierRequired`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "generateSharedSecret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "471e226c-789e-4e64-9abc-12d26c8fe213",
+          "name": "cdn Adapter Profile.list",
+          "request": {
+            "name": "cdn Adapter Profile.list",
+            "description": {
+              "content": "Returns all CDN adapters for partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdnadapterprofile",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5488f1ae-9b66-450c-83a0-4773a2117a5e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"adapterUrl\": \"<string>\",\n      \"baseUrl\": \"<string>\",\n      \"id\": 6428,\n      \"isActive\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"settings\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"sharedSecret\": \"string\",\n      \"systemName\": \"<string>\"\n    },\n    {\n      \"adapterUrl\": \"<string>\",\n      \"baseUrl\": \"<string>\",\n      \"id\": 7827,\n      \"isActive\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"settings\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"sharedSecret\": \"string\",\n      \"systemName\": \"<string>\"\n    }\n  ],\n  \"totalCount\": 8314\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7b7b425-1417-4ad3-b8ec-6bda54015986",
+          "name": "cdn Adapter Profile.update",
+          "request": {
+            "name": "cdn Adapter Profile.update",
+            "description": {
+              "content": "Update CDN adapter details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdnadapterprofile",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"baseUrl\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"systemName\": \"<string>\"\n  },\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae0572f1-f2f3-4e70-9b0c-b33949b7fed2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"baseUrl\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"systemName\": \"<string>\"\n  },\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"baseUrl\": \"<string>\",\n  \"id\": 4603,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"settings\": [\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    },\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    }\n  ],\n  \"sharedSecret\": \"string\",\n  \"systemName\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f82d8825-704a-4770-8aac-c970384a2b80",
+              "name": "* `AdapterIdentifierRequired`: undefined\n* `AdapterUrlRequired`: undefined\n* `AliasMustBeUnique`: undefined\n* `AliasRequired`: undefined\n* `NameRequired`: undefined\n* `AdapterNotExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdnadapterprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"baseUrl\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"systemName\": \"<string>\"\n  },\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a2e69119-dd2d-4cab-a772-383bf200c8c9",
+    "name": "Kaltura OTT accessControl cdnAdapterProfile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

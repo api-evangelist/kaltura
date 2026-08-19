@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl mediaFileType API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mediaFileType",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "mediaFileType.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/mediafiletype/action/add"
+          },
+          "docs": "Add new media-file type"
+        },
+        {
+          "info": {
+            "name": "mediaFileType.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/mediafiletype/action/delete"
+          },
+          "docs": "Delete media-file type by id"
+        },
+        {
+          "info": {
+            "name": "mediaFileType.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/mediafiletype/action/list"
+          },
+          "docs": "Returns a list of media-file types"
+        },
+        {
+          "info": {
+            "name": "mediaFileType.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/mediafiletype/action/update"
+          },
+          "docs": "Update existing media-file type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

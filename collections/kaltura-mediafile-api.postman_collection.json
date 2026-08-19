@@ -1,0 +1,618 @@
+{
+  "item": [
+    {
+      "id": "97ac9706-b027-4cbb-846c-29d34dc459e8",
+      "name": "mediaFile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "707ca2b9-0334-4636-a64d-0829230566a6",
+          "name": "media File.add",
+          "request": {
+            "name": "media File.add",
+            "description": {
+              "content": "Add a new media file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "mediafile",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mediaFile\": {\n    \"additionalData\": \"<string>\",\n    \"altExternalId\": \"<string>\",\n    \"altStreamingCode\": \"<string>\",\n    \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n    \"assetId\": \"<integer>\",\n    \"cdnAdapaterProfileId\": \"<integer>\",\n    \"duration\": \"<integer>\",\n    \"endDate\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalStoreId\": \"<string>\",\n    \"fileSize\": \"<integer>\",\n    \"isDefaultLanguage\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"orderNum\": \"<integer>\",\n    \"outputProtecationLevel\": \"<string>\",\n    \"startDate\": \"<integer>\",\n    \"status\": \"<boolean>\",\n    \"typeId\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "971541f5-202c-4177-a06f-e379d0d667e9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mediaFile\": {\n    \"additionalData\": \"<string>\",\n    \"altExternalId\": \"<string>\",\n    \"altStreamingCode\": \"<string>\",\n    \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n    \"assetId\": \"<integer>\",\n    \"cdnAdapaterProfileId\": \"<integer>\",\n    \"duration\": \"<integer>\",\n    \"endDate\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalStoreId\": \"<string>\",\n    \"fileSize\": \"<integer>\",\n    \"isDefaultLanguage\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"orderNum\": \"<integer>\",\n    \"outputProtecationLevel\": \"<string>\",\n    \"startDate\": \"<integer>\",\n    \"status\": \"<boolean>\",\n    \"typeId\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additionalData\": \"<string>\",\n  \"altExternalId\": \"<string>\",\n  \"altStreamingCode\": \"<string>\",\n  \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n  \"assetId\": \"<integer>\",\n  \"cdnAdapaterProfileId\": \"<integer>\",\n  \"duration\": \"<integer>\",\n  \"endDate\": \"<integer>\",\n  \"externalId\": \"<string>\",\n  \"externalStoreId\": \"<string>\",\n  \"fileSize\": \"<integer>\",\n  \"id\": 2523,\n  \"isDefaultLanguage\": \"<boolean>\",\n  \"language\": \"<string>\",\n  \"orderNum\": \"<integer>\",\n  \"outputProtecationLevel\": \"<string>\",\n  \"startDate\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"typeId\": \"<integer>\",\n  \"url\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c41387f-176b-49b3-8b71-202941240b37",
+              "name": "* `MediaFileTypeDoesNotExist`: undefined\n* `AssetDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mediaFile\": {\n    \"additionalData\": \"<string>\",\n    \"altExternalId\": \"<string>\",\n    \"altStreamingCode\": \"<string>\",\n    \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n    \"assetId\": \"<integer>\",\n    \"cdnAdapaterProfileId\": \"<integer>\",\n    \"duration\": \"<integer>\",\n    \"endDate\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalStoreId\": \"<string>\",\n    \"fileSize\": \"<integer>\",\n    \"isDefaultLanguage\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"orderNum\": \"<integer>\",\n    \"outputProtecationLevel\": \"<string>\",\n    \"startDate\": \"<integer>\",\n    \"status\": \"<boolean>\",\n    \"typeId\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c32e354-3ac5-4f1d-8eb4-2940e7377973",
+          "name": "media File.delete",
+          "request": {
+            "name": "media File.delete",
+            "description": {
+              "content": "Delete an existing media file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "mediafile",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6af761ec-3c87-4fdc-a7b4-6a20200f9139",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c42e8f91-fa4e-4bb9-b192-6d0ef6e07c26",
+              "name": "* `AssetDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1a36e89-0103-447b-bb32-66db6aafa26e",
+          "name": "media File.list",
+          "request": {
+            "name": "media File.list",
+            "description": {
+              "content": "Returns a list of media-file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "mediafile",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"assetIdEqual\": \"<integer>\",\n    \"idEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f30c95d0-5bdc-471b-a5a0-86c31c79f15e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafile",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"assetIdEqual\": \"<integer>\",\n    \"idEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"additionalData\": \"<string>\",\n      \"altExternalId\": \"<string>\",\n      \"altStreamingCode\": \"<string>\",\n      \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n      \"assetId\": \"<integer>\",\n      \"cdnAdapaterProfileId\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"endDate\": \"<integer>\",\n      \"externalId\": \"<string>\",\n      \"externalStoreId\": \"<string>\",\n      \"fileSize\": \"<integer>\",\n      \"id\": 3542,\n      \"isDefaultLanguage\": \"<boolean>\",\n      \"language\": \"<string>\",\n      \"orderNum\": \"<integer>\",\n      \"outputProtecationLevel\": \"<string>\",\n      \"startDate\": \"<integer>\",\n      \"status\": \"<boolean>\",\n      \"typeId\": \"<integer>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"additionalData\": \"<string>\",\n      \"altExternalId\": \"<string>\",\n      \"altStreamingCode\": \"<string>\",\n      \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n      \"assetId\": \"<integer>\",\n      \"cdnAdapaterProfileId\": \"<integer>\",\n      \"duration\": \"<integer>\",\n      \"endDate\": \"<integer>\",\n      \"externalId\": \"<string>\",\n      \"externalStoreId\": \"<string>\",\n      \"fileSize\": \"<integer>\",\n      \"id\": 3813,\n      \"isDefaultLanguage\": \"<boolean>\",\n      \"language\": \"<string>\",\n      \"orderNum\": \"<integer>\",\n      \"outputProtecationLevel\": \"<string>\",\n      \"startDate\": \"<integer>\",\n      \"status\": \"<boolean>\",\n      \"typeId\": \"<integer>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"totalCount\": 1562\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d1708da-ac9c-4c62-a7b0-ff816651069f",
+          "name": "media File.update",
+          "request": {
+            "name": "media File.update",
+            "description": {
+              "content": "update an existing media file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "mediafile",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"mediaFile\": {\n    \"additionalData\": \"<string>\",\n    \"altExternalId\": \"<string>\",\n    \"altStreamingCode\": \"<string>\",\n    \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n    \"assetId\": \"<integer>\",\n    \"cdnAdapaterProfileId\": \"<integer>\",\n    \"duration\": \"<integer>\",\n    \"endDate\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalStoreId\": \"<string>\",\n    \"fileSize\": \"<integer>\",\n    \"isDefaultLanguage\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"orderNum\": \"<integer>\",\n    \"outputProtecationLevel\": \"<string>\",\n    \"startDate\": \"<integer>\",\n    \"status\": \"<boolean>\",\n    \"typeId\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c43e5ace-1a10-44a7-9412-9266728eff89",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"mediaFile\": {\n    \"additionalData\": \"<string>\",\n    \"altExternalId\": \"<string>\",\n    \"altStreamingCode\": \"<string>\",\n    \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n    \"assetId\": \"<integer>\",\n    \"cdnAdapaterProfileId\": \"<integer>\",\n    \"duration\": \"<integer>\",\n    \"endDate\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalStoreId\": \"<string>\",\n    \"fileSize\": \"<integer>\",\n    \"isDefaultLanguage\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"orderNum\": \"<integer>\",\n    \"outputProtecationLevel\": \"<string>\",\n    \"startDate\": \"<integer>\",\n    \"status\": \"<boolean>\",\n    \"typeId\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additionalData\": \"<string>\",\n  \"altExternalId\": \"<string>\",\n  \"altStreamingCode\": \"<string>\",\n  \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n  \"assetId\": \"<integer>\",\n  \"cdnAdapaterProfileId\": \"<integer>\",\n  \"duration\": \"<integer>\",\n  \"endDate\": \"<integer>\",\n  \"externalId\": \"<string>\",\n  \"externalStoreId\": \"<string>\",\n  \"fileSize\": \"<integer>\",\n  \"id\": 2523,\n  \"isDefaultLanguage\": \"<boolean>\",\n  \"language\": \"<string>\",\n  \"orderNum\": \"<integer>\",\n  \"outputProtecationLevel\": \"<string>\",\n  \"startDate\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"typeId\": \"<integer>\",\n  \"url\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d82e0b29-9d0d-474b-b3cc-85badcd3630c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"mediaFile\": {\n    \"additionalData\": \"<string>\",\n    \"altExternalId\": \"<string>\",\n    \"altStreamingCode\": \"<string>\",\n    \"alternativeCdnAdapaterProfileId\": \"<integer>\",\n    \"assetId\": \"<integer>\",\n    \"cdnAdapaterProfileId\": \"<integer>\",\n    \"duration\": \"<integer>\",\n    \"endDate\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalStoreId\": \"<string>\",\n    \"fileSize\": \"<integer>\",\n    \"isDefaultLanguage\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"orderNum\": \"<integer>\",\n    \"outputProtecationLevel\": \"<string>\",\n    \"startDate\": \"<integer>\",\n    \"status\": \"<boolean>\",\n    \"typeId\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9ec953ab-7494-4ad6-8716-204c9d08f80a",
+    "name": "Kaltura OTT accessControl mediaFile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

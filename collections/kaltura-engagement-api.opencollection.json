@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl engagement API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "engagement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "engagement.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagement/action/add"
+          },
+          "docs": "Insert new Engagement for partner"
+        },
+        {
+          "info": {
+            "name": "engagement.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagement/action/delete"
+          },
+          "docs": "Delete engagement by engagement adapter id"
+        },
+        {
+          "info": {
+            "name": "engagement.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagement/action/get"
+          },
+          "docs": "Return engagement"
+        },
+        {
+          "info": {
+            "name": "engagement.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/engagement/action/list"
+          },
+          "docs": "Returns all Engagement for partner"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

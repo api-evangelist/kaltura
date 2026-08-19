@@ -1,0 +1,1371 @@
+{
+  "item": [
+    {
+      "id": "af9eb12a-a555-4eac-86a5-d8e709d7caec",
+      "name": "conversionProfile",
+      "description": {
+        "content": "Add & Manage Conversion Profiles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c3d159a-310b-4213-8d67-0aecc750958d",
+          "name": "conversion Profile.add",
+          "request": {
+            "name": "conversion Profile.add",
+            "description": {
+              "content": "Add new Conversion Profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "conversionprofile",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3b2d5468-bc79-4b10-a702-c73e4d659242",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calculateComplexity\": 0,\n  \"clipDuration\": 7075,\n  \"clipStart\": 226,\n  \"collectionTags\": \"string\",\n  \"conditionalProfiles\": \"string\",\n  \"createdAt\": 1452,\n  \"cropDimensions\": {\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"left\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"top\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"defaultAudioLang\": \"Kabyle\",\n  \"defaultEntryId\": \"string\",\n  \"defaultReplacementOptions\": {\n    \"keepManualThumbnails\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"pluginOptionItems\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"detectGOP\": 7327,\n  \"flavorParamsIds\": \"string\",\n  \"id\": 6034,\n  \"isDefault\": 0,\n  \"isPartnerDefault\": true,\n  \"mediaInfoXslTransformation\": \"string\",\n  \"mediaParserType\": \"0\",\n  \"name\": \"string\",\n  \"partnerId\": 9556,\n  \"status\": \"2\",\n  \"storageProfileId\": 1136,\n  \"systemName\": \"string\",\n  \"tags\": \"string\",\n  \"type\": \"1\",\n  \"xslTransformation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e122e66f-93fd-48fe-94a4-596dfe459edd",
+              "name": "* `ASSET_PARAMS_INVALID_TYPE`: Asset params id \"@ASSET_PARAMS_ID@\" type \"@TYPE@\" is invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0b39dae-bdec-4027-86b5-f2a608e46606",
+          "name": "conversion Profile.delete",
+          "request": {
+            "name": "conversion Profile.delete",
+            "description": {
+              "content": "Delete Conversion Profile by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "conversionprofile",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e14b41b-dbe5-457f-8715-1721b72121a1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f9edcb8-e983-438e-8ca2-7eeecd575499",
+              "name": "* `CONVERSION_PROFILE_ID_NOT_FOUND`: Conversion profile id \"@ID@\" not found\n* `CANNOT_DELETE_DEFAULT_CONVERSION_PROFILE`: Default conversion profile cannot be deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a50f3419-cf7d-4f8c-9be7-6023c0e51e6a",
+          "name": "conversion Profile.get",
+          "request": {
+            "name": "conversion Profile.get",
+            "description": {
+              "content": "Get Conversion Profile by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "conversionprofile",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5786c93-09c0-4cf4-a404-0a6441f787c2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calculateComplexity\": 0,\n  \"clipDuration\": 7075,\n  \"clipStart\": 226,\n  \"collectionTags\": \"string\",\n  \"conditionalProfiles\": \"string\",\n  \"createdAt\": 1452,\n  \"cropDimensions\": {\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"left\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"top\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"defaultAudioLang\": \"Kabyle\",\n  \"defaultEntryId\": \"string\",\n  \"defaultReplacementOptions\": {\n    \"keepManualThumbnails\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"pluginOptionItems\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"detectGOP\": 7327,\n  \"flavorParamsIds\": \"string\",\n  \"id\": 6034,\n  \"isDefault\": 0,\n  \"isPartnerDefault\": true,\n  \"mediaInfoXslTransformation\": \"string\",\n  \"mediaParserType\": \"0\",\n  \"name\": \"string\",\n  \"partnerId\": 9556,\n  \"status\": \"2\",\n  \"storageProfileId\": 1136,\n  \"systemName\": \"string\",\n  \"tags\": \"string\",\n  \"type\": \"1\",\n  \"xslTransformation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a55d3fb8-e660-4aca-a77c-99bdfc3dae3c",
+              "name": "* `CONVERSION_PROFILE_ID_NOT_FOUND`: Conversion profile id \"@ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3690b11-7b02-4ce2-a81a-f3755871c825",
+          "name": "conversion Profile.get Default",
+          "request": {
+            "name": "conversion Profile.get Default",
+            "description": {
+              "content": "Get the partner's default conversion profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "conversionprofile",
+                "action",
+                "getDefault"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "569319b3-1df8-4dce-b787-3a708793e096",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "getDefault"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calculateComplexity\": 0,\n  \"clipDuration\": 7075,\n  \"clipStart\": 226,\n  \"collectionTags\": \"string\",\n  \"conditionalProfiles\": \"string\",\n  \"createdAt\": 1452,\n  \"cropDimensions\": {\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"left\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"top\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"defaultAudioLang\": \"Kabyle\",\n  \"defaultEntryId\": \"string\",\n  \"defaultReplacementOptions\": {\n    \"keepManualThumbnails\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"pluginOptionItems\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"detectGOP\": 7327,\n  \"flavorParamsIds\": \"string\",\n  \"id\": 6034,\n  \"isDefault\": 0,\n  \"isPartnerDefault\": true,\n  \"mediaInfoXslTransformation\": \"string\",\n  \"mediaParserType\": \"0\",\n  \"name\": \"string\",\n  \"partnerId\": 9556,\n  \"status\": \"2\",\n  \"storageProfileId\": 1136,\n  \"systemName\": \"string\",\n  \"tags\": \"string\",\n  \"type\": \"1\",\n  \"xslTransformation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c855a44d-6f1a-4e1b-a60d-67ae2d0bbfc8",
+          "name": "conversion Profile.list",
+          "request": {
+            "name": "conversion Profile.list",
+            "description": {
+              "content": "List Conversion Profiles by filter with paging support",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "conversionprofile",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5f79450-06f2-4d51-9400-2c42dc767f1d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1081b1c-307e-47f7-be92-651738a90038",
+          "name": "conversion Profile.set As Default",
+          "request": {
+            "name": "conversion Profile.set As Default",
+            "description": {
+              "content": "Set Conversion Profile to be the partner default",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "conversionprofile",
+                "action",
+                "setAsDefault"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d5886a6c-abb9-42d1-89b9-95969651694a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "setAsDefault"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calculateComplexity\": 0,\n  \"clipDuration\": 7075,\n  \"clipStart\": 226,\n  \"collectionTags\": \"string\",\n  \"conditionalProfiles\": \"string\",\n  \"createdAt\": 1452,\n  \"cropDimensions\": {\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"left\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"top\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"defaultAudioLang\": \"Kabyle\",\n  \"defaultEntryId\": \"string\",\n  \"defaultReplacementOptions\": {\n    \"keepManualThumbnails\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"pluginOptionItems\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"detectGOP\": 7327,\n  \"flavorParamsIds\": \"string\",\n  \"id\": 6034,\n  \"isDefault\": 0,\n  \"isPartnerDefault\": true,\n  \"mediaInfoXslTransformation\": \"string\",\n  \"mediaParserType\": \"0\",\n  \"name\": \"string\",\n  \"partnerId\": 9556,\n  \"status\": \"2\",\n  \"storageProfileId\": 1136,\n  \"systemName\": \"string\",\n  \"tags\": \"string\",\n  \"type\": \"1\",\n  \"xslTransformation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e00858b1-7145-4b54-baab-b5899a82e556",
+              "name": "* `CONVERSION_PROFILE_ID_NOT_FOUND`: Conversion profile id \"@ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "setAsDefault"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "891c477b-f5de-4266-bd23-a570699ca227",
+          "name": "conversion Profile.update",
+          "request": {
+            "name": "conversion Profile.update",
+            "description": {
+              "content": "Update Conversion Profile by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "conversionprofile",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c4d5549e-7bed-4017-acdb-031f070fe893",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calculateComplexity\": 0,\n  \"clipDuration\": 7075,\n  \"clipStart\": 226,\n  \"collectionTags\": \"string\",\n  \"conditionalProfiles\": \"string\",\n  \"createdAt\": 1452,\n  \"cropDimensions\": {\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"left\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"top\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"defaultAudioLang\": \"Kabyle\",\n  \"defaultEntryId\": \"string\",\n  \"defaultReplacementOptions\": {\n    \"keepManualThumbnails\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"pluginOptionItems\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"detectGOP\": 7327,\n  \"flavorParamsIds\": \"string\",\n  \"id\": 6034,\n  \"isDefault\": 0,\n  \"isPartnerDefault\": true,\n  \"mediaInfoXslTransformation\": \"string\",\n  \"mediaParserType\": \"0\",\n  \"name\": \"string\",\n  \"partnerId\": 9556,\n  \"status\": \"2\",\n  \"storageProfileId\": 1136,\n  \"systemName\": \"string\",\n  \"tags\": \"string\",\n  \"type\": \"1\",\n  \"xslTransformation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d380eb00-fc14-4b2d-8481-2ebae621f706",
+              "name": "* `ASSET_PARAMS_INVALID_TYPE`: Asset params id \"@ASSET_PARAMS_ID@\" type \"@TYPE@\" is invalid\n* `CONVERSION_PROFILE_ID_NOT_FOUND`: Conversion profile id \"@ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "conversionprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aac7faca-5d8a-4e47-9091-e3323592868c",
+    "name": "Kaltura OTT accessControl conversionProfile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl userLoginPin API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "userLoginPin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "userLoginPin.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userloginpin/action/add"
+          },
+          "docs": "Generate a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN"
+        },
+        {
+          "info": {
+            "name": "userLoginPin.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userloginpin/action/delete"
+          },
+          "docs": "Immediately deletes a given pre set login pin code for the user."
+        },
+        {
+          "info": {
+            "name": "userLoginPin.deleteAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userloginpin/action/deleteAll"
+          },
+          "docs": "Immediately expire all active login-PINs for a user"
+        },
+        {
+          "info": {
+            "name": "userLoginPin.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userloginpin/action/update"
+          },
+          "docs": "Set a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

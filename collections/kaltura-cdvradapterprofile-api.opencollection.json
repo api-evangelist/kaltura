@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl cDVRAdapterProfile API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cDVRAdapterProfile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "cDVRAdapterProfile.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdvradapterprofile/action/add"
+          },
+          "docs": "Insert new C-DVR adapter for partner"
+        },
+        {
+          "info": {
+            "name": "cDVRAdapterProfile.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdvradapterprofile/action/delete"
+          },
+          "docs": "Delete C-DVR adapter by C-DVR adapter id"
+        },
+        {
+          "info": {
+            "name": "cDVRAdapterProfile.generateSharedSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdvradapterprofile/action/generateSharedSecret"
+          },
+          "docs": "Generate C-DVR adapter shared secret"
+        },
+        {
+          "info": {
+            "name": "cDVRAdapterProfile.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdvradapterprofile/action/list"
+          },
+          "docs": "Returns all C-DVR adapters for partner"
+        },
+        {
+          "info": {
+            "name": "cDVRAdapterProfile.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdvradapterprofile/action/update"
+          },
+          "docs": "Update C-DVR adapter details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

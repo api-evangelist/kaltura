@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl householdPaymentMethod API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "householdPaymentMethod",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "householdPaymentMethod.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentmethod/action/add"
+          },
+          "docs": "Add a new payment method for household"
+        },
+        {
+          "info": {
+            "name": "householdPaymentMethod.forceRemove",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentmethod/action/forceRemove"
+          },
+          "docs": "Force remove of a payment method of the household."
+        },
+        {
+          "info": {
+            "name": "householdPaymentMethod.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentmethod/action/list"
+          },
+          "docs": "Get a list of all payment methods of the household."
+        },
+        {
+          "info": {
+            "name": "householdPaymentMethod.remove",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentmethod/action/remove"
+          },
+          "docs": "Removes a payment method of the household."
+        },
+        {
+          "info": {
+            "name": "householdPaymentMethod.setAsDefault",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentmethod/action/setAsDefault"
+          },
+          "docs": "Set a payment method as default for the household."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

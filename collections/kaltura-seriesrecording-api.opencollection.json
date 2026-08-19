@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl seriesRecording API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "seriesRecording",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "seriesRecording.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/seriesrecording/action/add"
+          },
+          "docs": "Issue a record request for a complete season or series"
+        },
+        {
+          "info": {
+            "name": "seriesRecording.cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/seriesrecording/action/cancel"
+          },
+          "docs": "Cancel a previously requested series recording. Cancel series recording can be called for recording in status Scheduled or Recording Only"
+        },
+        {
+          "info": {
+            "name": "seriesRecording.cancelByEpgId",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/seriesrecording/action/cancelByEpgId"
+          },
+          "docs": "Cancel EPG recording that was recorded as part of series"
+        },
+        {
+          "info": {
+            "name": "seriesRecording.cancelBySeasonNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/seriesrecording/action/cancelBySeasonNumber"
+          },
+          "docs": "Cancel Season recording epgs that was recorded as part of series"
+        },
+        {
+          "info": {
+            "name": "seriesRecording.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/seriesrecording/action/delete"
+          },
+          "docs": "Delete series recording(s). Delete series recording can be called recordings in any status"
+        },
+        {
+          "info": {
+            "name": "seriesRecording.deleteBySeasonNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/seriesrecording/action/deleteBySeasonNumber"
+          },
+          "docs": "Delete Season recording epgs that was recorded as part of series"
+        },
+        {
+          "info": {
+            "name": "seriesRecording.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/seriesrecording/action/list"
+          },
+          "docs": "Return a list of series recordings for the household with optional filter by status and KSQL."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

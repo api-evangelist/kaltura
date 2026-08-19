@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl appToken API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "appToken",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "appToken.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/apptoken/action/add"
+          },
+          "docs": "Add new application authentication token"
+        },
+        {
+          "info": {
+            "name": "appToken.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/apptoken/action/delete"
+          },
+          "docs": "Delete application authentication token by id"
+        },
+        {
+          "info": {
+            "name": "appToken.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/apptoken/action/get"
+          },
+          "docs": "Get application authentication token by id"
+        },
+        {
+          "info": {
+            "name": "appToken.startSession",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/apptoken/action/startSession"
+          },
+          "docs": "Starts a new KS (Kaltura Session) based on application authentication token id"
+        },
+        {
+          "info": {
+            "name": "appToken.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/apptoken/action/list",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List application authentication tokens by filter and pager"
+        },
+        {
+          "info": {
+            "name": "appToken.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/apptoken/action/update",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Update application authentication token by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

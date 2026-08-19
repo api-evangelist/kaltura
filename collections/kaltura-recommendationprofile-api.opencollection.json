@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl recommendationProfile API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "recommendationProfile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "recommendationProfile.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recommendationprofile/action/add"
+          },
+          "docs": "Insert new recommendation engine for partner"
+        },
+        {
+          "info": {
+            "name": "recommendationProfile.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recommendationprofile/action/delete"
+          },
+          "docs": "Delete recommendation engine by recommendation engine id"
+        },
+        {
+          "info": {
+            "name": "recommendationProfile.generateSharedSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recommendationprofile/action/generateSharedSecret"
+          },
+          "docs": "Generate recommendation engine  shared secret"
+        },
+        {
+          "info": {
+            "name": "recommendationProfile.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recommendationprofile/action/list"
+          },
+          "docs": "Returns all recommendation engines for partner"
+        },
+        {
+          "info": {
+            "name": "recommendationProfile.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recommendationprofile/action/update"
+          },
+          "docs": "Update recommendation engine details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

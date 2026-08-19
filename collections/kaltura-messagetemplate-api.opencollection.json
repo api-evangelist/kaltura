@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl messageTemplate API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "messageTemplate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "messageTemplate.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/messagetemplate/action/get"
+          },
+          "docs": "Retrieve a message template used in push notifications and inbox"
+        },
+        {
+          "info": {
+            "name": "messageTemplate.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/messagetemplate/action/update"
+          },
+          "docs": "Set the account’s push notifications and inbox messages templates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

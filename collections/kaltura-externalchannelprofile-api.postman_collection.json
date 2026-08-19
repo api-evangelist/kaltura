@@ -1,0 +1,619 @@
+{
+  "item": [
+    {
+      "id": "bfbca2bd-2010-4014-b57a-fa353387ce23",
+      "name": "externalChannelProfile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0db2d902-a798-41a1-8731-74fe470cd98c",
+          "name": "external Channel Profile.add",
+          "request": {
+            "name": "external Channel Profile.add",
+            "description": {
+              "content": "Insert new External channel for partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "externalchannelprofile",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalChannel\": {\n    \"enrichments\": [\n      {\n        \"type\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\"\n      }\n    ],\n    \"externalIdentifier\": \"<string>\",\n    \"filterExpression\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"recommendationEngineId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "25105173-2fdd-47bc-bcd3-8307afaf948e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "externalchannelprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalChannel\": {\n    \"enrichments\": [\n      {\n        \"type\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\"\n      }\n    ],\n    \"externalIdentifier\": \"<string>\",\n    \"filterExpression\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"recommendationEngineId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enrichments\": [\n    {\n      \"type\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\"\n    }\n  ],\n  \"externalIdentifier\": \"<string>\",\n  \"filterExpression\": \"<string>\",\n  \"id\": 258,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"recommendationEngineId\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5993c9de-5bcb-4f2f-be8a-66e2fed5d373",
+              "name": "* `ExternalIdentifierRequired`: undefined\n* `ExternalIdentifierMustBeUnique`: undefined\n* `NameRequired`: undefined\n* `RecommendationEngineNotExist`: undefined\n* `RecommendationEngineIdentifierRequired`: undefined\n* `InactiveExternalChannelEnrichment`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "externalchannelprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalChannel\": {\n    \"enrichments\": [\n      {\n        \"type\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\"\n      }\n    ],\n    \"externalIdentifier\": \"<string>\",\n    \"filterExpression\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"recommendationEngineId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60e6c787-d0e9-4e80-b1f4-b0d1221e40a8",
+          "name": "external Channel Profile.delete",
+          "request": {
+            "name": "external Channel Profile.delete",
+            "description": {
+              "content": "Delete External channel by External channel id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "externalchannelprofile",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalChannelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6eab2c35-6bee-4d89-a7c6-c259199caecc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "externalchannelprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalChannelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "386f0548-eadd-4cf9-9863-d890087df147",
+              "name": "* `ExternalChannelIdentifierRequired`: undefined\n* `ExternalChannelNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "externalchannelprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalChannelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56d31414-e1ad-4413-a5f4-20e7bbb23965",
+          "name": "external Channel Profile.list",
+          "request": {
+            "name": "external Channel Profile.list",
+            "description": {
+              "content": "Returns all External channels for partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "externalchannelprofile",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "db95dd47-2f7f-45d3-ba80-088ff6eab5bf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "externalchannelprofile",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"enrichments\": [\n        {\n          \"type\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\"\n        }\n      ],\n      \"externalIdentifier\": \"<string>\",\n      \"filterExpression\": \"<string>\",\n      \"id\": 1784,\n      \"isActive\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"recommendationEngineId\": \"<integer>\"\n    },\n    {\n      \"enrichments\": [\n        {\n          \"type\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\"\n        }\n      ],\n      \"externalIdentifier\": \"<string>\",\n      \"filterExpression\": \"<string>\",\n      \"id\": 8477,\n      \"isActive\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"recommendationEngineId\": \"<integer>\"\n    }\n  ],\n  \"totalCount\": 4273\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ee204b2-4d72-4615-ba2a-60b5581e4838",
+          "name": "external Channel Profile.update",
+          "request": {
+            "name": "external Channel Profile.update",
+            "description": {
+              "content": "Update External channel details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "externalchannelprofile",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalChannel\": {\n    \"enrichments\": [\n      {\n        \"type\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\"\n      }\n    ],\n    \"externalIdentifier\": \"<string>\",\n    \"filterExpression\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"recommendationEngineId\": \"<integer>\"\n  },\n  \"externalChannelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5780c5c0-41e3-4f9d-8f1c-693db1868a7d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "externalchannelprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalChannel\": {\n    \"enrichments\": [\n      {\n        \"type\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\"\n      }\n    ],\n    \"externalIdentifier\": \"<string>\",\n    \"filterExpression\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"recommendationEngineId\": \"<integer>\"\n  },\n  \"externalChannelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enrichments\": [\n    {\n      \"type\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\"\n    }\n  ],\n  \"externalIdentifier\": \"<string>\",\n  \"filterExpression\": \"<string>\",\n  \"id\": 258,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"recommendationEngineId\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cbf7bbea-b456-4bd8-8b35-1810a1ed0f35",
+              "name": "* `ExternalIdentifierMustBeUnique`: undefined\n* `InactiveExternalChannelEnrichment`: undefined\n* `ExternalChannelNotExist`: undefined\n* `ExternalIdentifierRequired`: undefined\n* `ExternalChannelIdentifierRequired`: undefined\n* `NameRequired`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "externalchannelprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalChannel\": {\n    \"enrichments\": [\n      {\n        \"type\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\"\n      }\n    ],\n    \"externalIdentifier\": \"<string>\",\n    \"filterExpression\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"recommendationEngineId\": \"<integer>\"\n  },\n  \"externalChannelId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c72298b8-85f7-43f8-8f77-d96e3ced74e4",
+    "name": "Kaltura OTT accessControl externalChannelProfile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

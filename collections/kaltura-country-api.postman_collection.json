@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "97d448b9-e8d3-4075-963d-14fd065171e5",
+      "name": "country",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf5125c8-c0cf-4e2a-97c2-9ff87c7c5bae",
+          "name": "country.list",
+          "request": {
+            "name": "country.list",
+            "description": {
+              "content": "Get the list of countries for the partner with option to filter by countries identifiers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "country",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"ipEqual\": \"<string>\",\n    \"ipEqualCurrent\": \"<boolean>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c47f70a5-48e4-4240-ab84-9a6b80f77b2a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "country",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"ipEqual\": \"<string>\",\n    \"ipEqualCurrent\": \"<boolean>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"code\": \"string\",\n      \"currency\": \"string\",\n      \"currencySign\": \"string\",\n      \"id\": 8637,\n      \"languagesCode\": \"string\",\n      \"mainLanguageCode\": \"string\",\n      \"name\": \"string\",\n      \"vatPercent\": 2855.489149796653\n    },\n    {\n      \"code\": \"string\",\n      \"currency\": \"string\",\n      \"currencySign\": \"string\",\n      \"id\": 6644,\n      \"languagesCode\": \"string\",\n      \"mainLanguageCode\": \"string\",\n      \"name\": \"string\",\n      \"vatPercent\": 1569.350132076489\n    }\n  ],\n  \"totalCount\": 700\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "370e7c91-77c0-4f2e-9854-a356290853f8",
+    "name": "Kaltura OTT accessControl country API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

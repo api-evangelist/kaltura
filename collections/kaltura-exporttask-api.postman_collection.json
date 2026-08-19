@@ -1,0 +1,574 @@
+{
+  "item": [
+    {
+      "id": "35413efc-82d5-4900-a08e-080a6af67fa8",
+      "name": "exportTask",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b23aea9c-9cd9-4902-9cf5-0296e2f7da00",
+          "name": "export Task.add",
+          "request": {
+            "name": "export Task.add",
+            "description": {
+              "content": "Adds a new bulk export task",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "exporttask",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"task\": {\n    \"alias\": \"<string>\",\n    \"dataType\": \"<string>\",\n    \"exportType\": \"<string>\",\n    \"filter\": \"<string>\",\n    \"frequency\": \"<integer>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"notificationUrl\": \"<string>\",\n    \"vodTypes\": [\n      {\n        \"value\": \"<integer>\"\n      },\n      {\n        \"value\": \"<integer>\"\n      }\n    ]\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de2e8b6b-e8d4-4d9a-a506-0a2221141c0e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "exporttask",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"task\": {\n    \"alias\": \"<string>\",\n    \"dataType\": \"<string>\",\n    \"exportType\": \"<string>\",\n    \"filter\": \"<string>\",\n    \"frequency\": \"<integer>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"notificationUrl\": \"<string>\",\n    \"vodTypes\": [\n      {\n        \"value\": \"<integer>\"\n      },\n      {\n        \"value\": \"<integer>\"\n      }\n    ]\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alias\": \"<string>\",\n  \"dataType\": \"<string>\",\n  \"exportType\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"frequency\": \"<integer>\",\n  \"id\": 1869,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"notificationUrl\": \"<string>\",\n  \"vodTypes\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0228c4f0-9c89-4020-9123-85bd4bef9536",
+          "name": "export Task.delete",
+          "request": {
+            "name": "export Task.delete",
+            "description": {
+              "content": "Deletes an existing bulk export task by task identifier",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "exporttask",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98718189-53c0-48ce-bfbc-6ff0f8f9499a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "exporttask",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55b0b7f4-3e23-49ef-aeac-2da6ae8ccffb",
+          "name": "export Task.get",
+          "request": {
+            "name": "export Task.get",
+            "description": {
+              "content": "Gets an existing bulk export task by task identifier",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "exporttask",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8aecc9e1-0289-4753-a2d3-e2eb88737e15",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "exporttask",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alias\": \"<string>\",\n  \"dataType\": \"<string>\",\n  \"exportType\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"frequency\": \"<integer>\",\n  \"id\": 1869,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"notificationUrl\": \"<string>\",\n  \"vodTypes\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ea72ca3-d111-4895-9072-ccf443922d6a",
+          "name": "export Task.list",
+          "request": {
+            "name": "export Task.list",
+            "description": {
+              "content": "Returns bulk export tasks by tasks identifiers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "exporttask",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8196c8ab-69ff-47be-9380-0814fe274752",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "exporttask",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"alias\": \"<string>\",\n      \"dataType\": \"<string>\",\n      \"exportType\": \"<string>\",\n      \"filter\": \"<string>\",\n      \"frequency\": \"<integer>\",\n      \"id\": 7096,\n      \"isActive\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"notificationUrl\": \"<string>\",\n      \"vodTypes\": [\n        {\n          \"value\": \"<integer>\"\n        },\n        {\n          \"value\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"alias\": \"<string>\",\n      \"dataType\": \"<string>\",\n      \"exportType\": \"<string>\",\n      \"filter\": \"<string>\",\n      \"frequency\": \"<integer>\",\n      \"id\": 5761,\n      \"isActive\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"notificationUrl\": \"<string>\",\n      \"vodTypes\": [\n        {\n          \"value\": \"<integer>\"\n        },\n        {\n          \"value\": \"<integer>\"\n        }\n      ]\n    }\n  ],\n  \"totalCount\": 4426\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2c79b80-072e-4724-8a46-1488b3f59b29",
+          "name": "export Task.update",
+          "request": {
+            "name": "export Task.update",
+            "description": {
+              "content": "Updates an existing bulk export task by task identifier",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "exporttask",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"task\": {\n    \"alias\": \"<string>\",\n    \"dataType\": \"<string>\",\n    \"exportType\": \"<string>\",\n    \"filter\": \"<string>\",\n    \"frequency\": \"<integer>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"notificationUrl\": \"<string>\",\n    \"vodTypes\": [\n      {\n        \"value\": \"<integer>\"\n      },\n      {\n        \"value\": \"<integer>\"\n      }\n    ]\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a5372a6-cadb-417f-973d-3f4785ff98ae",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "exporttask",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"task\": {\n    \"alias\": \"<string>\",\n    \"dataType\": \"<string>\",\n    \"exportType\": \"<string>\",\n    \"filter\": \"<string>\",\n    \"frequency\": \"<integer>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"notificationUrl\": \"<string>\",\n    \"vodTypes\": [\n      {\n        \"value\": \"<integer>\"\n      },\n      {\n        \"value\": \"<integer>\"\n      }\n    ]\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alias\": \"<string>\",\n  \"dataType\": \"<string>\",\n  \"exportType\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"frequency\": \"<integer>\",\n  \"id\": 1869,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"notificationUrl\": \"<string>\",\n  \"vodTypes\": [\n    {\n      \"value\": \"<integer>\"\n    },\n    {\n      \"value\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9677aacc-048f-4a0c-9e7e-857ed6041d2a",
+    "name": "Kaltura OTT accessControl exportTask API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

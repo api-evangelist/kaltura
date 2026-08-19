@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl image API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "image",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "image.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/image/action/add"
+          },
+          "docs": "Add a new image"
+        },
+        {
+          "info": {
+            "name": "image.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/image/action/delete"
+          },
+          "docs": "Delete an existing image"
+        },
+        {
+          "info": {
+            "name": "image.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/image/action/list"
+          },
+          "docs": "Get the list of images by different filtering"
+        },
+        {
+          "info": {
+            "name": "image.setContent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/image/action/setContent"
+          },
+          "docs": "Sets the content of an existing image"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

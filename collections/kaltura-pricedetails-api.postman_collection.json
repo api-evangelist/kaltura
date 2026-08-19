@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "022b9f9a-b3be-40c5-b37b-5662c59d8652",
+      "name": "priceDetails",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8bd24a7-fe6a-47b7-bda0-3469f916f302",
+          "name": "price Details.list",
+          "request": {
+            "name": "price Details.list",
+            "description": {
+              "content": "Returns the list of available prices, can be filtered by price IDs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "pricedetails",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50000240-1ab6-4d90-876a-d9863ed414fd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "pricedetails",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"descriptions\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"id\": 4091,\n      \"multiCurrencyPrice\": [\n        {\n          \"amount\": 644.1775049163745,\n          \"countryId\": 1499,\n          \"currency\": \"string\",\n          \"currencySign\": \"string\"\n        },\n        {\n          \"amount\": 3158.5263442437517,\n          \"countryId\": 4889,\n          \"currency\": \"string\",\n          \"currencySign\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"price\": {\n        \"amount\": 2017.1523752102094,\n        \"countryId\": 2893,\n        \"currency\": \"string\",\n        \"currencySign\": \"string\"\n      }\n    },\n    {\n      \"descriptions\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"id\": 9918,\n      \"multiCurrencyPrice\": [\n        {\n          \"amount\": 2030.4244840515573,\n          \"countryId\": 9873,\n          \"currency\": \"string\",\n          \"currencySign\": \"string\"\n        },\n        {\n          \"amount\": 1321.1035786341308,\n          \"countryId\": 1643,\n          \"currency\": \"string\",\n          \"currencySign\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"price\": {\n        \"amount\": 6595.872513250896,\n        \"countryId\": 1293,\n        \"currency\": \"string\",\n        \"currencySign\": \"string\"\n      }\n    }\n  ],\n  \"totalCount\": 3368\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bd08854-4891-4043-926d-0014504fd0e8",
+              "name": "* `InvalidCurrency`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "pricedetails",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7c5815b8-aa38-4980-8137-b2d40b7cc384",
+    "name": "Kaltura OTT accessControl priceDetails API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

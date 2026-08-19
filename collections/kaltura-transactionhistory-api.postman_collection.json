@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "65cbdf4e-448d-4ea2-b67a-61abed3c8b38",
+      "name": "transactionHistory",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "accc72b7-b471-4e30-baad-ed952d7d57bd",
+          "name": "transaction History.list",
+          "request": {
+            "name": "transaction History.list",
+            "description": {
+              "content": "Gets user or household transaction history.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "transactionhistory",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"endDateLessThanOrEqual\": \"<integer>\",\n    \"entityReferenceEqual\": \"<string>\",\n    \"orderBy\": \"<string>\",\n    \"startDateGreaterThanOrEqual\": \"<integer>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4bef2a4c-321e-45e4-afab-81473e070e47",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transactionhistory",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"endDateLessThanOrEqual\": \"<integer>\",\n    \"entityReferenceEqual\": \"<string>\",\n    \"orderBy\": \"<string>\",\n    \"startDateGreaterThanOrEqual\": \"<integer>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"actionDate\": 8740,\n      \"billingAction\": \"subscription_date_changed\",\n      \"billingPriceType\": \"FullPeriod\",\n      \"billingProviderRef\": 5833,\n      \"endDate\": 5439,\n      \"isRecurring\": false,\n      \"itemType\": \"subscription\",\n      \"paymentMethod\": \"sms\",\n      \"paymentMethodExtraDetails\": \"string\",\n      \"price\": {\n        \"amount\": 1375.2510010019826,\n        \"countryId\": 3420,\n        \"currency\": \"string\",\n        \"currencySign\": \"string\"\n      },\n      \"purchaseId\": 6147,\n      \"purchasedItemCode\": \"string\",\n      \"purchasedItemName\": \"string\",\n      \"recieptCode\": \"string\",\n      \"remarks\": \"string\",\n      \"startDate\": 2893\n    },\n    {\n      \"actionDate\": 5731,\n      \"billingAction\": \"unknown\",\n      \"billingPriceType\": \"FullPeriod\",\n      \"billingProviderRef\": 5043,\n      \"endDate\": 5055,\n      \"isRecurring\": true,\n      \"itemType\": \"pre_paid\",\n      \"paymentMethod\": \"sms\",\n      \"paymentMethodExtraDetails\": \"string\",\n      \"price\": {\n        \"amount\": 1535.6785252513805,\n        \"countryId\": 1123,\n        \"currency\": \"string\",\n        \"currencySign\": \"string\"\n      },\n      \"purchaseId\": 3687,\n      \"purchasedItemCode\": \"string\",\n      \"purchasedItemName\": \"string\",\n      \"recieptCode\": \"string\",\n      \"remarks\": \"string\",\n      \"startDate\": 3088\n    }\n  ],\n  \"totalCount\": 3949\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "853d4861-ecd9-4764-bcc0-ef9c56ce285e",
+    "name": "Kaltura OTT accessControl transactionHistory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

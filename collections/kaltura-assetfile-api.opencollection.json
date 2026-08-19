@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl assetFile API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "assetFile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "assetFile.getContext",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/assetfile/action/getContext"
+          },
+          "docs": "get KalturaAssetFileContext"
+        },
+        {
+          "info": {
+            "name": "assetFile.playManifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/assetfile/action/playManifest"
+          },
+          "docs": "Redirects to play manifest"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

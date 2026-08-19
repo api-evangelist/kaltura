@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl imageType API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "imageType",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "imageType.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/imagetype/action/add"
+          },
+          "docs": "Add a new image type"
+        },
+        {
+          "info": {
+            "name": "imageType.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/imagetype/action/delete"
+          },
+          "docs": "Delete an existing image type"
+        },
+        {
+          "info": {
+            "name": "imageType.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/imagetype/action/list"
+          },
+          "docs": "Get the list of image types for the partner"
+        },
+        {
+          "info": {
+            "name": "imageType.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/imagetype/action/update"
+          },
+          "docs": "Update an existing image type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

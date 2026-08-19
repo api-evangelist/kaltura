@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl assetHistory API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "assetHistory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "assetHistory.clean",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/assethistory/action/clean"
+          },
+          "docs": "Clean the user’s viewing history"
+        },
+        {
+          "info": {
+            "name": "assetHistory.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/assethistory/action/list"
+          },
+          "docs": "Get recently watched media for user, ordered by recently watched first."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl transaction API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "transaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "transaction.downgrade",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/transaction/action/downgrade"
+          },
+          "docs": "downgrade specific subscription for a household. entitlements will be updated on the existing subscription end date."
+        },
+        {
+          "info": {
+            "name": "transaction.getPurchaseSessionId",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/transaction/action/getPurchaseSessionId"
+          },
+          "docs": "Retrieve the purchase session identifier"
+        },
+        {
+          "info": {
+            "name": "transaction.purchase",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/transaction/action/purchase"
+          },
+          "docs": "Purchase specific product or subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted."
+        },
+        {
+          "info": {
+            "name": "transaction.setWaiver",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/transaction/action/setWaiver"
+          },
+          "docs": "This method shall set the waiver flag on the user entitlement table and the waiver date field to the current date."
+        },
+        {
+          "info": {
+            "name": "transaction.updateStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/transaction/action/updateStatus"
+          },
+          "docs": "Updates a pending purchase transaction state."
+        },
+        {
+          "info": {
+            "name": "transaction.upgrade",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/transaction/action/upgrade"
+          },
+          "docs": "upgrade specific subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted."
+        },
+        {
+          "info": {
+            "name": "transaction.validateReceipt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/transaction/action/validateReceipt"
+          },
+          "docs": "Verifies PPV/Subscription/Collection client purchase (such as InApp) and entitles the user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

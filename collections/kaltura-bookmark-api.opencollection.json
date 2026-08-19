@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl bookmark API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bookmark",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "bookmark.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/bookmark/action/add"
+          },
+          "docs": "Report player position and action for the user on the watched asset. Player position is used to later allow resume watching."
+        },
+        {
+          "info": {
+            "name": "bookmark.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/bookmark/action/list"
+          },
+          "docs": "Returns player position record/s for the requested asset and the requesting user. \r\n            If default user makes the request – player position records are provided for all of the users in the household.\r\n            If non-default user makes the request - player position records are provided for the requesting user and the default user of the household."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

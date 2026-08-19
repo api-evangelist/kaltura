@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl cdnPartnerSettings API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cdnPartnerSettings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "cdnPartnerSettings.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdnpartnersettings/action/get"
+          },
+          "docs": "Retrieve the partner’s CDN settings (default adapters)"
+        },
+        {
+          "info": {
+            "name": "cdnPartnerSettings.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/cdnpartnersettings/action/update"
+          },
+          "docs": "Configure the partner’s CDN settings (default adapters)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

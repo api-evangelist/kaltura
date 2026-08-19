@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl inboxMessage API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "inboxMessage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "inboxMessage.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/inboxmessage/action/get"
+          },
+          "docs": "TBD"
+        },
+        {
+          "info": {
+            "name": "inboxMessage.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/inboxmessage/action/list"
+          },
+          "docs": "List inbox messages"
+        },
+        {
+          "info": {
+            "name": "inboxMessage.updateStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/inboxmessage/action/updateStatus"
+          },
+          "docs": "Updates the message status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

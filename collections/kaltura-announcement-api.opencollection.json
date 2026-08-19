@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl announcement API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "announcement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "announcement.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/announcement/action/add"
+          },
+          "docs": "Add a new future scheduled system announcement push notification"
+        },
+        {
+          "info": {
+            "name": "announcement.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/announcement/action/delete"
+          },
+          "docs": "Delete an existing announcing. Announcement cannot be delete while being sent."
+        },
+        {
+          "info": {
+            "name": "announcement.enableSystemAnnouncements",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/announcement/action/enableSystemAnnouncements"
+          },
+          "docs": "Enable system announcements"
+        },
+        {
+          "info": {
+            "name": "announcement.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/announcement/action/list"
+          },
+          "docs": "Lists all announcements in the system."
+        },
+        {
+          "info": {
+            "name": "announcement.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/announcement/action/update"
+          },
+          "docs": "Update an existing future system announcement push notification. Announcement can only be updated only before sending"
+        },
+        {
+          "info": {
+            "name": "announcement.updateStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/announcement/action/updateStatus"
+          },
+          "docs": "Update a system announcement status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl ratio API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ratio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ratio.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ratio/action/add"
+          },
+          "docs": "Add new group ratio"
+        },
+        {
+          "info": {
+            "name": "ratio.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ratio/action/list"
+          },
+          "docs": "Get the list of available ratios"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

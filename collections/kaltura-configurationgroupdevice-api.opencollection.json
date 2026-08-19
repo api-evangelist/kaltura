@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl configurationGroupDevice API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "configurationGroupDevice",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "configurationGroupDevice.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroupdevice/action/add"
+          },
+          "docs": "Associate a collection of devices to a configuration group. If a device is already associated to another group – old association is replaced"
+        },
+        {
+          "info": {
+            "name": "configurationGroupDevice.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroupdevice/action/delete"
+          },
+          "docs": "Remove a device association"
+        },
+        {
+          "info": {
+            "name": "configurationGroupDevice.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroupdevice/action/get"
+          },
+          "docs": "Return the configuration group to which a specific device is associated to"
+        },
+        {
+          "info": {
+            "name": "configurationGroupDevice.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroupdevice/action/list"
+          },
+          "docs": "Return the list of associated devices for a given configuration group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

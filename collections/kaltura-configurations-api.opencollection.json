@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl configurations API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "configurations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "configurations.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurations/action/add"
+          },
+          "docs": "Add a new device configuration to a configuration group"
+        },
+        {
+          "info": {
+            "name": "configurations.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurations/action/delete"
+          },
+          "docs": "Delete a device configuration"
+        },
+        {
+          "info": {
+            "name": "configurations.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurations/action/get"
+          },
+          "docs": "Return the device configuration"
+        },
+        {
+          "info": {
+            "name": "configurations.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurations/action/list"
+          },
+          "docs": "Return a list of device configurations of a configuration group"
+        },
+        {
+          "info": {
+            "name": "configurations.serveByDevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurations/action/serveByDevice"
+          },
+          "docs": "Return a device configuration applicable for a specific device (UDID), app name, software version, platform and optionally a configuration group’s tag"
+        },
+        {
+          "info": {
+            "name": "configurations.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurations/action/update"
+          },
+          "docs": "Update device configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

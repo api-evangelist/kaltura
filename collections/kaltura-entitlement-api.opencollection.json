@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl entitlement API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "entitlement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "entitlement.cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/cancel"
+          },
+          "docs": "Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed"
+        },
+        {
+          "info": {
+            "name": "entitlement.cancelRenewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/cancelRenewal"
+          },
+          "docs": "Cancel a household service subscription at the next renewal. The subscription stays valid till the next renewal."
+        },
+        {
+          "info": {
+            "name": "entitlement.cancelScheduledSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/cancelScheduledSubscription"
+          },
+          "docs": "Cancel Scheduled Subscription"
+        },
+        {
+          "info": {
+            "name": "entitlement.externalReconcile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/externalReconcile"
+          },
+          "docs": "Reconcile the user household&#39;s entitlements with an external entitlements source. This request is frequency protected to avoid too frequent calls per household."
+        },
+        {
+          "info": {
+            "name": "entitlement.forceCancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/forceCancel"
+          },
+          "docs": "Immediately cancel a subscription, PPV or collection. Cancel applies regardless of cancellation window and content consumption status"
+        },
+        {
+          "info": {
+            "name": "entitlement.getNextRenewal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/getNextRenewal"
+          },
+          "docs": "Returns the data about the next renewal"
+        },
+        {
+          "info": {
+            "name": "entitlement.grant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/grant"
+          },
+          "docs": "Grant household for an entitlement for a PPV or Subscription."
+        },
+        {
+          "info": {
+            "name": "entitlement.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/list"
+          },
+          "docs": "Gets all the entitled media items for a household"
+        },
+        {
+          "info": {
+            "name": "entitlement.swap",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/swap"
+          },
+          "docs": "Swap current entitlement (subscription) with new entitlement (subscription) - only Grant"
+        },
+        {
+          "info": {
+            "name": "entitlement.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/entitlement/action/update"
+          },
+          "docs": "Update Kaltura Entitelment by Purchase id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

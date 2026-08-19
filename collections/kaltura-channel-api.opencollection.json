@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl channel API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "channel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "channel.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/channel/action/add"
+          },
+          "docs": "Insert new channel for partner. Supports KalturaDynamicChannel or KalturaManualChannel"
+        },
+        {
+          "info": {
+            "name": "channel.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/channel/action/delete"
+          },
+          "docs": "Delete channel by its channel id"
+        },
+        {
+          "info": {
+            "name": "channel.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/channel/action/get"
+          },
+          "docs": "Returns channel"
+        },
+        {
+          "info": {
+            "name": "channel.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/channel/action/list"
+          },
+          "docs": "Get the list of tags for the partner"
+        },
+        {
+          "info": {
+            "name": "channel.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/channel/action/update"
+          },
+          "docs": "Update channel details. Supports KalturaDynamicChannel or KalturaManualChannel"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl timeShiftedTvPartnerSettings API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "timeShiftedTvPartnerSettings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "timeShiftedTvPartnerSettings.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/timeshiftedtvpartnersettings/action/get"
+          },
+          "docs": "Retrieve the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over)"
+        },
+        {
+          "info": {
+            "name": "timeShiftedTvPartnerSettings.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/timeshiftedtvpartnersettings/action/update"
+          },
+          "docs": "Configure the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

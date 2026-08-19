@@ -1,0 +1,359 @@
+{
+  "item": [
+    {
+      "id": "665a26da-4741-436e-98e5-e59a4678b968",
+      "name": "timeShiftedTvPartnerSettings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c3e13b6-f228-438e-895a-2730896bfdae",
+          "name": "time Shifted Tv Partner Settings.get",
+          "request": {
+            "name": "time Shifted Tv Partner Settings.get",
+            "description": {
+              "content": "Retrieve the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "timeshiftedtvpartnersettings",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57244ccc-dd50-4f5d-be30-867684b456b7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "timeshiftedtvpartnersettings",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"catchUpBufferLength\": 7336,\n  \"catchUpEnabled\": false,\n  \"cdvrEnabled\": true,\n  \"cleanupNoticePeriod\": 3770,\n  \"nonEntitledChannelPlaybackEnabled\": true,\n  \"nonExistingChannelPlaybackEnabled\": true,\n  \"paddingAfterProgramEnds\": 4441,\n  \"paddingBeforeProgramStarts\": 5028,\n  \"protectionEnabled\": false,\n  \"protectionPeriod\": 4220,\n  \"protectionPolicy\": \"ExtendingRecordingLifetime\",\n  \"protectionQuotaPercentage\": 9092,\n  \"quotaOveragePolicy\": \"StopAtQuota\",\n  \"recordingLifetimePeriod\": 4005,\n  \"recordingScheduleWindow\": 7881,\n  \"recordingScheduleWindowEnabled\": false,\n  \"recoveryGracePeriod\": 3136,\n  \"seriesRecordingEnabled\": false,\n  \"startOverEnabled\": true,\n  \"trickPlayBufferLength\": 1039,\n  \"trickPlayEnabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb9598f0-c1ff-47f8-80e4-aec6884770b8",
+              "name": "* `TimeShiftedTvPartnerSettingsNotFound`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "timeshiftedtvpartnersettings",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3458b5a7-b0e5-41fd-93b0-94b21b6ffbe6",
+          "name": "time Shifted Tv Partner Settings.update",
+          "request": {
+            "name": "time Shifted Tv Partner Settings.update",
+            "description": {
+              "content": "Configure the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "timeshiftedtvpartnersettings",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settings\": {\n    \"catchUpBufferLength\": \"<integer>\",\n    \"catchUpEnabled\": \"<boolean>\",\n    \"cdvrEnabled\": \"<boolean>\",\n    \"cleanupNoticePeriod\": \"<integer>\",\n    \"nonEntitledChannelPlaybackEnabled\": \"<boolean>\",\n    \"nonExistingChannelPlaybackEnabled\": \"<boolean>\",\n    \"paddingAfterProgramEnds\": \"<integer>\",\n    \"paddingBeforeProgramStarts\": \"<integer>\",\n    \"protectionEnabled\": \"<boolean>\",\n    \"protectionPeriod\": \"<integer>\",\n    \"protectionPolicy\": \"<string>\",\n    \"protectionQuotaPercentage\": \"<integer>\",\n    \"quotaOveragePolicy\": \"<string>\",\n    \"recordingLifetimePeriod\": \"<integer>\",\n    \"recordingScheduleWindow\": \"<integer>\",\n    \"recordingScheduleWindowEnabled\": \"<boolean>\",\n    \"recoveryGracePeriod\": \"<integer>\",\n    \"seriesRecordingEnabled\": \"<boolean>\",\n    \"startOverEnabled\": \"<boolean>\",\n    \"trickPlayBufferLength\": \"<integer>\",\n    \"trickPlayEnabled\": \"<boolean>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bae92c1c-b3b7-4402-8bbb-1bc9ac5eb634",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "timeshiftedtvpartnersettings",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"catchUpBufferLength\": \"<integer>\",\n    \"catchUpEnabled\": \"<boolean>\",\n    \"cdvrEnabled\": \"<boolean>\",\n    \"cleanupNoticePeriod\": \"<integer>\",\n    \"nonEntitledChannelPlaybackEnabled\": \"<boolean>\",\n    \"nonExistingChannelPlaybackEnabled\": \"<boolean>\",\n    \"paddingAfterProgramEnds\": \"<integer>\",\n    \"paddingBeforeProgramStarts\": \"<integer>\",\n    \"protectionEnabled\": \"<boolean>\",\n    \"protectionPeriod\": \"<integer>\",\n    \"protectionPolicy\": \"<string>\",\n    \"protectionQuotaPercentage\": \"<integer>\",\n    \"quotaOveragePolicy\": \"<string>\",\n    \"recordingLifetimePeriod\": \"<integer>\",\n    \"recordingScheduleWindow\": \"<integer>\",\n    \"recordingScheduleWindowEnabled\": \"<boolean>\",\n    \"recoveryGracePeriod\": \"<integer>\",\n    \"seriesRecordingEnabled\": \"<boolean>\",\n    \"startOverEnabled\": \"<boolean>\",\n    \"trickPlayBufferLength\": \"<integer>\",\n    \"trickPlayEnabled\": \"<boolean>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1d075d1-837d-42dd-b1fa-76dfcf5482ac",
+              "name": "* `TimeShiftedTvPartnerSettingsNotSent`: undefined\n* `TimeShiftedTvPartnerSettingsNegativeBufferSent`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "timeshiftedtvpartnersettings",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"catchUpBufferLength\": \"<integer>\",\n    \"catchUpEnabled\": \"<boolean>\",\n    \"cdvrEnabled\": \"<boolean>\",\n    \"cleanupNoticePeriod\": \"<integer>\",\n    \"nonEntitledChannelPlaybackEnabled\": \"<boolean>\",\n    \"nonExistingChannelPlaybackEnabled\": \"<boolean>\",\n    \"paddingAfterProgramEnds\": \"<integer>\",\n    \"paddingBeforeProgramStarts\": \"<integer>\",\n    \"protectionEnabled\": \"<boolean>\",\n    \"protectionPeriod\": \"<integer>\",\n    \"protectionPolicy\": \"<string>\",\n    \"protectionQuotaPercentage\": \"<integer>\",\n    \"quotaOveragePolicy\": \"<string>\",\n    \"recordingLifetimePeriod\": \"<integer>\",\n    \"recordingScheduleWindow\": \"<integer>\",\n    \"recordingScheduleWindowEnabled\": \"<boolean>\",\n    \"recoveryGracePeriod\": \"<integer>\",\n    \"seriesRecordingEnabled\": \"<boolean>\",\n    \"startOverEnabled\": \"<boolean>\",\n    \"trickPlayBufferLength\": \"<integer>\",\n    \"trickPlayEnabled\": \"<boolean>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6d554af0-c0fe-4dfe-ad59-91ef065210e9",
+    "name": "Kaltura OTT accessControl timeShiftedTvPartnerSettings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

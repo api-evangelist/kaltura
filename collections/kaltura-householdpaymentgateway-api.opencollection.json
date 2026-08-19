@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl householdPaymentGateway API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "householdPaymentGateway",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "householdPaymentGateway.disable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentgateway/action/disable"
+          },
+          "docs": "Disable payment-gateway on the household"
+        },
+        {
+          "info": {
+            "name": "householdPaymentGateway.enable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentgateway/action/enable"
+          },
+          "docs": "Enable a payment-gateway provider for the household."
+        },
+        {
+          "info": {
+            "name": "householdPaymentGateway.getChargeID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentgateway/action/getChargeID"
+          },
+          "docs": "Get a household’s billing account identifier (charge ID) for a given payment gateway"
+        },
+        {
+          "info": {
+            "name": "householdPaymentGateway.invoke",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentgateway/action/invoke"
+          },
+          "docs": "Gets the Payment Gateway Configuration for the payment gateway identifier given"
+        },
+        {
+          "info": {
+            "name": "householdPaymentGateway.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentgateway/action/list"
+          },
+          "docs": "Get a list of all configured Payment Gateways providers available for the account. For each payment is provided with the household associated payment methods."
+        },
+        {
+          "info": {
+            "name": "householdPaymentGateway.resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentgateway/action/resume"
+          },
+          "docs": "Resumes all the entitlements of the given payment gateway"
+        },
+        {
+          "info": {
+            "name": "householdPaymentGateway.setChargeID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentgateway/action/setChargeID"
+          },
+          "docs": "Set user billing account identifier (charge ID), for a specific household and a specific payment gateway"
+        },
+        {
+          "info": {
+            "name": "householdPaymentGateway.suspend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householdpaymentgateway/action/suspend"
+          },
+          "docs": "Suspends all the entitlements of the given payment gateway"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

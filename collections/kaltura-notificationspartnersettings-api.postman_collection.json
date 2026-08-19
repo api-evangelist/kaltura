@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "214da698-5b67-41ec-ba3b-ae77f064eb5c",
+      "name": "notificationsPartnerSettings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "98858a21-8604-47de-b983-eb88c3a441aa",
+          "name": "notifications Partner Settings.get",
+          "request": {
+            "name": "notifications Partner Settings.get",
+            "description": {
+              "content": "Retrieve the partner notification settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "notificationspartnersettings",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eff65574-f743-452d-83b9-e58fdd8a25d6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "notificationspartnersettings",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"automaticIssueFollowNotification\": true,\n  \"churnMailSubject\": \"string\",\n  \"churnMailTemplateName\": \"string\",\n  \"inboxEnabled\": false,\n  \"mailNotificationAdapterId\": 9679,\n  \"mailSenderName\": \"string\",\n  \"messageTTLDays\": 6306,\n  \"pushAdapterUrl\": \"string\",\n  \"pushEndHour\": 2242,\n  \"pushNotificationEnabled\": true,\n  \"pushStartHour\": 8202,\n  \"pushSystemAnnouncementsEnabled\": false,\n  \"reminderEnabled\": false,\n  \"reminderOffsetSec\": 4177,\n  \"senderEmail\": \"string\",\n  \"smsEnabled\": true,\n  \"topicExpirationDurationDays\": 9748\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a856353a-0f89-4563-9079-86a4068a7c8c",
+          "name": "notifications Partner Settings.update",
+          "request": {
+            "name": "notifications Partner Settings.update",
+            "description": {
+              "content": "Update the account notification settings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "notificationspartnersettings",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settings\": {\n    \"automaticIssueFollowNotification\": \"<boolean>\",\n    \"churnMailSubject\": \"<string>\",\n    \"churnMailTemplateName\": \"<string>\",\n    \"inboxEnabled\": \"<boolean>\",\n    \"mailNotificationAdapterId\": \"<integer>\",\n    \"mailSenderName\": \"<string>\",\n    \"messageTTLDays\": \"<integer>\",\n    \"pushAdapterUrl\": \"<string>\",\n    \"pushEndHour\": \"<integer>\",\n    \"pushNotificationEnabled\": \"<boolean>\",\n    \"pushStartHour\": \"<integer>\",\n    \"pushSystemAnnouncementsEnabled\": \"<boolean>\",\n    \"reminderEnabled\": \"<boolean>\",\n    \"reminderOffsetSec\": \"<integer>\",\n    \"senderEmail\": \"<string>\",\n    \"smsEnabled\": \"<boolean>\",\n    \"topicExpirationDurationDays\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8277219c-e4dd-405a-97f4-c84904a15cd1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "notificationspartnersettings",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"automaticIssueFollowNotification\": \"<boolean>\",\n    \"churnMailSubject\": \"<string>\",\n    \"churnMailTemplateName\": \"<string>\",\n    \"inboxEnabled\": \"<boolean>\",\n    \"mailNotificationAdapterId\": \"<integer>\",\n    \"mailSenderName\": \"<string>\",\n    \"messageTTLDays\": \"<integer>\",\n    \"pushAdapterUrl\": \"<string>\",\n    \"pushEndHour\": \"<integer>\",\n    \"pushNotificationEnabled\": \"<boolean>\",\n    \"pushStartHour\": \"<integer>\",\n    \"pushSystemAnnouncementsEnabled\": \"<boolean>\",\n    \"reminderEnabled\": \"<boolean>\",\n    \"reminderOffsetSec\": \"<integer>\",\n    \"senderEmail\": \"<string>\",\n    \"smsEnabled\": \"<boolean>\",\n    \"topicExpirationDurationDays\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "021b941e-e177-41d4-bb0b-56422706073a",
+              "name": "* `PushNotificationFalse`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "notificationspartnersettings",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"automaticIssueFollowNotification\": \"<boolean>\",\n    \"churnMailSubject\": \"<string>\",\n    \"churnMailTemplateName\": \"<string>\",\n    \"inboxEnabled\": \"<boolean>\",\n    \"mailNotificationAdapterId\": \"<integer>\",\n    \"mailSenderName\": \"<string>\",\n    \"messageTTLDays\": \"<integer>\",\n    \"pushAdapterUrl\": \"<string>\",\n    \"pushEndHour\": \"<integer>\",\n    \"pushNotificationEnabled\": \"<boolean>\",\n    \"pushStartHour\": \"<integer>\",\n    \"pushSystemAnnouncementsEnabled\": \"<boolean>\",\n    \"reminderEnabled\": \"<boolean>\",\n    \"reminderOffsetSec\": \"<integer>\",\n    \"senderEmail\": \"<string>\",\n    \"smsEnabled\": \"<boolean>\",\n    \"topicExpirationDurationDays\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a5db1c98-7f54-49e8-8d59-508120b30bd3",
+    "name": "Kaltura OTT accessControl notificationsPartnerSettings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

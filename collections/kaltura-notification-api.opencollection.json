@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl notification API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "notification.register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/notification/action/register"
+          },
+          "docs": "TBD"
+        },
+        {
+          "info": {
+            "name": "notification.sendPush",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/notification/action/sendPush"
+          },
+          "docs": "Sends push notification to user devices"
+        },
+        {
+          "info": {
+            "name": "notification.sendSms",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/notification/action/sendSms"
+          },
+          "docs": "Sends SMS notification to user"
+        },
+        {
+          "info": {
+            "name": "notification.setDevicePushToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/notification/action/setDevicePushToken"
+          },
+          "docs": "Registers the device push token to the push service"
+        },
+        {
+          "info": {
+            "name": "notification.getClientNotification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/notification/action/getClientNotification",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return the notifications for a specific entry id and type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

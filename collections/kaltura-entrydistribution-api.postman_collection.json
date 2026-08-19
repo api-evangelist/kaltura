@@ -1,0 +1,2682 @@
+{
+  "item": [
+    {
+      "id": "47729141-9b24-4272-b3ef-5885fa1ffa93",
+      "name": "entryDistribution",
+      "description": {
+        "content": "Entry Distribution service",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e4f216ac-06ab-4b1e-8265-456715cafea4",
+          "name": "entry Distribution.add",
+          "request": {
+            "name": "entry Distribution.add",
+            "description": {
+              "content": "Add new Entry Distribution",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b2639d7-1758-4a15-9d18-11f6d09ee9f7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 5299,\n  \"dirtyStatus\": 4,\n  \"distributionProfileId\": 2807,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 1960,\n  \"errorType\": 1,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 1,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 9449,\n  \"partnerId\": 3688,\n  \"plays\": 8870,\n  \"remoteId\": \"string\",\n  \"status\": 0,\n  \"submittedAt\": 1639,\n  \"sunStatus\": 3,\n  \"sunrise\": 1122,\n  \"sunset\": 6964,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 7820,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 7945\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfdb9275-308e-4236-ad49-a7ec7488170e",
+              "name": "* `DISTRIBUTION_PROFILE_NOT_FOUND`: Distrbution profile not found [@PROFILE_ID@]\n* `ENTRY_DISTRIBUTION_ALREADY_EXISTS`: Entry distrbution already exists for entry id [@ENTRY_ID@] and profile id [@PROFILE_ID@]\n* `ENTRY_ID_NOT_FOUND`: Entry id \"@ENTRY_ID@\" not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6a478dc-3c54-496b-be0b-bb0388badd4a",
+          "name": "entry Distribution.delete",
+          "request": {
+            "name": "entry Distribution.delete",
+            "description": {
+              "content": "Delete Entry Distribution by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2cff3f1-f06e-46c3-8c9e-f4fd08b96406",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db7e2cfc-dcf8-4a16-9101-35161cad4070",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc8fb7c2-cfda-4af1-8358-5efbf857bdd1",
+          "name": "entry Distribution.get",
+          "request": {
+            "name": "entry Distribution.get",
+            "description": {
+              "content": "Get Entry Distribution by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d982794-ac40-44ea-8dbd-f22ee9d9e888",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 7488,\n  \"dirtyStatus\": 2,\n  \"distributionProfileId\": 2420,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 4416,\n  \"errorType\": 4,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 0,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 2495,\n  \"partnerId\": 3649,\n  \"plays\": 3474,\n  \"remoteId\": \"string\",\n  \"status\": 11,\n  \"submittedAt\": 3182,\n  \"sunStatus\": 1,\n  \"sunrise\": 9085,\n  \"sunset\": 9313,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 907,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72c4a6c8-dd09-4ca9-907b-4e15a1a21d45",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f471d268-8473-4e89-a489-bfb53eb12984",
+          "name": "entry Distribution.list",
+          "request": {
+            "name": "entry Distribution.list",
+            "description": {
+              "content": "List all distribution providers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "209b11ff-cc33-4f2d-b378-135be58c7a91",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "284f7eeb-a197-4c0c-baa1-f1e505f78457",
+          "name": "entry Distribution.retry Submit",
+          "request": {
+            "name": "entry Distribution.retry Submit",
+            "description": {
+              "content": "Retries last submit action",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "retrySubmit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71252b6c-1b3f-47ac-9b11-101ed8f572c4",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "retrySubmit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 7488,\n  \"dirtyStatus\": 2,\n  \"distributionProfileId\": 2420,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 4416,\n  \"errorType\": 4,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 0,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 2495,\n  \"partnerId\": 3649,\n  \"plays\": 3474,\n  \"remoteId\": \"string\",\n  \"status\": 11,\n  \"submittedAt\": 3182,\n  \"sunStatus\": 1,\n  \"sunrise\": 9085,\n  \"sunset\": 9313,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 907,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f1df9c3-a81c-4fed-9826-0b9d269ada02",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]\n* `DISTRIBUTION_PROFILE_NOT_FOUND`: Distrbution profile not found [@PROFILE_ID@]\n* `DISTRIBUTION_PROFILE_DISABLED`: Distrbution profile disabled [@PROFILE_ID@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "retrySubmit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63fe65b2-1f4d-4885-afcd-19bcf6c4f99e",
+          "name": "entry Distribution.serve Returned Data",
+          "request": {
+            "name": "entry Distribution.serve Returned Data",
+            "description": {
+              "content": "Serves entry distribution returned data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "serveReturnedData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bbedfd42-8d70-4e81-a91e-fe1ff7f6c66b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "serveReturnedData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7b2e141-b805-4ad2-b044-a8a8901e56b1",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]\n* `ENTRY_DISTRIBUTION_MISSING_LOG`: Entry distrbution [@ENTRY_ID@] file type [@PROFILE_ID@]\n* `FILE_DOESNT_EXIST`: File doesnt exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "serveReturnedData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "835563b2-832d-4b18-b049-0fc579fb9c12",
+          "name": "entry Distribution.serve Sent Data",
+          "request": {
+            "name": "entry Distribution.serve Sent Data",
+            "description": {
+              "content": "Serves entry distribution sent data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "serveSentData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ac53e4b5-2517-40f6-ba14-0338086e3ee6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "serveSentData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cec9d1e8-8dd6-4742-9449-f64bb0705d2a",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]\n* `ENTRY_DISTRIBUTION_MISSING_LOG`: Entry distrbution [@ENTRY_ID@] file type [@PROFILE_ID@]\n* `FILE_DOESNT_EXIST`: File doesnt exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "serveSentData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b54ba38-0991-4586-b1d8-7e031e982698",
+          "name": "entry Distribution.submit Add",
+          "request": {
+            "name": "entry Distribution.submit Add",
+            "description": {
+              "content": "Submits Entry Distribution to the remote destination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "submitAdd"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "972d7359-d39d-4a43-8113-5d398be77a74",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "submitAdd"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 7488,\n  \"dirtyStatus\": 2,\n  \"distributionProfileId\": 2420,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 4416,\n  \"errorType\": 4,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 0,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 2495,\n  \"partnerId\": 3649,\n  \"plays\": 3474,\n  \"remoteId\": \"string\",\n  \"status\": 11,\n  \"submittedAt\": 3182,\n  \"sunStatus\": 1,\n  \"sunrise\": 9085,\n  \"sunset\": 9313,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 907,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "558c89b1-d616-49f7-b760-8fd9fb0d295e",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]\n* `DISTRIBUTION_PROFILE_NOT_FOUND`: Distrbution profile not found [@PROFILE_ID@]\n* `DISTRIBUTION_PROFILE_DISABLED`: Distrbution profile disabled [@PROFILE_ID@]\n* `ENTRY_DISTRIBUTION_STATUS`: Entry distrbution [@ENTRY_ID@] wrong status [@STATUS@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "submitAdd"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b61d3b93-25ac-4ed0-aa74-fd053699b0b5",
+          "name": "entry Distribution.submit Delete",
+          "request": {
+            "name": "entry Distribution.submit Delete",
+            "description": {
+              "content": "Deletes Entry Distribution from the remote destination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "submitDelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a670ffe3-56e1-4462-b818-d8b5e81cf868",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "submitDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 7488,\n  \"dirtyStatus\": 2,\n  \"distributionProfileId\": 2420,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 4416,\n  \"errorType\": 4,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 0,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 2495,\n  \"partnerId\": 3649,\n  \"plays\": 3474,\n  \"remoteId\": \"string\",\n  \"status\": 11,\n  \"submittedAt\": 3182,\n  \"sunStatus\": 1,\n  \"sunrise\": 9085,\n  \"sunset\": 9313,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 907,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f739f1e-3786-4ad5-9977-a8301396fa7b",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]\n* `DISTRIBUTION_PROFILE_NOT_FOUND`: Distrbution profile not found [@PROFILE_ID@]\n* `DISTRIBUTION_PROFILE_DISABLED`: Distrbution profile disabled [@PROFILE_ID@]\n* `ENTRY_DISTRIBUTION_STATUS`: Entry distrbution [@ENTRY_ID@] wrong status [@STATUS@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "submitDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "575e16f5-44fb-4eab-930a-7ec1aab1b60c",
+          "name": "entry Distribution.submit Fetch Report",
+          "request": {
+            "name": "entry Distribution.submit Fetch Report",
+            "description": {
+              "content": "Submits Entry Distribution report request",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "submitFetchReport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bdb3ef2b-ea56-49d4-a54f-79971853a0c0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "submitFetchReport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 7488,\n  \"dirtyStatus\": 2,\n  \"distributionProfileId\": 2420,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 4416,\n  \"errorType\": 4,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 0,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 2495,\n  \"partnerId\": 3649,\n  \"plays\": 3474,\n  \"remoteId\": \"string\",\n  \"status\": 11,\n  \"submittedAt\": 3182,\n  \"sunStatus\": 1,\n  \"sunrise\": 9085,\n  \"sunset\": 9313,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 907,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "939d9430-aa46-418c-a414-8ff32a9f6c6c",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]\n* `DISTRIBUTION_PROFILE_NOT_FOUND`: Distrbution profile not found [@PROFILE_ID@]\n* `DISTRIBUTION_PROFILE_DISABLED`: Distrbution profile disabled [@PROFILE_ID@]\n* `ENTRY_DISTRIBUTION_STATUS`: Entry distrbution [@ENTRY_ID@] wrong status [@STATUS@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "submitFetchReport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56d6a0e8-79ce-415e-8507-6acf887e756c",
+          "name": "entry Distribution.submit Update",
+          "request": {
+            "name": "entry Distribution.submit Update",
+            "description": {
+              "content": "Submits Entry Distribution changes to the remote destination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "submitUpdate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f34910da-0d40-42d4-9560-63ba0f634da9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "submitUpdate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 7488,\n  \"dirtyStatus\": 2,\n  \"distributionProfileId\": 2420,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 4416,\n  \"errorType\": 4,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 0,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 2495,\n  \"partnerId\": 3649,\n  \"plays\": 3474,\n  \"remoteId\": \"string\",\n  \"status\": 11,\n  \"submittedAt\": 3182,\n  \"sunStatus\": 1,\n  \"sunrise\": 9085,\n  \"sunset\": 9313,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 907,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9f1d064-7d23-4487-94c7-c9d9bd659c5c",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]\n* `DISTRIBUTION_PROFILE_NOT_FOUND`: Distrbution profile not found [@PROFILE_ID@]\n* `DISTRIBUTION_PROFILE_DISABLED`: Distrbution profile disabled [@PROFILE_ID@]\n* `ENTRY_DISTRIBUTION_STATUS`: Entry distrbution [@ENTRY_ID@] wrong status [@STATUS@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "submitUpdate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7449f764-cbec-422b-8fa0-43b7665b5157",
+          "name": "entry Distribution.update",
+          "request": {
+            "name": "entry Distribution.update",
+            "description": {
+              "content": "Update Entry Distribution by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f74a0cef-4ce7-497c-a204-ef2d23677f01",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 7488,\n  \"dirtyStatus\": 2,\n  \"distributionProfileId\": 2420,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 4416,\n  \"errorType\": 4,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 0,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 2495,\n  \"partnerId\": 3649,\n  \"plays\": 3474,\n  \"remoteId\": \"string\",\n  \"status\": 11,\n  \"submittedAt\": 3182,\n  \"sunStatus\": 1,\n  \"sunrise\": 9085,\n  \"sunset\": 9313,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 907,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "308bad6a-7488-46e6-894e-2480e23091f1",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07c140ed-9597-426b-b486-9d885480c00d",
+          "name": "entry Distribution.validate",
+          "request": {
+            "name": "entry Distribution.validate",
+            "description": {
+              "content": "Validates Entry Distribution by id for submission",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "contentdistribution_entrydistribution",
+                "action",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<integer>",
+                  "description": "The format of the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientTag",
+                  "value": "devkcom"
+                },
+                {
+                  "disabled": false,
+                  "key": "partnerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"responseProfile\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8706b169-07d6-4010-a81a-758ec3b2cf19",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetIds\": \"string\",\n  \"createdAt\": 7488,\n  \"dirtyStatus\": 2,\n  \"distributionProfileId\": 2420,\n  \"entryId\": \"string\",\n  \"errorDescription\": \"string\",\n  \"errorNumber\": 4416,\n  \"errorType\": 4,\n  \"flavorAssetIds\": \"string\",\n  \"hasDeleteResultsLog\": 0,\n  \"hasDeleteSentDataLog\": 0,\n  \"hasSubmitResultsLog\": 1,\n  \"hasSubmitSentDataLog\": 0,\n  \"hasUpdateResultsLog\": 1,\n  \"hasUpdateSentDataLog\": 1,\n  \"id\": 2495,\n  \"partnerId\": 3649,\n  \"plays\": 3474,\n  \"remoteId\": \"string\",\n  \"status\": 11,\n  \"submittedAt\": 3182,\n  \"sunStatus\": 1,\n  \"sunrise\": 9085,\n  \"sunset\": 9313,\n  \"thumbAssetIds\": \"string\",\n  \"updatedAt\": 907,\n  \"validationErrors\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"views\": 483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d55d98b-5af1-4fbc-b0c2-5e05cbb3a3b7",
+              "name": "* `ENTRY_DISTRIBUTION_NOT_FOUND`: Entry distrbution not found [@ENTRY_ID@]\n* `DISTRIBUTION_PROFILE_NOT_FOUND`: Distrbution profile not found [@PROFILE_ID@]\n* `DISTRIBUTION_PROFILE_DISABLED`: Distrbution profile disabled [@PROFILE_ID@]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "contentdistribution_entrydistribution",
+                    "action",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "clientTag",
+                      "value": "devkcom"
+                    },
+                    {
+                      "key": "partnerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6f97f3e9-b69f-47e3-b68a-8709b632e28a",
+    "name": "Kaltura OTT accessControl entryDistribution API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

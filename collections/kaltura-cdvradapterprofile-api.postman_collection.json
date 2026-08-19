@@ -1,0 +1,742 @@
+{
+  "item": [
+    {
+      "id": "b8983d0f-ddf1-4926-92ff-f09c88d8ed41",
+      "name": "cDVRAdapterProfile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4b86869-7db9-4ac2-8d7d-cd8e7cdfe6fe",
+          "name": "c DVR Adapter Profile.add",
+          "request": {
+            "name": "c DVR Adapter Profile.add",
+            "description": {
+              "content": "Insert new C-DVR adapter for partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdvradapterprofile",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"dynamicLinksSupport\": \"<boolean>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2d8c14e-515f-4535-82e6-668c3ed4b33b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"dynamicLinksSupport\": \"<boolean>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"dynamicLinksSupport\": \"<boolean>\",\n  \"externalIdentifier\": \"<string>\",\n  \"id\": 3324,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"settings\": [\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    },\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    }\n  ],\n  \"sharedSecret\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fb8de1b-8f6b-4694-b394-369edee84749",
+              "name": "* `NameRequired`: undefined\n* `ExternalIdentifierRequired`: undefined\n* `AdapterUrlRequired`: undefined\n* `ExternalIdentifierMustBeUnique`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"dynamicLinksSupport\": \"<boolean>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b0d317e-4287-4130-9425-97172fe5c4f8",
+          "name": "c DVR Adapter Profile.delete",
+          "request": {
+            "name": "c DVR Adapter Profile.delete",
+            "description": {
+              "content": "Delete C-DVR adapter by C-DVR adapter id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdvradapterprofile",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39650f0d-c44c-4713-83fc-4f8c2d9d94a6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77a86741-c3f8-47f5-a4db-16ad1a658b1d",
+              "name": "* `AdapterNotExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a925ceb-28a2-4bab-b532-43c264860e5f",
+          "name": "c DVR Adapter Profile.generate Shared Secret",
+          "request": {
+            "name": "c DVR Adapter Profile.generate Shared Secret",
+            "description": {
+              "content": "Generate C-DVR adapter shared secret",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdvradapterprofile",
+                "action",
+                "generateSharedSecret"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c344295c-a97e-44ee-a6cf-a24f032836bb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "generateSharedSecret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"dynamicLinksSupport\": \"<boolean>\",\n  \"externalIdentifier\": \"<string>\",\n  \"id\": 3324,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"settings\": [\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    },\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    }\n  ],\n  \"sharedSecret\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d27ae4c9-4242-4523-9377-1fb03c4c5df2",
+              "name": "* `AdapterIdentifierRequired`: undefined\n* `AdapterNotExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "generateSharedSecret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f6c69e6-7f69-4f81-87d9-f8d0260aa613",
+          "name": "c DVR Adapter Profile.list",
+          "request": {
+            "name": "c DVR Adapter Profile.list",
+            "description": {
+              "content": "Returns all C-DVR adapters for partner",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdvradapterprofile",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ad50b99-aa10-4f00-ac80-b1740ccad20f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"adapterUrl\": \"<string>\",\n      \"dynamicLinksSupport\": \"<boolean>\",\n      \"externalIdentifier\": \"<string>\",\n      \"id\": 439,\n      \"isActive\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"settings\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"sharedSecret\": \"string\"\n    },\n    {\n      \"adapterUrl\": \"<string>\",\n      \"dynamicLinksSupport\": \"<boolean>\",\n      \"externalIdentifier\": \"<string>\",\n      \"id\": 9301,\n      \"isActive\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"settings\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"sharedSecret\": \"string\"\n    }\n  ],\n  \"totalCount\": 7494\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c16c8b1a-3234-428f-8f32-d4851b4a84ff",
+          "name": "c DVR Adapter Profile.update",
+          "request": {
+            "name": "c DVR Adapter Profile.update",
+            "description": {
+              "content": "Update C-DVR adapter details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "cdvradapterprofile",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"dynamicLinksSupport\": \"<boolean>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5efabda9-e0c2-4976-95f5-9633bb6db476",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"dynamicLinksSupport\": \"<boolean>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterUrl\": \"<string>\",\n  \"dynamicLinksSupport\": \"<boolean>\",\n  \"externalIdentifier\": \"<string>\",\n  \"id\": 3324,\n  \"isActive\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"settings\": [\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    },\n    {\n      \"value\": \"<Error: Could not resolve allOf schema\"\n    }\n  ],\n  \"sharedSecret\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e84135e5-a19a-4281-abe6-fece7775098b",
+              "name": "* `AdapterUrlRequired`: undefined\n* `AdapterIdentifierRequired`: undefined\n* `NameRequired`: undefined\n* `ExternalIdentifierRequired`: undefined\n* `AdapterNotExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "cdvradapterprofile",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapter\": {\n    \"adapterUrl\": \"<string>\",\n    \"dynamicLinksSupport\": \"<boolean>\",\n    \"externalIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"settings\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"adapterId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f460db30-3e6f-4f26-beaf-4d578f1577a3",
+    "name": "Kaltura OTT accessControl cDVRAdapterProfile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

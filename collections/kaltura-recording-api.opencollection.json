@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl recording API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "recording",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "recording.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recording/action/add"
+          },
+          "docs": "Issue a record request for a program"
+        },
+        {
+          "info": {
+            "name": "recording.cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recording/action/cancel"
+          },
+          "docs": "Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only"
+        },
+        {
+          "info": {
+            "name": "recording.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recording/action/delete"
+          },
+          "docs": "Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded"
+        },
+        {
+          "info": {
+            "name": "recording.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recording/action/get"
+          },
+          "docs": "Returns recording object by internal identifier"
+        },
+        {
+          "info": {
+            "name": "recording.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recording/action/list"
+          },
+          "docs": "Return a list of recordings for the household with optional filter by status and KSQL."
+        },
+        {
+          "info": {
+            "name": "recording.protect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/recording/action/protect"
+          },
+          "docs": "Protects an existing recording from the cleanup process for the defined protection period"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

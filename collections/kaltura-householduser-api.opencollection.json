@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl householdUser API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "householdUser",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "householdUser.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householduser/action/add"
+          },
+          "docs": "Adds a user to household"
+        },
+        {
+          "info": {
+            "name": "householdUser.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householduser/action/delete"
+          },
+          "docs": "Removes a user from household"
+        },
+        {
+          "info": {
+            "name": "householdUser.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householduser/action/list"
+          },
+          "docs": "Returns the users within the household"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl meta API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "meta",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "meta.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/meta/action/add"
+          },
+          "docs": "Add a new meta"
+        },
+        {
+          "info": {
+            "name": "meta.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/meta/action/delete"
+          },
+          "docs": "Delete an existing meta"
+        },
+        {
+          "info": {
+            "name": "meta.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/meta/action/list"
+          },
+          "docs": "Return a list of metas for the account with optional filter"
+        },
+        {
+          "info": {
+            "name": "meta.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/meta/action/update"
+          },
+          "docs": "Update an existing meta"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

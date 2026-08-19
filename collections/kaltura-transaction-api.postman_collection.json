@@ -1,0 +1,870 @@
+{
+  "item": [
+    {
+      "id": "212aa37c-afc6-44b1-9450-08f613ba0d54",
+      "name": "transaction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2623de84-314c-4382-9eb3-6bfa11f1249b",
+          "name": "transaction.downgrade",
+          "request": {
+            "name": "transaction.downgrade",
+            "description": {
+              "content": "downgrade specific subscription for a household. entitlements will be updated on the existing subscription end date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "transaction",
+                "action",
+                "downgrade"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchase\": {\n    \"adapterData\": \"<string>\",\n    \"coupon\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"paymentGatewayId\": \"<integer>\",\n    \"paymentMethodId\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"contentId\": \"<integer>\",\n    \"productId\": \"<integer>\",\n    \"productType\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8998e161-1b52-46d6-a217-c8c550968bcd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "downgrade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "340839fe-1979-410a-9558-2c0a91853c97",
+              "name": "* `NotForPurchase`: undefined\n* `UserNotInDomain`: undefined\n* `InvalidUser`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined\n* `CouponNotValid`: undefined\n* `UnableToPurchasePPVPurchased`: undefined\n* `UnableToPurchaseFree`: undefined\n* `UnableToPurchaseForPurchaseSubscriptionOnly`: undefined\n* `UnableToPurchaseSubscriptionPurchased`: undefined\n* `PaymentGatewayChargeIdRequired`: undefined\n* `UnableToPurchaseCollectionPurchased`: undefined\n* `AdapterUrlRequired`: undefined\n* `IncorrectPrice`: undefined\n* `UnKnownPPVModule`: undefined\n* `PaymentGatewayNotSetForHousehold`: undefined\n* `PaymentGatewayNotExist`: undefined\n* `PaymentMethodNotSetForHousehold`: undefined\n* `SignatureMismatch`: undefined\n* `UnknownTransactionState`: undefined\n* `NoConfigurationFound`: undefined\n* `PaymentMethodNotExist`: undefined\n* `SubscriptionNotRenewable`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "downgrade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26371136-d9a7-46e0-a635-9e98a0d28b65",
+          "name": "transaction.get Purchase Session Id",
+          "request": {
+            "name": "transaction.get Purchase Session Id",
+            "description": {
+              "content": "Retrieve the purchase session identifier",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "transaction",
+                "action",
+                "getPurchaseSessionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchaseSession\": {\n    \"previewModuleId\": \"<integer>\",\n    \"adapterData\": \"<string>\",\n    \"coupon\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"paymentGatewayId\": \"<integer>\",\n    \"paymentMethodId\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"contentId\": \"<integer>\",\n    \"productId\": \"<integer>\",\n    \"productType\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f16b9e2-9a0e-4a02-9688-8ddbf71f6bf9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "getPurchaseSessionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"purchaseSession\": {\n    \"previewModuleId\": \"<integer>\",\n    \"adapterData\": \"<string>\",\n    \"coupon\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"paymentGatewayId\": \"<integer>\",\n    \"paymentMethodId\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"contentId\": \"<integer>\",\n    \"productId\": \"<integer>\",\n    \"productType\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "7414",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dda7351b-9480-4c67-948f-a964b8f04ab6",
+          "name": "transaction.purchase",
+          "request": {
+            "name": "transaction.purchase",
+            "description": {
+              "content": "Purchase specific product or subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "transaction",
+                "action",
+                "purchase"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchase\": {\n    \"adapterData\": \"<string>\",\n    \"coupon\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"paymentGatewayId\": \"<integer>\",\n    \"paymentMethodId\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"contentId\": \"<integer>\",\n    \"productId\": \"<integer>\",\n    \"productType\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ab990d0-548a-4b25-b355-7d3d1bc94449",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "purchase"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": 8561,\n  \"failReasonCode\": 1478,\n  \"id\": \"string\",\n  \"paymentGatewayReferenceId\": \"string\",\n  \"paymentGatewayResponseId\": \"string\",\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97ba6841-180a-4c00-a8a6-7d08462313a6",
+              "name": "* `UnableToPurchaseSubscriptionPurchased`: undefined\n* `NotForPurchase`: undefined\n* `UserNotInDomain`: undefined\n* `InvalidUser`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined\n* `CouponNotValid`: undefined\n* `UnableToPurchasePPVPurchased`: undefined\n* `UnableToPurchaseFree`: undefined\n* `UnableToPurchaseForPurchaseSubscriptionOnly`: undefined\n* `UnableToPurchaseCollectionPurchased`: undefined\n* `AdapterUrlRequired`: undefined\n* `IncorrectPrice`: undefined\n* `UnKnownPPVModule`: undefined\n* `PaymentGatewayNotSetForHousehold`: undefined\n* `PaymentGatewayNotExist`: undefined\n* `PaymentGatewayChargeIdRequired`: undefined\n* `NoConfigurationFound`: undefined\n* `SignatureMismatch`: undefined\n* `UnknownTransactionState`: undefined\n* `PaymentMethodNotSetForHousehold`: undefined\n* `PaymentMethodNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "purchase"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b8f66cd-bdac-46a2-9c04-7a1b2fcd7595",
+          "name": "transaction.set Waiver",
+          "request": {
+            "name": "transaction.set Waiver",
+            "description": {
+              "content": "This method shall set the waiver flag on the user entitlement table and the waiver date field to the current date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "transaction",
+                "action",
+                "setWaiver"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetId\": \"<integer>\",\n  \"transactionType\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc6b0ed8-9639-45d0-b748-e251e0765a23",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "setWaiver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetId\": \"<integer>\",\n  \"transactionType\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac6989f9-eff9-48e2-91b4-06a7b421ee63",
+          "name": "transaction.update Status",
+          "request": {
+            "name": "transaction.update Status",
+            "description": {
+              "content": "Updates a pending purchase transaction state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "transaction",
+                "action",
+                "updateStatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalTransactionId\": \"<string>\",\n  \"paymentGatewayId\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"status\": {\n    \"adapterTransactionStatus\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalMessage\": \"<string>\",\n    \"externalStatus\": \"<string>\",\n    \"failReason\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f95b02a2-3171-4573-9dfc-c135e0208979",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "updateStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalTransactionId\": \"<string>\",\n  \"paymentGatewayId\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"status\": {\n    \"adapterTransactionStatus\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalMessage\": \"<string>\",\n    \"externalStatus\": \"<string>\",\n    \"failReason\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8503698b-a60f-4f95-a461-f2c1da1182a0",
+          "name": "transaction.upgrade",
+          "request": {
+            "name": "transaction.upgrade",
+            "description": {
+              "content": "upgrade specific subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "transaction",
+                "action",
+                "upgrade"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchase\": {\n    \"adapterData\": \"<string>\",\n    \"coupon\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"paymentGatewayId\": \"<integer>\",\n    \"paymentMethodId\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"contentId\": \"<integer>\",\n    \"productId\": \"<integer>\",\n    \"productType\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dee34f6d-d4ae-460a-9b24-68290ec87a02",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "upgrade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": 8561,\n  \"failReasonCode\": 1478,\n  \"id\": \"string\",\n  \"paymentGatewayReferenceId\": \"string\",\n  \"paymentGatewayResponseId\": \"string\",\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d84c1d74-a9af-4213-a267-746e6d2dece2",
+              "name": "* `UserNotInDomain`: undefined\n* `AdapterUrlRequired`: undefined\n* `InvalidUser`: undefined\n* `UserDoesNotExist`: undefined\n* `UserSuspended`: undefined\n* `CouponNotValid`: undefined\n* `UnableToPurchasePPVPurchased`: undefined\n* `UnableToPurchaseFree`: undefined\n* `UnableToPurchaseForPurchaseSubscriptionOnly`: undefined\n* `UnableToPurchaseSubscriptionPurchased`: undefined\n* `NotForPurchase`: undefined\n* `UnableToPurchaseCollectionPurchased`: undefined\n* `IncorrectPrice`: undefined\n* `UnKnownPPVModule`: undefined\n* `PaymentGatewayNotSetForHousehold`: undefined\n* `PaymentGatewayNotExist`: undefined\n* `PaymentGatewayChargeIdRequired`: undefined\n* `NoConfigurationFound`: undefined\n* `SignatureMismatch`: undefined\n* `UnknownTransactionState`: undefined\n* `PaymentMethodNotSetForHousehold`: undefined\n* `PaymentMethodNotExist`: undefined\n* `SubscriptionNotRenewable`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "upgrade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dba03eaf-47e3-44ed-9c61-04d97ed1f548",
+          "name": "transaction.validate Receipt",
+          "request": {
+            "name": "transaction.validate Receipt",
+            "description": {
+              "content": "Verifies PPV/Subscription/Collection client purchase (such as InApp) and entitles the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "transaction",
+                "action",
+                "validateReceipt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalReceipt\": {\n    \"paymentGatewayName\": \"<string>\",\n    \"receiptId\": \"<string>\",\n    \"contentId\": \"<integer>\",\n    \"productId\": \"<integer>\",\n    \"productType\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0e40f4d9-5a8e-465e-8079-7e00d7a5ae55",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "transaction",
+                    "action",
+                    "validateReceipt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalReceipt\": {\n    \"paymentGatewayName\": \"<string>\",\n    \"receiptId\": \"<string>\",\n    \"contentId\": \"<integer>\",\n    \"productId\": \"<integer>\",\n    \"productType\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": 8561,\n  \"failReasonCode\": 1478,\n  \"id\": \"string\",\n  \"paymentGatewayReferenceId\": \"string\",\n  \"paymentGatewayResponseId\": \"string\",\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b044da2f-6d94-49e9-b87a-a42db13f39f6",
+    "name": "Kaltura OTT accessControl transaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

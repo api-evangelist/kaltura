@@ -1,0 +1,216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl ottUser API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ottUser",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ottUser.activate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/activate"
+          },
+          "docs": "Activate the account by activation token"
+        },
+        {
+          "info": {
+            "name": "ottUser.addRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/addRole"
+          },
+          "docs": "Edit user details."
+        },
+        {
+          "info": {
+            "name": "ottUser.anonymousLogin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/anonymousLogin"
+          },
+          "docs": "Returns tokens (KS and refresh token) for anonymous access"
+        },
+        {
+          "info": {
+            "name": "ottUser.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/delete"
+          },
+          "docs": "Permanently delete a user. User to delete cannot be an exclusive household master, and cannot be default user."
+        },
+        {
+          "info": {
+            "name": "ottUser.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/get"
+          },
+          "docs": "Retrieving users&#39; data"
+        },
+        {
+          "info": {
+            "name": "ottUser.getEncryptedUserId",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/getEncryptedUserId"
+          },
+          "docs": "Returns the identifier of the user encrypted with SHA1 using configured key"
+        },
+        {
+          "info": {
+            "name": "ottUser.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/list"
+          },
+          "docs": "Retrieve user by external identifier or username or if filter is null all user in the master or the user itself"
+        },
+        {
+          "info": {
+            "name": "ottUser.login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/login"
+          },
+          "docs": "login with user name and password."
+        },
+        {
+          "info": {
+            "name": "ottUser.loginWithPin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/loginWithPin"
+          },
+          "docs": "User sign-in via a time-expired sign-in PIN."
+        },
+        {
+          "info": {
+            "name": "ottUser.logout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/logout"
+          },
+          "docs": "Logout the calling user."
+        },
+        {
+          "info": {
+            "name": "ottUser.register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/register"
+          },
+          "docs": "Sign up a new user."
+        },
+        {
+          "info": {
+            "name": "ottUser.resendActivationToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/resendActivationToken"
+          },
+          "docs": "Resend the activation token to a user"
+        },
+        {
+          "info": {
+            "name": "ottUser.resetPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/resetPassword"
+          },
+          "docs": "Send an e-mail with URL to enable the user to set new password."
+        },
+        {
+          "info": {
+            "name": "ottUser.setInitialPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/setInitialPassword"
+          },
+          "docs": "Renew the user&#39;s password after validating the token that sent as part of URL in e-mail."
+        },
+        {
+          "info": {
+            "name": "ottUser.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/update"
+          },
+          "docs": "Update user information"
+        },
+        {
+          "info": {
+            "name": "ottUser.updateDynamicData",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/updateDynamicData"
+          },
+          "docs": "Update user dynamic data"
+        },
+        {
+          "info": {
+            "name": "ottUser.updateLoginData",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/updateLoginData"
+          },
+          "docs": "Given a user name and existing password, change to a new password."
+        },
+        {
+          "info": {
+            "name": "ottUser.updatePassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/ottuser/action/updatePassword"
+          },
+          "docs": "Update the user&#39;s existing password."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

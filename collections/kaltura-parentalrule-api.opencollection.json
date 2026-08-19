@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl parentalRule API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "parentalRule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "parentalRule.disable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/parentalrule/action/disable"
+          },
+          "docs": "Disables a parental rule that was previously defined by the household master. Disable can be at specific user or household level."
+        },
+        {
+          "info": {
+            "name": "parentalRule.disableDefault",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/parentalrule/action/disableDefault"
+          },
+          "docs": "Disables a parental rule that was defined at account level. Disable can be at specific user or household level."
+        },
+        {
+          "info": {
+            "name": "parentalRule.enable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/parentalrule/action/enable"
+          },
+          "docs": "Enable a parental rules for a user"
+        },
+        {
+          "info": {
+            "name": "parentalRule.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/parentalrule/action/list"
+          },
+          "docs": "Return the parental rules that applies for the user or household. Can include rules that have been associated in account, household, or user level.\r\n            Association level is also specified in the response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

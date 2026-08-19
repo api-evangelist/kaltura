@@ -1,0 +1,619 @@
+{
+  "item": [
+    {
+      "id": "fb8b520c-bc21-4a42-897a-3e76c6e7fad4",
+      "name": "assetStruct",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d19a9e9-7ea4-4de8-8a76-d899852010e8",
+          "name": "asset Struct.add",
+          "request": {
+            "name": "asset Struct.add",
+            "description": {
+              "content": "Add a new assetStruct",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "assetstruct",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStruct\": {\n    \"isProtected\": \"<boolean>\",\n    \"metaIds\": \"<string>\",\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "485347a9-0ca8-48fe-b505-2c1d200a8062",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "assetstruct",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStruct\": {\n    \"isProtected\": \"<boolean>\",\n    \"metaIds\": \"<string>\",\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createDate\": 9352,\n  \"id\": 2667,\n  \"isProtected\": \"<boolean>\",\n  \"metaIds\": \"<string>\",\n  \"multilingualName\": [\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"systemName\": \"<string>\",\n  \"updateDate\": 2984\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "774d5cae-d923-47aa-9be7-adaf4c03ffec",
+              "name": "* `AssetStructMissingBasicMetaIds`: undefined\n* `MetaIdsDoesNotExist`: undefined\n* `AssetStructSystemNameAlreadyInUse`: undefined\n* `AssetStructNameAlreadyInUse`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "assetstruct",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStruct\": {\n    \"isProtected\": \"<boolean>\",\n    \"metaIds\": \"<string>\",\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"systemName\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0856aa20-2bed-4467-a0fe-09ac0c2c3f53",
+          "name": "asset Struct.delete",
+          "request": {
+            "name": "asset Struct.delete",
+            "description": {
+              "content": "Delete an existing assetStruct",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "assetstruct",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2fbd2175-1537-447d-8967-edca8fbe9f53",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "assetstruct",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1ff9b46-8211-4d47-9f1c-03adc1071c14",
+              "name": "* `AssetStructDoesNotExist`: undefined\n* `CanNotDeletePredefinedAssetStruct`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "assetstruct",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "feacdb3d-3fda-49a2-9524-8f775b46faae",
+          "name": "asset Struct.list",
+          "request": {
+            "name": "asset Struct.list",
+            "description": {
+              "content": "Return a list of asset structs for the account with optional filter",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "assetstruct",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"isProtectedEqual\": \"<boolean>\",\n    \"metaIdEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "778c7396-5d11-4fc4-8023-85adac508542",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "assetstruct",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"isProtectedEqual\": \"<boolean>\",\n    \"metaIdEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"createDate\": 9266,\n      \"id\": 938,\n      \"isProtected\": \"<boolean>\",\n      \"metaIds\": \"<string>\",\n      \"multilingualName\": [\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"systemName\": \"<string>\",\n      \"updateDate\": 3099\n    },\n    {\n      \"createDate\": 3947,\n      \"id\": 7819,\n      \"isProtected\": \"<boolean>\",\n      \"metaIds\": \"<string>\",\n      \"multilingualName\": [\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"systemName\": \"<string>\",\n      \"updateDate\": 4324\n    }\n  ],\n  \"totalCount\": 1026\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a95a7ad-8716-40cb-ab26-9e1b37635400",
+          "name": "asset Struct.update",
+          "request": {
+            "name": "asset Struct.update",
+            "description": {
+              "content": "Update an existing assetStruct",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "assetstruct",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetStruct\": {\n    \"isProtected\": \"<boolean>\",\n    \"metaIds\": \"<string>\",\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"systemName\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a99a500b-791d-42cc-9627-270c9c193c09",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "assetstruct",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStruct\": {\n    \"isProtected\": \"<boolean>\",\n    \"metaIds\": \"<string>\",\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"systemName\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createDate\": 9352,\n  \"id\": 2667,\n  \"isProtected\": \"<boolean>\",\n  \"metaIds\": \"<string>\",\n  \"multilingualName\": [\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"language\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"systemName\": \"<string>\",\n  \"updateDate\": 2984\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ec2d8f7-74f9-4ef1-aa13-127646ed729b",
+              "name": "* `MetaIdsDoesNotExist`: undefined\n* `AssetStructDoesNotExist`: undefined\n* `AssetStructNameAlreadyInUse`: undefined\n* `AssetStructSystemNameAlreadyInUse`: undefined\n* `CanNotChangePredefinedAssetStructSystemName`: undefined\n* `AssetStructMissingBasicMetaIds`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "assetstruct",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetStruct\": {\n    \"isProtected\": \"<boolean>\",\n    \"metaIds\": \"<string>\",\n    \"multilingualName\": [\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"systemName\": \"<string>\"\n  },\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9ff72ca6-2a47-4d8e-b8fd-f0ce5605a442",
+    "name": "Kaltura OTT accessControl assetStruct API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

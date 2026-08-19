@@ -1,0 +1,1394 @@
+{
+  "item": [
+    {
+      "id": "11eba096-4d5d-47e1-9c11-5f423eb73942",
+      "name": "householdDevice",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0d0de02-16bc-4b2e-93d4-ae09c18b8935",
+          "name": "household Device.add",
+          "request": {
+            "name": "household Device.add",
+            "description": {
+              "content": "Add device to household",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"device\": {\n    \"activatedOn\": \"<integer>\",\n    \"brandId\": \"<integer>\",\n    \"drm\": {\n      \"data\": \"<string>\",\n      \"licenseURL\": \"<string>\",\n      \"scheme\": \"<string>\"\n    },\n    \"householdId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"udid\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fece4188-a795-4f04-b1a0-0736b9516059",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": {\n    \"activatedOn\": \"<integer>\",\n    \"brandId\": \"<integer>\",\n    \"drm\": {\n      \"data\": \"<string>\",\n      \"licenseURL\": \"<string>\",\n      \"scheme\": \"<string>\"\n    },\n    \"householdId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"udid\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activatedOn\": \"<integer>\",\n  \"brandId\": \"<integer>\",\n  \"deviceFamilyId\": 5711,\n  \"drm\": {\n    \"data\": \"<string>\",\n    \"licenseURL\": \"<string>\",\n    \"scheme\": \"<string>\"\n  },\n  \"householdId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"status\": \"NOT_ACTIVATED\",\n  \"udid\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0de8056-70b5-4b69-a3ad-2832d23d25d6",
+              "name": "* `DomainSuspended`: undefined\n* `DomainNotExists`: undefined\n* `DeviceExistsInOtherDomains`: undefined\n* `NoUsersInDomain`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": {\n    \"activatedOn\": \"<integer>\",\n    \"brandId\": \"<integer>\",\n    \"drm\": {\n      \"data\": \"<string>\",\n      \"licenseURL\": \"<string>\",\n      \"scheme\": \"<string>\"\n    },\n    \"householdId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"udid\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be2747fb-4865-49d7-8199-e698493829de",
+          "name": "household Device.add By Pin",
+          "request": {
+            "name": "household Device.add By Pin",
+            "description": {
+              "content": "Registers a device to a household using pin code",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "addByPin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceName\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9ca0091-0e05-4608-be8c-d3879974195d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "addByPin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceName\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activatedOn\": \"<integer>\",\n  \"brandId\": \"<integer>\",\n  \"deviceFamilyId\": 5711,\n  \"drm\": {\n    \"data\": \"<string>\",\n    \"licenseURL\": \"<string>\",\n    \"scheme\": \"<string>\"\n  },\n  \"householdId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"status\": \"NOT_ACTIVATED\",\n  \"udid\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7812b41-7191-4001-a12a-0f6b2a26e5ba",
+              "name": "* `ExceededLimit`: undefined\n* `DuplicatePin`: undefined\n* `DeviceNotExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "addByPin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceName\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7d48936-2f5e-4b45-bbd4-fe3fb3693c0f",
+          "name": "household Device.delete",
+          "request": {
+            "name": "household Device.delete",
+            "description": {
+              "content": "Removes a device from household",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "94f2a8d5-5e0b-42b3-8372-21072b728d8e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfbb95c2-460b-4269-8a93-2942c9c30b54",
+              "name": "* `DeviceNotInDomain`: undefined\n* `DomainSuspended`: undefined\n* `LimitationPeriod`: undefined\n* `DeviceNotExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73abd004-1ffd-4631-9061-152080a13f15",
+          "name": "household Device.generate Pin",
+          "request": {
+            "name": "household Device.generate Pin",
+            "description": {
+              "content": "Generates device pin to use when adding a device to household by pin",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "generatePin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brandId\": \"<integer>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0a8e295-5771-4d58-8010-90aca2bdb165",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "generatePin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brandId\": \"<integer>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pin\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74c524da-df82-4d40-af13-d169a821e18e",
+          "name": "household Device.get",
+          "request": {
+            "name": "household Device.get",
+            "description": {
+              "content": "Returns device registration status to the supplied household",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "194d1671-8ef1-40fc-9375-9f13cd621533",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activatedOn\": \"<integer>\",\n  \"brandId\": \"<integer>\",\n  \"deviceFamilyId\": 5711,\n  \"drm\": {\n    \"data\": \"<string>\",\n    \"licenseURL\": \"<string>\",\n    \"scheme\": \"<string>\"\n  },\n  \"householdId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"status\": \"NOT_ACTIVATED\",\n  \"udid\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52949470-f8a0-4eaa-a466-7e24a53fd4b6",
+              "name": "* `DeviceExistsInOtherDomains`: undefined\n* `AdapterNotExists`: undefined\n* `AdapterAppFailure`: undefined\n* `DeviceNotExists`: undefined\n* `DeviceNotInDomain`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3928bfd8-f535-46a7-a18c-1c993ef9f161",
+          "name": "household Device.list",
+          "request": {
+            "name": "household Device.list",
+            "description": {
+              "content": "Returns the devices within the household",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"deviceFamilyIdIn\": \"<string>\",\n    \"householdIdEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "372c4b5c-f053-4e57-a160-7d5574420237",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"deviceFamilyIdIn\": \"<string>\",\n    \"householdIdEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"activatedOn\": \"<integer>\",\n      \"brandId\": \"<integer>\",\n      \"deviceFamilyId\": 2452,\n      \"drm\": {\n        \"data\": \"<string>\",\n        \"licenseURL\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"scheme\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"householdId\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"status\": \"ACTIVATED\",\n      \"udid\": \"<string>\"\n    },\n    {\n      \"activatedOn\": \"<integer>\",\n      \"brandId\": \"<integer>\",\n      \"deviceFamilyId\": 3661,\n      \"drm\": {\n        \"data\": \"<string>\",\n        \"licenseURL\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"scheme\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"householdId\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"status\": \"NOT_ACTIVATED\",\n      \"udid\": \"<string>\"\n    }\n  ],\n  \"totalCount\": 8664\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff496b8c-4cc2-454b-81c2-6724b11bd119",
+              "name": "* `DeviceNotExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"deviceFamilyIdIn\": \"<string>\",\n    \"householdIdEqual\": \"<integer>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a57a689-a896-4cd0-8157-4cfe308bdf71",
+          "name": "household Device.login With Pin",
+          "request": {
+            "name": "household Device.login With Pin",
+            "description": {
+              "content": "User sign-in via a time-expired sign-in PIN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "loginWithPin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"pin\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ed0ee036-2de1-4180-8b12-8ca37bb50de0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "loginWithPin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"pin\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loginSession\": {\n    \"ks\": \"string\"\n  },\n  \"user\": {\n    \"address\": \"string\",\n    \"affiliateCode\": \"string\",\n    \"city\": \"string\",\n    \"countryId\": 8810,\n    \"dynamicData\": [\n      {\n        \"value\": \"string\"\n      },\n      {\n        \"value\": \"string\"\n      }\n    ],\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"householdId\": 5800,\n    \"isHouseholdMaster\": false,\n    \"phone\": \"string\",\n    \"suspensionState\": \"SUSPENDED\",\n    \"userState\": \"user_with_no_household\",\n    \"userType\": {\n      \"description\": \"string\",\n      \"id\": 6916\n    },\n    \"zip\": \"string\",\n    \"firstName\": \"string\",\n    \"id\": \"string\",\n    \"lastName\": \"string\",\n    \"username\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fecf941f-a210-4c55-9d92-b3a65fbb79dd",
+              "name": "* `UserNotInDomain`: undefined\n* `WrongPasswordOrUserName`: undefined\n* `PinNotExists`: undefined\n* `PinExpired`: undefined\n* `NoValidPin`: undefined\n* `SecretIsWrong`: undefined\n* `LoginViaPinNotAllowed`: undefined\n* `UserSuspended`: undefined\n* `InsideLockTime`: undefined\n* `UserNotActivated`: undefined\n* `UserAllreadyLoggedIn`: undefined\n* `UserDoubleLogIn`: undefined\n* `DeviceNotRegistered`: undefined\n* `ErrorOnInitUser`: undefined\n* `UserNotMasterApproved`: undefined\n* `UserWithNoDomain`: undefined\n* `UserDoesNotExist`: undefined\n* `DeviceNotExists`: undefined\n* `PinNotExists`: undefined\n* `DeviceNotInDomain`: undefined\n* `DomainNotExists`: undefined\n* `NoValidPin`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "loginWithPin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"pin\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1dd8b90-a887-412e-8a38-fd597aa46aee",
+          "name": "household Device.update",
+          "request": {
+            "name": "household Device.update",
+            "description": {
+              "content": "Update the name of the device by UDID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"device\": {\n    \"activatedOn\": \"<integer>\",\n    \"brandId\": \"<integer>\",\n    \"drm\": {\n      \"data\": \"<string>\",\n      \"licenseURL\": \"<string>\",\n      \"scheme\": \"<string>\"\n    },\n    \"householdId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"udid\": \"<string>\"\n  },\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31012299-0aec-45ab-9ecd-c57cb0f80fa7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": {\n    \"activatedOn\": \"<integer>\",\n    \"brandId\": \"<integer>\",\n    \"drm\": {\n      \"data\": \"<string>\",\n      \"licenseURL\": \"<string>\",\n      \"scheme\": \"<string>\"\n    },\n    \"householdId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"udid\": \"<string>\"\n  },\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activatedOn\": \"<integer>\",\n  \"brandId\": \"<integer>\",\n  \"deviceFamilyId\": 5711,\n  \"drm\": {\n    \"data\": \"<string>\",\n    \"licenseURL\": \"<string>\",\n    \"scheme\": \"<string>\"\n  },\n  \"householdId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"status\": \"NOT_ACTIVATED\",\n  \"udid\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d31e562-43b4-429a-bb50-e8cd15c9fe34",
+              "name": "* `DeviceNotExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": {\n    \"activatedOn\": \"<integer>\",\n    \"brandId\": \"<integer>\",\n    \"drm\": {\n      \"data\": \"<string>\",\n      \"licenseURL\": \"<string>\",\n      \"scheme\": \"<string>\"\n    },\n    \"householdId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"udid\": \"<string>\"\n  },\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15af7082-5862-4967-a022-1b64f9496ea7",
+          "name": "household Device.update Status",
+          "request": {
+            "name": "household Device.update Status",
+            "description": {
+              "content": "Update the name of the device by UDID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "householddevice",
+                "action",
+                "updateStatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "895d6369-dda1-46f1-84a6-b3ddbc56a022",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "updateStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2edceac5-5537-485b-b1b7-3586a9490752",
+              "name": "* `ExceededLimit`: undefined\n* `LimitationPeriod`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "householddevice",
+                    "action",
+                    "updateStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0313590e-aa4d-4ce8-923b-9011aef1a8ae",
+    "name": "Kaltura OTT accessControl householdDevice API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

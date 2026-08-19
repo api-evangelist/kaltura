@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl userRole API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "userRole",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "userRole.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userrole/action/add"
+          },
+          "docs": "Creates a new role"
+        },
+        {
+          "info": {
+            "name": "userRole.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userrole/action/delete"
+          },
+          "docs": "Delete role"
+        },
+        {
+          "info": {
+            "name": "userRole.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userrole/action/list"
+          },
+          "docs": "Retrieving user roles by identifiers, if filter is empty, returns all partner roles"
+        },
+        {
+          "info": {
+            "name": "userRole.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userrole/action/update"
+          },
+          "docs": "Update role"
+        },
+        {
+          "info": {
+            "name": "userRole.clone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userrole/action/clone",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Creates a new user role object that is a duplicate of an existing role."
+        },
+        {
+          "info": {
+            "name": "userRole.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userrole/action/get",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a user role object using its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

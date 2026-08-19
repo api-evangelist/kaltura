@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl userAssetRule API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "userAssetRule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "userAssetRule.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userassetrule/action/list"
+          },
+          "docs": "Retrieve all the rules (parental, geo, device or user-type) that applies for this user and asset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

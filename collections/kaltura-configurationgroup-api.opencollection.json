@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl configurationGroup API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "configurationGroup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "configurationGroup.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroup/action/add"
+          },
+          "docs": "Add a new configuration group"
+        },
+        {
+          "info": {
+            "name": "configurationGroup.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroup/action/delete"
+          },
+          "docs": "Remove a configuration group, including its tags, device configurations and devices associations"
+        },
+        {
+          "info": {
+            "name": "configurationGroup.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroup/action/get"
+          },
+          "docs": "Return the configuration group details, including group identifiers, tags, and number of associated devices, and list of device configuration"
+        },
+        {
+          "info": {
+            "name": "configurationGroup.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroup/action/list"
+          },
+          "docs": "Return the list of configuration groups"
+        },
+        {
+          "info": {
+            "name": "configurationGroup.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/configurationgroup/action/update"
+          },
+          "docs": "Update configuration group name"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl reminder API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "reminder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "reminder.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/reminder/action/add"
+          },
+          "docs": "Add a new future reminder"
+        },
+        {
+          "info": {
+            "name": "reminder.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/reminder/action/delete"
+          },
+          "docs": "Delete a reminder. Reminder cannot be delete while being sent."
+        },
+        {
+          "info": {
+            "name": "reminder.deleteWithToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/reminder/action/deleteWithToken"
+          },
+          "docs": "Delete a reminder. Reminder cannot be delete while being sent."
+        },
+        {
+          "info": {
+            "name": "reminder.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/reminder/action/list"
+          },
+          "docs": "Return a list of reminders with optional filter by KSQL."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

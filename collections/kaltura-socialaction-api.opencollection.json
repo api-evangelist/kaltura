@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl socialAction API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "socialAction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "socialAction.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/socialaction/action/add"
+          },
+          "docs": "Insert new user social action"
+        },
+        {
+          "info": {
+            "name": "socialAction.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/socialaction/action/delete"
+          },
+          "docs": "delete user social action"
+        },
+        {
+          "info": {
+            "name": "socialAction.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/socialaction/action/list"
+          },
+          "docs": "Get list of user social actions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

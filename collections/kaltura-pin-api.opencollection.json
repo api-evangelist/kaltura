@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl pin API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "pin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "pin.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/pin/action/get"
+          },
+          "docs": "Retrieve the parental or purchase PIN that applies for the household or user. Includes specification of where the PIN was defined at – account, household or user  level"
+        },
+        {
+          "info": {
+            "name": "pin.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/pin/action/update"
+          },
+          "docs": "Set the parental or purchase PIN that applies for the user or the household."
+        },
+        {
+          "info": {
+            "name": "pin.validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/pin/action/validate"
+          },
+          "docs": "Validate a purchase or parental PIN for a user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

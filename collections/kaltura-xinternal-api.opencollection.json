@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl xInternal API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "xInternal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "xInternal.xAddBulkDownload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/xinternal/action/xAddBulkDownload",
+            "params": [
+              {
+                "name": "ks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the response"
+              },
+              {
+                "name": "clientTag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "partnerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Creates new download job for multiple entry ids (comma separated), an email will be sent when the job is done\n\nThis service support the following entries: \n\n- MediaEntry\n\n- Video will be converted using the flavor params id\n\n- Audio will be downloaded as MP3\n\n- Image will be downloaded as Jpeg\n\n- MixEntry will be flattened using the flavor params id\n\n- Other entry types are not supported\n\nReturns the admin email that the email message will be sent to"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

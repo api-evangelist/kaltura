@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl notificationsSettings API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notificationsSettings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "notificationsSettings.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/notificationssettings/action/get"
+          },
+          "docs": "Retrieve the user’s notification settings."
+        },
+        {
+          "info": {
+            "name": "notificationsSettings.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/notificationssettings/action/update"
+          },
+          "docs": "Update the user’s notification settings."
+        },
+        {
+          "info": {
+            "name": "notificationsSettings.updateWithToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/notificationssettings/action/updateWithToken"
+          },
+          "docs": "Update the user’s notification settings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

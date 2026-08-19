@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl userAssetsListItem API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "userAssetsListItem",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "userAssetsListItem.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userassetslistitem/action/add"
+          },
+          "docs": "Adds a new item to user’s private asset list"
+        },
+        {
+          "info": {
+            "name": "userAssetsListItem.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userassetslistitem/action/delete"
+          },
+          "docs": "Deletes an item from user’s private asset list"
+        },
+        {
+          "info": {
+            "name": "userAssetsListItem.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userassetslistitem/action/get"
+          },
+          "docs": "Get an item from user’s private asset list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

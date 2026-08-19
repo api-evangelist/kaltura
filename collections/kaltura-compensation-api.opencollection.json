@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl compensation API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "compensation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "compensation.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/compensation/action/add"
+          },
+          "docs": "Adds a new compensation for a household for a given number of iterations of a subscription renewal for a fixed amount / percentage of the renewal price."
+        },
+        {
+          "info": {
+            "name": "compensation.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/compensation/action/delete"
+          },
+          "docs": "Delete a compensation by identifier"
+        },
+        {
+          "info": {
+            "name": "compensation.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/compensation/action/get"
+          },
+          "docs": "Get a compensation by identifier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

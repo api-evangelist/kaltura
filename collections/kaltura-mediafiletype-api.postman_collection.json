@@ -1,0 +1,619 @@
+{
+  "item": [
+    {
+      "id": "5bf4bf12-0b12-4cae-b8b4-d08ef2efdf6e",
+      "name": "mediaFileType",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fcaeceb1-af09-48af-8a37-dc98110cfa4b",
+          "name": "media File Type.add",
+          "request": {
+            "name": "media File Type.add",
+            "description": {
+              "content": "Add new media-file type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "mediafiletype",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mediaFileType\": {\n    \"audioCodecs\": \"<string>\",\n    \"description\": \"<string>\",\n    \"drmProfileId\": \"<integer>\",\n    \"isTrailer\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"streamerType\": \"<string>\",\n    \"videoCodecs\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "135bf377-3e64-42ef-a5b9-ca89abb410fd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafiletype",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mediaFileType\": {\n    \"audioCodecs\": \"<string>\",\n    \"description\": \"<string>\",\n    \"drmProfileId\": \"<integer>\",\n    \"isTrailer\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"streamerType\": \"<string>\",\n    \"videoCodecs\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"audioCodecs\": \"<string>\",\n  \"createDate\": 1969,\n  \"description\": \"<string>\",\n  \"drmProfileId\": \"<integer>\",\n  \"id\": 4916,\n  \"isTrailer\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"quality\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"streamerType\": \"<string>\",\n  \"updateDate\": 1489,\n  \"videoCodecs\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f5c92e6-591f-4d18-a880-58dceb209447",
+              "name": "* `MediaFileTypeNameAlreadyInUse`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafiletype",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mediaFileType\": {\n    \"audioCodecs\": \"<string>\",\n    \"description\": \"<string>\",\n    \"drmProfileId\": \"<integer>\",\n    \"isTrailer\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"streamerType\": \"<string>\",\n    \"videoCodecs\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "825096c9-7eac-4547-897d-a89335bb4204",
+          "name": "media File Type.delete",
+          "request": {
+            "name": "media File Type.delete",
+            "description": {
+              "content": "Delete media-file type by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "mediafiletype",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7cb5695-490f-4161-aeba-f9345f8d048f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafiletype",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2fd3674d-9965-495c-9648-0313e43b2087",
+              "name": "* `MediaFileTypeDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafiletype",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76e6f4e9-744a-400b-940a-310849e40c79",
+          "name": "media File Type.list",
+          "request": {
+            "name": "media File Type.list",
+            "description": {
+              "content": "Returns a list of media-file types",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "mediafiletype",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4821dccf-61ae-4c9e-bc66-f08ac0107e46",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafiletype",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"audioCodecs\": \"<string>\",\n      \"createDate\": 4794,\n      \"description\": \"<string>\",\n      \"drmProfileId\": \"<integer>\",\n      \"id\": 816,\n      \"isTrailer\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"quality\": \"<string>\",\n      \"status\": \"<boolean>\",\n      \"streamerType\": \"<string>\",\n      \"updateDate\": 1892,\n      \"videoCodecs\": \"<string>\"\n    },\n    {\n      \"audioCodecs\": \"<string>\",\n      \"createDate\": 2759,\n      \"description\": \"<string>\",\n      \"drmProfileId\": \"<integer>\",\n      \"id\": 5623,\n      \"isTrailer\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"quality\": \"<string>\",\n      \"status\": \"<boolean>\",\n      \"streamerType\": \"<string>\",\n      \"updateDate\": 3184,\n      \"videoCodecs\": \"<string>\"\n    }\n  ],\n  \"totalCount\": 4867\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8f2fa29-556d-4827-894d-acdc9dc7463e",
+          "name": "media File Type.update",
+          "request": {
+            "name": "media File Type.update",
+            "description": {
+              "content": "Update existing media-file type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "mediafiletype",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"mediaFileType\": {\n    \"audioCodecs\": \"<string>\",\n    \"description\": \"<string>\",\n    \"drmProfileId\": \"<integer>\",\n    \"isTrailer\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"streamerType\": \"<string>\",\n    \"videoCodecs\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee62e2b0-8926-40c0-8bb3-4f267d340515",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafiletype",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"mediaFileType\": {\n    \"audioCodecs\": \"<string>\",\n    \"description\": \"<string>\",\n    \"drmProfileId\": \"<integer>\",\n    \"isTrailer\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"streamerType\": \"<string>\",\n    \"videoCodecs\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"audioCodecs\": \"<string>\",\n  \"createDate\": 1969,\n  \"description\": \"<string>\",\n  \"drmProfileId\": \"<integer>\",\n  \"id\": 4916,\n  \"isTrailer\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"quality\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"streamerType\": \"<string>\",\n  \"updateDate\": 1489,\n  \"videoCodecs\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9968b995-2aa5-402a-af8c-7a588ee9185a",
+              "name": "* `MediaFileTypeDoesNotExist`: undefined\n* `MediaFileTypeNameAlreadyInUse`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "mediafiletype",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"mediaFileType\": {\n    \"audioCodecs\": \"<string>\",\n    \"description\": \"<string>\",\n    \"drmProfileId\": \"<integer>\",\n    \"isTrailer\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"quality\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"streamerType\": \"<string>\",\n    \"videoCodecs\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cb09f7b7-2356-4e31-a07b-2a345c276c7b",
+    "name": "Kaltura OTT accessControl mediaFileType API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

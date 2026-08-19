@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "8e69087b-9323-4eb8-b0fe-c1e272fc899d",
+      "name": "socialFriendActivity",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a25b9e72-7fef-47bb-b5dc-465a5bac15a4",
+          "name": "social Friend Activity.list",
+          "request": {
+            "name": "social Friend Activity.list",
+            "description": {
+              "content": "Get a list of the social friends activity for a user",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "socialfriendactivity",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"actionTypeIn\": \"<string>\",\n    \"assetIdEqual\": \"<integer>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b31888a3-af17-4508-9585-f6c4e0bbcefc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "socialfriendactivity",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"actionTypeIn\": \"<string>\",\n    \"assetIdEqual\": \"<integer>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"socialAction\": {\n        \"actionType\": \"WATCH\",\n        \"assetId\": 7483,\n        \"assetType\": \"epg\",\n        \"id\": \"string\",\n        \"time\": 3985,\n        \"url\": \"string\"\n      },\n      \"userFullName\": \"string\",\n      \"userPictureUrl\": \"string\"\n    },\n    {\n      \"socialAction\": {\n        \"actionType\": \"WATCH\",\n        \"assetId\": 4752,\n        \"assetType\": \"epg\",\n        \"id\": \"string\",\n        \"time\": 2502,\n        \"url\": \"string\"\n      },\n      \"userFullName\": \"string\",\n      \"userPictureUrl\": \"string\"\n    }\n  ],\n  \"totalCount\": 6626\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "692f60a2-739d-4187-9665-d02ded615538",
+    "name": "Kaltura OTT accessControl socialFriendActivity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

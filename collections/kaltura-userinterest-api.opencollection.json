@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl userInterest API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "userInterest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "userInterest.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userinterest/action/add"
+          },
+          "docs": "Insert new user interest for partner user"
+        },
+        {
+          "info": {
+            "name": "userInterest.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userinterest/action/delete"
+          },
+          "docs": "Delete new user interest for partner user"
+        },
+        {
+          "info": {
+            "name": "userInterest.deleteWithToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userinterest/action/deleteWithToken"
+          },
+          "docs": "Delete new user interest for partner user"
+        },
+        {
+          "info": {
+            "name": "userInterest.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/userinterest/action/list"
+          },
+          "docs": "Returns all Engagement for partner"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

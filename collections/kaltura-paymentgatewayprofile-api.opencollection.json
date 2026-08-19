@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl paymentGatewayProfile API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "paymentGatewayProfile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "paymentGatewayProfile.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/paymentgatewayprofile/action/add"
+          },
+          "docs": "Insert new payment gateway for partner"
+        },
+        {
+          "info": {
+            "name": "paymentGatewayProfile.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/paymentgatewayprofile/action/delete"
+          },
+          "docs": "Delete payment gateway by payment gateway id"
+        },
+        {
+          "info": {
+            "name": "paymentGatewayProfile.generateSharedSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/paymentgatewayprofile/action/generateSharedSecret"
+          },
+          "docs": "Generate payment gateway shared secret"
+        },
+        {
+          "info": {
+            "name": "paymentGatewayProfile.getConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/paymentgatewayprofile/action/getConfiguration"
+          },
+          "docs": "Gets the Payment Gateway Configuration for the payment gateway identifier given"
+        },
+        {
+          "info": {
+            "name": "paymentGatewayProfile.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/paymentgatewayprofile/action/list"
+          },
+          "docs": "Returns all payment gateways for partner : id + name"
+        },
+        {
+          "info": {
+            "name": "paymentGatewayProfile.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/paymentgatewayprofile/action/update"
+          },
+          "docs": "Update payment gateway details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

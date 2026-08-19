@@ -1,0 +1,979 @@
+{
+  "item": [
+    {
+      "id": "6a0c8222-f9e5-4a0d-ba1f-28229cc735e5",
+      "name": "announcement",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e176427b-ab2e-4c73-8fc7-bceb5d10fea4",
+          "name": "announcement.add",
+          "request": {
+            "name": "announcement.add",
+            "description": {
+              "content": "Add a new future scheduled system announcement push notification",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "announcement",
+                "action",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"announcement\": {\n    \"enabled\": \"<boolean>\",\n    \"imageUrl\": \"<string>\",\n    \"includeMail\": \"<boolean>\",\n    \"includeSms\": \"<boolean>\",\n    \"mailSubject\": \"<string>\",\n    \"mailTemplate\": \"<string>\",\n    \"message\": \"<string>\",\n    \"name\": \"<string>\",\n    \"recipients\": \"<string>\",\n    \"startTime\": \"<integer>\",\n    \"timezone\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eebd9f4e-7468-4f1b-9090-c080354b5fd0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"announcement\": {\n    \"enabled\": \"<boolean>\",\n    \"imageUrl\": \"<string>\",\n    \"includeMail\": \"<boolean>\",\n    \"includeSms\": \"<boolean>\",\n    \"mailSubject\": \"<string>\",\n    \"mailTemplate\": \"<string>\",\n    \"message\": \"<string>\",\n    \"name\": \"<string>\",\n    \"recipients\": \"<string>\",\n    \"startTime\": \"<integer>\",\n    \"timezone\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enabled\": \"<boolean>\",\n  \"id\": 4884,\n  \"imageUrl\": \"<string>\",\n  \"includeMail\": \"<boolean>\",\n  \"includeSms\": \"<boolean>\",\n  \"mailSubject\": \"<string>\",\n  \"mailTemplate\": \"<string>\",\n  \"message\": \"<string>\",\n  \"name\": \"<string>\",\n  \"recipients\": \"<string>\",\n  \"startTime\": \"<integer>\",\n  \"status\": \"Sent\",\n  \"timezone\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfe031b6-5583-4f99-a286-c15bf19afa51",
+              "name": "* `500039`\n* `FeatureDisabled`: undefined\n* `AnnouncementMessageIsEmpty`: undefined\n* `AnnouncementMessageTooLong`: undefined\n* `AnnouncementInvalidTimezone`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"announcement\": {\n    \"enabled\": \"<boolean>\",\n    \"imageUrl\": \"<string>\",\n    \"includeMail\": \"<boolean>\",\n    \"includeSms\": \"<boolean>\",\n    \"mailSubject\": \"<string>\",\n    \"mailTemplate\": \"<string>\",\n    \"message\": \"<string>\",\n    \"name\": \"<string>\",\n    \"recipients\": \"<string>\",\n    \"startTime\": \"<integer>\",\n    \"timezone\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f303f1d2-ad21-4933-a30e-afb4abe32d34",
+          "name": "announcement.delete",
+          "request": {
+            "name": "announcement.delete",
+            "description": {
+              "content": "Delete an existing announcing. Announcement cannot be delete while being sent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "announcement",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65b0293e-9221-40c2-9435-85b4e8d40247",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca9af34f-b243-4129-8569-31a71fc32100",
+              "name": "* `AnnouncementNotFound`: undefined\n* `FeatureDisabled`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "add6a7c0-82f4-4792-931f-97fdd0181c8d",
+          "name": "announcement.enable System Announcements",
+          "request": {
+            "name": "announcement.enable System Announcements",
+            "description": {
+              "content": "Enable system announcements",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "announcement",
+                "action",
+                "enableSystemAnnouncements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "db1dbc35-6b38-4acd-8377-db4f03a4c476",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "enableSystemAnnouncements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1648ec5-f74f-4d5e-a3fc-ce6459164f70",
+              "name": "* `FailCreateAnnouncement`: undefined\n* `FeatureDisabled`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "enableSystemAnnouncements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eae5de4c-1b13-4deb-b9e8-57dbaa742d6a",
+          "name": "announcement.list",
+          "request": {
+            "name": "announcement.list",
+            "description": {
+              "content": "Lists all announcements in the system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "announcement",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"orderBy\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bab08ec4-381f-411c-a916-6a8a6f3b2848",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"orderBy\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"enabled\": \"<boolean>\",\n      \"id\": 6392,\n      \"imageUrl\": \"<string>\",\n      \"includeMail\": \"<boolean>\",\n      \"includeSms\": \"<boolean>\",\n      \"mailSubject\": \"<string>\",\n      \"mailTemplate\": \"<string>\",\n      \"message\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipients\": \"<string>\",\n      \"startTime\": \"<integer>\",\n      \"status\": \"NotSent\",\n      \"timezone\": \"<string>\"\n    },\n    {\n      \"enabled\": \"<boolean>\",\n      \"id\": 7333,\n      \"imageUrl\": \"<string>\",\n      \"includeMail\": \"<boolean>\",\n      \"includeSms\": \"<boolean>\",\n      \"mailSubject\": \"<string>\",\n      \"mailTemplate\": \"<string>\",\n      \"message\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipients\": \"<string>\",\n      \"startTime\": \"<integer>\",\n      \"status\": \"Sending\",\n      \"timezone\": \"<string>\"\n    }\n  ],\n  \"totalCount\": 9381\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87575763-ef27-4ae7-a172-a040f9291829",
+              "name": "* `FeatureDisabled`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"orderBy\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9694bee7-a5bb-4f7d-b1f1-298119d1e382",
+          "name": "announcement.update",
+          "request": {
+            "name": "announcement.update",
+            "description": {
+              "content": "Update an existing future system announcement push notification. Announcement can only be updated only before sending",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "announcement",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"announcement\": {\n    \"enabled\": \"<boolean>\",\n    \"imageUrl\": \"<string>\",\n    \"includeMail\": \"<boolean>\",\n    \"includeSms\": \"<boolean>\",\n    \"mailSubject\": \"<string>\",\n    \"mailTemplate\": \"<string>\",\n    \"message\": \"<string>\",\n    \"name\": \"<string>\",\n    \"recipients\": \"<string>\",\n    \"startTime\": \"<integer>\",\n    \"timezone\": \"<string>\"\n  },\n  \"announcementId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8609cdb-610d-4eeb-bdff-ef3c4799749f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"announcement\": {\n    \"enabled\": \"<boolean>\",\n    \"imageUrl\": \"<string>\",\n    \"includeMail\": \"<boolean>\",\n    \"includeSms\": \"<boolean>\",\n    \"mailSubject\": \"<string>\",\n    \"mailTemplate\": \"<string>\",\n    \"message\": \"<string>\",\n    \"name\": \"<string>\",\n    \"recipients\": \"<string>\",\n    \"startTime\": \"<integer>\",\n    \"timezone\": \"<string>\"\n  },\n  \"announcementId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enabled\": \"<boolean>\",\n  \"id\": 4884,\n  \"imageUrl\": \"<string>\",\n  \"includeMail\": \"<boolean>\",\n  \"includeSms\": \"<boolean>\",\n  \"mailSubject\": \"<string>\",\n  \"mailTemplate\": \"<string>\",\n  \"message\": \"<string>\",\n  \"name\": \"<string>\",\n  \"recipients\": \"<string>\",\n  \"startTime\": \"<integer>\",\n  \"status\": \"Sent\",\n  \"timezone\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7a8e012-9dfc-48ca-bcaa-f722b17aec3a",
+              "name": "* `AnnouncementMessageIsEmpty`: undefined\n* `AnnouncementInvalidTimezone`: undefined\n* `AnnouncementUpdateNotAllowed`: undefined\n* `AnnouncementMessageTooLong`: undefined\n* `500039`\n* `AnnouncementNotFound`: undefined\n* `FeatureDisabled`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"announcement\": {\n    \"enabled\": \"<boolean>\",\n    \"imageUrl\": \"<string>\",\n    \"includeMail\": \"<boolean>\",\n    \"includeSms\": \"<boolean>\",\n    \"mailSubject\": \"<string>\",\n    \"mailTemplate\": \"<string>\",\n    \"message\": \"<string>\",\n    \"name\": \"<string>\",\n    \"recipients\": \"<string>\",\n    \"startTime\": \"<integer>\",\n    \"timezone\": \"<string>\"\n  },\n  \"announcementId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cacad041-488c-4f29-8db1-9cf9c0db3da2",
+          "name": "announcement.update Status",
+          "request": {
+            "name": "announcement.update Status",
+            "description": {
+              "content": "Update a system announcement status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "announcement",
+                "action",
+                "updateStatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba866b84-6ecc-48d4-af1b-cae5b58cbd2b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "updateStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d9d2b3d-224a-4d39-ac16-232712218749",
+              "name": "* `FeatureDisabled`: undefined\n* `AnnouncementUpdateNotAllowed`: undefined\n* `AnnouncementNotFound`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "announcement",
+                    "action",
+                    "updateStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4b718971-604a-4ba7-8e57-d4a72d8e1c89",
+    "name": "Kaltura OTT accessControl announcement API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

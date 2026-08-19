@@ -1,0 +1,2317 @@
+{
+  "item": [
+    {
+      "id": "0df99e01-6f81-486c-b7d8-a28a8e327a89",
+      "name": "ottUser",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "409a3bd8-92f6-410e-a9e9-73006bcca628",
+          "name": "ott User.activate",
+          "request": {
+            "name": "ott User.activate",
+            "description": {
+              "content": "Activate the account by activation token",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "activate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"activationToken\": \"<string>\",\n  \"partnerId\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "87bd3043-f60e-43f5-bc22-b9c6ba25cda6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"activationToken\": \"<string>\",\n  \"partnerId\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"affiliateCode\": \"string\",\n  \"city\": \"string\",\n  \"countryId\": 4720,\n  \"dynamicData\": [\n    {\n      \"value\": \"string\"\n    },\n    {\n      \"value\": \"string\"\n    }\n  ],\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"householdId\": 5525,\n  \"isHouseholdMaster\": true,\n  \"phone\": \"string\",\n  \"suspensionState\": \"NOT_SUSPENDED\",\n  \"userState\": \"ok\",\n  \"userType\": {\n    \"description\": \"string\",\n    \"id\": 1889\n  },\n  \"zip\": \"string\",\n  \"firstName\": \"string\",\n  \"id\": \"string\",\n  \"lastName\": \"string\",\n  \"username\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41229d60-788b-48bf-86ff-3bb25d30a612",
+          "name": "ott User.add Role",
+          "request": {
+            "name": "ott User.add Role",
+            "description": {
+              "content": "Edit user details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "addRole"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e30bebcf-3a67-478f-a4ac-cb2a2cbce0b1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "addRole"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f792c631-61d8-4e99-93c2-2931a6dfb005",
+          "name": "ott User.anonymous Login",
+          "request": {
+            "name": "ott User.anonymous Login",
+            "description": {
+              "content": "Returns tokens (KS and refresh token) for anonymous access",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "anonymousLogin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a851834d-fd30-4e9f-83c1-c9ea7bc09d65",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "anonymousLogin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ks\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5b24b25-bd26-45e4-b22e-942dffc61805",
+          "name": "ott User.delete",
+          "request": {
+            "name": "ott User.delete",
+            "description": {
+              "content": "Permanently delete a user. User to delete cannot be an exclusive household master, and cannot be default user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "48d8d25e-2d41-4a9d-8a22-2aabcc5bd840",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "923eb12e-b0e5-4a50-ad5a-934593521446",
+              "name": "* `DomainSuspended`: undefined\n* `LimitationPeriod`: undefined\n* `UserDoesNotExist`: undefined\n* `DefaultUserCannotBeDeleted`: undefined\n* `ExclusiveMasterUserCannotBeDeleted`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bc5e771-24e5-4b50-a69c-987c270d81c2",
+          "name": "ott User.get",
+          "request": {
+            "name": "ott User.get",
+            "description": {
+              "content": "Retrieving users&#39; data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5fd35413-7d86-4875-be18-145189ad477f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"affiliateCode\": \"string\",\n  \"city\": \"string\",\n  \"countryId\": 7780,\n  \"dynamicData\": [\n    {\n      \"value\": \"string\"\n    },\n    {\n      \"value\": \"string\"\n    }\n  ],\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"householdId\": 664,\n  \"isHouseholdMaster\": false,\n  \"phone\": \"string\",\n  \"suspensionState\": \"SUSPENDED\",\n  \"userState\": \"ok\",\n  \"userType\": {\n    \"description\": \"string\",\n    \"id\": 9434\n  },\n  \"zip\": \"string\",\n  \"firstName\": \"string\",\n  \"id\": \"string\",\n  \"lastName\": \"string\",\n  \"username\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3aa0f55a-6c12-4f30-b0d2-e464ccb20a3d",
+              "name": "* `UserDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bda312d5-79fa-4ea7-82d9-7b4f2165872a",
+          "name": "ott User.get Encrypted User Id",
+          "request": {
+            "name": "ott User.get Encrypted User Id",
+            "description": {
+              "content": "Returns the identifier of the user encrypted with SHA1 using configured key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "getEncryptedUserId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "caebf803-44fb-4289-ae42-7cb8ff0115b1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "getEncryptedUserId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "376b0c9b-a27f-4a17-94f7-6720a60e4d01",
+          "name": "ott User.list",
+          "request": {
+            "name": "ott User.list",
+            "description": {
+              "content": "Retrieve user by external identifier or username or if filter is null all user in the master or the user itself",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"externalIdEqual\": \"<string>\",\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\",\n    \"usernameEqual\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "55bc549a-4e75-4677-9aee-b867783db75b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"externalIdEqual\": \"<string>\",\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\",\n    \"usernameEqual\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"address\": \"string\",\n      \"affiliateCode\": \"string\",\n      \"city\": \"string\",\n      \"countryId\": 5379,\n      \"dynamicData\": [\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"email\": \"string\",\n      \"externalId\": \"string\",\n      \"householdId\": 768,\n      \"isHouseholdMaster\": true,\n      \"phone\": \"string\",\n      \"suspensionState\": \"NOT_SUSPENDED\",\n      \"userState\": \"user_not_activated\",\n      \"userType\": {\n        \"description\": \"string\",\n        \"id\": 5461\n      },\n      \"zip\": \"string\",\n      \"firstName\": \"string\",\n      \"id\": \"string\",\n      \"lastName\": \"string\",\n      \"username\": \"string\"\n    },\n    {\n      \"address\": \"string\",\n      \"affiliateCode\": \"string\",\n      \"city\": \"string\",\n      \"countryId\": 6097,\n      \"dynamicData\": [\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"email\": \"string\",\n      \"externalId\": \"string\",\n      \"householdId\": 7740,\n      \"isHouseholdMaster\": false,\n      \"phone\": \"string\",\n      \"suspensionState\": \"SUSPENDED\",\n      \"userState\": \"ok\",\n      \"userType\": {\n        \"description\": \"string\",\n        \"id\": 6967\n      },\n      \"zip\": \"string\",\n      \"firstName\": \"string\",\n      \"id\": \"string\",\n      \"lastName\": \"string\",\n      \"username\": \"string\"\n    }\n  ],\n  \"totalCount\": 7284\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52207041-38e2-4a41-8942-ef957e739cf2",
+              "name": "* `UserDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"externalIdEqual\": \"<string>\",\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\",\n    \"usernameEqual\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "285ea7d3-71e8-4954-861f-8bcbefc7697b",
+          "name": "ott User.login",
+          "request": {
+            "name": "ott User.login",
+            "description": {
+              "content": "login with user name and password.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"extraParams\": \"<object>\",\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ef74303-146c-4ecd-b187-6f36660dbb48",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extraParams\": \"<object>\",\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loginSession\": {\n    \"ks\": \"string\"\n  },\n  \"user\": {\n    \"address\": \"string\",\n    \"affiliateCode\": \"string\",\n    \"city\": \"string\",\n    \"countryId\": 5721,\n    \"dynamicData\": [\n      {\n        \"value\": \"string\"\n      },\n      {\n        \"value\": \"string\"\n      }\n    ],\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"householdId\": 9854,\n    \"isHouseholdMaster\": false,\n    \"phone\": \"string\",\n    \"suspensionState\": \"SUSPENDED\",\n    \"userState\": \"user_created_with_no_role\",\n    \"userType\": {\n      \"description\": \"string\",\n      \"id\": 3403\n    },\n    \"zip\": \"string\",\n    \"firstName\": \"string\",\n    \"id\": \"string\",\n    \"lastName\": \"string\",\n    \"username\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3080cb1-a85e-4443-af70-f64a6d05051e",
+              "name": "* `UserNotInDomain`: undefined\n* `WrongPasswordOrUserName`: undefined\n* `UserSuspended`: undefined\n* `InsideLockTime`: undefined\n* `UserNotActivated`: undefined\n* `UserAllreadyLoggedIn`: undefined\n* `UserDoubleLogIn`: undefined\n* `DeviceNotRegistered`: undefined\n* `ErrorOnInitUser`: undefined\n* `UserNotMasterApproved`: undefined\n* `UserDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extraParams\": \"<object>\",\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "684a9635-729d-4d46-8a6c-98af6bc8b5db",
+          "name": "ott User.login With Pin",
+          "request": {
+            "name": "ott User.login With Pin",
+            "description": {
+              "content": "User sign-in via a time-expired sign-in PIN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "loginWithPin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"pin\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6159353-0119-4b60-a328-9da3642d3e11",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "loginWithPin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"pin\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loginSession\": {\n    \"ks\": \"string\"\n  },\n  \"user\": {\n    \"address\": \"string\",\n    \"affiliateCode\": \"string\",\n    \"city\": \"string\",\n    \"countryId\": 5721,\n    \"dynamicData\": [\n      {\n        \"value\": \"string\"\n      },\n      {\n        \"value\": \"string\"\n      }\n    ],\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"householdId\": 9854,\n    \"isHouseholdMaster\": false,\n    \"phone\": \"string\",\n    \"suspensionState\": \"SUSPENDED\",\n    \"userState\": \"user_created_with_no_role\",\n    \"userType\": {\n      \"description\": \"string\",\n      \"id\": 3403\n    },\n    \"zip\": \"string\",\n    \"firstName\": \"string\",\n    \"id\": \"string\",\n    \"lastName\": \"string\",\n    \"username\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64b6c1cb-1f10-4e21-bbcb-3d29330093be",
+              "name": "* `UserNotMasterApproved`: undefined\n* `ErrorOnInitUser`: undefined\n* `UserDoesNotExist`: undefined\n* `UserNotInDomain`: undefined\n* `WrongPasswordOrUserName`: undefined\n* `PinNotExists`: undefined\n* `PinExpired`: undefined\n* `NoValidPin`: undefined\n* `SecretIsWrong`: undefined\n* `LoginViaPinNotAllowed`: undefined\n* `UserSuspended`: undefined\n* `InsideLockTime`: undefined\n* `UserNotActivated`: undefined\n* `UserAllreadyLoggedIn`: undefined\n* `UserDoubleLogIn`: undefined\n* `DeviceNotRegistered`: undefined\n* `UserWithNoDomain`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "loginWithPin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"pin\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"udid\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c04b93b0-b764-4a48-afa4-440da05bbabf",
+          "name": "ott User.logout",
+          "request": {
+            "name": "ott User.logout",
+            "description": {
+              "content": "Logout the calling user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f71e1b6a-9c71-4fab-bd5b-38eb0c3189fb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a8021b0-fed1-4ae5-a078-3d5ec92125c9",
+          "name": "ott User.register",
+          "request": {
+            "name": "ott User.register",
+            "description": {
+              "content": "Sign up a new user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"user\": {\n    \"address\": \"<string>\",\n    \"affiliateCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"countryId\": \"<integer>\",\n    \"dynamicData\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"userType\": {\n      \"description\": \"<string>\"\n    },\n    \"zip\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"username\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abe3c61d-796c-4c65-8568-188d72117912",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"user\": {\n    \"address\": \"<string>\",\n    \"affiliateCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"countryId\": \"<integer>\",\n    \"dynamicData\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"userType\": {\n      \"description\": \"<string>\"\n    },\n    \"zip\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"username\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"<string>\",\n  \"affiliateCode\": \"<string>\",\n  \"city\": \"<string>\",\n  \"countryId\": \"<integer>\",\n  \"dynamicData\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"email\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"householdId\": 1658,\n  \"isHouseholdMaster\": false,\n  \"phone\": \"<string>\",\n  \"suspensionState\": \"SUSPENDED\",\n  \"userState\": \"user_created_with_no_role\",\n  \"userType\": {\n    \"description\": \"<string>\",\n    \"id\": 8517\n  },\n  \"zip\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"id\": \"string\",\n  \"lastName\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b55eae3-63e2-4be3-8cfd-e57956737e43",
+              "name": "* `WrongPasswordOrUserName`: undefined\n* `UserExists`: undefined\n* `ExternalIdAlreadyExists`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"user\": {\n    \"address\": \"<string>\",\n    \"affiliateCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"countryId\": \"<integer>\",\n    \"dynamicData\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"userType\": {\n      \"description\": \"<string>\"\n    },\n    \"zip\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"username\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f83cec33-6725-40c4-a4c4-f5325524c444",
+          "name": "ott User.resend Activation Token",
+          "request": {
+            "name": "ott User.resend Activation Token",
+            "description": {
+              "content": "Resend the activation token to a user",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "resendActivationToken"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b962957-8f4c-4671-a048-680a7da9b94f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "resendActivationToken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40d0f8d3-80cc-4e71-8419-59cb508f1a81",
+          "name": "ott User.reset Password",
+          "request": {
+            "name": "ott User.reset Password",
+            "description": {
+              "content": "Send an e-mail with URL to enable the user to set new password.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "resetPassword"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbaf48a6-900a-4384-8e14-71f3e45ebf18",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "resetPassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec97e2c0-6847-42f9-abc6-69444c42114b",
+          "name": "ott User.set Initial Password",
+          "request": {
+            "name": "ott User.set Initial Password",
+            "description": {
+              "content": "Renew the user&#39;s password after validating the token that sent as part of URL in e-mail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "setInitialPassword"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"token\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b3e8a29-999a-41d9-a4dc-575b4709439d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "setInitialPassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"token\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"<string>\",\n  \"affiliateCode\": \"<string>\",\n  \"city\": \"<string>\",\n  \"countryId\": \"<integer>\",\n  \"dynamicData\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"email\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"householdId\": 1658,\n  \"isHouseholdMaster\": false,\n  \"phone\": \"<string>\",\n  \"suspensionState\": \"SUSPENDED\",\n  \"userState\": \"user_created_with_no_role\",\n  \"userType\": {\n    \"description\": \"<string>\",\n    \"id\": 8517\n  },\n  \"zip\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"id\": \"string\",\n  \"lastName\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67cd671d-3b2a-4972-b0e3-e6eeffae2810",
+              "name": "* `UserDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "setInitialPassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partnerId\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"token\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0717edde-c168-4373-aaec-06ff633e8102",
+          "name": "ott User.update",
+          "request": {
+            "name": "ott User.update",
+            "description": {
+              "content": "Update user information",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"user\": {\n    \"address\": \"<string>\",\n    \"affiliateCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"countryId\": \"<integer>\",\n    \"dynamicData\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"userType\": {\n      \"description\": \"<string>\"\n    },\n    \"zip\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"username\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e39c5dac-420c-4411-b7ea-5e36f3d3497f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"user\": {\n    \"address\": \"<string>\",\n    \"affiliateCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"countryId\": \"<integer>\",\n    \"dynamicData\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"userType\": {\n      \"description\": \"<string>\"\n    },\n    \"zip\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"username\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"<string>\",\n  \"affiliateCode\": \"<string>\",\n  \"city\": \"<string>\",\n  \"countryId\": \"<integer>\",\n  \"dynamicData\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"email\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"householdId\": 1658,\n  \"isHouseholdMaster\": false,\n  \"phone\": \"<string>\",\n  \"suspensionState\": \"SUSPENDED\",\n  \"userState\": \"user_created_with_no_role\",\n  \"userType\": {\n    \"description\": \"<string>\",\n    \"id\": 8517\n  },\n  \"zip\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"id\": \"string\",\n  \"lastName\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea80ad8b-d2be-4649-8d85-94250e0a1f22",
+              "name": "* `UserSuspended`: undefined\n* `UserExists`: undefined\n* `ExternalIdAlreadyExists`: undefined\n* `UserDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"user\": {\n    \"address\": \"<string>\",\n    \"affiliateCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"countryId\": \"<integer>\",\n    \"dynamicData\": [\n      {\n        \"value\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\"\n      }\n    ],\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"userType\": {\n      \"description\": \"<string>\"\n    },\n    \"zip\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"username\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47838d0a-861b-4a21-8350-a4aefef08f55",
+          "name": "ott User.update Dynamic Data",
+          "request": {
+            "name": "ott User.update Dynamic Data",
+            "description": {
+              "content": "Update user dynamic data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "updateDynamicData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"value\": {\n    \"value\": \"<Error: Could not resolve allOf schema\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b7294af-d884-4da8-b37a-a39029a1f849",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "updateDynamicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\",\n  \"value\": {\n    \"value\": \"<Error: Could not resolve allOf schema\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"string\",\n  \"userId\": \"string\",\n  \"value\": {\n    \"value\": \"<Error: Could not resolve allOf schema\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59380825-e812-44d9-ad9c-e14dfa77f9c7",
+          "name": "ott User.update Login Data",
+          "request": {
+            "name": "ott User.update Login Data",
+            "description": {
+              "content": "Given a user name and existing password, change to a new password.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "updateLoginData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPassword\": \"<string>\",\n  \"oldPassword\": \"<string>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "95adffcd-c99a-47a2-9fac-540035412104",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "updateLoginData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newPassword\": \"<string>\",\n  \"oldPassword\": \"<string>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5675af6-266e-46a2-bbc7-64e815895920",
+              "name": "* `WrongPasswordOrUserName`: undefined\n* `UserDoesNotExist`: undefined\n* `InsideLockTime`: undefined\n* `UserAllreadyLoggedIn`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "updateLoginData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newPassword\": \"<string>\",\n  \"oldPassword\": \"<string>\",\n  \"username\": \"<string>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28e1e238-cd00-4a23-9378-1b39c267e8ef",
+          "name": "ott User.update Password",
+          "request": {
+            "name": "ott User.update Password",
+            "description": {
+              "content": "Update the user&#39;s existing password.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottuser",
+                "action",
+                "updatePassword"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc4c6c28-fc8c-4e2a-b00c-6514a3b40a79",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottuser",
+                    "action",
+                    "updatePassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c71621b1-a6d7-4669-8b64-477ab03fd27e",
+    "name": "Kaltura OTT accessControl ottUser API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

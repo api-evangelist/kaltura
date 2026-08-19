@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl asset API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "asset",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "asset.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/add"
+          },
+          "docs": "Add a new asset"
+        },
+        {
+          "info": {
+            "name": "asset.count",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/count"
+          },
+          "docs": "Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count."
+        },
+        {
+          "info": {
+            "name": "asset.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/delete"
+          },
+          "docs": "Delete an existing asset"
+        },
+        {
+          "info": {
+            "name": "asset.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/get"
+          },
+          "docs": "Returns media or EPG asset by media / EPG internal or external identifier"
+        },
+        {
+          "info": {
+            "name": "asset.getAdsContext",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/getAdsContext"
+          },
+          "docs": "Returns the data for ads control"
+        },
+        {
+          "info": {
+            "name": "asset.getPlaybackContext",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/getPlaybackContext"
+          },
+          "docs": "This action delivers all data relevant for player"
+        },
+        {
+          "info": {
+            "name": "asset.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/list"
+          },
+          "docs": "Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier."
+        },
+        {
+          "info": {
+            "name": "asset.removeMetasAndTags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/removeMetasAndTags"
+          },
+          "docs": "remove metas and tags from asset"
+        },
+        {
+          "info": {
+            "name": "asset.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/asset/action/update"
+          },
+          "docs": "update an existing asset"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

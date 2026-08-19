@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl exportTask API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "exportTask",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "exportTask.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/exporttask/action/add"
+          },
+          "docs": "Adds a new bulk export task"
+        },
+        {
+          "info": {
+            "name": "exportTask.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/exporttask/action/delete"
+          },
+          "docs": "Deletes an existing bulk export task by task identifier"
+        },
+        {
+          "info": {
+            "name": "exportTask.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/exporttask/action/get"
+          },
+          "docs": "Gets an existing bulk export task by task identifier"
+        },
+        {
+          "info": {
+            "name": "exportTask.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/exporttask/action/list"
+          },
+          "docs": "Returns bulk export tasks by tasks identifiers"
+        },
+        {
+          "info": {
+            "name": "exportTask.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/exporttask/action/update"
+          },
+          "docs": "Updates an existing bulk export task by task identifier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

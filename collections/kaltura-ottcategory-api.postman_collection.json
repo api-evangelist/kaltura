@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "428daac3-80e1-436a-b0de-cdb42327639e",
+      "name": "ottCategory",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87353f5b-a443-436b-9e47-b46ce1173d56",
+          "name": "ott Category.get",
+          "request": {
+            "name": "ott Category.get",
+            "description": {
+              "content": "Retrieve the list of categories (hierarchical) and their associated channels",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ottcategory",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2faf6798-e58b-45c3-a0d3-7bd8203c65d6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ottcategory",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channels\": [\n    {\n      \"createDate\": 2226,\n      \"description\": \"string\",\n      \"id\": 726,\n      \"isActive\": true,\n      \"multilingualDescription\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"multilingualName\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"orderBy\": {\n        \"dynamicOrderBy\": {\n          \"name\": \"string\",\n          \"orderBy\": \"META_DESC\"\n        },\n        \"orderBy\": \"NAME_DESC\",\n        \"period\": 6878\n      },\n      \"systemName\": \"string\",\n      \"updateDate\": 6070\n    },\n    {\n      \"createDate\": 5535,\n      \"description\": \"string\",\n      \"id\": 6630,\n      \"isActive\": false,\n      \"multilingualDescription\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"multilingualName\": [\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"orderBy\": {\n        \"dynamicOrderBy\": {\n          \"name\": \"string\",\n          \"orderBy\": \"META_ASC\"\n        },\n        \"orderBy\": \"NAME_DESC\",\n        \"period\": 7726\n      },\n      \"systemName\": \"string\",\n      \"updateDate\": 5971\n    }\n  ],\n  \"childCategories\": [\n    {\n      \"channels\": [\n        {\n          \"createDate\": 3379,\n          \"description\": \"string\",\n          \"id\": 7207,\n          \"isActive\": true,\n          \"multilingualDescription\": [\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"multilingualName\": [\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"string\",\n          \"orderBy\": {\n            \"dynamicOrderBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"orderBy\": \"START_DATE_DESC\",\n            \"period\": 5944\n          },\n          \"systemName\": \"string\",\n          \"updateDate\": 6411\n        },\n        {\n          \"createDate\": 954,\n          \"description\": \"string\",\n          \"id\": 7673,\n          \"isActive\": true,\n          \"multilingualDescription\": [\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"multilingualName\": [\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"string\",\n          \"orderBy\": {\n            \"dynamicOrderBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"orderBy\": \"CREATE_DATE_ASC\",\n            \"period\": 3029\n          },\n          \"systemName\": \"string\",\n          \"updateDate\": 809\n        }\n      ],\n      \"childCategories\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/KalturaOTTCategory detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/KalturaOTTCategory detected>\"\n        }\n      ],\n      \"id\": 7770,\n      \"images\": [\n        {\n          \"height\": 5527,\n          \"id\": \"string\",\n          \"isDefault\": false,\n          \"ratio\": \"string\",\n          \"url\": \"string\",\n          \"version\": 1928,\n          \"width\": 9594\n        },\n        {\n          \"height\": 8729,\n          \"id\": \"string\",\n          \"isDefault\": true,\n          \"ratio\": \"string\",\n          \"url\": \"string\",\n          \"version\": 422,\n          \"width\": 6330\n        }\n      ],\n      \"name\": \"string\",\n      \"parentCategoryId\": 7717\n    },\n    {\n      \"channels\": [\n        {\n          \"createDate\": 9885,\n          \"description\": \"string\",\n          \"id\": 9500,\n          \"isActive\": false,\n          \"multilingualDescription\": [\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"multilingualName\": [\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"string\",\n          \"orderBy\": {\n            \"dynamicOrderBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"orderBy\": \"LIKES_DESC\",\n            \"period\": 9379\n          },\n          \"systemName\": \"string\",\n          \"updateDate\": 5794\n        },\n        {\n          \"createDate\": 5520,\n          \"description\": \"string\",\n          \"id\": 7603,\n          \"isActive\": true,\n          \"multilingualDescription\": [\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"multilingualName\": [\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"string\",\n          \"orderBy\": {\n            \"dynamicOrderBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"orderBy\": \"CREATE_DATE_DESC\",\n            \"period\": 7152\n          },\n          \"systemName\": \"string\",\n          \"updateDate\": 4805\n        }\n      ],\n      \"childCategories\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/KalturaOTTCategory detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/KalturaOTTCategory detected>\"\n        }\n      ],\n      \"id\": 8391,\n      \"images\": [\n        {\n          \"height\": 7716,\n          \"id\": \"string\",\n          \"isDefault\": false,\n          \"ratio\": \"string\",\n          \"url\": \"string\",\n          \"version\": 9517,\n          \"width\": 6211\n        },\n        {\n          \"height\": 7677,\n          \"id\": \"string\",\n          \"isDefault\": false,\n          \"ratio\": \"string\",\n          \"url\": \"string\",\n          \"version\": 2595,\n          \"width\": 6185\n        }\n      ],\n      \"name\": \"string\",\n      \"parentCategoryId\": 5379\n    }\n  ],\n  \"id\": 2539,\n  \"images\": [\n    {\n      \"height\": 1988,\n      \"id\": \"string\",\n      \"isDefault\": false,\n      \"ratio\": \"string\",\n      \"url\": \"string\",\n      \"version\": 798,\n      \"width\": 6997\n    },\n    {\n      \"height\": 4579,\n      \"id\": \"string\",\n      \"isDefault\": true,\n      \"ratio\": \"string\",\n      \"url\": \"string\",\n      \"version\": 4581,\n      \"width\": 1900\n    }\n  ],\n  \"name\": \"string\",\n  \"parentCategoryId\": 259\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e69cd04e-2810-413a-9379-888e6fea3d09",
+    "name": "Kaltura OTT accessControl ottCategory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

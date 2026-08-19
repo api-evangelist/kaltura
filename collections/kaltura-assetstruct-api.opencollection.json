@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl assetStruct API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "assetStruct",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "assetStruct.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/assetstruct/action/add"
+          },
+          "docs": "Add a new assetStruct"
+        },
+        {
+          "info": {
+            "name": "assetStruct.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/assetstruct/action/delete"
+          },
+          "docs": "Delete an existing assetStruct"
+        },
+        {
+          "info": {
+            "name": "assetStruct.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/assetstruct/action/list"
+          },
+          "docs": "Return a list of asset structs for the account with optional filter"
+        },
+        {
+          "info": {
+            "name": "assetStruct.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/assetstruct/action/update"
+          },
+          "docs": "Update an existing assetStruct"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

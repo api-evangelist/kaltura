@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kaltura OTT accessControl householdDevice API",
+    "version": "3.6.287.20720"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "householdDevice",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "householdDevice.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/add"
+          },
+          "docs": "Add device to household"
+        },
+        {
+          "info": {
+            "name": "householdDevice.addByPin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/addByPin"
+          },
+          "docs": "Registers a device to a household using pin code"
+        },
+        {
+          "info": {
+            "name": "householdDevice.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/delete"
+          },
+          "docs": "Removes a device from household"
+        },
+        {
+          "info": {
+            "name": "householdDevice.generatePin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/generatePin"
+          },
+          "docs": "Generates device pin to use when adding a device to household by pin"
+        },
+        {
+          "info": {
+            "name": "householdDevice.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/get"
+          },
+          "docs": "Returns device registration status to the supplied household"
+        },
+        {
+          "info": {
+            "name": "householdDevice.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/list"
+          },
+          "docs": "Returns the devices within the household"
+        },
+        {
+          "info": {
+            "name": "householdDevice.loginWithPin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/loginWithPin"
+          },
+          "docs": "User sign-in via a time-expired sign-in PIN."
+        },
+        {
+          "info": {
+            "name": "householdDevice.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/update"
+          },
+          "docs": "Update the name of the device by UDID"
+        },
+        {
+          "info": {
+            "name": "householdDevice.updateStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/service/householddevice/action/updateStatus"
+          },
+          "docs": "Update the name of the device by UDID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

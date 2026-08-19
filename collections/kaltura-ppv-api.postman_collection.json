@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "5e3a9363-fb0c-43bd-8dff-ee8ef9c7fb8c",
+      "name": "ppv",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ec8f670e-8968-4586-9bbc-9de340612eee",
+          "name": "ppv.get",
+          "request": {
+            "name": "ppv.get",
+            "description": {
+              "content": "Returns ppv object by internal identifier",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "ppv",
+                "action",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f81ff80-cd3b-4eab-83cd-00c8b65f2449",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "ppv",
+                    "action",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"couponsGroup\": {\n    \"couponGroupType\": \"COUPON\",\n    \"descriptions\": [\n      {\n        \"language\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"language\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"endDate\": 6090,\n    \"id\": \"string\",\n    \"maxUsesNumber\": 4817,\n    \"maxUsesNumberOnRenewableSub\": 7182,\n    \"name\": \"string\",\n    \"startDate\": 880\n  },\n  \"descriptions\": [\n    {\n      \"language\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"language\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"discountModule\": {\n    \"endDate\": 7843,\n    \"percent\": 3198.918135159868,\n    \"startDate\": 9498\n  },\n  \"fileTypes\": [\n    {\n      \"value\": 3641\n    },\n    {\n      \"value\": 9736\n    }\n  ],\n  \"firstDeviceLimitation\": false,\n  \"id\": \"string\",\n  \"isSubscriptionOnly\": true,\n  \"name\": \"string\",\n  \"price\": {\n    \"descriptions\": [\n      {\n        \"language\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"language\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"id\": 7221,\n    \"multiCurrencyPrice\": [\n      {\n        \"amount\": 7931.257048339988,\n        \"countryId\": 3164,\n        \"currency\": \"string\",\n        \"currencySign\": \"string\"\n      },\n      {\n        \"amount\": 3100.995939836756,\n        \"countryId\": 2663,\n        \"currency\": \"string\",\n        \"currencySign\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"price\": {\n      \"amount\": 1493.0806829031806,\n      \"countryId\": 814,\n      \"currency\": \"string\",\n      \"currencySign\": \"string\"\n    }\n  },\n  \"productCode\": \"string\",\n  \"usageModule\": {\n    \"couponId\": 2225,\n    \"fullLifeCycle\": 2993,\n    \"id\": 6735,\n    \"isOfflinePlayback\": true,\n    \"isWaiverEnabled\": false,\n    \"maxViewsNumber\": 5786,\n    \"name\": \"string\",\n    \"viewLifeCycle\": 523,\n    \"waiverPeriod\": 6847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f8c40e7b-7644-40ef-92ac-1e5341a8782c",
+    "name": "Kaltura OTT accessControl ppv API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

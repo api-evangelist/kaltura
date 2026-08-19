@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "cef568a3-677e-4d48-88a6-e6f73678c65e",
+      "name": "pricePlan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "307efb40-522a-4613-9dd7-05a939cc4b17",
+          "name": "price Plan.list",
+          "request": {
+            "name": "price Plan.list",
+            "description": {
+              "content": "Returns a list of price plans by IDs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "priceplan",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1a294854-f2c9-482d-9d46-80b321b04af0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "priceplan",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"idIn\": \"<string>\",\n    \"orderBy\": \"<string>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"discountId\": 1846,\n      \"isRenewable\": true,\n      \"priceDetailsId\": 7293,\n      \"renewalsNumber\": 5262,\n      \"couponId\": 7934,\n      \"fullLifeCycle\": 3445,\n      \"id\": 5318,\n      \"isOfflinePlayback\": false,\n      \"isWaiverEnabled\": true,\n      \"maxViewsNumber\": 5902,\n      \"name\": \"string\",\n      \"viewLifeCycle\": 7471,\n      \"waiverPeriod\": 2398\n    },\n    {\n      \"discountId\": 123,\n      \"isRenewable\": false,\n      \"priceDetailsId\": 1664,\n      \"renewalsNumber\": 4019,\n      \"couponId\": 6406,\n      \"fullLifeCycle\": 1423,\n      \"id\": 2496,\n      \"isOfflinePlayback\": false,\n      \"isWaiverEnabled\": false,\n      \"maxViewsNumber\": 7811,\n      \"name\": \"string\",\n      \"viewLifeCycle\": 4784,\n      \"waiverPeriod\": 5265\n    }\n  ],\n  \"totalCount\": 5450\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee756e23-aba8-4261-ba4c-322f50c6b267",
+          "name": "price Plan.update",
+          "request": {
+            "name": "price Plan.update",
+            "description": {
+              "content": "Updates a price plan",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "priceplan",
+                "action",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"pricePlan\": {\n    \"priceDetailsId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39fd0b25-3425-46d0-8a9c-1097a5418083",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "priceplan",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"pricePlan\": {\n    \"priceDetailsId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"discountId\": 8555,\n  \"isRenewable\": true,\n  \"priceDetailsId\": \"<integer>\",\n  \"renewalsNumber\": 7566,\n  \"couponId\": 4737,\n  \"fullLifeCycle\": 1482,\n  \"id\": 266,\n  \"isOfflinePlayback\": true,\n  \"isWaiverEnabled\": false,\n  \"maxViewsNumber\": 4637,\n  \"name\": \"string\",\n  \"viewLifeCycle\": 5677,\n  \"waiverPeriod\": 4951\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0013fff5-d7da-4c08-b0f4-89e5f4a8fa88",
+              "name": "* `PriceDetailsDoesNotExist`: undefined\n* `PricePlanDoesNotExist`: undefined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "priceplan",
+                    "action",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"pricePlan\": {\n    \"priceDetailsId\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d30a458b-535c-4a98-bf4f-3021a4346bd2",
+    "name": "Kaltura OTT accessControl pricePlan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}

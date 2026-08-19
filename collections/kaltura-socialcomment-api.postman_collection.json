@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "eb8a5ef8-65b1-44e0-b410-e7350f6c9914",
+      "name": "socialComment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3e4adf99-32e0-4e91-b3c6-32cc4c84150e",
+          "name": "social Comment.list",
+          "request": {
+            "name": "social Comment.list",
+            "description": {
+              "content": "Get a list of all social comments filtered by asset ID and social platform",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "service",
+                "socialcomment",
+                "action",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"assetIdEqual\": \"<integer>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"createDateGreaterThan\": \"<integer>\",\n    \"orderBy\": \"<string>\",\n    \"socialPlatformEqual\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23eb4b54-12f5-47c7-b867-baf6b0651a5f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service",
+                    "socialcomment",
+                    "action",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "ks",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"assetIdEqual\": \"<integer>\",\n    \"assetTypeEqual\": \"<string>\",\n    \"createDateGreaterThan\": \"<integer>\",\n    \"orderBy\": \"<string>\",\n    \"socialPlatformEqual\": \"<string>\"\n  },\n  \"pager\": {\n    \"pageIndex\": \"<integer>\",\n    \"pageSize\": \"<integer>\"\n  },\n  \"ks\": \"<string>\",\n  \"version\": \"3.6.287.20720\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"createDate\": 483,\n      \"header\": \"string\",\n      \"text\": \"string\",\n      \"writer\": \"string\"\n    },\n    {\n      \"createDate\": 2871,\n      \"header\": \"string\",\n      \"text\": \"string\",\n      \"writer\": \"string\"\n    }\n  ],\n  \"totalCount\": 8295\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tvpapi-us-preprod.ott.kaltura.com/api_v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "ks"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3914934a-a900-4125-a9a5-6d42db04860d",
+    "name": "Kaltura OTT accessControl socialComment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kaltura OTT API",
+      "type": "text/plain"
+    }
+  }
+}
