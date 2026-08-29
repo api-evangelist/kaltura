@@ -4,6 +4,18 @@ description: Kaltura is an open-source video platform providing REST APIs for vi
   management, live streaming, transcoding, player customization, analytics, and virtual
   classroom integrations. Developers can ingest, process, deliver, and monetize video
   content at scale across web, mobile, and OTT environments.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
@@ -5701,6 +5713,9 @@ apis:
   - type: Documentation
     url: https://devdocs.api.ott.kaltura.com/
 common:
+- type: CapabilityMap
+  url: capabilities/kaltura-capability-edges.yml
+  name: Kaltura Business Capability Map
 - type: AgenticAccess
   url: agentic-access/kaltura-agentic-access.yml
 - type: DomainSecurity
