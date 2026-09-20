@@ -1,0 +1,438 @@
+slug: kaltura
+provider: Kaltura
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 44
+edges:
+- tag: playReadyDrm
+  spec_file: kaltura-playreadydrm-api-openapi.yml
+  capability_id: BC-3740.50
+  capability_id_l1: BC-3740
+  capability_name: Content Protection & DRM Management
+  confidence: 0.95
+  evidence: playReadyDrm.generateKey, playReadyDrm.getContentKeys, playReadyDrm.getEntryContentKey, playReadyDrm.getLicenseDetails
+  reason: Operations generate content keys and retrieve DRM licence details for PlayReady, which is plainly
+    content protection and DRM key/licence management for delivered content.
+- tag: entitlement
+  spec_file: kaltura-entitlement-api-openapi.yml
+  capability_id: BC-3750.20
+  capability_id_l1: BC-3750
+  capability_name: Subscription & Entitlement Management
+  confidence: 0.92
+  evidence: entitlement.grant, entitlement.cancelRenewal, entitlement.cancelScheduledSubscription, entitlement.getNextRenewal,
+    schema KalturaEntitlementRenewal
+  reason: Operations grant, cancel, swap and renew viewer entitlements to subscription content in an OTT
+    service — squarely subscription and entitlement lifecycle for content viewers.
+- tag: widevineDrm
+  spec_file: kaltura-widevinedrm-api-openapi.yml
+  capability_id: BC-3740.50
+  capability_id_l1: BC-3740
+  capability_name: Content Protection & DRM Management
+  confidence: 0.92
+  evidence: POST /service/widevine_widevinedrm/action/getLicense  widevineDrm.getLicense
+  reason: A single operation issuing Widevine DRM licences, with KalturaDrmPolicyFilter in the schema
+    set. This is squarely content protection and DRM licence/key management for delivered video (BC-3740.50);
+    no other reading of a Widevine getLicense endpoint fits.
+- tag: parentalRule
+  spec_file: kaltura-parentalrule-api-openapi.yml
+  capability_id: BC-3750.50
+  capability_id_l1: BC-3750
+  capability_name: Parental Controls & Profile Restrictions Management
+  confidence: 0.9
+  evidence: parentalRule.enable, parentalRule.disable, parentalRule.disableDefault, schema 'KalturaParentalRule'
+  reason: Operations directly enable/disable parental rules on an OTT viewer/household context, which
+    is the configuration and enforcement of profile-level content restrictions.
+- tag: drmLicenseAccess
+  spec_file: kaltura-drmlicenseaccess-api-openapi.yml
+  capability_id: BC-3740.50
+  capability_id_l1: BC-3740
+  capability_name: Content Protection & DRM Management
+  confidence: 0.88
+  evidence: POST /service/drm_drmlicenseaccess/action/getAccess drmLicenseAccess.getAccess
+  reason: DRM license access issuance is squarely content protection and licence management for protected
+    media delivery.
+- tag: drmPolicy
+  spec_file: kaltura-drmpolicy-api-openapi.yml
+  capability_id: BC-3740.50
+  capability_id_l1: BC-3740
+  capability_name: Content Protection & DRM Management
+  confidence: 0.88
+  evidence: POST /service/drm_drmpolicy/action/add drmPolicy.add; schema KalturaDrmPolicyFilter
+  reason: CRUD over DRM policies governing protected playback rules — content protection & DRM management.
+- tag: drmProfile
+  spec_file: kaltura-drmprofile-api-openapi.yml
+  capability_id: BC-3740.50
+  capability_id_l1: BC-3740
+  capability_name: Content Protection & DRM Management
+  confidence: 0.88
+  evidence: POST /service/drm_drmprofile/action/getByProvider drmProfile.getByProvider; KalturaDrmProfileListResponse
+  reason: Configuration of DRM provider profiles (Widevine/PlayReady-style providers) used to protect
+    delivered content — content protection & DRM management.
+- tag: flavorAsset
+  spec_file: kaltura-flavorasset-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.85
+  evidence: flavorAsset.convert, flavorAsset.export, flavorAsset.getFlavorAssetsWithParams, flavorAsset.getDownloadUrl
+  reason: Flavor assets are the transcoded renditions of a media entry; operations convert source material
+    into and manage distribution renditions, which is transcoding and format conversion within media asset
+    management.
+- tag: household
+  spec_file: kaltura-household-api-openapi.yml
+  capability_id: BC-3750.10
+  capability_id_l1: BC-3750
+  capability_name: Viewer Identity Management
+  confidence: 0.85
+  evidence: POST /service/household/action/add household.add; household.suspend; household.resume; household.purge;
+    schema KalturaHousehold
+  reason: Full lifecycle of the OTT household record (create, get, update, suspend, resume, purge) is
+    exactly provisioning and stewardship of viewer accounts and household constructs for a direct-to-consumer
+    video service.
+- tag: ottUser
+  spec_file: kaltura-ottuser-api-openapi.yml
+  capability_id: BC-3750.10
+  capability_id_l1: BC-3750
+  capability_name: Viewer Identity Management
+  confidence: 0.85
+  evidence: ottUser.register, ottUser.activate, ottUser.login, ottUser.logout, ottUser.resendActivationToken,
+    schema 'KalturaOTTUser'
+  reason: Lifecycle of end-viewer accounts on an OTT service — registration, activation, authentication
+    sessions — which is viewer identity provisioning and stewardship for a direct-to-consumer content
+    service.
+- tag: conversionProfile
+  spec_file: kaltura-conversionprofile-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.82
+  evidence: conversionProfile.add / getDefault / setAsDefault / update; KalturaPdfFlavorParamsBaseFilter
+  reason: Conversion profiles in Kaltura define the transcoding flavour sets applied to ingested media,
+    i.e. production of distribution renditions — Transcoding & Format Conversion.
+- tag: asset
+  spec_file: kaltura-asset-api-openapi.yml
+  capability_id: BC-3710
+  capability_id_l1: BC-3710
+  capability_name: Media Asset Management
+  confidence: 0.8
+  evidence: asset.add, asset.update, asset.list, asset.removeMetasAndTags, KalturaPlaybackContext
+  reason: CRUD over OTT media assets including metadata/tag maintenance and playback context resolution
+    — core media asset management. Which sub-capability (metadata cataloguing vs identifier/versioning)
+    is not pinned down, so L1 only.
+- tag: baseEntry
+  spec_file: kaltura-baseentry-api-openapi.yml
+  capability_id: BC-3710
+  capability_id_l1: BC-3710
+  capability_name: Media Asset Management
+  confidence: 0.8
+  evidence: baseEntry.addContent, baseEntry.addFromUploadedFile, baseEntry.clone, baseEntry.export, baseEntry.approve
+  reason: Core media entry lifecycle in the video platform — creating entries from uploaded content, cloning,
+    approving, exporting — which is media asset management. Spans ingest, cataloguing and export, so L1
+    only.
+- tag: flavorParams
+  spec_file: kaltura-flavorparams-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.8
+  evidence: flavorParams.getByConversionProfileId; KalturaPdfFlavorParamsBaseFilter
+  reason: Flavor params define the encoding/conversion parameter sets used by conversion profiles — configuration
+    of the transcoding and packaging pipeline.
+- tag: householdDevice
+  spec_file: kaltura-householddevice-api-openapi.yml
+  capability_id: BC-3750.30
+  capability_id_l1: BC-3750
+  capability_name: Multi-Device Authentication
+  confidence: 0.8
+  evidence: householdDevice.addByPin; householdDevice.generatePin; householdDevice.loginWithPin; schema
+    KalturaHouseholdDevice
+  reason: Registering devices to a household and authenticating them via generated PINs is device-estate
+    authentication for viewers, matching Multi-Device Authentication. Some overlap with viewer identity
+    provisioning, hence 0.8.
+- tag: householdUser
+  spec_file: kaltura-householduser-api-openapi.yml
+  capability_id: BC-3750.10
+  capability_id_l1: BC-3750
+  capability_name: Viewer Identity Management
+  confidence: 0.8
+  evidence: householdUser.add; householdUser.delete; householdUser.list; schema KalturaHouseholdUser,
+    KalturaHouseholdUserListResponse
+  reason: Managing the users that belong to an OTT household is stewardship of viewer accounts and household
+    constructs.
+- tag: subscription
+  spec_file: kaltura-subscription-api-openapi.yml
+  capability_id: BC-3750.20
+  capability_id_l1: BC-3750
+  capability_name: Subscription & Entitlement Management
+  confidence: 0.8
+  evidence: subscription.list; subscription.validateCoupon; schemas KalturaCoupon, KalturaPriceDetails,
+    KalturaPremiumService, KalturaHouseholdUserFilter
+  reason: OTT viewer subscription products with pricing, coupons and household users — the entitlement/subscription
+    layer of a direct-to-consumer content service.
+- tag: cdnAdapterProfile
+  spec_file: kaltura-cdnadapterprofile-api-openapi.yml
+  capability_id: BC-3740.30
+  capability_id_l1: BC-3740
+  capability_name: Content Delivery Network Operations
+  confidence: 0.78
+  evidence: KalturaCDNAdapterProfile; cdnAdapterProfile.add; cdnAdapterProfile.generateSharedSecret
+  reason: The surface configures CDN adapter profiles (including shared-secret generation for signed delivery)
+    used by the OTT delivery stack, which is content delivery network operations for content distribution.
+- tag: conversionProfileAssetParams
+  spec_file: kaltura-conversionprofileassetparams-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.78
+  evidence: conversionProfileAssetParams.list, conversionProfileAssetParams.update; KalturaPdfFlavorParamsBaseFilter
+  reason: Manages the asset (flavour) parameters attached to a conversion profile — configuration of transcoding
+    renditions for media assets.
+- tag: entryDistribution
+  spec_file: kaltura-entrydistribution-api-openapi.yml
+  capability_id: BC-3740.60
+  capability_id_l1: BC-3740
+  capability_name: Syndication & Affiliate Distribution
+  confidence: 0.78
+  evidence: POST /service/contentdistribution_entrydistribution/action/submitAdd, schemas KalturaMsnDistributionProfile,
+    KalturaAttUverseDistributionProviderBaseFilter
+  reason: Submits, updates and deletes content entries to third-party distribution partners/platforms
+    via distribution profiles, i.e. syndication of content to affiliates and external platforms with delivery
+    status and reports.
+- tag: assetStatistics
+  spec_file: kaltura-assetstatistics-api-openapi.yml
+  capability_id: BC-3770.30
+  capability_id_l1: BC-3770
+  capability_name: Content Performance Analytics
+  confidence: 0.75
+  evidence: assetStatistics.query, KalturaAssetStatistics, KalturaBuzzScore
+  reason: Queries per-asset viewership/popularity statistics including a buzz score — analytics of how
+    content performs by title. Single operation, so not maximal confidence.
+- tag: flavorParamsOutput
+  spec_file: kaltura-flavorparamsoutput-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.75
+  evidence: POST /service/flavorparamsoutput/action/get  flavorParamsOutput.get
+  reason: Read-only view of the resolved encoding parameters actually applied to produce a rendition;
+    part of the transcoding pipeline surface. Only get/list, hence slightly lower confidence.
+- tag: householdPaymentMethod
+  spec_file: kaltura-householdpaymentmethod-api-openapi.yml
+  capability_id: BC-4250.40
+  capability_id_l1: BC-4250
+  capability_name: Payment Collection & Dunning
+  confidence: 0.75
+  evidence: householdPaymentMethod.add; householdPaymentMethod.setAsDefault; householdPaymentMethod.remove;
+    schema KalturaHouseholdPaymentMethod
+  reason: Adding, removing and defaulting a household's stored payment methods is payment-method management
+    within recurring subscription collection.
+- tag: subscriptionSet
+  spec_file: kaltura-subscriptionset-api-openapi.yml
+  capability_id: BC-3750.20
+  capability_id_l1: BC-3750
+  capability_name: Subscription & Entitlement Management
+  confidence: 0.75
+  evidence: subscriptionSet.add / update; schemas KalturaSubscriptionSwitchSet, KalturaSubscriptionSetListResponse
+  reason: Grouping and switch-sets of OTT subscriptions govern which packages a viewer may hold or move
+    between, part of subscription and entitlement lifecycle on the content service.
+- tag: comcastMrss
+  spec_file: kaltura-comcastmrss-api-openapi.yml
+  capability_id: BC-3740.60
+  capability_id_l1: BC-3740
+  capability_name: Syndication & Affiliate Distribution
+  confidence: 0.72
+  evidence: POST /service/comcastmrssdistribution_comcastmrss/action/getFeed  comcastMrss.getFeed
+  reason: The operation generates an MRSS distribution feed for Comcast, i.e. delivering programming metadata/content
+    to a third-party operator platform — syndication and affiliate distribution. Single operation, hence
+    moderate confidence.
+- tag: distributionProfile
+  spec_file: kaltura-distributionprofile-api-openapi.yml
+  capability_id: BC-3740.60
+  capability_id_l1: BC-3740
+  capability_name: Syndication & Affiliate Distribution
+  confidence: 0.72
+  evidence: POST /service/contentdistribution_distributionprofile/action/add distributionProfile.add;
+    schemas KalturaMsnDistributionProfile, KalturaYahooDistributionProfileBaseFilter, KalturaTimeWarnerDistributionProfileFilter
+  reason: Content-distribution profiles configure pushing content to named third-party platforms (MSN,
+    Yahoo, Time Warner, AT&T Uverse), i.e. syndication/affiliate distribution of programming to external
+    platforms.
+- tag: dropFolder
+  spec_file: kaltura-dropfolder-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.72
+  evidence: POST /service/dropfolder_dropfolder/action/add dropFolder.add; dropFolder.getExclusiveDropFolder;
+    schema KalturaDropFolderFileResource
+  reason: Drop folders are watch-folder definitions through which source media files are picked up and
+    onboarded into the platform, i.e. configuration of the asset ingest path.
+- tag: dropFolderFile
+  spec_file: kaltura-dropfolderfile-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.72
+  evidence: POST /service/dropfolder_dropfolderfile/action/updateStatus dropFolderFile.updateStatus; dropFolderFile.ignore
+  reason: Tracks individual source files detected in watch folders and their processing status (including
+    ignoring files), which is the ingest intake queue for media assets.
+- tag: assetFile
+  spec_file: kaltura-assetfile-api-openapi.yml
+  capability_id: BC-3740.20
+  capability_id_l1: BC-3740
+  capability_name: OTT & Streaming Delivery
+  confidence: 0.7
+  evidence: assetFile.playManifest, assetFile.getContext, KalturaAssetFileContext
+  reason: Serves the playback manifest and delivery context for an asset file, i.e. streaming/OTT delivery
+    of the rendition to the player. Only two operations, so confidence is moderate.
+- tag: captionAsset
+  spec_file: kaltura-captionasset-api-openapi.yml
+  capability_id: BC-3700.60
+  capability_id_l1: BC-3700
+  capability_name: Localisation & Versioning Management
+  confidence: 0.7
+  evidence: captionAsset.add, captionAsset.serveWebVTT, captionAsset.setAsDefault, captionAsset.export
+  reason: Manages caption/subtitle assets attached to media entries including WebVTT serving and default
+    language selection — captioning and versioning of content for distribution. Could alternatively be
+    read as accessibility compliance, hence moderate confidence.
+- tag: cdnPartnerSettings
+  spec_file: kaltura-cdnpartnersettings-api-openapi.yml
+  capability_id: BC-3740.30
+  capability_id_l1: BC-3740
+  capability_name: Content Delivery Network Operations
+  confidence: 0.7
+  evidence: KalturaCDNPartnerSettings; cdnPartnerSettings.get / cdnPartnerSettings.update
+  reason: Get/update of account-level CDN settings governing how content is delivered over the CDN. Mapped
+    to CDN operations, with confidence reduced because the only evidence is a single settings schema and
+    two accessors.
+- tag: contentDistributionBatch
+  spec_file: kaltura-contentdistributionbatch-api-openapi.yml
+  capability_id: BC-3740.60
+  capability_id_l1: BC-3740
+  capability_name: Syndication & Affiliate Distribution
+  confidence: 0.7
+  evidence: contentDistributionBatch.createRequiredJobs, contentDistributionBatch.getAssetUrl, contentDistributionBatch.updateSunStatus;
+    KalturaYahooDistributionProfileBaseFilter, KalturaTimeWarnerDistributionProfileFilter, KalturaAttUverseDistributionProviderBaseFilter
+  reason: Batch jobs that push content to named third-party distribution partners (Yahoo, Time Warner,
+    AT&T Uverse, NDN, Podcast) with sunrise/sunset status — syndication of programming to third-party
+    platforms. Batch-job framing lowers confidence slightly.
+- tag: liveReports
+  spec_file: kaltura-livereports-api-openapi.yml
+  capability_id: BC-3770
+  capability_id_l1: BC-3770
+  capability_name: Audience Measurement & Insights Management
+  confidence: 0.7
+  evidence: liveReports.getReport, liveReports.getEvents, liveReports.exportToCsv; schema KalturaLiveReportExportJobData
+  reason: Reporting on live streaming audience/events with CSV export — viewership measurement and analytics.
+    L1 only because the operations do not distinguish raw telemetry capture from content performance analytics.
+- tag: liveStats
+  spec_file: kaltura-livestats-api-openapi.yml
+  capability_id: BC-3770.10
+  capability_id_l1: BC-3770
+  capability_name: Viewership Data Capture
+  confidence: 0.7
+  evidence: POST /service/livestats/action/collect  liveStats.collect
+  reason: Collects live playback statistics events from players into the analytics platform, matching
+    capture of OTT playback telemetry. Single operation keeps confidence moderate.
+- tag: media
+  spec_file: kaltura-media-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.7
+  evidence: media.addFromUploadedFile, media.addFromUrl, media.addFromBulk, media.addContent, media.approve
+  reason: 'Core media entry service: onboarding source material into the platform from uploads, URLs and
+    bulk, plus approval of content — asset ingest into the media asset platform. L2 ingest is well evidenced
+    though the service also spans wider asset lifecycle operations.'
+- tag: metadata
+  spec_file: kaltura-metadata-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: metadata.add, metadata.addFromFile, metadata.index, metadata.serve, metadata.updateFromFile
+  reason: Authoring, bulk loading, indexing and serving of custom metadata records attached to media entries
+    on a video platform — descriptive metadata cataloguing for media assets.
+- tag: permission
+  spec_file: kaltura-permission-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: permission.add, permission.delete, permission.getCurrentPermissions, permission.list
+  reason: Administration of platform permissions and retrieval of the caller's current permissions is
+    access-control/authorisation management within the product's identity and access layer.
+- tag: storageProfile
+  spec_file: kaltura-storageprofile-api-openapi.yml
+  capability_id: BC-3710.30
+  capability_id_l1: BC-3710
+  capability_name: Asset Storage & Tiering
+  confidence: 0.7
+  evidence: storageProfile.lockPendingFileSyncs; schema KalturaAmazonS3StorageProfileFilter
+  reason: Storage profiles define where media file syncs are stored (e.g. S3 remote storage) for the video
+    asset platform, i.e. asset storage/tiering configuration rather than generic IT infrastructure.
+- tag: timeWarner
+  spec_file: kaltura-timewarner-api-openapi.yml
+  capability_id: BC-3740.60
+  capability_id_l1: BC-3740
+  capability_name: Syndication & Affiliate Distribution
+  confidence: 0.7
+  evidence: POST /service/timewarnerdistribution_timewarner/action/getFeed  timeWarner.getFeed
+  reason: A named third-party distribution module producing a content feed for Time Warner (schema KalturaTimeWarnerDistributionProfileFilter),
+    i.e. delivering programming/metadata to an external platform — syndication and affiliate distribution.
+    Single operation, so moderate confidence.
+- tag: transaction
+  spec_file: kaltura-transaction-api-openapi.yml
+  capability_id: BC-3750.20
+  capability_id_l1: BC-3750
+  capability_name: Subscription & Entitlement Management
+  confidence: 0.7
+  evidence: transaction.purchase, transaction.upgrade, transaction.downgrade, transaction.validateReceipt
+    (KalturaPurchase, KalturaTransactionStatus)
+  reason: Operations perform viewer purchases of content/subscriptions plus upgrade/downgrade and store-receipt
+    validation on an OTT service — the commercial entitlement lifecycle for viewers. Ambiguity between
+    subscription/entitlement management and payment collection keeps confidence moderate.
+- tag: tvCom
+  spec_file: kaltura-tvcom-api-openapi.yml
+  capability_id: BC-3740.60
+  capability_id_l1: BC-3740
+  capability_name: Syndication & Affiliate Distribution
+  confidence: 0.7
+  evidence: POST /service/tvcomdistribution_tvcom/action/getFeed  tvCom.getFeed
+  reason: Named third-party distribution module generating a content feed for TV.com, i.e. pushing programming/metadata
+    to an external platform — syndication and affiliate distribution. Single operation, moderate confidence.
+- tag: userRole
+  spec_file: kaltura-userrole-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /service/userrole/action/add  userRole.add; userRole.clone; schema KalturaUserRoleFilter
+  reason: Create, update, clone and list of user roles is role-based access control administration — Identity
+    & Access Management. Generic platform security plumbing rather than a media-specific capability.
+- tag: uverse
+  spec_file: kaltura-uverse-api-openapi.yml
+  capability_id: BC-3740.60
+  capability_id_l1: BC-3740
+  capability_name: Syndication & Affiliate Distribution
+  confidence: 0.7
+  evidence: POST /service/uversedistribution_uverse/action/getFeed  uverse.getFeed; schema KalturaAttUverseDistributionProviderBaseFilter
+  reason: Generates a distribution feed for the AT&T U-verse platform — delivery of programming to a third-party
+    operator/affiliate platform. Single operation, so confidence capped.
+- tag: uverseClickToOrder
+  spec_file: kaltura-uverseclicktoorder-api-openapi.yml
+  capability_id: BC-3740.60
+  capability_id_l1: BC-3740
+  capability_name: Syndication & Affiliate Distribution
+  confidence: 0.7
+  evidence: POST /service/uverseclicktoorderdistribution_uverseclicktoorder/action/getFeed; schema KalturaUverseClickToOrderDistributionProfileBaseFilter
+  reason: Distribution feed generation for the U-verse Click-To-Order partner destination — syndication
+    of content to a third-party platform. Single operation, so confidence capped.
