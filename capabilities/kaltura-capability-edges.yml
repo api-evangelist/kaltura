@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 44
+edge_count: 45
 edges:
 - tag: playReadyDrm
   spec_file: kaltura-playreadydrm-api-openapi.yml
@@ -284,6 +284,17 @@ edges:
   evidence: POST /service/dropfolder_dropfolderfile/action/updateStatus dropFolderFile.updateStatus; dropFolderFile.ignore
   reason: Tracks individual source files detected in watch folders and their processing status (including
     ignoring files), which is the ingest intake queue for media assets.
+- tag: householdPaymentGateway
+  spec_file: kaltura-householdpaymentgateway-api-openapi.yml
+  capability_id: BC-4250.40
+  capability_id_l1: BC-4250
+  capability_name: Payment Collection & Dunning
+  confidence: 0.72
+  evidence: householdPaymentGateway.enable / getChargeID / setChargeID / invoke, KalturaPaymentGatewayConfiguration
+  reason: Enabling, suspending and invoking payment gateways and managing charge IDs for a subscriber
+    household is payment-instrument and collection handling for recurring OTT charges, i.e. payment collection.
+    Gateway configuration flavour keeps confidence moderate.
+  recovered_from: sweep-20260828T235257Z-edges.json
 - tag: assetFile
   spec_file: kaltura-assetfile-api-openapi.yml
   capability_id: BC-3740.20
