@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl householdQuota API
+  title: Kaltura OTT Household Quota API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -18,65 +13,73 @@ tags:
 paths:
   /service/householdquota/action/get:
     post:
-      description: Returns the household&#39;s quota data
+      description: Returns the household's quota data
       operationId: householdQuota.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHouseholdQuota'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHouseholdQuota'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHouseholdQuota'
       tags:
       - householdQuota
       x-kaltura-format: post
       x-kaltura-parameters: []
-definitions:
-  KalturaHouseholdQuota:
-    properties:
-      availableQuota:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Household quota get
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaHouseholdQuota:
+      properties:
+        availableQuota:
+          description: '`readOnly`
 
 
-          Available quota that household has remaining'
-        readOnly: true
-        type: integer
-      householdId:
-        description: '`readOnly`
+            Available quota that household has remaining'
+          readOnly: true
+          type: integer
+        householdId:
+          description: '`readOnly`
 
 
-          Household identifier'
-        readOnly: true
-        type: integer
-      totalQuota:
-        description: '`readOnly`
+            Household identifier'
+          readOnly: true
+          type: integer
+        totalQuota:
+          description: '`readOnly`
 
 
-          Total quota that is allocated to the household'
-        readOnly: true
-        type: integer
-    title: KalturaHouseholdQuota
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Total quota that is allocated to the household'
+          readOnly: true
+          type: integer
+      title: KalturaHouseholdQuota
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

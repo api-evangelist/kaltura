@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl userLoginPin API
+  title: Kaltura OTT User Login Pin API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Generate a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN
       operationId: userLoginPin.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            secret:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaUserLoginPin'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaUserLoginPin'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaUserLoginPin'
         x-Errors:
           description: '* `UserDoesNotExist`: undefined
 
@@ -44,72 +34,91 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - secret
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                secret:
+                  type: string
+              type: object
+      summary: User login pin add
+      x-summary-source: derived
   /service/userloginpin/action/delete:
     post:
       description: Immediately deletes a given pre set login pin code for the user.
       operationId: userLoginPin.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            pinCode:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
       tags:
       - userLoginPin
       x-kaltura-format: post
       x-kaltura-parameters:
       - pinCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                pinCode:
+                  type: string
+              type: object
+      summary: User login pin delete
+      x-summary-source: derived
   /service/userloginpin/action/deleteAll:
     post:
       description: Immediately expire all active login-PINs for a user
       operationId: userLoginPin.deleteAll
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
       tags:
       - userLoginPin
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: User login pin delete all
+      x-summary-source: derived
   /service/userloginpin/action/update:
     post:
       description: Set a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN
       operationId: userLoginPin.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            pinCode:
-              type: string
-            secret:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaUserLoginPin'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaUserLoginPin'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaUserLoginPin'
         x-Errors:
           description: '* `PinAlreadyExists`: undefined
 
@@ -124,39 +133,54 @@ paths:
       x-kaltura-parameters:
       - pinCode
       - secret
-definitions:
-  KalturaUserLoginPin:
-    description: Log in pin code details
-    properties:
-      expirationTime:
-        description: Login pin expiration time (epoch)
-        type: integer
-      pinCode:
-        description: Generated login pin code
-        type: string
-      userId:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                pinCode:
+                  type: string
+                secret:
+                  type: string
+              type: object
+      summary: User login pin update
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaUserLoginPin:
+      description: Log in pin code details
+      properties:
+        expirationTime:
+          description: Login pin expiration time (epoch)
+          type: integer
+        pinCode:
+          description: Generated login pin code
+          type: string
+        userId:
+          description: '`readOnly`
 
 
-          User Identifier'
-        readOnly: true
-        type: string
-    title: KalturaUserLoginPin
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            User Identifier'
+          readOnly: true
+          type: string
+      title: KalturaUserLoginPin
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

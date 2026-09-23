@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl deviceFamily API
+  title: Kaltura OTT Device Family API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,78 +15,86 @@ paths:
     post:
       description: Return a list of the available device families.
       operationId: deviceFamily.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaDeviceFamilyListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaDeviceFamilyListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaDeviceFamilyListResponse'
       tags:
       - deviceFamily
       x-kaltura-format: post
       x-kaltura-parameters: []
-definitions:
-  KalturaDeviceFamilyListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaDeviceFamily'
-        type: array
-    title: KalturaDeviceFamilyListResponse
-    type: object
-  KalturaDeviceFamily:
-    allOf:
-    - $ref: '#/definitions/KalturaDeviceFamilyBase'
-    description: Device family details
-    properties: {}
-    title: KalturaDeviceFamily
-    type: object
-  KalturaDeviceFamilyBase:
-    description: Device family details
-    properties:
-      id:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Device family list
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaDeviceFamilyBase:
+      description: Device family details
+      properties:
+        id:
+          description: '`readOnly`
 
 
-          Device family identifier'
-        readOnly: true
-        type: integer
-      name:
-        description: Device family name
-        type: string
-    title: KalturaDeviceFamilyBase
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Device family identifier'
+          readOnly: true
+          type: integer
+        name:
+          description: Device family name
+          type: string
+      title: KalturaDeviceFamilyBase
+      type: object
+    KalturaDeviceFamilyListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaDeviceFamily'
+          type: array
+      title: KalturaDeviceFamilyListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaDeviceFamily:
+      allOf:
+      - $ref: '#/components/schemas/KalturaDeviceFamilyBase'
+      description: Device family details
+      properties: {}
+      title: KalturaDeviceFamily
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

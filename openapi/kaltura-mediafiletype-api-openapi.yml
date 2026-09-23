@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl mediaFileType API
+  title: Kaltura OTT Media File Type API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Add new media-file type
       operationId: mediaFileType.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            mediaFileType:
-              $ref: '#/definitions/KalturaMediaFileType'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaMediaFileType'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaMediaFileType'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaMediaFileType'
         x-Errors:
           description: '* `MediaFileTypeNameAlreadyInUse`: undefined'
       tags:
@@ -42,25 +32,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - mediaFileType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                mediaFileType:
+                  $ref: '#/components/schemas/KalturaMediaFileType'
+              type: object
+      summary: Media file type add
+      x-summary-source: derived
   /service/mediafiletype/action/delete:
     post:
       description: Delete media-file type by id
       operationId: mediaFileType.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `MediaFileTypeDoesNotExist`: undefined'
       tags:
@@ -68,48 +65,60 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Media file type delete
+      x-summary-source: derived
   /service/mediafiletype/action/list:
     post:
       description: Returns a list of media-file types
       operationId: mediaFileType.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaMediaFileTypeListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaMediaFileTypeListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaMediaFileTypeListResponse'
       tags:
       - mediaFileType
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Media file type list
+      x-summary-source: derived
   /service/mediafiletype/action/update:
     post:
       description: Update existing media-file type
       operationId: mediaFileType.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-            mediaFileType:
-              $ref: '#/definitions/KalturaMediaFileType'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaMediaFileType'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaMediaFileType'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaMediaFileType'
         x-Errors:
           description: '* `MediaFileTypeDoesNotExist`: undefined
 
@@ -120,132 +129,147 @@ paths:
       x-kaltura-parameters:
       - id
       - mediaFileType
-definitions:
-  KalturaMediaFileTypeListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: Media-file types list
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaMediaFileType'
-        type: array
-    title: KalturaMediaFileTypeListResponse
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaMediaFileType:
-    description: Media-file type
-    properties:
-      audioCodecs:
-        description: List of comma separated audio codecs
-        type: string
-      createDate:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+                mediaFileType:
+                  $ref: '#/components/schemas/KalturaMediaFileType'
+              type: object
+      summary: Media file type update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaMediaFileTypeListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Media-file types list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaMediaFileType'
+          type: array
+      title: KalturaMediaFileTypeListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaMediaFileType:
+      description: Media-file type
+      properties:
+        audioCodecs:
+          description: List of comma separated audio codecs
+          type: string
+        createDate:
+          description: '`readOnly`
 
 
-          Specifies when was the type was created. Date and time represented as epoch.'
-        readOnly: true
-        type: integer
-      description:
-        description: Unique description
-        type: string
-      drmProfileId:
-        description: '`insertOnly`
+            Specifies when was the type was created. Date and time represented as epoch.'
+          readOnly: true
+          type: integer
+        description:
+          description: Unique description
+          type: string
+        drmProfileId:
+          description: '`insertOnly`
 
 
-          DRM adapter-profile identifier, use -1 for uDRM, 0 for no DRM.'
-        type: integer
-      id:
-        description: '`readOnly`
+            DRM adapter-profile identifier, use -1 for uDRM, 0 for no DRM.'
+          type: integer
+        id:
+          description: '`readOnly`
 
 
-          Unique identifier'
-        readOnly: true
-        type: integer
-      isTrailer:
-        description: '`insertOnly`
+            Unique identifier'
+          readOnly: true
+          type: integer
+        isTrailer:
+          description: '`insertOnly`
 
 
-          Specifies whether playback as trailer is allowed'
-        type: boolean
-      name:
-        description: Unique name
-        type: string
-      quality:
-        description: 'Enum Type: `KalturaMediaFileTypeQuality`
+            Specifies whether playback as trailer is allowed'
+          type: boolean
+        name:
+          description: Unique name
+          type: string
+        quality:
+          description: 'Enum Type: `KalturaMediaFileTypeQuality`
 
 
-          Media file type quality'
-        enum:
-        - ADAPTIVE
-        - SD
-        - HD_720
-        - HD_1080
-        - UHD_4K
-        type: string
-        x-enumLabels:
-        - ADAPTIVE
-        - SD
-        - HD_720
-        - HD_1080
-        - UHD_4K
-        x-enumType: KalturaMediaFileTypeQuality
-      status:
-        description: Indicates if media-file type is active or disabled
-        type: boolean
-      streamerType:
-        description: '`insertOnly`
+            Media file type quality'
+          enum:
+          - ADAPTIVE
+          - SD
+          - HD_720
+          - HD_1080
+          - UHD_4K
+          type: string
+          x-enumLabels:
+          - ADAPTIVE
+          - SD
+          - HD_720
+          - HD_1080
+          - UHD_4K
+          x-enumType: KalturaMediaFileTypeQuality
+        status:
+          description: Indicates if media-file type is active or disabled
+          type: boolean
+        streamerType:
+          description: '`insertOnly`
 
 
-          Enum Type: `KalturaMediaFileStreamerType`
+            Enum Type: `KalturaMediaFileStreamerType`
 
 
-          Defines playback streamer type'
-        enum:
-        - APPLE_HTTP
-        - MPEG_DASH
-        - URL
-        - SMOOTH_STREAMING
-        type: string
-        x-enumLabels:
-        - APPLE_HTTP
-        - MPEG_DASH
-        - URL
-        - SMOOTH_STREAMING
-        x-enumType: KalturaMediaFileStreamerType
-      updateDate:
-        description: '`readOnly`
+            Defines playback streamer type'
+          enum:
+          - APPLE_HTTP
+          - MPEG_DASH
+          - URL
+          - SMOOTH_STREAMING
+          type: string
+          x-enumLabels:
+          - APPLE_HTTP
+          - MPEG_DASH
+          - URL
+          - SMOOTH_STREAMING
+          x-enumType: KalturaMediaFileStreamerType
+        updateDate:
+          description: '`readOnly`
 
 
-          Specifies when was the type last updated. Date and time represented as epoch.'
-        readOnly: true
-        type: integer
-      videoCodecs:
-        description: List of comma separated video codecs
-        type: string
-    title: KalturaMediaFileType
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Specifies when was the type last updated. Date and time represented as epoch.'
+          readOnly: true
+          type: integer
+        videoCodecs:
+          description: List of comma separated video codecs
+          type: string
+      title: KalturaMediaFileType
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

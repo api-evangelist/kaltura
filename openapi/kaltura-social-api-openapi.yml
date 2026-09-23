@@ -1,211 +1,229 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl social API
+  title: Kaltura OTT Social API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
-- name: social
+- name: Social
 paths:
   /service/social/action/UpdateConfiguration:
     post:
       description: Set the user social network’s configuration information
       operationId: social.UpdateConfiguration
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            configuration:
-              $ref: '#/definitions/KalturaSocialConfig'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaSocialConfig'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaSocialConfig'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaSocialConfig'
       tags:
-      - social
+      - Social
       x-kaltura-format: post
       x-kaltura-parameters:
       - configuration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                configuration:
+                  $ref: '#/components/schemas/KalturaSocialConfig'
+              type: object
+      summary: Social update configuration
+      x-summary-source: derived
   /service/social/action/get:
     post:
       description: List social accounts
       operationId: social.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            type:
-              enum:
-              - facebook
-              type: string
-              x-enumLabels:
-              - FACEBOOK
-              x-enumType: KalturaSocialNetwork
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaSocial'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
       tags:
-      - social
+      - Social
       x-kaltura-format: post
       x-kaltura-parameters:
       - type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                type:
+                  enum:
+                  - facebook
+                  type: string
+                  x-enumLabels:
+                  - FACEBOOK
+                  x-enumType: KalturaSocialNetwork
+              type: object
+      summary: Social get
+      x-summary-source: derived
   /service/social/action/getByToken:
     post:
       description: Return the user object with social information according to a provided external social token
       operationId: social.getByToken
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            partnerId:
-              type: integer
-            token:
-              type: string
-            type:
-              enum:
-              - facebook
-              type: string
-              x-enumLabels:
-              - FACEBOOK
-              x-enumType: KalturaSocialNetwork
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaSocial'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
         x-Errors:
           description: '* `Conflict`: undefined
 
             * `MinFriendsLimitation`: undefined'
       tags:
-      - social
+      - Social
       x-kaltura-format: post
       x-kaltura-parameters:
       - partnerId
       - token
       - type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                partnerId:
+                  type: integer
+                token:
+                  type: string
+                type:
+                  enum:
+                  - facebook
+                  type: string
+                  x-enumLabels:
+                  - FACEBOOK
+                  x-enumType: KalturaSocialNetwork
+              type: object
+      summary: Social get by token
+      x-summary-source: derived
   /service/social/action/getConfiguration:
     post:
       description: Retrieve the social network’s configuration information
       operationId: social.getConfiguration
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            partnerId:
-              type: integer
-            type:
-              enum:
-              - facebook
-              type: string
-              x-enumLabels:
-              - FACEBOOK
-              x-enumType: KalturaSocialNetwork
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaSocialConfig'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaSocialConfig'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaSocialConfig'
       tags:
-      - social
+      - Social
       x-kaltura-format: post
       x-kaltura-parameters:
       - type
       - partnerId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                partnerId:
+                  type: integer
+                type:
+                  enum:
+                  - facebook
+                  type: string
+                  x-enumLabels:
+                  - FACEBOOK
+                  x-enumType: KalturaSocialNetwork
+              type: object
+      summary: Social get configuration
+      x-summary-source: derived
   /service/social/action/login:
     post:
       description: Login using social token
       operationId: social.login
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            partnerId:
-              type: integer
-            token:
-              type: string
-            type:
-              enum:
-              - facebook
-              type: string
-              x-enumLabels:
-              - FACEBOOK
-              x-enumType: KalturaSocialNetwork
-            udid:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaLoginResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaLoginResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaLoginResponse'
         x-Errors:
           description: '* `UserDoesNotExist`: undefined'
       tags:
-      - social
+      - Social
       x-kaltura-format: post
       x-kaltura-parameters:
       - partnerId
       - token
       - type
       - udid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                partnerId:
+                  type: integer
+                token:
+                  type: string
+                type:
+                  enum:
+                  - facebook
+                  type: string
+                  x-enumLabels:
+                  - FACEBOOK
+                  x-enumType: KalturaSocialNetwork
+                udid:
+                  type: string
+              type: object
+      summary: Social login
+      x-summary-source: derived
   /service/social/action/merge:
     post:
       description: Connect an existing user in the system to an external social network user
       operationId: social.merge
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            token:
-              type: string
-            type:
-              enum:
-              - facebook
-              type: string
-              x-enumLabels:
-              - FACEBOOK
-              x-enumType: KalturaSocialNetwork
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaSocial'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
         x-Errors:
           description: '* `MinFriendsLimitation`: undefined
 
@@ -213,77 +231,93 @@ paths:
 
             * `Conflict`: undefined'
       tags:
-      - social
+      - Social
       x-kaltura-format: post
       x-kaltura-parameters:
       - token
       - type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                token:
+                  type: string
+                type:
+                  enum:
+                  - facebook
+                  type: string
+                  x-enumLabels:
+                  - FACEBOOK
+                  x-enumType: KalturaSocialNetwork
+              type: object
+      summary: Social merge
+      x-summary-source: derived
   /service/social/action/register:
     post:
       description: Create a new user in the system using a provided external social token
       operationId: social.register
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            email:
-              type: string
-            partnerId:
-              type: integer
-            token:
-              type: string
-            type:
-              enum:
-              - facebook
-              type: string
-              x-enumLabels:
-              - FACEBOOK
-              x-enumType: KalturaSocialNetwork
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaSocial'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
         x-Errors:
           description: '* `Conflict`: undefined
 
             * `MinFriendsLimitation`: undefined'
       tags:
-      - social
+      - Social
       x-kaltura-format: post
       x-kaltura-parameters:
       - partnerId
       - token
       - type
       - email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                email:
+                  type: string
+                partnerId:
+                  type: integer
+                token:
+                  type: string
+                type:
+                  enum:
+                  - facebook
+                  type: string
+                  x-enumLabels:
+                  - FACEBOOK
+                  x-enumType: KalturaSocialNetwork
+              type: object
+      summary: Social register
+      x-summary-source: derived
   /service/social/action/unmerge:
     post:
       description: Disconnect an existing user in the system from its external social network user
       operationId: social.unmerge
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            type:
-              enum:
-              - facebook
-              type: string
-              x-enumLabels:
-              - FACEBOOK
-              x-enumType: KalturaSocialNetwork
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaSocial'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaSocial'
         x-Errors:
           description: '* `MinFriendsLimitation`: undefined
 
@@ -291,334 +325,354 @@ paths:
 
             * `Conflict`: undefined'
       tags:
-      - social
+      - Social
       x-kaltura-format: post
       x-kaltura-parameters:
       - type
-definitions:
-  KalturaLongValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of longs
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaLongValue
-    type: object
-  KalturaOTTUser:
-    allOf:
-    - $ref: '#/definitions/KalturaBaseOTTUser'
-    description: User
-    properties:
-      address:
-        description: Address
-        type: string
-      affiliateCode:
-        description: '`insertOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                type:
+                  enum:
+                  - facebook
+                  type: string
+                  x-enumLabels:
+                  - FACEBOOK
+                  x-enumType: KalturaSocialNetwork
+              type: object
+      summary: Social unmerge
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaLoginResponse:
+      properties:
+        loginSession:
+          $ref: '#/components/schemas/KalturaLoginSession'
+        user:
+          $ref: '#/components/schemas/KalturaOTTUser'
+      title: KalturaLoginResponse
+      type: object
+    KalturaSocial:
+      description: '`abstract`'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaFacebookSocial'
+      properties:
+        birthday:
+          description: User birthday
+          type: string
+        email:
+          description: User email
+          type: string
+        firstName:
+          description: First name
+          type: string
+        gender:
+          description: Gender
+          type: string
+        id:
+          description: '`readOnly`
 
 
-          Affiliate code'
-        type: string
-      city:
-        description: City
-        type: string
-      countryId:
-        description: Country identifier
-        type: integer
-      dynamicData:
-        items:
-          $ref: '#/definitions/KalturaStringValue'
-        type: array
-      email:
-        description: Email
-        type: string
-      externalId:
-        description: External user identifier
-        type: string
-      householdId:
-        description: '`readOnly`
+            Facebook identifier'
+          readOnly: true
+          type: string
+        lastName:
+          description: Last name
+          type: string
+        name:
+          description: Full name
+          type: string
+        objectType:
+          enum:
+          - KalturaFacebookSocial
+          type: string
+        pictureUrl:
+          description: Profile picture URL
+          type: string
+        status:
+          description: "`readOnly`\n\nUser model status\n            Possible values: UNKNOWN, OK, ERROR, NOACTION, NOTEXIST, CONFLICT, MERGE, MERGEOK, NEWUSER, MINFRIENDS, INVITEOK, INVITEERROR, ACCESSDENIED, WRONGPASSWORDORUSERNAME, UNMERGEOK, USEREMAILISMISSING"
+          readOnly: true
+          type: string
+        userId:
+          description: '`readOnly`
 
 
-          Household identifier'
-        readOnly: true
-        type: integer
-      isHouseholdMaster:
-        description: '`readOnly`
+            User identifier'
+          readOnly: true
+          type: string
+      title: KalturaSocial
+      type: object
+    KalturaLoginSession:
+      description: Login response
+      properties:
+        ks:
+          description: Access token in a KS format
+          type: string
+      title: KalturaLoginSession
+      type: object
+    KalturaBaseOTTUser:
+      description: Slim user data
+      properties:
+        firstName:
+          description: First name
+          type: string
+        id:
+          description: '`readOnly`
 
 
-          Is the user the household master'
-        readOnly: true
-        type: boolean
-      phone:
-        description: Phone
-        type: string
-      suspensionState:
-        description: '`readOnly`
+            User identifier'
+          readOnly: true
+          type: string
+        lastName:
+          description: Last name
+          type: string
+        username:
+          description: Username
+          type: string
+      title: KalturaBaseOTTUser
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaFacebookSocial:
+      allOf:
+      - $ref: '#/components/schemas/KalturaSocial'
+      properties: {}
+      title: KalturaFacebookSocial
+      type: object
+    KalturaOTTUser:
+      allOf:
+      - $ref: '#/components/schemas/KalturaBaseOTTUser'
+      description: User
+      properties:
+        address:
+          description: Address
+          type: string
+        affiliateCode:
+          description: '`insertOnly`
 
 
-          Enum Type: `KalturaHouseholdSuspensionState`
+            Affiliate code'
+          type: string
+        city:
+          description: City
+          type: string
+        countryId:
+          description: Country identifier
+          type: integer
+        dynamicData:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        email:
+          description: Email
+          type: string
+        externalId:
+          description: External user identifier
+          type: string
+        householdId:
+          description: '`readOnly`
 
 
-          Suspension state'
-        enum:
-        - NOT_SUSPENDED
-        - SUSPENDED
-        readOnly: true
-        type: string
-        x-enumLabels:
-        - NOT_SUSPENDED
-        - SUSPENDED
-        x-enumType: KalturaHouseholdSuspensionState
-      userState:
-        description: '`readOnly`
+            Household identifier'
+          readOnly: true
+          type: integer
+        isHouseholdMaster:
+          description: '`readOnly`
 
 
-          Enum Type: `KalturaUserState`
+            Is the user the household master'
+          readOnly: true
+          type: boolean
+        phone:
+          description: Phone
+          type: string
+        suspensionState:
+          description: '`readOnly`
 
 
-          User state'
-        enum:
-        - ok
-        - user_with_no_household
-        - user_created_with_no_role
-        - user_not_activated
-        readOnly: true
-        type: string
-        x-enumLabels:
-        - OK
-        - USER_WITH_NO_HOUSEHOLD
-        - USER_CREATED_WITH_NO_ROLE
-        - USER_NOT_ACTIVATED
-        x-enumType: KalturaUserState
-      userType:
-        $ref: '#/definitions/KalturaOTTUserType'
-      zip:
-        description: Zip code
-        type: string
-    title: KalturaOTTUser
-    type: object
-  KalturaSocialConfig:
-    description: Returns social configuration for the partner
-    properties: {}
-    title: KalturaSocialConfig
-    type: object
-  KalturaOTTUserType:
-    description: User type
-    properties:
-      description:
-        description: User type description
-        type: string
-      id:
-        description: '`readOnly`
+            Enum Type: `KalturaHouseholdSuspensionState`
 
 
-          User type identifier'
-        readOnly: true
-        type: integer
-    title: KalturaOTTUserType
-    type: object
-  KalturaIntegerValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of ints
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaIntegerValue
-    type: object
-  KalturaBaseOTTUser:
-    description: Slim user data
-    properties:
-      firstName:
-        description: First name
-        type: string
-      id:
-        description: '`readOnly`
+            Suspension state'
+          enum:
+          - NOT_SUSPENDED
+          - SUSPENDED
+          readOnly: true
+          type: string
+          x-enumLabels:
+          - NOT_SUSPENDED
+          - SUSPENDED
+          x-enumType: KalturaHouseholdSuspensionState
+        userState:
+          description: '`readOnly`
 
 
-          User identifier'
-        readOnly: true
-        type: string
-      lastName:
-        description: Last name
-        type: string
-      username:
-        description: Username
-        type: string
-    title: KalturaBaseOTTUser
-    type: object
-  KalturaLoginResponse:
-    properties:
-      loginSession:
-        $ref: '#/definitions/KalturaLoginSession'
-      user:
-        $ref: '#/definitions/KalturaOTTUser'
-    title: KalturaLoginResponse
-    type: object
-  KalturaDoubleValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of doubles
-    properties:
-      value:
-        description: Value
-        type: number
-    title: KalturaDoubleValue
-    type: object
-  KalturaMultilingualStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: Array of translated strings
-    properties:
-      multilingualValue:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      value:
-        description: Value
-        type: string
-    title: KalturaMultilingualStringValue
-    type: object
-  KalturaLoginSession:
-    description: Login response
-    properties:
-      ks:
-        description: Access token in a KS format
-        type: string
-    title: KalturaLoginSession
-    type: object
-  KalturaValue:
-    description: '`abstract`
+            Enum Type: `KalturaUserState`
 
 
-      A representation to return an array of values'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaIntegerValue'
-    - $ref: '#/definitions/KalturaMultilingualStringValue'
-    - $ref: '#/definitions/KalturaLongValue'
-    - $ref: '#/definitions/KalturaDoubleValue'
-    - $ref: '#/definitions/KalturaBooleanValue'
-    - $ref: '#/definitions/KalturaStringValue'
-    properties:
-      description:
-        description: Description
-        type: string
-      objectType:
-        enum:
-        - KalturaIntegerValue
-        - KalturaMultilingualStringValue
-        - KalturaLongValue
-        - KalturaDoubleValue
-        - KalturaBooleanValue
-        - KalturaStringValue
-        type: string
-    title: KalturaValue
-    type: object
-  KalturaFacebookSocial:
-    allOf:
-    - $ref: '#/definitions/KalturaSocial'
-    properties: {}
-    title: KalturaFacebookSocial
-    type: object
-  KalturaStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of strings
-    properties:
-      value:
-        description: Value
-        type: string
-    title: KalturaStringValue
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-  KalturaBooleanValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of booleans
-    properties:
-      value:
-        description: Value
-        type: boolean
-    title: KalturaBooleanValue
-    type: object
-  KalturaSocial:
-    description: '`abstract`'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaFacebookSocial'
-    properties:
-      birthday:
-        description: User birthday
-        type: string
-      email:
-        description: User email
-        type: string
-      firstName:
-        description: First name
-        type: string
-      gender:
-        description: Gender
-        type: string
-      id:
-        description: '`readOnly`
+            User state'
+          enum:
+          - ok
+          - user_with_no_household
+          - user_created_with_no_role
+          - user_not_activated
+          readOnly: true
+          type: string
+          x-enumLabels:
+          - OK
+          - USER_WITH_NO_HOUSEHOLD
+          - USER_CREATED_WITH_NO_ROLE
+          - USER_NOT_ACTIVATED
+          x-enumType: KalturaUserState
+        userType:
+          $ref: '#/components/schemas/KalturaOTTUserType'
+        zip:
+          description: Zip code
+          type: string
+      title: KalturaOTTUser
+      type: object
+    KalturaSocialConfig:
+      description: Returns social configuration for the partner
+      properties: {}
+      title: KalturaSocialConfig
+      type: object
+    KalturaOTTUserType:
+      description: User type
+      properties:
+        description:
+          description: User type description
+          type: string
+        id:
+          description: '`readOnly`
 
 
-          Facebook identifier'
-        readOnly: true
-        type: string
-      lastName:
-        description: Last name
-        type: string
-      name:
-        description: Full name
-        type: string
-      objectType:
-        enum:
-        - KalturaFacebookSocial
-        type: string
-      pictureUrl:
-        description: Profile picture URL
-        type: string
-      status:
-        description: "`readOnly`\n\nUser model status\r\n            Possible values: UNKNOWN, OK, ERROR, NOACTION, NOTEXIST, CONFLICT, MERGE, MERGEOK, NEWUSER, MINFRIENDS, INVITEOK, INVITEERROR, ACCESSDENIED, WRONGPASSWORDORUSERNAME, UNMERGEOK, USEREMAILISMISSING"
-        readOnly: true
-        type: string
-      userId:
-        description: '`readOnly`
+            User type identifier'
+          readOnly: true
+          type: integer
+      title: KalturaOTTUserType
+      type: object
+    KalturaValue:
+      description: '`abstract`
 
 
-          User identifier'
-        readOnly: true
-        type: string
-    title: KalturaSocial
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

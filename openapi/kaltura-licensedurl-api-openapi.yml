@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl licensedUrl API
+  title: Kaltura OTT Licensed URL API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Get the URL for playing an asset - program, media or recording
       operationId: licensedUrl.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            request:
-              $ref: '#/definitions/KalturaLicensedUrlBaseRequest'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaLicensedUrl'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaLicensedUrl'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaLicensedUrl'
         x-Errors:
           description: '* `RecordingPlaybackNotAllowedForNotEntitledEpgChannel`: undefined
 
@@ -68,38 +58,51 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - request
-definitions:
-  KalturaLicensedUrl:
-    properties:
-      altUrl:
-        description: An alternate URL to use in case the main fails
-        type: string
-      mainUrl:
-        description: Main licensed URL
-        type: string
-    title: KalturaLicensedUrl
-    type: object
-  KalturaLicensedUrlBaseRequest:
-    properties:
-      assetId:
-        description: Asset identifier
-        type: string
-    title: KalturaLicensedUrlBaseRequest
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                request:
+                  $ref: '#/components/schemas/KalturaLicensedUrlBaseRequest'
+              type: object
+      summary: Licensed url get
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaLicensedUrl:
+      properties:
+        altUrl:
+          description: An alternate URL to use in case the main fails
+          type: string
+        mainUrl:
+          description: Main licensed URL
+          type: string
+      title: KalturaLicensedUrl
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaLicensedUrlBaseRequest:
+      properties:
+        assetId:
+          description: Asset identifier
+          type: string
+      title: KalturaLicensedUrlBaseRequest
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

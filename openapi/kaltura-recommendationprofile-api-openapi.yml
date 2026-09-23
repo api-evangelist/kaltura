@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl recommendationProfile API
+  title: Kaltura OTT Recommendation Profile API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Insert new recommendation engine for partner
       operationId: recommendationProfile.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            recommendationEngine:
-              $ref: '#/definitions/KalturaRecommendationProfile'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaRecommendationProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaRecommendationProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaRecommendationProfile'
         x-Errors:
           description: '* `ExternalIdentifierRequired`: undefined
 
@@ -48,25 +38,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - recommendationEngine
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                recommendationEngine:
+                  $ref: '#/components/schemas/KalturaRecommendationProfile'
+              type: object
+      summary: Recommendation profile add
+      x-summary-source: derived
   /service/recommendationprofile/action/delete:
     post:
       description: Delete recommendation engine by recommendation engine id
       operationId: recommendationProfile.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `RecommendationEngineNotExist`: undefined
 
@@ -76,25 +73,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Recommendation profile delete
+      x-summary-source: derived
   /service/recommendationprofile/action/generateSharedSecret:
     post:
-      description: Generate recommendation engine  shared secret
+      description: Generate recommendation engine shared secret
       operationId: recommendationProfile.generateSharedSecret
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            recommendationEngineId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaRecommendationProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaRecommendationProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaRecommendationProfile'
         x-Errors:
           description: '* `RecommendationEngineIdentifierRequired`: undefined
 
@@ -104,48 +108,60 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - recommendationEngineId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                recommendationEngineId:
+                  type: integer
+              type: object
+      summary: Recommendation profile generate shared secret
+      x-summary-source: derived
   /service/recommendationprofile/action/list:
     post:
       description: Returns all recommendation engines for partner
       operationId: recommendationProfile.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaRecommendationProfileListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaRecommendationProfileListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaRecommendationProfileListResponse'
       tags:
       - recommendationProfile
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Recommendation profile list
+      x-summary-source: derived
   /service/recommendationprofile/action/update:
     post:
       description: Update recommendation engine details
       operationId: recommendationProfile.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            recommendationEngine:
-              $ref: '#/definitions/KalturaRecommendationProfile'
-            recommendationEngineId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaRecommendationProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaRecommendationProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaRecommendationProfile'
         x-Errors:
           description: '* `ExternalIdentifierMustBeUnique`: undefined
 
@@ -164,178 +180,194 @@ paths:
       x-kaltura-parameters:
       - recommendationEngineId
       - recommendationEngine
-definitions:
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaLongValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of longs
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaLongValue
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaIntegerValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of ints
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaIntegerValue
-    type: object
-  KalturaRecommendationProfileListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: List of recommendation profiles.
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaRecommendationProfile'
-        type: array
-    title: KalturaRecommendationProfileListResponse
-    type: object
-  KalturaDoubleValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of doubles
-    properties:
-      value:
-        description: Value
-        type: number
-    title: KalturaDoubleValue
-    type: object
-  KalturaMultilingualStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: Array of translated strings
-    properties:
-      multilingualValue:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      value:
-        description: Value
-        type: string
-    title: KalturaMultilingualStringValue
-    type: object
-  KalturaValue:
-    description: '`abstract`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                recommendationEngine:
+                  $ref: '#/components/schemas/KalturaRecommendationProfile'
+                recommendationEngineId:
+                  type: integer
+              type: object
+      summary: Recommendation profile update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaRecommendationProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of recommendation profiles.
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaRecommendationProfile'
+          type: array
+      title: KalturaRecommendationProfileListResponse
+      type: object
+    KalturaRecommendationProfile:
+      description: PaymentGW
+      properties:
+        adapterUrl:
+          description: recommendation engine adapter URL
+          type: string
+        externalIdentifier:
+          description: recommendation engine external identifier
+          type: string
+        id:
+          description: '`readOnly`
 
 
-      A representation to return an array of values'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaIntegerValue'
-    - $ref: '#/definitions/KalturaMultilingualStringValue'
-    - $ref: '#/definitions/KalturaLongValue'
-    - $ref: '#/definitions/KalturaDoubleValue'
-    - $ref: '#/definitions/KalturaBooleanValue'
-    - $ref: '#/definitions/KalturaStringValue'
-    properties:
-      description:
-        description: Description
-        type: string
-      objectType:
-        enum:
-        - KalturaIntegerValue
-        - KalturaMultilingualStringValue
-        - KalturaLongValue
-        - KalturaDoubleValue
-        - KalturaBooleanValue
-        - KalturaStringValue
-        type: string
-    title: KalturaValue
-    type: object
-  KalturaRecommendationProfile:
-    description: PaymentGW
-    properties:
-      adapterUrl:
-        description: recommendation engine adapter URL
-        type: string
-      externalIdentifier:
-        description: recommendation engine external identifier
-        type: string
-      id:
-        description: '`readOnly`
+            recommendation engine id'
+          readOnly: true
+          type: integer
+        isActive:
+          description: recommendation engine is active status
+          type: boolean
+        name:
+          description: recommendation engine name
+          type: string
+        recommendationEngineSettings:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        sharedSecret:
+          description: '`readOnly`
 
 
-          recommendation engine id'
-        readOnly: true
-        type: integer
-      isActive:
-        description: recommendation engine is active status
-        type: boolean
-      name:
-        description: recommendation engine name
-        type: string
-      recommendationEngineSettings:
-        items:
-          $ref: '#/definitions/KalturaStringValue'
-        type: array
-      sharedSecret:
-        description: '`readOnly`
+            Shared Secret'
+          readOnly: true
+          type: string
+      title: KalturaRecommendationProfile
+      type: object
+    KalturaValue:
+      description: '`abstract`
 
 
-          Shared Secret'
-        readOnly: true
-        type: string
-    title: KalturaRecommendationProfile
-    type: object
-  KalturaStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of strings
-    properties:
-      value:
-        description: Value
-        type: string
-    title: KalturaStringValue
-    type: object
-  KalturaBooleanValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of booleans
-    properties:
-      value:
-        description: Value
-        type: boolean
-    title: KalturaBooleanValue
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

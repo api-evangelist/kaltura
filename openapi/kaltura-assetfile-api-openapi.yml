@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl assetFile API
+  title: Kaltura OTT Asset File API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,80 +15,47 @@ paths:
     post:
       description: get KalturaAssetFileContext
       operationId: assetFile.getContext
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            contextType:
-              enum:
-              - none
-              - recording
-              type: string
-              x-enumLabels:
-              - NONE
-              - RECORDING
-              x-enumType: KalturaContextType
-            id:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaAssetFileContext'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaAssetFileContext'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaAssetFileContext'
       tags:
       - assetFile
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
       - contextType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                contextType:
+                  enum:
+                  - none
+                  - recording
+                  type: string
+                  x-enumLabels:
+                  - NONE
+                  - RECORDING
+                  x-enumType: KalturaContextType
+                id:
+                  type: string
+              type: object
+      summary: Asset file get context
+      x-summary-source: derived
   /service/assetfile/action/playManifest:
     post:
       description: Redirects to play manifest
       operationId: assetFile.playManifest
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            assetFileId:
-              type: integer
-            assetId:
-              type: string
-            assetType:
-              enum:
-              - media
-              - recording
-              - epg
-              type: string
-              x-enumLabels:
-              - MEDIA
-              - RECORDING
-              - EPG
-              x-enumType: KalturaAssetType
-            contextType:
-              enum:
-              - TRAILER
-              - CATCHUP
-              - START_OVER
-              - PLAYBACK
-              type: string
-              x-enumLabels:
-              - TRAILER
-              - CATCHUP
-              - START_OVER
-              - PLAYBACK
-              x-enumType: KalturaPlaybackContextType
-            ks:
-              type: string
-            partnerId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
@@ -131,46 +93,89 @@ paths:
       - assetFileId
       - contextType
       - ks
-definitions:
-  KalturaAssetFileContext:
-    properties:
-      fullLifeCycle:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                assetFileId:
+                  type: integer
+                assetId:
+                  type: string
+                assetType:
+                  enum:
+                  - media
+                  - recording
+                  - epg
+                  type: string
+                  x-enumLabels:
+                  - MEDIA
+                  - RECORDING
+                  - EPG
+                  x-enumType: KalturaAssetType
+                contextType:
+                  enum:
+                  - TRAILER
+                  - CATCHUP
+                  - START_OVER
+                  - PLAYBACK
+                  type: string
+                  x-enumLabels:
+                  - TRAILER
+                  - CATCHUP
+                  - START_OVER
+                  - PLAYBACK
+                  x-enumType: KalturaPlaybackContextType
+                ks:
+                  type: string
+                partnerId:
+                  type: integer
+              type: object
+      summary: Asset file play manifest
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaAssetFileContext:
+      properties:
+        fullLifeCycle:
+          description: '`readOnly`
 
 
-          fullLifeCycle'
-        readOnly: true
-        type: string
-      isOfflinePlayBack:
-        description: '`readOnly`
+            fullLifeCycle'
+          readOnly: true
+          type: string
+        isOfflinePlayBack:
+          description: '`readOnly`
 
 
-          isOfflinePlayBack'
-        readOnly: true
-        type: boolean
-      viewLifeCycle:
-        description: '`readOnly`
+            isOfflinePlayBack'
+          readOnly: true
+          type: boolean
+        viewLifeCycle:
+          description: '`readOnly`
 
 
-          viewLifeCycle'
-        readOnly: true
-        type: string
-    title: KalturaAssetFileContext
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            viewLifeCycle'
+          readOnly: true
+          type: string
+      title: KalturaAssetFileContext
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

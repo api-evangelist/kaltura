@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl cdnPartnerSettings API
+  title: Kaltura OTT Cdn Partner Settings API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,44 +15,46 @@ paths:
     post:
       description: Retrieve the partner’s CDN settings (default adapters)
       operationId: cdnPartnerSettings.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDNPartnerSettings'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNPartnerSettings'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNPartnerSettings'
         x-Errors:
           description: '* `CDNPartnerSettingsNotFound`: undefined'
       tags:
       - cdnPartnerSettings
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Cdn partner settings get
+      x-summary-source: derived
   /service/cdnpartnersettings/action/update:
     post:
       description: Configure the partner’s CDN settings (default adapters)
       operationId: cdnPartnerSettings.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            settings:
-              $ref: '#/definitions/KalturaCDNPartnerSettings'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDNPartnerSettings'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNPartnerSettings'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNPartnerSettings'
         x-Errors:
           description: '* `CDNPartnerSettingsNotFound`: undefined'
       tags:
@@ -65,31 +62,44 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - settings
-definitions:
-  KalturaCDNPartnerSettings:
-    properties:
-      defaultAdapterId:
-        description: Default CDN adapter identifier
-        type: integer
-      defaultRecordingAdapterId:
-        description: Default recording CDN adapter identifier
-        type: integer
-    title: KalturaCDNPartnerSettings
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                settings:
+                  $ref: '#/components/schemas/KalturaCDNPartnerSettings'
+              type: object
+      summary: Cdn partner settings update
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaCDNPartnerSettings:
+      properties:
+        defaultAdapterId:
+          description: Default CDN adapter identifier
+          type: integer
+        defaultRecordingAdapterId:
+          description: Default recording CDN adapter identifier
+          type: integer
+      title: KalturaCDNPartnerSettings
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

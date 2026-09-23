@@ -1,102 +1,105 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl email API
+  title: Kaltura OTT Email API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
-- name: email
+- name: Email
 paths:
   /service/email/action/send:
     post:
       description: Sends email notification
       operationId: email.send
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            emailMessage:
-              $ref: '#/definitions/KalturaEmailMessage'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
       tags:
-      - email
+      - Email
       x-kaltura-format: post
       x-kaltura-parameters:
       - emailMessage
-definitions:
-  KalturaKeyValue:
-    properties:
-      key:
-        description: Key
-        type: string
-      value:
-        description: Value
-        type: string
-    title: KalturaKeyValue
-    type: object
-  KalturaEmailMessage:
-    properties:
-      bccAddress:
-        description: bcc address - seperated by comma
-        type: string
-      extraParameters:
-        items:
-          $ref: '#/definitions/KalturaKeyValue'
-        type: array
-      firstName:
-        description: first name
-        type: string
-      lastName:
-        description: last name
-        type: string
-      senderFrom:
-        description: sender from
-        type: string
-      senderName:
-        description: sender name
-        type: string
-      senderTo:
-        description: sender to
-        type: string
-      subject:
-        description: email subject
-        type: string
-      templateName:
-        description: email template name
-        type: string
-    title: KalturaEmailMessage
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                emailMessage:
+                  $ref: '#/components/schemas/KalturaEmailMessage'
+              type: object
+      summary: Email send
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaEmailMessage:
+      properties:
+        bccAddress:
+          description: bcc address - seperated by comma
+          type: string
+        extraParameters:
+          items:
+            $ref: '#/components/schemas/KalturaKeyValue'
+          type: array
+        firstName:
+          description: first name
+          type: string
+        lastName:
+          description: last name
+          type: string
+        senderFrom:
+          description: sender from
+          type: string
+        senderName:
+          description: sender name
+          type: string
+        senderTo:
+          description: sender to
+          type: string
+        subject:
+          description: email subject
+          type: string
+        templateName:
+          description: email template name
+          type: string
+      title: KalturaEmailMessage
+      type: object
+    KalturaKeyValue:
+      properties:
+        key:
+          description: Key
+          type: string
+        value:
+          description: Value
+          type: string
+      title: KalturaKeyValue
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

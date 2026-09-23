@@ -1,166 +1,104 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl messageTemplate API
+  title: Kaltura OTT Partner Configuration API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
-- name: messageTemplate
+- name: Partner Configuration
 paths:
-  /service/messagetemplate/action/get:
+  /service/partnerconfiguration/action/update:
     post:
-      description: Retrieve a message template used in push notifications and inbox
-      operationId: messageTemplate.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            messageType:
-              enum:
-              - Series
-              - Reminder
-              - Churn
-              - SeriesReminder
-              - InterestVod
-              - InterestEPG
-              type: string
-              x-enumLabels:
-              - SERIES
-              - REMINDER
-              - CHURN
-              - SERIESREMINDER
-              - INTERESTVOD
-              - INTERESTEPG
-              x-enumType: KalturaMessageTemplateType
-          type: object
+      description: Update Partner Configuration
+      operationId: partnerConfiguration.update
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaMessageTemplate'
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
       tags:
-      - messageTemplate
+      - Partner Configuration
       x-kaltura-format: post
       x-kaltura-parameters:
-      - messageType
-  /service/messagetemplate/action/update:
-    post:
-      description: Set the account’s push notifications and inbox messages templates
-      operationId: messageTemplate.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            messageType:
-              enum:
-              - Series
-              - Reminder
-              - Churn
-              - SeriesReminder
-              - InterestVod
-              - InterestEPG
-              type: string
-              x-enumLabels:
-              - SERIES
-              - REMINDER
-              - CHURN
-              - SERIESREMINDER
-              - INTERESTVOD
-              - INTERESTEPG
-              x-enumType: KalturaMessageTemplateType
-            template:
-              $ref: '#/definitions/KalturaMessageTemplate'
-          type: object
-      responses:
-        '200':
-          description: Success
-          schema:
-            $ref: '#/definitions/KalturaMessageTemplate'
-      tags:
-      - messageTemplate
-      x-kaltura-format: post
-      x-kaltura-parameters:
-      - messageType
-      - template
-definitions:
-  KalturaMessageTemplate:
-    properties:
-      action:
-        description: an optional action
-        type: string
-      dateFormat:
-        description: Default date format for the date &amp; time entries used in the template
-        type: string
-      mailSubject:
-        description: Mail subject
-        type: string
-      mailTemplate:
-        description: Mail template name
-        type: string
-      message:
-        description: The message template with placeholders
-        type: string
-      messageType:
-        description: 'Enum Type: `KalturaMessageTemplateType`
+      - configuration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                configuration:
+                  $ref: '#/components/schemas/KalturaPartnerConfiguration'
+              type: object
+      summary: Partner configuration update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaPartnerConfiguration:
+      description: '`abstract`
 
 
-          Template type. Possible values: Series, Reminder,Churn, SeriesReminder'
-        enum:
-        - Series
-        - Reminder
-        - Churn
-        - SeriesReminder
-        - InterestVod
-        - InterestEPG
-        type: string
-        x-enumLabels:
-        - SERIES
-        - REMINDER
-        - CHURN
-        - SERIESREMINDER
-        - INTERESTVOD
-        - INTERESTEPG
-        x-enumType: KalturaMessageTemplateType
-      ratioId:
-        description: Ratio identifier
-        type: string
-      sound:
-        description: Sound file name to play upon message arrival to the device (if supported by target device)
-        type: string
-      url:
-        description: URL template for deep linking. Example - /app/location/{mediaId}
-        type: string
-    title: KalturaMessageTemplate
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+        Partner  base configuration'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaBillingPartnerConfig'
+      properties:
+        objectType:
+          enum:
+          - KalturaBillingPartnerConfig
+          type: string
+      title: KalturaPartnerConfiguration
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaBillingPartnerConfig:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPartnerConfiguration'
+      description: Partner billing configuration
+      properties:
+        type:
+          description: 'Enum Type: `KalturaPartnerConfigurationType`
+
+
+            partner configuration type'
+          enum:
+          - DefaultPaymentGateway
+          - EnablePaymentGatewaySelection
+          - OSSAdapter
+          type: string
+          x-enumLabels:
+          - DEFAULTPAYMENTGATEWAY
+          - ENABLEPAYMENTGATEWAYSELECTION
+          - OSSADAPTER
+          x-enumType: KalturaPartnerConfigurationType
+        value:
+          description: configuration value
+          type: string
+      title: KalturaBillingPartnerConfig
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

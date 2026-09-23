@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl cDVRAdapterProfile API
+  title: Kaltura OTT C DVR Adapter Profile API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Insert new C-DVR adapter for partner
       operationId: cDVRAdapterProfile.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            adapter:
-              $ref: '#/definitions/KalturaCDVRAdapterProfile'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDVRAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
         x-Errors:
           description: '* `NameRequired`: undefined
 
@@ -48,25 +38,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - adapter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                adapter:
+                  $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
+              type: object
+      summary: C DVR adapter profile add
+      x-summary-source: derived
   /service/cdvradapterprofile/action/delete:
     post:
       description: Delete C-DVR adapter by C-DVR adapter id
       operationId: cDVRAdapterProfile.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            adapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `AdapterNotExists`: undefined'
       tags:
@@ -74,25 +71,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - adapterId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                adapterId:
+                  type: integer
+              type: object
+      summary: C DVR adapter profile delete
+      x-summary-source: derived
   /service/cdvradapterprofile/action/generateSharedSecret:
     post:
       description: Generate C-DVR adapter shared secret
       operationId: cDVRAdapterProfile.generateSharedSecret
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            adapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDVRAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
         x-Errors:
           description: '* `AdapterIdentifierRequired`: undefined
 
@@ -102,48 +106,60 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - adapterId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                adapterId:
+                  type: integer
+              type: object
+      summary: C DVR adapter profile generate shared secret
+      x-summary-source: derived
   /service/cdvradapterprofile/action/list:
     post:
       description: Returns all C-DVR adapters for partner
       operationId: cDVRAdapterProfile.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDVRAdapterProfileListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDVRAdapterProfileListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDVRAdapterProfileListResponse'
       tags:
       - cDVRAdapterProfile
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: C DVR adapter profile list
+      x-summary-source: derived
   /service/cdvradapterprofile/action/update:
     post:
       description: Update C-DVR adapter details
       operationId: cDVRAdapterProfile.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            adapter:
-              $ref: '#/definitions/KalturaCDVRAdapterProfile'
-            adapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDVRAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
         x-Errors:
           description: '* `AdapterUrlRequired`: undefined
 
@@ -160,181 +176,197 @@ paths:
       x-kaltura-parameters:
       - adapterId
       - adapter
-definitions:
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaLongValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of longs
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaLongValue
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaIntegerValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of ints
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaIntegerValue
-    type: object
-  KalturaDoubleValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of doubles
-    properties:
-      value:
-        description: Value
-        type: number
-    title: KalturaDoubleValue
-    type: object
-  KalturaMultilingualStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: Array of translated strings
-    properties:
-      multilingualValue:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      value:
-        description: Value
-        type: string
-    title: KalturaMultilingualStringValue
-    type: object
-  KalturaValue:
-    description: '`abstract`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                adapter:
+                  $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
+                adapterId:
+                  type: integer
+              type: object
+      summary: C DVR adapter profile update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaCDVRAdapterProfile:
+      description: C-DVR Adapter
+      properties:
+        adapterUrl:
+          description: C-DVR adapter adapter URL
+          type: string
+        dynamicLinksSupport:
+          description: Indicates whether the C-DVR adapter supports dynamic URLs
+          type: boolean
+        externalIdentifier:
+          description: C-DVR adapter external identifier
+          type: string
+        id:
+          description: '`readOnly`
 
 
-      A representation to return an array of values'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaIntegerValue'
-    - $ref: '#/definitions/KalturaMultilingualStringValue'
-    - $ref: '#/definitions/KalturaLongValue'
-    - $ref: '#/definitions/KalturaDoubleValue'
-    - $ref: '#/definitions/KalturaBooleanValue'
-    - $ref: '#/definitions/KalturaStringValue'
-    properties:
-      description:
-        description: Description
-        type: string
-      objectType:
-        enum:
-        - KalturaIntegerValue
-        - KalturaMultilingualStringValue
-        - KalturaLongValue
-        - KalturaDoubleValue
-        - KalturaBooleanValue
-        - KalturaStringValue
-        type: string
-    title: KalturaValue
-    type: object
-  KalturaStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of strings
-    properties:
-      value:
-        description: Value
-        type: string
-    title: KalturaStringValue
-    type: object
-  KalturaBooleanValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of booleans
-    properties:
-      value:
-        description: Value
-        type: boolean
-    title: KalturaBooleanValue
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-  KalturaCDVRAdapterProfileListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: C-DVR adapter profiles
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaCDVRAdapterProfile'
-        type: array
-    title: KalturaCDVRAdapterProfileListResponse
-    type: object
-  KalturaCDVRAdapterProfile:
-    description: C-DVR Adapter
-    properties:
-      adapterUrl:
-        description: C-DVR adapter adapter URL
-        type: string
-      dynamicLinksSupport:
-        description: Indicates whether the C-DVR adapter supports dynamic URLs
-        type: boolean
-      externalIdentifier:
-        description: C-DVR adapter external identifier
-        type: string
-      id:
-        description: '`readOnly`
+            C-DVR adapter identifier'
+          readOnly: true
+          type: integer
+        isActive:
+          description: C-DVR adapter active status
+          type: boolean
+        name:
+          description: C-DVR adapter name
+          type: string
+        settings:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        sharedSecret:
+          description: '`readOnly`
 
 
-          C-DVR adapter identifier'
-        readOnly: true
-        type: integer
-      isActive:
-        description: C-DVR adapter active status
-        type: boolean
-      name:
-        description: C-DVR adapter name
-        type: string
-      settings:
-        items:
-          $ref: '#/definitions/KalturaStringValue'
-        type: array
-      sharedSecret:
-        description: '`readOnly`
+            C-DVR shared secret'
+          readOnly: true
+          type: string
+      title: KalturaCDVRAdapterProfile
+      type: object
+    KalturaCDVRAdapterProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: C-DVR adapter profiles
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaCDVRAdapterProfile'
+          type: array
+      title: KalturaCDVRAdapterProfileListResponse
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaValue:
+      description: '`abstract`
 
 
-          C-DVR shared secret'
-        readOnly: true
-        type: string
-    title: KalturaCDVRAdapterProfile
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

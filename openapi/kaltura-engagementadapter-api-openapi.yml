@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl engagementAdapter API
+  title: Kaltura OTT Engagement Adapter API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Insert new Engagement adapter for partner
       operationId: engagementAdapter.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            engagementAdapter:
-              $ref: '#/definitions/KalturaEngagementAdapter'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaEngagementAdapter'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapter'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapter'
         x-Errors:
           description: '* `NameRequired`: undefined'
       tags:
@@ -42,25 +32,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - engagementAdapter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                engagementAdapter:
+                  $ref: '#/components/schemas/KalturaEngagementAdapter'
+              type: object
+      summary: Engagement adapter add
+      x-summary-source: derived
   /service/engagementadapter/action/delete:
     post:
       description: Delete Engagement adapter by Engagement adapter id
       operationId: engagementAdapter.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `ActionIsNotAllowed`: undefined'
       tags:
@@ -68,25 +65,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Engagement adapter delete
+      x-summary-source: derived
   /service/engagementadapter/action/generateSharedSecret:
     post:
       description: Generate engagement adapter shared secret
       operationId: engagementAdapter.generateSharedSecret
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaEngagementAdapter'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapter'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapter'
         x-Errors:
           description: ''
       tags:
@@ -94,78 +98,97 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Engagement adapter generate shared secret
+      x-summary-source: derived
   /service/engagementadapter/action/get:
     post:
       description: 'Returns all Engagement adapters for partner : id + name'
       operationId: engagementAdapter.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-              x-dynamicEnum:
-                array: objects
-                label: id
-                method: post
-                path: /service/engagementadapter/action/list
-                value: id
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaEngagementAdapter'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapter'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapter'
       tags:
       - engagementAdapter
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+                  x-dynamicEnum:
+                    array: objects
+                    label: id
+                    method: post
+                    path: /service/engagementadapter/action/list
+                    value: id
+              type: object
+      summary: Engagement adapter get
+      x-summary-source: derived
   /service/engagementadapter/action/list:
     post:
       description: 'Returns all Engagement adapters for partner : id + name'
       operationId: engagementAdapter.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaEngagementAdapterListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapterListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapterListResponse'
       tags:
       - engagementAdapter
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Engagement adapter list
+      x-summary-source: derived
   /service/engagementadapter/action/update:
     post:
       description: Update Engagement adapter details
       operationId: engagementAdapter.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            engagementAdapter:
-              $ref: '#/definitions/KalturaEngagementAdapter'
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaEngagementAdapter'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapter'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaEngagementAdapter'
         x-Errors:
           description: '* `NameRequired`: undefined'
       tags:
@@ -174,185 +197,201 @@ paths:
       x-kaltura-parameters:
       - id
       - engagementAdapter
-definitions:
-  KalturaLongValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of longs
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaLongValue
-    type: object
-  KalturaEngagementAdapterBase:
-    description: Engagement adapter basic
-    properties:
-      id:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                engagementAdapter:
+                  $ref: '#/components/schemas/KalturaEngagementAdapter'
+                id:
+                  type: integer
+              type: object
+      summary: Engagement adapter update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaEngagementAdapterBase:
+      description: Engagement adapter basic
+      properties:
+        id:
+          description: '`readOnly`
 
 
-          Engagement adapter id'
-        readOnly: true
-        type: integer
-      name:
-        description: Engagement adapter name
-        type: string
-    title: KalturaEngagementAdapterBase
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaEngagementAdapter:
-    allOf:
-    - $ref: '#/definitions/KalturaEngagementAdapterBase'
-    description: Engagement Adapter
-    properties:
-      adapterUrl:
-        description: Engagement adapter adapter URL
-        type: string
-      engagementAdapterSettings:
-        items:
-          $ref: '#/definitions/KalturaStringValue'
-        type: array
-      isActive:
-        description: Engagement adapter active status
-        type: boolean
-      providerUrl:
-        description: Engagement provider adapter URL
-        type: string
-      sharedSecret:
-        description: '`readOnly`
+            Engagement adapter id'
+          readOnly: true
+          type: integer
+        name:
+          description: Engagement adapter name
+          type: string
+      title: KalturaEngagementAdapterBase
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaEngagementAdapterListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Engagement adapter list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaEngagementAdapter'
+          type: array
+      title: KalturaEngagementAdapterListResponse
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaValue:
+      description: '`abstract`
 
 
-          Shared Secret'
-        readOnly: true
-        type: string
-    title: KalturaEngagementAdapter
-    type: object
-  KalturaEngagementAdapterListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: Engagement adapter list
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaEngagementAdapter'
-        type: array
-    title: KalturaEngagementAdapterListResponse
-    type: object
-  KalturaIntegerValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of ints
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaIntegerValue
-    type: object
-  KalturaDoubleValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of doubles
-    properties:
-      value:
-        description: Value
-        type: number
-    title: KalturaDoubleValue
-    type: object
-  KalturaMultilingualStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: Array of translated strings
-    properties:
-      multilingualValue:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      value:
-        description: Value
-        type: string
-    title: KalturaMultilingualStringValue
-    type: object
-  KalturaValue:
-    description: '`abstract`
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaEngagementAdapter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaEngagementAdapterBase'
+      description: Engagement Adapter
+      properties:
+        adapterUrl:
+          description: Engagement adapter adapter URL
+          type: string
+        engagementAdapterSettings:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        isActive:
+          description: Engagement adapter active status
+          type: boolean
+        providerUrl:
+          description: Engagement provider adapter URL
+          type: string
+        sharedSecret:
+          description: '`readOnly`
 
 
-      A representation to return an array of values'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaIntegerValue'
-    - $ref: '#/definitions/KalturaMultilingualStringValue'
-    - $ref: '#/definitions/KalturaLongValue'
-    - $ref: '#/definitions/KalturaDoubleValue'
-    - $ref: '#/definitions/KalturaBooleanValue'
-    - $ref: '#/definitions/KalturaStringValue'
-    properties:
-      description:
-        description: Description
-        type: string
-      objectType:
-        enum:
-        - KalturaIntegerValue
-        - KalturaMultilingualStringValue
-        - KalturaLongValue
-        - KalturaDoubleValue
-        - KalturaBooleanValue
-        - KalturaStringValue
-        type: string
-    title: KalturaValue
-    type: object
-  KalturaStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of strings
-    properties:
-      value:
-        description: Value
-        type: string
-    title: KalturaStringValue
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-  KalturaBooleanValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of booleans
-    properties:
-      value:
-        description: Value
-        type: boolean
-    title: KalturaBooleanValue
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Shared Secret'
+          readOnly: true
+          type: string
+      title: KalturaEngagementAdapter
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

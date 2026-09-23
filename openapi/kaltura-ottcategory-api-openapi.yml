@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl ottCategory API
+  title: Kaltura OTT Ott Category API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,224 +15,232 @@ paths:
     post:
       description: Retrieve the list of categories (hierarchical) and their associated channels
       operationId: ottCategory.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaOTTCategory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaOTTCategory'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaOTTCategory'
       tags:
       - ottCategory
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
-definitions:
-  KalturaChannelOrder:
-    description: Channel order details
-    properties:
-      dynamicOrderBy:
-        $ref: '#/definitions/KalturaDynamicOrderBy'
-      orderBy:
-        description: 'Enum Type: `KalturaChannelOrderBy`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Ott category get
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaOTTCategory:
+      description: Category details
+      properties:
+        channels:
+          items:
+            $ref: '#/components/schemas/KalturaChannel'
+          type: array
+        childCategories:
+          items:
+            $ref: '#/components/schemas/KalturaOTTCategory'
+          type: array
+        id:
+          description: '`readOnly`
 
 
-          Channel order by'
-        enum:
-        - ORDER_NUM
-        - RELEVANCY_DESC
-        - NAME_ASC
-        - NAME_DESC
-        - VIEWS_DESC
-        - RATINGS_DESC
-        - VOTES_DESC
-        - START_DATE_DESC
-        - START_DATE_ASC
-        - LIKES_DESC
-        - CREATE_DATE_ASC
-        - CREATE_DATE_DESC
-        type: string
-        x-enumLabels:
-        - ORDER_NUM
-        - RELEVANCY_DESC
-        - NAME_ASC
-        - NAME_DESC
-        - VIEWS_DESC
-        - RATINGS_DESC
-        - VOTES_DESC
-        - START_DATE_DESC
-        - START_DATE_ASC
-        - LIKES_DESC
-        - CREATE_DATE_ASC
-        - CREATE_DATE_DESC
-        x-enumType: KalturaChannelOrderBy
-      period:
-        description: Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
-        type: integer
-    title: KalturaChannelOrder
-    type: object
-  KalturaOTTCategory:
-    description: Category details
-    properties:
-      channels:
-        items:
-          $ref: '#/definitions/KalturaChannel'
-        type: array
-      childCategories:
-        items:
-          $ref: '#/definitions/KalturaOTTCategory'
-        type: array
-      id:
-        description: '`readOnly`
+            Unique identifier for the category'
+          readOnly: true
+          type: integer
+        images:
+          items:
+            $ref: '#/components/schemas/KalturaMediaImage'
+          type: array
+        name:
+          description: Category name
+          type: string
+        parentCategoryId:
+          description: Category parent identifier
+          type: integer
+      title: KalturaOTTCategory
+      type: object
+    KalturaChannel:
+      description: Channel details
+      properties:
+        createDate:
+          description: '`readOnly`
 
 
-          Unique identifier for the category'
-        readOnly: true
-        type: integer
-      images:
-        items:
-          $ref: '#/definitions/KalturaMediaImage'
-        type: array
-      name:
-        description: Category name
-        type: string
-      parentCategoryId:
-        description: Category parent identifier
-        type: integer
-    title: KalturaOTTCategory
-    type: object
-  KalturaMediaImage:
-    description: Image details
-    properties:
-      height:
-        description: Image height
-        type: integer
-      id:
-        description: '`readOnly`
+            Specifies when was the Channel was created. Date and time represented as epoch.'
+          readOnly: true
+          type: integer
+        description:
+          description: Channel description
+          type: string
+        id:
+          description: '`readOnly`
 
 
-          Image ID'
-        readOnly: true
-        type: string
-      isDefault:
-        description: Determined whether image was taken from default configuration or not
-        type: boolean
-      ratio:
-        description: Image aspect ratio
-        type: string
-      url:
-        description: Image URL
-        type: string
-      version:
-        description: Image Version
-        type: integer
-      width:
-        description: Image width
-        type: integer
-    title: KalturaMediaImage
-    type: object
-  KalturaDynamicOrderBy:
-    description: Kaltura Asset Order
-    properties:
-      name:
-        description: order by name
-        type: string
-      orderBy:
-        description: 'Enum Type: `KalturaMetaTagOrderBy`
+            Unique identifier for the channel'
+          readOnly: true
+          type: integer
+        isActive:
+          description: active status
+          type: boolean
+        multilingualDescription:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        multilingualName:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        name:
+          description: Channel name
+          type: string
+        orderBy:
+          $ref: '#/components/schemas/KalturaChannelOrder'
+        systemName:
+          description: Channel system name
+          type: string
+        updateDate:
+          description: '`readOnly`
 
 
-          order by meta asc/desc'
-        enum:
-        - META_ASC
-        - META_DESC
-        type: string
-        x-enumLabels:
-        - META_ASC
-        - META_DESC
-        x-enumType: KalturaMetaTagOrderBy
-    title: KalturaDynamicOrderBy
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaChannel:
-    description: Channel details
-    properties:
-      createDate:
-        description: '`readOnly`
+            Specifies when was the Channel last updated. Date and time represented as epoch.'
+          readOnly: true
+          type: integer
+      title: KalturaChannel
+      type: object
+    KalturaMediaImage:
+      description: Image details
+      properties:
+        height:
+          description: Image height
+          type: integer
+        id:
+          description: '`readOnly`
 
 
-          Specifies when was the Channel was created. Date and time represented as epoch.'
-        readOnly: true
-        type: integer
-      description:
-        description: Channel description
-        type: string
-      id:
-        description: '`readOnly`
+            Image ID'
+          readOnly: true
+          type: string
+        isDefault:
+          description: Determined whether image was taken from default configuration or not
+          type: boolean
+        ratio:
+          description: Image aspect ratio
+          type: string
+        url:
+          description: Image URL
+          type: string
+        version:
+          description: Image Version
+          type: integer
+        width:
+          description: Image width
+          type: integer
+      title: KalturaMediaImage
+      type: object
+    KalturaChannelOrder:
+      description: Channel order details
+      properties:
+        dynamicOrderBy:
+          $ref: '#/components/schemas/KalturaDynamicOrderBy'
+        orderBy:
+          description: 'Enum Type: `KalturaChannelOrderBy`
 
 
-          Unique identifier for the channel'
-        readOnly: true
-        type: integer
-      isActive:
-        description: active status
-        type: boolean
-      multilingualDescription:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      multilingualName:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      name:
-        description: Channel name
-        type: string
-      orderBy:
-        $ref: '#/definitions/KalturaChannelOrder'
-      systemName:
-        description: Channel system name
-        type: string
-      updateDate:
-        description: '`readOnly`
+            Channel order by'
+          enum:
+          - ORDER_NUM
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
+          - START_DATE_DESC
+          - START_DATE_ASC
+          - LIKES_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          type: string
+          x-enumLabels:
+          - ORDER_NUM
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
+          - START_DATE_DESC
+          - START_DATE_ASC
+          - LIKES_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          x-enumType: KalturaChannelOrderBy
+        period:
+          description: Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
+          type: integer
+      title: KalturaChannelOrder
+      type: object
+    KalturaDynamicOrderBy:
+      description: Kaltura Asset Order
+      properties:
+        name:
+          description: order by name
+          type: string
+        orderBy:
+          description: 'Enum Type: `KalturaMetaTagOrderBy`
 
 
-          Specifies when was the Channel last updated. Date and time represented as epoch.'
-        readOnly: true
-        type: integer
-    title: KalturaChannel
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            order by meta asc/desc'
+          enum:
+          - META_ASC
+          - META_DESC
+          type: string
+          x-enumLabels:
+          - META_ASC
+          - META_DESC
+          x-enumType: KalturaMetaTagOrderBy
+      title: KalturaDynamicOrderBy
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

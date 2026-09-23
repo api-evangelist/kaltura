@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl userInterest API
+  title: Kaltura OTT User Interest API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Insert new user interest for partner user
       operationId: userInterest.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            userInterest:
-              $ref: '#/definitions/KalturaUserInterest'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaUserInterest'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaUserInterest'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaUserInterest'
         x-Errors:
           description: ''
       tags:
@@ -42,48 +32,53 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - userInterest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                userInterest:
+                  $ref: '#/components/schemas/KalturaUserInterest'
+              type: object
+      summary: User interest add
+      x-summary-source: derived
   /service/userinterest/action/delete:
     post:
       description: Delete new user interest for partner user
       operationId: userInterest.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
       tags:
       - userInterest
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: string
+              type: object
+      summary: User interest delete
+      x-summary-source: derived
   /service/userinterest/action/deleteWithToken:
     post:
       description: Delete new user interest for partner user
       operationId: userInterest.deleteWithToken
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: string
-            partnerId:
-              type: integer
-            token:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
@@ -96,84 +91,108 @@ paths:
       - id
       - token
       - partnerId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: string
+                partnerId:
+                  type: integer
+                token:
+                  type: string
+              type: object
+      summary: User interest delete with token
+      x-summary-source: derived
   /service/userinterest/action/list:
     post:
       description: Returns all Engagement for partner
       operationId: userInterest.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaUserInterestListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaUserInterestListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaUserInterestListResponse'
       tags:
       - userInterest
       x-kaltura-format: post
       x-kaltura-parameters: []
-definitions:
-  KalturaUserInterestTopic:
-    description: User interest topic
-    properties:
-      metaId:
-        description: Meta identifier
-        type: string
-      parentTopic:
-        $ref: '#/definitions/KalturaUserInterestTopic'
-      value:
-        description: Meta Value
-        type: string
-    title: KalturaUserInterestTopic
-    type: object
-  KalturaUserInterest:
-    description: User Interest
-    properties:
-      id:
-        description: Identifier
-        type: string
-      topic:
-        $ref: '#/definitions/KalturaUserInterestTopic'
-    title: KalturaUserInterest
-    type: object
-  KalturaUserInterestListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: User interest list
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaUserInterest'
-        type: array
-    title: KalturaUserInterestListResponse
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: User interest list
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaUserInterestListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: User interest list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaUserInterest'
+          type: array
+      title: KalturaUserInterestListResponse
+      type: object
+    KalturaUserInterest:
+      description: User Interest
+      properties:
+        id:
+          description: Identifier
+          type: string
+        topic:
+          $ref: '#/components/schemas/KalturaUserInterestTopic'
+      title: KalturaUserInterest
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaUserInterestTopic:
+      description: User interest topic
+      properties:
+        metaId:
+          description: Meta identifier
+          type: string
+        parentTopic:
+          $ref: '#/components/schemas/KalturaUserInterestTopic'
+        value:
+          description: Meta Value
+          type: string
+      title: KalturaUserInterestTopic
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

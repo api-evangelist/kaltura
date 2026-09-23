@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl ossAdapterProfile API
+  title: Kaltura OTT Oss Adapter Profile API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Insert new OSS adapter for partner
       operationId: ossAdapterProfile.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            ossAdapter:
-              $ref: '#/definitions/KalturaOSSAdapterProfile'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaOSSAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfile'
         x-Errors:
           description: '* `NoOSSAdapterToInsert`: undefined
 
@@ -50,25 +40,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - ossAdapter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                ossAdapter:
+                  $ref: '#/components/schemas/KalturaOSSAdapterProfile'
+              type: object
+      summary: Oss adapter profile add
+      x-summary-source: derived
   /service/ossadapterprofile/action/delete:
     post:
       description: Delete OSS adapter by OSS adapter id
       operationId: ossAdapterProfile.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            ossAdapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `OSSAdapterIdentifierRequired`: undefined
 
@@ -80,25 +77,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - ossAdapterId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                ossAdapterId:
+                  type: integer
+              type: object
+      summary: Oss adapter profile delete
+      x-summary-source: derived
   /service/ossadapterprofile/action/generateSharedSecret:
     post:
       description: Generate oss adapter shared secret
       operationId: ossAdapterProfile.generateSharedSecret
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            ossAdapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaOSSAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfile'
         x-Errors:
           description: '* `OSSAdapterIdentifierRequired`: undefined
 
@@ -108,78 +112,97 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - ossAdapterId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                ossAdapterId:
+                  type: integer
+              type: object
+      summary: Oss adapter profile generate shared secret
+      x-summary-source: derived
   /service/ossadapterprofile/action/get:
     post:
       description: 'Returns all OSS adapters for partner : id + name'
       operationId: ossAdapterProfile.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-              x-dynamicEnum:
-                array: objects
-                label: id
-                method: post
-                path: /service/ossadapterprofile/action/list
-                value: id
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaOSSAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfile'
       tags:
       - ossAdapterProfile
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+                  x-dynamicEnum:
+                    array: objects
+                    label: id
+                    method: post
+                    path: /service/ossadapterprofile/action/list
+                    value: id
+              type: object
+      summary: Oss adapter profile get
+      x-summary-source: derived
   /service/ossadapterprofile/action/list:
     post:
       description: 'Returns all OSS adapters for partner : id + name'
       operationId: ossAdapterProfile.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaOSSAdapterProfileListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfileListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfileListResponse'
       tags:
       - ossAdapterProfile
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Oss adapter profile list
+      x-summary-source: derived
   /service/ossadapterprofile/action/update:
     post:
       description: Update OSS adapter details
       operationId: ossAdapterProfile.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            ossAdapter:
-              $ref: '#/definitions/KalturaOSSAdapterProfile'
-            ossAdapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaOSSAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaOSSAdapterProfile'
         x-Errors:
           description: '* `AdapterUrlRequired`: undefined
 
@@ -196,185 +219,201 @@ paths:
       x-kaltura-parameters:
       - ossAdapterId
       - ossAdapter
-definitions:
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaLongValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of longs
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaLongValue
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaIntegerValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of ints
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaIntegerValue
-    type: object
-  KalturaDoubleValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of doubles
-    properties:
-      value:
-        description: Value
-        type: number
-    title: KalturaDoubleValue
-    type: object
-  KalturaMultilingualStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: Array of translated strings
-    properties:
-      multilingualValue:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      value:
-        description: Value
-        type: string
-    title: KalturaMultilingualStringValue
-    type: object
-  KalturaOSSAdapterBaseProfile:
-    description: OSS adapter basic
-    properties:
-      id:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                ossAdapter:
+                  $ref: '#/components/schemas/KalturaOSSAdapterProfile'
+                ossAdapterId:
+                  type: integer
+              type: object
+      summary: Oss adapter profile update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaOSSAdapterProfile:
+      allOf:
+      - $ref: '#/components/schemas/KalturaOSSAdapterBaseProfile'
+      description: OSS Adapter
+      properties:
+        adapterUrl:
+          description: OSS adapter adapter URL
+          type: string
+        externalIdentifier:
+          description: OSS adapter external identifier
+          type: string
+        isActive:
+          description: OSS adapter active status
+          type: boolean
+        ossAdapterSettings:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        sharedSecret:
+          description: '`readOnly`
 
 
-          OSS adapter id'
-        readOnly: true
-        type: integer
-      name:
-        description: OSS adapter name
-        type: string
-    title: KalturaOSSAdapterBaseProfile
-    type: object
-  KalturaOSSAdapterProfile:
-    allOf:
-    - $ref: '#/definitions/KalturaOSSAdapterBaseProfile'
-    description: OSS Adapter
-    properties:
-      adapterUrl:
-        description: OSS adapter adapter URL
-        type: string
-      externalIdentifier:
-        description: OSS adapter external identifier
-        type: string
-      isActive:
-        description: OSS adapter active status
-        type: boolean
-      ossAdapterSettings:
-        items:
-          $ref: '#/definitions/KalturaStringValue'
-        type: array
-      sharedSecret:
-        description: '`readOnly`
+            Shared Secret'
+          readOnly: true
+          type: string
+      title: KalturaOSSAdapterProfile
+      type: object
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaOSSAdapterBaseProfile:
+      description: OSS adapter basic
+      properties:
+        id:
+          description: '`readOnly`
 
 
-          Shared Secret'
-        readOnly: true
-        type: string
-    title: KalturaOSSAdapterProfile
-    type: object
-  KalturaValue:
-    description: '`abstract`
+            OSS adapter id'
+          readOnly: true
+          type: integer
+        name:
+          description: OSS adapter name
+          type: string
+      title: KalturaOSSAdapterBaseProfile
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaOSSAdapterProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: OSS adapter-profiles list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaOSSAdapterProfile'
+          type: array
+      title: KalturaOSSAdapterProfileListResponse
+      type: object
+    KalturaValue:
+      description: '`abstract`
 
 
-      A representation to return an array of values'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaIntegerValue'
-    - $ref: '#/definitions/KalturaMultilingualStringValue'
-    - $ref: '#/definitions/KalturaLongValue'
-    - $ref: '#/definitions/KalturaDoubleValue'
-    - $ref: '#/definitions/KalturaBooleanValue'
-    - $ref: '#/definitions/KalturaStringValue'
-    properties:
-      description:
-        description: Description
-        type: string
-      objectType:
-        enum:
-        - KalturaIntegerValue
-        - KalturaMultilingualStringValue
-        - KalturaLongValue
-        - KalturaDoubleValue
-        - KalturaBooleanValue
-        - KalturaStringValue
-        type: string
-    title: KalturaValue
-    type: object
-  KalturaOSSAdapterProfileListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: OSS adapter-profiles list
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaOSSAdapterProfile'
-        type: array
-    title: KalturaOSSAdapterProfileListResponse
-    type: object
-  KalturaStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of strings
-    properties:
-      value:
-        description: Value
-        type: string
-    title: KalturaStringValue
-    type: object
-  KalturaBooleanValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of booleans
-    properties:
-      value:
-        description: Value
-        type: boolean
-    title: KalturaBooleanValue
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

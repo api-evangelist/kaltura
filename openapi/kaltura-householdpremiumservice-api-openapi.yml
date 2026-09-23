@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl householdPremiumService API
+  title: Kaltura OTT Household Premium Service API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,79 +15,87 @@ paths:
     post:
       description: Returns all the premium services allowed for the household
       operationId: householdPremiumService.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHouseholdPremiumServiceListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHouseholdPremiumServiceListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHouseholdPremiumServiceListResponse'
       tags:
       - householdPremiumService
       x-kaltura-format: post
       x-kaltura-parameters: []
-definitions:
-  KalturaHouseholdPremiumServiceListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: Premium services list
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaHouseholdPremiumService'
-        type: array
-    title: KalturaHouseholdPremiumServiceListResponse
-    type: object
-  KalturaHouseholdPremiumService:
-    allOf:
-    - $ref: '#/definitions/KalturaPremiumService'
-    description: Houshold premium service
-    properties: {}
-    title: KalturaHouseholdPremiumService
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaPremiumService:
-    description: Premium service
-    properties:
-      id:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Household premium service list
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaHouseholdPremiumServiceListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Premium services list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaHouseholdPremiumService'
+          type: array
+      title: KalturaHouseholdPremiumServiceListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaPremiumService:
+      description: Premium service
+      properties:
+        id:
+          description: '`readOnly`
 
 
-          Service identifier'
-        readOnly: true
-        type: integer
-      name:
-        description: Service name / description
-        type: string
-    title: KalturaPremiumService
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Service identifier'
+          readOnly: true
+          type: integer
+        name:
+          description: Service name / description
+          type: string
+      title: KalturaPremiumService
+      type: object
+    KalturaHouseholdPremiumService:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPremiumService'
+      description: Houshold premium service
+      properties: {}
+      title: KalturaHouseholdPremiumService
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

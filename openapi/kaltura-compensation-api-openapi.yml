@@ -1,40 +1,30 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl compensation API
+  title: Kaltura OTT Compensation API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
-- name: compensation
+- name: Compensation
 paths:
   /service/compensation/action/add:
     post:
       description: Adds a new compensation for a household for a given number of iterations of a subscription renewal for a fixed amount / percentage of the renewal price.
       operationId: compensation.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            compensation:
-              $ref: '#/definitions/KalturaCompensation'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCompensation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCompensation'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCompensation'
         x-Errors:
           description: '* `SubscriptionNotRenewable`: undefined
 
@@ -48,123 +38,145 @@ paths:
 
             * `DomainSuspended`: undefined'
       tags:
-      - compensation
+      - Compensation
       x-kaltura-format: post
       x-kaltura-parameters:
       - compensation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                compensation:
+                  $ref: '#/components/schemas/KalturaCompensation'
+              type: object
+      summary: Compensation add
+      x-summary-source: derived
   /service/compensation/action/delete:
     post:
       description: Delete a compensation by identifier
       operationId: compensation.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
         x-Errors:
           description: ''
       tags:
-      - compensation
+      - Compensation
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Compensation delete
+      x-summary-source: derived
   /service/compensation/action/get:
     post:
       description: Get a compensation by identifier
       operationId: compensation.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCompensation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCompensation'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCompensation'
         x-Errors:
           description: ''
       tags:
-      - compensation
+      - Compensation
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
-definitions:
-  KalturaCompensation:
-    description: Compensation request parameters
-    properties:
-      amount:
-        description: Compensation amount
-        type: number
-      appliedRenewalIterations:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Compensation get
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaCompensation:
+      description: Compensation request parameters
+      properties:
+        amount:
+          description: Compensation amount
+          type: number
+        appliedRenewalIterations:
+          description: '`readOnly`
 
 
-          The number of renewals the compensation was already applied on'
-        readOnly: true
-        type: integer
-      compensationType:
-        description: 'Enum Type: `KalturaCompensationType`
+            The number of renewals the compensation was already applied on'
+          readOnly: true
+          type: integer
+        compensationType:
+          description: 'Enum Type: `KalturaCompensationType`
 
 
-          Compensation type'
-        enum:
-        - PERCENTAGE
-        - FIXED_AMOUNT
-        type: string
-        x-enumLabels:
-        - PERCENTAGE
-        - FIXED_AMOUNT
-        x-enumType: KalturaCompensationType
-      id:
-        description: '`readOnly`
+            Compensation type'
+          enum:
+          - PERCENTAGE
+          - FIXED_AMOUNT
+          type: string
+          x-enumLabels:
+          - PERCENTAGE
+          - FIXED_AMOUNT
+          x-enumType: KalturaCompensationType
+        id:
+          description: '`readOnly`
 
 
-          Compensation identifier'
-        readOnly: true
-        type: integer
-      purchaseId:
-        description: Purchase identifier
-        type: integer
-      subscriptionId:
-        description: '`readOnly`
+            Compensation identifier'
+          readOnly: true
+          type: integer
+        purchaseId:
+          description: Purchase identifier
+          type: integer
+        subscriptionId:
+          description: '`readOnly`
 
 
-          Subscription identifier'
-        readOnly: true
-        type: integer
-      totalRenewalIterations:
-        description: The number of renewals for compensation
-        type: integer
-    title: KalturaCompensation
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Subscription identifier'
+          readOnly: true
+          type: integer
+        totalRenewalIterations:
+          description: The number of renewals for compensation
+          type: integer
+      title: KalturaCompensation
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

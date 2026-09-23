@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl cdnAdapterProfile API
+  title: Kaltura OTT Cdn Adapter Profile API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Insert new CDN adapter for partner
       operationId: cdnAdapterProfile.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            adapter:
-              $ref: '#/definitions/KalturaCDNAdapterProfile'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDNAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNAdapterProfile'
         x-Errors:
           description: '* `NameRequired`: undefined
 
@@ -48,25 +38,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - adapter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                adapter:
+                  $ref: '#/components/schemas/KalturaCDNAdapterProfile'
+              type: object
+      summary: Cdn adapter profile add
+      x-summary-source: derived
   /service/cdnadapterprofile/action/delete:
     post:
       description: Delete CDN adapter by CDN adapter id
       operationId: cdnAdapterProfile.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            adapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `AdapterNotExists`: undefined
 
@@ -76,25 +73,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - adapterId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                adapterId:
+                  type: integer
+              type: object
+      summary: Cdn adapter profile delete
+      x-summary-source: derived
   /service/cdnadapterprofile/action/generateSharedSecret:
     post:
       description: Generate CDN adapter shared secret
       operationId: cdnAdapterProfile.generateSharedSecret
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            adapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDNAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNAdapterProfile'
         x-Errors:
           description: '* `AdapterNotExists`: undefined
 
@@ -104,48 +108,60 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - adapterId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                adapterId:
+                  type: integer
+              type: object
+      summary: Cdn adapter profile generate shared secret
+      x-summary-source: derived
   /service/cdnadapterprofile/action/list:
     post:
       description: Returns all CDN adapters for partner
       operationId: cdnAdapterProfile.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDNAdapterProfileListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNAdapterProfileListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNAdapterProfileListResponse'
       tags:
       - cdnAdapterProfile
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Cdn adapter profile list
+      x-summary-source: derived
   /service/cdnadapterprofile/action/update:
     post:
       description: Update CDN adapter details
       operationId: cdnAdapterProfile.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            adapter:
-              $ref: '#/definitions/KalturaCDNAdapterProfile'
-            adapterId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCDNAdapterProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNAdapterProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCDNAdapterProfile'
         x-Errors:
           description: '* `AdapterIdentifierRequired`: undefined
 
@@ -164,180 +180,196 @@ paths:
       x-kaltura-parameters:
       - adapterId
       - adapter
-definitions:
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaLongValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of longs
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaLongValue
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaCDNAdapterProfileListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaCDNAdapterProfile'
-        type: array
-    title: KalturaCDNAdapterProfileListResponse
-    type: object
-  KalturaIntegerValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of ints
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaIntegerValue
-    type: object
-  KalturaDoubleValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of doubles
-    properties:
-      value:
-        description: Value
-        type: number
-    title: KalturaDoubleValue
-    type: object
-  KalturaMultilingualStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: Array of translated strings
-    properties:
-      multilingualValue:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      value:
-        description: Value
-        type: string
-    title: KalturaMultilingualStringValue
-    type: object
-  KalturaCDNAdapterProfile:
-    description: CDN Adapter
-    properties:
-      adapterUrl:
-        description: CDN adapter URL
-        type: string
-      baseUrl:
-        description: CDN adapter base URL
-        type: string
-      id:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                adapter:
+                  $ref: '#/components/schemas/KalturaCDNAdapterProfile'
+                adapterId:
+                  type: integer
+              type: object
+      summary: Cdn adapter profile update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaCDNAdapterProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaCDNAdapterProfile'
+          type: array
+      title: KalturaCDNAdapterProfileListResponse
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaCDNAdapterProfile:
+      description: CDN Adapter
+      properties:
+        adapterUrl:
+          description: CDN adapter URL
+          type: string
+        baseUrl:
+          description: CDN adapter base URL
+          type: string
+        id:
+          description: '`readOnly`
 
 
-          CDN adapter identifier'
-        readOnly: true
-        type: integer
-      isActive:
-        description: CDN adapter active status
-        type: boolean
-      name:
-        description: CDNR adapter name
-        type: string
-      settings:
-        items:
-          $ref: '#/definitions/KalturaStringValue'
-        type: array
-      sharedSecret:
-        description: '`readOnly`
+            CDN adapter identifier'
+          readOnly: true
+          type: integer
+        isActive:
+          description: CDN adapter active status
+          type: boolean
+        name:
+          description: CDNR adapter name
+          type: string
+        settings:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        sharedSecret:
+          description: '`readOnly`
 
 
-          CDN shared secret'
-        readOnly: true
-        type: string
-      systemName:
-        description: CDN adapter alias
-        type: string
-    title: KalturaCDNAdapterProfile
-    type: object
-  KalturaValue:
-    description: '`abstract`
+            CDN shared secret'
+          readOnly: true
+          type: string
+        systemName:
+          description: CDN adapter alias
+          type: string
+      title: KalturaCDNAdapterProfile
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaValue:
+      description: '`abstract`
 
 
-      A representation to return an array of values'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaIntegerValue'
-    - $ref: '#/definitions/KalturaMultilingualStringValue'
-    - $ref: '#/definitions/KalturaLongValue'
-    - $ref: '#/definitions/KalturaDoubleValue'
-    - $ref: '#/definitions/KalturaBooleanValue'
-    - $ref: '#/definitions/KalturaStringValue'
-    properties:
-      description:
-        description: Description
-        type: string
-      objectType:
-        enum:
-        - KalturaIntegerValue
-        - KalturaMultilingualStringValue
-        - KalturaLongValue
-        - KalturaDoubleValue
-        - KalturaBooleanValue
-        - KalturaStringValue
-        type: string
-    title: KalturaValue
-    type: object
-  KalturaStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of strings
-    properties:
-      value:
-        description: Value
-        type: string
-    title: KalturaStringValue
-    type: object
-  KalturaBooleanValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of booleans
-    properties:
-      value:
-        description: Value
-        type: boolean
-    title: KalturaBooleanValue
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

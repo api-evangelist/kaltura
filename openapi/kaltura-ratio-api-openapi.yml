@@ -1,122 +1,132 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl ratio API
+  title: Kaltura OTT Ratio API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
-- name: ratio
+- name: Ratio
 paths:
   /service/ratio/action/add:
     post:
       description: Add new group ratio
       operationId: ratio.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            ratio:
-              $ref: '#/definitions/KalturaRatio'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaRatio'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaRatio'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaRatio'
       tags:
-      - ratio
+      - Ratio
       x-kaltura-format: post
       x-kaltura-parameters:
       - ratio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                ratio:
+                  $ref: '#/components/schemas/KalturaRatio'
+              type: object
+      summary: Ratio add
+      x-summary-source: derived
   /service/ratio/action/list:
     post:
       description: Get the list of available ratios
       operationId: ratio.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaRatioListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaRatioListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaRatioListResponse'
       tags:
-      - ratio
+      - Ratio
       x-kaltura-format: post
       x-kaltura-parameters: []
-definitions:
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaRatio:
-    properties:
-      height:
-        description: Height
-        type: integer
-      id:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Ratio list
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaRatioListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaRatio'
+          type: array
+      title: KalturaRatioListResponse
+      type: object
+    KalturaRatio:
+      properties:
+        height:
+          description: Height
+          type: integer
+        id:
+          description: '`readOnly`
 
 
-          ID'
-        readOnly: true
-        type: integer
-      name:
-        description: Name
-        type: string
-      precisionPrecentage:
-        description: "Accepted error margin precentage of an image uploaded for this ratio\r\n            0 - no validation, everything accepted"
-        type: integer
-      width:
-        description: Width
-        type: integer
-    title: KalturaRatio
-    type: object
-  KalturaRatioListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaRatio'
-        type: array
-    title: KalturaRatioListResponse
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            ID'
+          readOnly: true
+          type: integer
+        name:
+          description: Name
+          type: string
+        precisionPrecentage:
+          description: "Accepted error margin precentage of an image uploaded for this ratio\n            0 - no validation, everything accepted"
+          type: integer
+        width:
+          description: Width
+          type: integer
+      title: KalturaRatio
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

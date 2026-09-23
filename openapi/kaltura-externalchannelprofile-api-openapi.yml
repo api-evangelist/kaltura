@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl externalChannelProfile API
+  title: Kaltura OTT External Channel Profile API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Insert new External channel for partner
       operationId: externalChannelProfile.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            externalChannel:
-              $ref: '#/definitions/KalturaExternalChannelProfile'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaExternalChannelProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaExternalChannelProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaExternalChannelProfile'
         x-Errors:
           description: '* `ExternalIdentifierRequired`: undefined
 
@@ -52,25 +42,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - externalChannel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                externalChannel:
+                  $ref: '#/components/schemas/KalturaExternalChannelProfile'
+              type: object
+      summary: External channel profile add
+      x-summary-source: derived
   /service/externalchannelprofile/action/delete:
     post:
       description: Delete External channel by External channel id
       operationId: externalChannelProfile.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            externalChannelId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `ExternalChannelIdentifierRequired`: undefined
 
@@ -80,48 +77,60 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - externalChannelId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                externalChannelId:
+                  type: integer
+              type: object
+      summary: External channel profile delete
+      x-summary-source: derived
   /service/externalchannelprofile/action/list:
     post:
       description: Returns all External channels for partner
       operationId: externalChannelProfile.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaExternalChannelProfileListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaExternalChannelProfileListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaExternalChannelProfileListResponse'
       tags:
       - externalChannelProfile
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: External channel profile list
+      x-summary-source: derived
   /service/externalchannelprofile/action/update:
     post:
       description: Update External channel details
       operationId: externalChannelProfile.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            externalChannel:
-              $ref: '#/definitions/KalturaExternalChannelProfile'
-            externalChannelId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaExternalChannelProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaExternalChannelProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaExternalChannelProfile'
         x-Errors:
           description: '* `ExternalIdentifierMustBeUnique`: undefined
 
@@ -140,109 +149,124 @@ paths:
       x-kaltura-parameters:
       - externalChannelId
       - externalChannel
-definitions:
-  KalturaExternalChannelProfileListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: External channel profiles
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaExternalChannelProfile'
-        type: array
-    title: KalturaExternalChannelProfileListResponse
-    type: object
-  KalturaExternalChannelProfile:
-    description: OSS Adapter
-    properties:
-      enrichments:
-        items:
-          $ref: '#/definitions/KalturaChannelEnrichmentHolder'
-        type: array
-      externalIdentifier:
-        description: External channel external identifier
-        type: string
-      filterExpression:
-        description: Filter expression
-        type: string
-      id:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                externalChannel:
+                  $ref: '#/components/schemas/KalturaExternalChannelProfile'
+                externalChannelId:
+                  type: integer
+              type: object
+      summary: External channel profile update
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaExternalChannelProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: External channel profiles
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaExternalChannelProfile'
+          type: array
+      title: KalturaExternalChannelProfileListResponse
+      type: object
+    KalturaChannelEnrichmentHolder:
+      description: Holder object for channel enrichment enum
+      properties:
+        type:
+          description: 'Enum Type: `KalturaChannelEnrichment`
 
 
-          External channel id'
-        readOnly: true
-        type: integer
-      isActive:
-        description: External channel active status
-        type: boolean
-      name:
-        description: External channel name
-        type: string
-      recommendationEngineId:
-        description: Recommendation engine id
-        type: integer
-    title: KalturaExternalChannelProfile
-    type: object
-  KalturaChannelEnrichmentHolder:
-    description: Holder object for channel enrichment enum
-    properties:
-      type:
-        description: 'Enum Type: `KalturaChannelEnrichment`
+            Enrichment type'
+          enum:
+          - ClientLocation
+          - UserId
+          - HouseholdId
+          - DeviceId
+          - DeviceType
+          - UTCOffset
+          - Language
+          - NPVRSupport
+          - Catchup
+          - Parental
+          - DTTRegion
+          - AtHome
+          type: string
+          x-enumLabels:
+          - CLIENTLOCATION
+          - USERID
+          - HOUSEHOLDID
+          - DEVICEID
+          - DEVICETYPE
+          - UTCOFFSET
+          - LANGUAGE
+          - NPVRSUPPORT
+          - CATCHUP
+          - PARENTAL
+          - DTTREGION
+          - ATHOME
+          x-enumType: KalturaChannelEnrichment
+      title: KalturaChannelEnrichmentHolder
+      type: object
+    KalturaExternalChannelProfile:
+      description: OSS Adapter
+      properties:
+        enrichments:
+          items:
+            $ref: '#/components/schemas/KalturaChannelEnrichmentHolder'
+          type: array
+        externalIdentifier:
+          description: External channel external identifier
+          type: string
+        filterExpression:
+          description: Filter expression
+          type: string
+        id:
+          description: '`readOnly`
 
 
-          Enrichment type'
-        enum:
-        - ClientLocation
-        - UserId
-        - HouseholdId
-        - DeviceId
-        - DeviceType
-        - UTCOffset
-        - Language
-        - NPVRSupport
-        - Catchup
-        - Parental
-        - DTTRegion
-        - AtHome
-        type: string
-        x-enumLabels:
-        - CLIENTLOCATION
-        - USERID
-        - HOUSEHOLDID
-        - DEVICEID
-        - DEVICETYPE
-        - UTCOFFSET
-        - LANGUAGE
-        - NPVRSUPPORT
-        - CATCHUP
-        - PARENTAL
-        - DTTREGION
-        - ATHOME
-        x-enumType: KalturaChannelEnrichment
-    title: KalturaChannelEnrichmentHolder
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            External channel id'
+          readOnly: true
+          type: integer
+        isActive:
+          description: External channel active status
+          type: boolean
+        name:
+          description: External channel name
+          type: string
+        recommendationEngineId:
+          description: Recommendation engine id
+          type: integer
+      title: KalturaExternalChannelProfile
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

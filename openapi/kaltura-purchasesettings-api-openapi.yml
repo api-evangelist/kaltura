@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl purchaseSettings API
+  title: Kaltura OTT Purchase Settings API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -18,30 +13,20 @@ tags:
 paths:
   /service/purchasesettings/action/get:
     post:
-      description: "Retrieve the purchase settings.\r\n            Includes specification of where these settings were defined – account, household or user"
+      description: 'Retrieve the purchase settings.
+
+        Includes specification of where these settings were defined – account, household or user'
       operationId: purchaseSettings.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            by:
-              enum:
-              - user
-              - household
-              type: string
-              x-enumLabels:
-              - USER
-              - HOUSEHOLD
-              x-enumType: KalturaEntityReferenceBy
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPurchaseSettings'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPurchaseSettings'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPurchaseSettings'
         x-Errors:
           description: '* `DomainNotExists`: undefined
 
@@ -55,34 +40,39 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - by
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                by:
+                  enum:
+                  - user
+                  - household
+                  type: string
+                  x-enumLabels:
+                  - USER
+                  - HOUSEHOLD
+                  x-enumType: KalturaEntityReferenceBy
+              type: object
+      summary: Purchase settings get
+      x-summary-source: derived
   /service/purchasesettings/action/update:
     post:
       description: Set a purchase PIN for the household or user
       operationId: purchaseSettings.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            entityReference:
-              enum:
-              - user
-              - household
-              type: string
-              x-enumLabels:
-              - USER
-              - HOUSEHOLD
-              x-enumType: KalturaEntityReferenceBy
-            settings:
-              $ref: '#/definitions/KalturaPurchaseSettings'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPurchaseSettings'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPurchaseSettings'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPurchaseSettings'
         x-Errors:
           description: '* `UserSuspended`: undefined
 
@@ -99,81 +89,103 @@ paths:
       x-kaltura-parameters:
       - entityReference
       - settings
-definitions:
-  KalturaPurchaseSettings:
-    allOf:
-    - $ref: '#/definitions/KalturaPin'
-    description: Purchase settings and PIN
-    properties:
-      permission:
-        description: 'Enum Type: `KalturaPurchaseSettingsType`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                entityReference:
+                  enum:
+                  - user
+                  - household
+                  type: string
+                  x-enumLabels:
+                  - USER
+                  - HOUSEHOLD
+                  x-enumType: KalturaEntityReferenceBy
+                settings:
+                  $ref: '#/components/schemas/KalturaPurchaseSettings'
+              type: object
+      summary: Purchase settings update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaPurchaseSettings:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPin'
+      description: Purchase settings and PIN
+      properties:
+        permission:
+          description: 'Enum Type: `KalturaPurchaseSettingsType`
 
 
-          Purchase permission - block, ask or allow'
-        enum:
-        - block
-        - ask
-        - allow
-        type: string
-        x-enumLabels:
-        - BLOCK
-        - ASK
-        - ALLOW
-        x-enumType: KalturaPurchaseSettingsType
-    title: KalturaPurchaseSettings
-    type: object
-  KalturaPin:
-    description: PIN and its origin of definition
-    properties:
-      origin:
-        description: 'Enum Type: `KalturaRuleLevel`
+            Purchase permission - block, ask or allow'
+          enum:
+          - block
+          - ask
+          - allow
+          type: string
+          x-enumLabels:
+          - BLOCK
+          - ASK
+          - ALLOW
+          x-enumType: KalturaPurchaseSettingsType
+      title: KalturaPurchaseSettings
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaPin:
+      description: PIN and its origin of definition
+      properties:
+        origin:
+          description: 'Enum Type: `KalturaRuleLevel`
 
 
-          Where the PIN was defined at – account, household or user'
-        enum:
-        - invalid
-        - user
-        - household
-        - account
-        type: string
-        x-enumLabels:
-        - INVALID
-        - USER
-        - HOUSEHOLD
-        - ACCOUNT
-        x-enumType: KalturaRuleLevel
-      pin:
-        description: PIN code
-        type: string
-      type:
-        description: 'Enum Type: `KalturaPinType`
+            Where the PIN was defined at – account, household or user'
+          enum:
+          - invalid
+          - user
+          - household
+          - account
+          type: string
+          x-enumLabels:
+          - INVALID
+          - USER
+          - HOUSEHOLD
+          - ACCOUNT
+          x-enumType: KalturaRuleLevel
+        pin:
+          description: PIN code
+          type: string
+        type:
+          description: 'Enum Type: `KalturaPinType`
 
 
-          PIN type'
-        enum:
-        - purchase
-        - parental
-        type: string
-        x-enumLabels:
-        - PURCHASE
-        - PARENTAL
-        x-enumType: KalturaPinType
-    title: KalturaPin
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            PIN type'
+          enum:
+          - purchase
+          - parental
+          type: string
+          x-enumLabels:
+          - PURCHASE
+          - PARENTAL
+          x-enumType: KalturaPinType
+      title: KalturaPin
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

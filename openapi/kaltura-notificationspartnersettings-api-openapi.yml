@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl notificationsPartnerSettings API
+  title: Kaltura OTT Notifications Partner Settings API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,42 +15,44 @@ paths:
     post:
       description: Retrieve the partner notification settings.
       operationId: notificationsPartnerSettings.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaNotificationsPartnerSettings'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaNotificationsPartnerSettings'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaNotificationsPartnerSettings'
       tags:
       - notificationsPartnerSettings
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Notifications partner settings get
+      x-summary-source: derived
   /service/notificationspartnersettings/action/update:
     post:
       description: Update the account notification settings
       operationId: notificationsPartnerSettings.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            settings:
-              $ref: '#/definitions/KalturaNotificationsPartnerSettings'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `PushNotificationFalse`: undefined'
       tags:
@@ -63,76 +60,89 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - settings
-definitions:
-  KalturaNotificationsPartnerSettings:
-    properties:
-      automaticIssueFollowNotification:
-        description: Automatic issue follow notification
-        type: boolean
-      churnMailSubject:
-        description: Churn mail subject
-        type: string
-      churnMailTemplateName:
-        description: Churn mail template name
-        type: string
-      inboxEnabled:
-        description: Inbox enabled
-        type: boolean
-      mailNotificationAdapterId:
-        description: Mail notification adapter identifier
-        type: integer
-      mailSenderName:
-        description: Mail sender name
-        type: string
-      messageTTLDays:
-        description: Message TTL in days
-        type: integer
-      pushAdapterUrl:
-        description: Push adapter URL
-        type: string
-      pushEndHour:
-        description: Window end time (UTC) for send automated push messages
-        type: integer
-      pushNotificationEnabled:
-        description: Push notification capability is enabled for the account
-        type: boolean
-      pushStartHour:
-        description: Window start time (UTC) for send automated push messages
-        type: integer
-      pushSystemAnnouncementsEnabled:
-        description: System announcement capability is enabled for the account
-        type: boolean
-      reminderEnabled:
-        description: Reminder enabled
-        type: boolean
-      reminderOffsetSec:
-        description: Offset time (UTC) in seconds for send reminder
-        type: integer
-      senderEmail:
-        description: Sender email
-        type: string
-      smsEnabled:
-        description: SMS capability is enabled for the account
-        type: boolean
-      topicExpirationDurationDays:
-        description: Topic expiration duration in days
-        type: integer
-    title: KalturaNotificationsPartnerSettings
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                settings:
+                  $ref: '#/components/schemas/KalturaNotificationsPartnerSettings'
+              type: object
+      summary: Notifications partner settings update
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaNotificationsPartnerSettings:
+      properties:
+        automaticIssueFollowNotification:
+          description: Automatic issue follow notification
+          type: boolean
+        churnMailSubject:
+          description: Churn mail subject
+          type: string
+        churnMailTemplateName:
+          description: Churn mail template name
+          type: string
+        inboxEnabled:
+          description: Inbox enabled
+          type: boolean
+        mailNotificationAdapterId:
+          description: Mail notification adapter identifier
+          type: integer
+        mailSenderName:
+          description: Mail sender name
+          type: string
+        messageTTLDays:
+          description: Message TTL in days
+          type: integer
+        pushAdapterUrl:
+          description: Push adapter URL
+          type: string
+        pushEndHour:
+          description: Window end time (UTC) for send automated push messages
+          type: integer
+        pushNotificationEnabled:
+          description: Push notification capability is enabled for the account
+          type: boolean
+        pushStartHour:
+          description: Window start time (UTC) for send automated push messages
+          type: integer
+        pushSystemAnnouncementsEnabled:
+          description: System announcement capability is enabled for the account
+          type: boolean
+        reminderEnabled:
+          description: Reminder enabled
+          type: boolean
+        reminderOffsetSec:
+          description: Offset time (UTC) in seconds for send reminder
+          type: integer
+        senderEmail:
+          description: Sender email
+          type: string
+        smsEnabled:
+          description: SMS capability is enabled for the account
+          type: boolean
+        topicExpirationDurationDays:
+          description: Topic expiration duration in days
+          type: integer
+      title: KalturaNotificationsPartnerSettings
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

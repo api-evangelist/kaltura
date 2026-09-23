@@ -1,147 +1,150 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl coupon API
+  title: Kaltura OTT Coupon API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
-- name: coupon
+- name: Coupon
 paths:
   /service/coupon/action/get:
     post:
       description: Returns information about a coupon
       operationId: coupon.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            code:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaCoupon'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaCoupon'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaCoupon'
         x-Errors:
           description: '* `CouponNotValid`: undefined'
       tags:
-      - coupon
+      - Coupon
       x-kaltura-format: post
       x-kaltura-parameters:
       - code
-definitions:
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-  KalturaCoupon:
-    description: Coupon details container
-    properties:
-      couponsGroup:
-        $ref: '#/definitions/KalturaCouponsGroup'
-      status:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                code:
+                  type: string
+              type: object
+      summary: Coupon get
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaCoupon:
+      description: Coupon details container
+      properties:
+        couponsGroup:
+          $ref: '#/components/schemas/KalturaCouponsGroup'
+        status:
+          description: '`readOnly`
 
 
-          Enum Type: `KalturaCouponStatus`
+            Enum Type: `KalturaCouponStatus`
 
 
-          Coupon status'
-        enum:
-        - VALID
-        - NOT_EXISTS
-        - ALREADY_USED
-        - EXPIRED
-        - INACTIVE
-        readOnly: true
-        type: string
-        x-enumLabels:
-        - VALID
-        - NOT_EXISTS
-        - ALREADY_USED
-        - EXPIRED
-        - INACTIVE
-        x-enumType: KalturaCouponStatus
-    title: KalturaCoupon
-    type: object
-  KalturaCouponsGroup:
-    description: Coupons group details
-    properties:
-      couponGroupType:
-        description: 'Enum Type: `KalturaCouponGroupType`
+            Coupon status'
+          enum:
+          - VALID
+          - NOT_EXISTS
+          - ALREADY_USED
+          - EXPIRED
+          - INACTIVE
+          readOnly: true
+          type: string
+          x-enumLabels:
+          - VALID
+          - NOT_EXISTS
+          - ALREADY_USED
+          - EXPIRED
+          - INACTIVE
+          x-enumType: KalturaCouponStatus
+      title: KalturaCoupon
+      type: object
+    KalturaCouponsGroup:
+      description: Coupons group details
+      properties:
+        couponGroupType:
+          description: 'Enum Type: `KalturaCouponGroupType`
 
 
-          Type of the coupon group'
-        enum:
-        - COUPON
-        - GIFT_CARD
-        type: string
-        x-enumLabels:
-        - COUPON
-        - GIFT_CARD
-        x-enumType: KalturaCouponGroupType
-      descriptions:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      endDate:
-        description: The last date the coupons in this coupons group are valid
-        type: integer
-      id:
-        description: '`readOnly`
+            Type of the coupon group'
+          enum:
+          - COUPON
+          - GIFT_CARD
+          type: string
+          x-enumLabels:
+          - COUPON
+          - GIFT_CARD
+          x-enumType: KalturaCouponGroupType
+        descriptions:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        endDate:
+          description: The last date the coupons in this coupons group are valid
+          type: integer
+        id:
+          description: '`readOnly`
 
 
-          Coupon group identifier'
-        readOnly: true
-        type: string
-      maxUsesNumber:
-        description: Maximum number of uses for each coupon in the group
-        type: integer
-      maxUsesNumberOnRenewableSub:
-        description: Maximum number of uses for each coupon in the group on a renewable subscription
-        type: integer
-      name:
-        description: Coupon group name
-        type: string
-      startDate:
-        description: The first date the coupons in this coupons group are valid
-        type: integer
-    title: KalturaCouponsGroup
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Coupon group identifier'
+          readOnly: true
+          type: string
+        maxUsesNumber:
+          description: Maximum number of uses for each coupon in the group
+          type: integer
+        maxUsesNumberOnRenewableSub:
+          description: Maximum number of uses for each coupon in the group on a renewable subscription
+          type: integer
+        name:
+          description: Coupon group name
+          type: string
+        startDate:
+          description: The first date the coupons in this coupons group are valid
+          type: integer
+      title: KalturaCouponsGroup
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

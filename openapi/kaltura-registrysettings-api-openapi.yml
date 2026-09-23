@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl registrySettings API
+  title: Kaltura OTT Registry Settings API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,67 +15,75 @@ paths:
     post:
       description: Retrieve the registry settings.
       operationId: registrySettings.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaRegistrySettingsListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaRegistrySettingsListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaRegistrySettingsListResponse'
       tags:
       - registrySettings
       x-kaltura-format: post
       x-kaltura-parameters: []
-definitions:
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaRegistrySettingsListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: List of registry settings.
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaRegistrySettings'
-        type: array
-    title: KalturaRegistrySettingsListResponse
-    type: object
-  KalturaRegistrySettings:
-    properties:
-      key:
-        description: Permission item identifier
-        type: string
-      value:
-        description: Permission item name
-        type: string
-    title: KalturaRegistrySettings
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Registry settings list
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaRegistrySettings:
+      properties:
+        key:
+          description: Permission item identifier
+          type: string
+        value:
+          description: Permission item name
+          type: string
+      title: KalturaRegistrySettings
+      type: object
+    KalturaRegistrySettingsListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of registry settings.
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaRegistrySettings'
+          type: array
+      title: KalturaRegistrySettingsListResponse
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

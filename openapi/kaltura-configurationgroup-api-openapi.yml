@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl configurationGroup API
+  title: Kaltura OTT Configuration Group API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Add a new configuration group
       operationId: configurationGroup.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            configurationGroup:
-              $ref: '#/definitions/KalturaConfigurationGroup'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaConfigurationGroup'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaConfigurationGroup'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaConfigurationGroup'
         x-Errors:
           description: ''
       tags:
@@ -42,25 +32,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - configurationGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                configurationGroup:
+                  $ref: '#/components/schemas/KalturaConfigurationGroup'
+              type: object
+      summary: Configuration group add
+      x-summary-source: derived
   /service/configurationgroup/action/delete:
     post:
       description: Remove a configuration group, including its tags, device configurations and devices associations
       operationId: configurationGroup.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: ''
       tags:
@@ -68,31 +65,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: string
+              type: object
+      summary: Configuration group delete
+      x-summary-source: derived
   /service/configurationgroup/action/get:
     post:
       description: Return the configuration group details, including group identifiers, tags, and number of associated devices, and list of device configuration
       operationId: configurationGroup.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: string
-              x-dynamicEnum:
-                array: objects
-                label: id
-                method: post
-                path: /service/configurationgroup/action/list
-                value: id
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaConfigurationGroup'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaConfigurationGroup'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaConfigurationGroup'
         x-Errors:
           description: ''
       tags:
@@ -100,50 +98,68 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: string
+                  x-dynamicEnum:
+                    array: objects
+                    label: id
+                    method: post
+                    path: /service/configurationgroup/action/list
+                    value: id
+              type: object
+      summary: Configuration group get
+      x-summary-source: derived
   /service/configurationgroup/action/list:
     post:
       description: Return the list of configuration groups
       operationId: configurationGroup.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaConfigurationGroupListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaConfigurationGroupListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaConfigurationGroupListResponse'
         x-Errors:
           description: ''
       tags:
       - configurationGroup
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Configuration group list
+      x-summary-source: derived
   /service/configurationgroup/action/update:
     post:
       description: Update configuration group name
       operationId: configurationGroup.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            configurationGroup:
-              $ref: '#/definitions/KalturaConfigurationGroup'
-            id:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaConfigurationGroup'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaConfigurationGroup'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaConfigurationGroup'
         x-Errors:
           description: ''
       tags:
@@ -152,195 +168,211 @@ paths:
       x-kaltura-parameters:
       - id
       - configurationGroup
-definitions:
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaLongValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of longs
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaLongValue
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaConfigurationGroupListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: Configuration groups info wrapper
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaConfigurationGroup'
-        type: array
-    title: KalturaConfigurationGroupListResponse
-    type: object
-  KalturaIntegerValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of ints
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaIntegerValue
-    type: object
-  KalturaDoubleValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of doubles
-    properties:
-      value:
-        description: Value
-        type: number
-    title: KalturaDoubleValue
-    type: object
-  KalturaMultilingualStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: Array of translated strings
-    properties:
-      multilingualValue:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      value:
-        description: Value
-        type: string
-    title: KalturaMultilingualStringValue
-    type: object
-  KalturaConfigurationIdentifier:
-    properties:
-      id:
-        description: Identifier
-        type: string
-      name:
-        description: Name
-        type: string
-    title: KalturaConfigurationIdentifier
-    type: object
-  KalturaValue:
-    description: '`abstract`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                configurationGroup:
+                  $ref: '#/components/schemas/KalturaConfigurationGroup'
+                id:
+                  type: string
+              type: object
+      summary: Configuration group update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaConfigurationGroup:
+      properties:
+        configurationIdentifiers:
+          items:
+            $ref: '#/components/schemas/KalturaConfigurationIdentifier'
+          type: array
+        id:
+          description: '`readOnly`
 
 
-      A representation to return an array of values'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaIntegerValue'
-    - $ref: '#/definitions/KalturaMultilingualStringValue'
-    - $ref: '#/definitions/KalturaLongValue'
-    - $ref: '#/definitions/KalturaDoubleValue'
-    - $ref: '#/definitions/KalturaBooleanValue'
-    - $ref: '#/definitions/KalturaStringValue'
-    properties:
-      description:
-        description: Description
-        type: string
-      objectType:
-        enum:
-        - KalturaIntegerValue
-        - KalturaMultilingualStringValue
-        - KalturaLongValue
-        - KalturaDoubleValue
-        - KalturaBooleanValue
-        - KalturaStringValue
-        type: string
-    title: KalturaValue
-    type: object
-  KalturaStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of strings
-    properties:
-      value:
-        description: Value
-        type: string
-    title: KalturaStringValue
-    type: object
-  KalturaConfigurationGroup:
-    properties:
-      configurationIdentifiers:
-        items:
-          $ref: '#/definitions/KalturaConfigurationIdentifier'
-        type: array
-      id:
-        description: '`readOnly`
+            Configuration group identifier'
+          readOnly: true
+          type: string
+        isDefault:
+          description: '`insertOnly`
 
 
-          Configuration group identifier'
-        readOnly: true
-        type: string
-      isDefault:
-        description: '`insertOnly`
+            Is default'
+          type: boolean
+        name:
+          description: Configuration group name
+          type: string
+        numberOfDevices:
+          description: '`readOnly`
 
 
-          Is default'
-        type: boolean
-      name:
-        description: Configuration group name
-        type: string
-      numberOfDevices:
-        description: '`readOnly`
+            Number of devices'
+          readOnly: true
+          type: integer
+        partnerId:
+          description: '`readOnly`
 
 
-          Number of devices'
-        readOnly: true
-        type: integer
-      partnerId:
-        description: '`readOnly`
+            Partner id'
+          readOnly: true
+          type: integer
+        tags:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+      title: KalturaConfigurationGroup
+      type: object
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaConfigurationIdentifier:
+      properties:
+        id:
+          description: Identifier
+          type: string
+        name:
+          description: Name
+          type: string
+      title: KalturaConfigurationIdentifier
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaConfigurationGroupListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Configuration groups info wrapper
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaConfigurationGroup'
+          type: array
+      title: KalturaConfigurationGroupListResponse
+      type: object
+    KalturaValue:
+      description: '`abstract`
 
 
-          Partner id'
-        readOnly: true
-        type: integer
-      tags:
-        items:
-          $ref: '#/definitions/KalturaStringValue'
-        type: array
-    title: KalturaConfigurationGroup
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-  KalturaBooleanValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of booleans
-    properties:
-      value:
-        description: Value
-        type: boolean
-    title: KalturaBooleanValue
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

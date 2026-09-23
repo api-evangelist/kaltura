@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl timeShiftedTvPartnerSettings API
+  title: Kaltura OTT Time Shifted Tv Partner Settings API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,44 +15,46 @@ paths:
     post:
       description: Retrieve the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over)
       operationId: timeShiftedTvPartnerSettings.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaTimeShiftedTvPartnerSettings'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaTimeShiftedTvPartnerSettings'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaTimeShiftedTvPartnerSettings'
         x-Errors:
           description: '* `TimeShiftedTvPartnerSettingsNotFound`: undefined'
       tags:
       - timeShiftedTvPartnerSettings
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Time shifted tv partner settings get
+      x-summary-source: derived
   /service/timeshiftedtvpartnersettings/action/update:
     post:
       description: Configure the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over)
       operationId: timeShiftedTvPartnerSettings.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            settings:
-              $ref: '#/definitions/KalturaTimeShiftedTvPartnerSettings'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `TimeShiftedTvPartnerSettingsNotSent`: undefined
 
@@ -67,108 +64,121 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - settings
-definitions:
-  KalturaTimeShiftedTvPartnerSettings:
-    properties:
-      catchUpBufferLength:
-        description: Catch-up buffer length
-        type: integer
-      catchUpEnabled:
-        description: Is catch-up enabled
-        type: boolean
-      cdvrEnabled:
-        description: Is c-dvr enabled
-        type: boolean
-      cleanupNoticePeriod:
-        description: The time in days before the recording lifetime is due from which the client should be able to warn user about deletion.
-        type: integer
-      nonEntitledChannelPlaybackEnabled:
-        description: Is recording playback for non-entitled channel enables
-        type: boolean
-      nonExistingChannelPlaybackEnabled:
-        description: Is recording playback for non-existing channel enables
-        type: boolean
-      paddingAfterProgramEnds:
-        description: Indicates how long (in seconds) after the program ends the recording will end
-        type: integer
-      paddingBeforeProgramStarts:
-        description: Indicates how long (in seconds) before the program starts the recording will begin
-        type: integer
-      protectionEnabled:
-        description: Is recording protection enabled
-        type: boolean
-      protectionPeriod:
-        description: Specify the time in days that a recording should be protected. Start time begins at protection request.
-        type: integer
-      protectionPolicy:
-        description: 'Enum Type: `KalturaProtectionPolicy`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                settings:
+                  $ref: '#/components/schemas/KalturaTimeShiftedTvPartnerSettings'
+              type: object
+      summary: Time shifted tv partner settings update
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaTimeShiftedTvPartnerSettings:
+      properties:
+        catchUpBufferLength:
+          description: Catch-up buffer length
+          type: integer
+        catchUpEnabled:
+          description: Is catch-up enabled
+          type: boolean
+        cdvrEnabled:
+          description: Is c-dvr enabled
+          type: boolean
+        cleanupNoticePeriod:
+          description: The time in days before the recording lifetime is due from which the client should be able to warn user about deletion.
+          type: integer
+        nonEntitledChannelPlaybackEnabled:
+          description: Is recording playback for non-entitled channel enables
+          type: boolean
+        nonExistingChannelPlaybackEnabled:
+          description: Is recording playback for non-existing channel enables
+          type: boolean
+        paddingAfterProgramEnds:
+          description: Indicates how long (in seconds) after the program ends the recording will end
+          type: integer
+        paddingBeforeProgramStarts:
+          description: Indicates how long (in seconds) before the program starts the recording will begin
+          type: integer
+        protectionEnabled:
+          description: Is recording protection enabled
+          type: boolean
+        protectionPeriod:
+          description: Specify the time in days that a recording should be protected. Start time begins at protection request.
+          type: integer
+        protectionPolicy:
+          description: 'Enum Type: `KalturaProtectionPolicy`
 
 
-          Protection Policy'
-        enum:
-        - ExtendingRecordingLifetime
-        - LimitedByRecordingLifetime
-        type: string
-        x-enumLabels:
-        - EXTENDINGRECORDINGLIFETIME
-        - LIMITEDBYRECORDINGLIFETIME
-        x-enumType: KalturaProtectionPolicy
-      protectionQuotaPercentage:
-        description: Indicates how many percent of the quota can be used for protection
-        type: integer
-      quotaOveragePolicy:
-        description: 'Enum Type: `KalturaQuotaOveragePolicy`
+            Protection Policy'
+          enum:
+          - ExtendingRecordingLifetime
+          - LimitedByRecordingLifetime
+          type: string
+          x-enumLabels:
+          - EXTENDINGRECORDINGLIFETIME
+          - LIMITEDBYRECORDINGLIFETIME
+          x-enumType: KalturaProtectionPolicy
+        protectionQuotaPercentage:
+          description: Indicates how many percent of the quota can be used for protection
+          type: integer
+        quotaOveragePolicy:
+          description: 'Enum Type: `KalturaQuotaOveragePolicy`
 
 
-          Quota Policy'
-        enum:
-        - StopAtQuota
-        - FIFOAutoDelete
-        type: string
-        x-enumLabels:
-        - STOPATQUOTA
-        - FIFOAUTODELETE
-        x-enumType: KalturaQuotaOveragePolicy
-      recordingLifetimePeriod:
-        description: Specify the time in days that a recording should be kept for user. Start time begins with the program end date.
-        type: integer
-      recordingScheduleWindow:
-        description: Recording schedule window. Indicates how long (in minutes) after the program starts it is allowed to schedule the recording
-        type: integer
-      recordingScheduleWindowEnabled:
-        description: Is recording schedule window enabled
-        type: boolean
-      recoveryGracePeriod:
-        description: The time in days for recovery recording that was delete by Auto Delete .
-        type: integer
-      seriesRecordingEnabled:
-        description: Is recording of series enabled
-        type: boolean
-      startOverEnabled:
-        description: Is start-over enabled
-        type: boolean
-      trickPlayBufferLength:
-        description: Trick play buffer length
-        type: integer
-      trickPlayEnabled:
-        description: Is trick-play enabled
-        type: boolean
-    title: KalturaTimeShiftedTvPartnerSettings
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Quota Policy'
+          enum:
+          - StopAtQuota
+          - FIFOAutoDelete
+          type: string
+          x-enumLabels:
+          - STOPATQUOTA
+          - FIFOAUTODELETE
+          x-enumType: KalturaQuotaOveragePolicy
+        recordingLifetimePeriod:
+          description: Specify the time in days that a recording should be kept for user. Start time begins with the program end date.
+          type: integer
+        recordingScheduleWindow:
+          description: Recording schedule window. Indicates how long (in minutes) after the program starts it is allowed to schedule the recording
+          type: integer
+        recordingScheduleWindowEnabled:
+          description: Is recording schedule window enabled
+          type: boolean
+        recoveryGracePeriod:
+          description: The time in days for recovery recording that was delete by Auto Delete .
+          type: integer
+        seriesRecordingEnabled:
+          description: Is recording of series enabled
+          type: boolean
+        startOverEnabled:
+          description: Is start-over enabled
+          type: boolean
+        trickPlayBufferLength:
+          description: Trick play buffer length
+          type: integer
+        trickPlayEnabled:
+          description: Is trick-play enabled
+          type: boolean
+      title: KalturaTimeShiftedTvPartnerSettings
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl userAssetsListItem API
+  title: Kaltura OTT User Assets List Item API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,58 +15,47 @@ paths:
     post:
       description: Adds a new item to user’s private asset list
       operationId: userAssetsListItem.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            userAssetsListItem:
-              $ref: '#/definitions/KalturaUserAssetsListItem'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaUserAssetsListItem'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaUserAssetsListItem'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaUserAssetsListItem'
       tags:
       - userAssetsListItem
       x-kaltura-format: post
       x-kaltura-parameters:
       - userAssetsListItem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                userAssetsListItem:
+                  $ref: '#/components/schemas/KalturaUserAssetsListItem'
+              type: object
+      summary: User assets list item add
+      x-summary-source: derived
   /service/userassetslistitem/action/delete:
     post:
       description: Deletes an item from user’s private asset list
       operationId: userAssetsListItem.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            assetId:
-              type: string
-            listType:
-              enum:
-              - all
-              - watch
-              - purchase
-              - library
-              type: string
-              x-enumLabels:
-              - ALL
-              - WATCH
-              - PURCHASE
-              - LIBRARY
-              x-enumType: KalturaUserAssetsListType
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `ItemNotFound`: undefined'
       tags:
@@ -80,47 +64,45 @@ paths:
       x-kaltura-parameters:
       - assetId
       - listType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                assetId:
+                  type: string
+                listType:
+                  enum:
+                  - all
+                  - watch
+                  - purchase
+                  - library
+                  type: string
+                  x-enumLabels:
+                  - ALL
+                  - WATCH
+                  - PURCHASE
+                  - LIBRARY
+                  x-enumType: KalturaUserAssetsListType
+              type: object
+      summary: User assets list item delete
+      x-summary-source: derived
   /service/userassetslistitem/action/get:
     post:
       description: Get an item from user’s private asset list
       operationId: userAssetsListItem.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            assetId:
-              type: string
-            itemType:
-              enum:
-              - all
-              - media
-              type: string
-              x-enumLabels:
-              - ALL
-              - MEDIA
-              x-enumType: KalturaUserAssetsListItemType
-            listType:
-              enum:
-              - all
-              - watch
-              - purchase
-              - library
-              type: string
-              x-enumLabels:
-              - ALL
-              - WATCH
-              - PURCHASE
-              - LIBRARY
-              x-enumType: KalturaUserAssetsListType
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaUserAssetsListItem'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaUserAssetsListItem'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaUserAssetsListItem'
         x-Errors:
           description: '* `ItemNotFound`: undefined'
       tags:
@@ -130,69 +112,104 @@ paths:
       - assetId
       - listType
       - itemType
-definitions:
-  KalturaUserAssetsListItem:
-    description: An item of user asset list
-    properties:
-      id:
-        description: Asset identifier
-        type: string
-      listType:
-        description: 'Enum Type: `KalturaUserAssetsListType`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                assetId:
+                  type: string
+                itemType:
+                  enum:
+                  - all
+                  - media
+                  type: string
+                  x-enumLabels:
+                  - ALL
+                  - MEDIA
+                  x-enumType: KalturaUserAssetsListItemType
+                listType:
+                  enum:
+                  - all
+                  - watch
+                  - purchase
+                  - library
+                  type: string
+                  x-enumLabels:
+                  - ALL
+                  - WATCH
+                  - PURCHASE
+                  - LIBRARY
+                  x-enumType: KalturaUserAssetsListType
+              type: object
+      summary: User assets list item get
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaUserAssetsListItem:
+      description: An item of user asset list
+      properties:
+        id:
+          description: Asset identifier
+          type: string
+        listType:
+          description: 'Enum Type: `KalturaUserAssetsListType`
 
 
-          The type of the list, all is not supported'
-        enum:
-        - all
-        - watch
-        - purchase
-        - library
-        type: string
-        x-enumLabels:
-        - ALL
-        - WATCH
-        - PURCHASE
-        - LIBRARY
-        x-enumType: KalturaUserAssetsListType
-      orderIndex:
-        description: The order index of the asset in the list
-        type: integer
-      type:
-        description: 'Enum Type: `KalturaUserAssetsListItemType`
+            The type of the list, all is not supported'
+          enum:
+          - all
+          - watch
+          - purchase
+          - library
+          type: string
+          x-enumLabels:
+          - ALL
+          - WATCH
+          - PURCHASE
+          - LIBRARY
+          x-enumType: KalturaUserAssetsListType
+        orderIndex:
+          description: The order index of the asset in the list
+          type: integer
+        type:
+          description: 'Enum Type: `KalturaUserAssetsListItemType`
 
 
-          The type of the asset'
-        enum:
-        - all
-        - media
-        type: string
-        x-enumLabels:
-        - ALL
-        - MEDIA
-        x-enumType: KalturaUserAssetsListItemType
-      userId:
-        description: '`readOnly`
+            The type of the asset'
+          enum:
+          - all
+          - media
+          type: string
+          x-enumLabels:
+          - ALL
+          - MEDIA
+          x-enumType: KalturaUserAssetsListItemType
+        userId:
+          description: '`readOnly`
 
 
-          The identifier of the user who added the item to the list'
-        readOnly: true
-        type: string
-    title: KalturaUserAssetsListItem
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            The identifier of the user who added the item to the list'
+          readOnly: true
+          type: string
+      title: KalturaUserAssetsListItem
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

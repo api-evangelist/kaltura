@@ -1,58 +1,30 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl pin API
+  title: Kaltura OTT Pin API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
-- name: pin
+- name: PIN
 paths:
   /service/pin/action/get:
     post:
-      description: Retrieve the parental or purchase PIN that applies for the household or user. Includes specification of where the PIN was defined at – account, household or user  level
+      description: Retrieve the parental or purchase PIN that applies for the household or user. Includes specification of where the PIN was defined at – account, household or user level
       operationId: pin.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            by:
-              enum:
-              - user
-              - household
-              type: string
-              x-enumLabels:
-              - USER
-              - HOUSEHOLD
-              x-enumType: KalturaEntityReferenceBy
-            ruleId:
-              type: integer
-            type:
-              enum:
-              - purchase
-              - parental
-              type: string
-              x-enumLabels:
-              - PURCHASE
-              - PARENTAL
-              x-enumType: KalturaPinType
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPin'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPin'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPin'
         x-Errors:
           description: '* `UserDoesNotExist`: undefined
 
@@ -64,51 +36,56 @@ paths:
 
             * `UserWithNoDomain`: undefined'
       tags:
-      - pin
+      - PIN
       x-kaltura-format: post
       x-kaltura-parameters:
       - by
       - type
       - ruleId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                by:
+                  enum:
+                  - user
+                  - household
+                  type: string
+                  x-enumLabels:
+                  - USER
+                  - HOUSEHOLD
+                  x-enumType: KalturaEntityReferenceBy
+                ruleId:
+                  type: integer
+                type:
+                  enum:
+                  - purchase
+                  - parental
+                  type: string
+                  x-enumLabels:
+                  - PURCHASE
+                  - PARENTAL
+                  x-enumType: KalturaPinType
+              type: object
+      summary: Pin get
+      x-summary-source: derived
   /service/pin/action/update:
     post:
       description: Set the parental or purchase PIN that applies for the user or the household.
       operationId: pin.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            by:
-              enum:
-              - user
-              - household
-              type: string
-              x-enumLabels:
-              - USER
-              - HOUSEHOLD
-              x-enumType: KalturaEntityReferenceBy
-            pin:
-              $ref: '#/definitions/KalturaPin'
-            ruleId:
-              type: integer
-            type:
-              enum:
-              - purchase
-              - parental
-              type: string
-              x-enumLabels:
-              - PURCHASE
-              - PARENTAL
-              x-enumType: KalturaPinType
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPin'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPin'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPin'
         x-Errors:
           description: '* `UserWithNoDomain`: undefined
 
@@ -116,43 +93,59 @@ paths:
 
             * `UserDoesNotExist`: undefined'
       tags:
-      - pin
+      - PIN
       x-kaltura-format: post
       x-kaltura-parameters:
       - by
       - type
       - pin
       - ruleId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                by:
+                  enum:
+                  - user
+                  - household
+                  type: string
+                  x-enumLabels:
+                  - USER
+                  - HOUSEHOLD
+                  x-enumType: KalturaEntityReferenceBy
+                pin:
+                  $ref: '#/components/schemas/KalturaPin'
+                ruleId:
+                  type: integer
+                type:
+                  enum:
+                  - purchase
+                  - parental
+                  type: string
+                  x-enumLabels:
+                  - PURCHASE
+                  - PARENTAL
+                  x-enumType: KalturaPinType
+              type: object
+      summary: Pin update
+      x-summary-source: derived
   /service/pin/action/validate:
     post:
       description: Validate a purchase or parental PIN for a user.
       operationId: pin.validate
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            pin:
-              type: string
-            ruleId:
-              type: integer
-            type:
-              enum:
-              - purchase
-              - parental
-              type: string
-              x-enumLabels:
-              - PURCHASE
-              - PARENTAL
-              x-enumType: KalturaPinType
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `UserSuspended`: undefined
 
@@ -164,65 +157,89 @@ paths:
 
             * `PinMismatch`: undefined'
       tags:
-      - pin
+      - PIN
       x-kaltura-format: post
       x-kaltura-parameters:
       - pin
       - type
       - ruleId
-definitions:
-  KalturaPin:
-    description: PIN and its origin of definition
-    properties:
-      origin:
-        description: 'Enum Type: `KalturaRuleLevel`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                pin:
+                  type: string
+                ruleId:
+                  type: integer
+                type:
+                  enum:
+                  - purchase
+                  - parental
+                  type: string
+                  x-enumLabels:
+                  - PURCHASE
+                  - PARENTAL
+                  x-enumType: KalturaPinType
+              type: object
+      summary: Pin validate
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaPin:
+      description: PIN and its origin of definition
+      properties:
+        origin:
+          description: 'Enum Type: `KalturaRuleLevel`
 
 
-          Where the PIN was defined at – account, household or user'
-        enum:
-        - invalid
-        - user
-        - household
-        - account
-        type: string
-        x-enumLabels:
-        - INVALID
-        - USER
-        - HOUSEHOLD
-        - ACCOUNT
-        x-enumType: KalturaRuleLevel
-      pin:
-        description: PIN code
-        type: string
-      type:
-        description: 'Enum Type: `KalturaPinType`
+            Where the PIN was defined at – account, household or user'
+          enum:
+          - invalid
+          - user
+          - household
+          - account
+          type: string
+          x-enumLabels:
+          - INVALID
+          - USER
+          - HOUSEHOLD
+          - ACCOUNT
+          x-enumType: KalturaRuleLevel
+        pin:
+          description: PIN code
+          type: string
+        type:
+          description: 'Enum Type: `KalturaPinType`
 
 
-          PIN type'
-        enum:
-        - purchase
-        - parental
-        type: string
-        x-enumLabels:
-        - PURCHASE
-        - PARENTAL
-        x-enumType: KalturaPinType
-    title: KalturaPin
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            PIN type'
+          enum:
+          - purchase
+          - parental
+          type: string
+          x-enumLabels:
+          - PURCHASE
+          - PARENTAL
+          x-enumType: KalturaPinType
+      title: KalturaPin
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

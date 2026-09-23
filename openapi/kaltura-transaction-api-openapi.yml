@@ -1,35 +1,20 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl transaction API
+  title: Kaltura OTT Transaction API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
-- name: transaction
+- name: Transaction
 paths:
   /service/transaction/action/downgrade:
     post:
       description: downgrade specific subscription for a household. entitlements will be updated on the existing subscription end date.
       operationId: transaction.downgrade
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            purchase:
-              $ref: '#/definitions/KalturaPurchase'
-          type: object
       responses:
         '200':
           description: Success
@@ -80,53 +65,67 @@ paths:
 
             * `SubscriptionNotRenewable`: undefined'
       tags:
-      - transaction
+      - Transaction
       x-kaltura-format: post
       x-kaltura-parameters:
       - purchase
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                purchase:
+                  $ref: '#/components/schemas/KalturaPurchase'
+              type: object
+      summary: Transaction downgrade
+      x-summary-source: derived
   /service/transaction/action/getPurchaseSessionId:
     post:
       description: Retrieve the purchase session identifier
       operationId: transaction.getPurchaseSessionId
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            purchaseSession:
-              $ref: '#/definitions/KalturaPurchaseSession'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: integer
+          content:
+            application/json:
+              schema:
+                type: integer
+            text/xml:
+              schema:
+                type: integer
       tags:
-      - transaction
+      - Transaction
       x-kaltura-format: post
       x-kaltura-parameters:
       - purchaseSession
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                purchaseSession:
+                  $ref: '#/components/schemas/KalturaPurchaseSession'
+              type: object
+      summary: Transaction get purchase session id
+      x-summary-source: derived
   /service/transaction/action/purchase:
     post:
       description: Purchase specific product or subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted.
       operationId: transaction.purchase
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            purchase:
-              $ref: '#/definitions/KalturaPurchase'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaTransaction'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaTransaction'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaTransaction'
         x-Errors:
           description: '* `UnableToPurchaseSubscriptionPurchased`: undefined
 
@@ -172,96 +171,112 @@ paths:
 
             * `PaymentMethodNotExist`: undefined'
       tags:
-      - transaction
+      - Transaction
       x-kaltura-format: post
       x-kaltura-parameters:
       - purchase
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                purchase:
+                  $ref: '#/components/schemas/KalturaPurchase'
+              type: object
+      summary: Transaction purchase
+      x-summary-source: derived
   /service/transaction/action/setWaiver:
     post:
       description: This method shall set the waiver flag on the user entitlement table and the waiver date field to the current date.
       operationId: transaction.setWaiver
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            assetId:
-              type: integer
-            transactionType:
-              enum:
-              - ppv
-              - subscription
-              - collection
-              type: string
-              x-enumLabels:
-              - PPV
-              - SUBSCRIPTION
-              - COLLECTION
-              x-enumType: KalturaTransactionType
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
       tags:
-      - transaction
+      - Transaction
       x-kaltura-format: post
       x-kaltura-parameters:
       - assetId
       - transactionType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                assetId:
+                  type: integer
+                transactionType:
+                  enum:
+                  - ppv
+                  - subscription
+                  - collection
+                  type: string
+                  x-enumLabels:
+                  - PPV
+                  - SUBSCRIPTION
+                  - COLLECTION
+                  x-enumType: KalturaTransactionType
+              type: object
+      summary: Transaction set waiver
+      x-summary-source: derived
   /service/transaction/action/updateStatus:
     post:
       description: Updates a pending purchase transaction state.
       operationId: transaction.updateStatus
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            externalTransactionId:
-              type: string
-            paymentGatewayId:
-              type: string
-            signature:
-              type: string
-            status:
-              $ref: '#/definitions/KalturaTransactionStatus'
-          type: object
       responses:
         '200':
           description: Success
       tags:
-      - transaction
+      - Transaction
       x-kaltura-format: post
       x-kaltura-parameters:
       - paymentGatewayId
       - externalTransactionId
       - signature
       - status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                externalTransactionId:
+                  type: string
+                paymentGatewayId:
+                  type: string
+                signature:
+                  type: string
+                status:
+                  $ref: '#/components/schemas/KalturaTransactionStatus'
+              type: object
+      summary: Transaction update status
+      x-summary-source: derived
   /service/transaction/action/upgrade:
     post:
       description: upgrade specific subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted.
       operationId: transaction.upgrade
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            purchase:
-              $ref: '#/definitions/KalturaPurchase'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaTransaction'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaTransaction'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaTransaction'
         x-Errors:
           description: '* `UserNotInDomain`: undefined
 
@@ -309,172 +324,192 @@ paths:
 
             * `SubscriptionNotRenewable`: undefined'
       tags:
-      - transaction
+      - Transaction
       x-kaltura-format: post
       x-kaltura-parameters:
       - purchase
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                purchase:
+                  $ref: '#/components/schemas/KalturaPurchase'
+              type: object
+      summary: Transaction upgrade
+      x-summary-source: derived
   /service/transaction/action/validateReceipt:
     post:
       description: Verifies PPV/Subscription/Collection client purchase (such as InApp) and entitles the user.
       operationId: transaction.validateReceipt
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            externalReceipt:
-              $ref: '#/definitions/KalturaExternalReceipt'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaTransaction'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaTransaction'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaTransaction'
       tags:
-      - transaction
+      - Transaction
       x-kaltura-format: post
       x-kaltura-parameters:
       - externalReceipt
-definitions:
-  KalturaPurchase:
-    allOf:
-    - $ref: '#/definitions/KalturaPurchaseBase'
-    properties:
-      adapterData:
-        description: Additional data for the adapter
-        type: string
-      coupon:
-        description: Coupon code
-        type: string
-      currency:
-        description: Identifier for paying currency, according to ISO 4217
-        type: string
-      paymentGatewayId:
-        description: Identifier for a pre-associated payment gateway. If not provided – the account’s default payment gateway is used
-        type: integer
-      paymentMethodId:
-        description: Identifier for a pre-entered payment method. If not provided – the household’s default payment method is used
-        type: integer
-      price:
-        description: Net sum to charge – as a one-time transaction. Price must match the previously provided price for the specified content.
-        type: number
-    title: KalturaPurchase
-    type: object
-  KalturaExternalReceipt:
-    allOf:
-    - $ref: '#/definitions/KalturaPurchaseBase'
-    properties:
-      paymentGatewayName:
-        description: 'The payment gateway name for the In-App billing service to be used. Possible values: Google/Apple'
-        type: string
-      receiptId:
-        description: A unique identifier that was provided by the In-App billing service to validate the purchase
-        type: string
-    title: KalturaExternalReceipt
-    type: object
-  KalturaTransaction:
-    properties:
-      createdAt:
-        description: Entitlement creation date
-        type: integer
-      failReasonCode:
-        description: "Adapter failure reason code\r\n            Insufficient funds = 20, Invalid account = 21, User unknown = 22, Reason unknown = 23, Unknown payment gateway response = 24,\r\n            No response from payment gateway = 25, Exceeded retry limit = 26, Illegal client request = 27, Expired = 28"
-        type: integer
-      id:
-        description: Kaltura unique ID representing the transaction
-        type: string
-      paymentGatewayReferenceId:
-        description: "Transaction reference ID received from the payment gateway. \r\n            Value is available only if the payment gateway provides this information."
-        type: string
-      paymentGatewayResponseId:
-        description: "Response ID received from by the payment gateway. \r\n            Value is available only if the payment gateway provides this information."
-        type: string
-      state:
-        description: 'Transaction state: OK/Pending/Failed'
-        type: string
-    title: KalturaTransaction
-    type: object
-  KalturaPurchaseSession:
-    allOf:
-    - $ref: '#/definitions/KalturaPurchase'
-    properties:
-      previewModuleId:
-        description: Preview module identifier (relevant only for subscription)
-        type: integer
-    title: KalturaPurchaseSession
-    type: object
-  KalturaPurchaseBase:
-    properties:
-      contentId:
-        description: Identifier for the content to purchase. Relevant only if Product type = PPV
-        type: integer
-      productId:
-        description: Identifier for the package from which this content is offered
-        type: integer
-      productType:
-        description: 'Enum Type: `KalturaTransactionType`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                externalReceipt:
+                  $ref: '#/components/schemas/KalturaExternalReceipt'
+              type: object
+      summary: Transaction validate receipt
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaExternalReceipt:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPurchaseBase'
+      properties:
+        paymentGatewayName:
+          description: 'The payment gateway name for the In-App billing service to be used. Possible values: Google/Apple'
+          type: string
+        receiptId:
+          description: A unique identifier that was provided by the In-App billing service to validate the purchase
+          type: string
+      title: KalturaExternalReceipt
+      type: object
+    KalturaPurchaseBase:
+      properties:
+        contentId:
+          description: Identifier for the content to purchase. Relevant only if Product type = PPV
+          type: integer
+        productId:
+          description: Identifier for the package from which this content is offered
+          type: integer
+        productType:
+          description: 'Enum Type: `KalturaTransactionType`
 
 
-          Package type. Possible values: PPV, Subscription, Collection'
-        enum:
-        - ppv
-        - subscription
-        - collection
-        type: string
-        x-enumLabels:
-        - PPV
-        - SUBSCRIPTION
-        - COLLECTION
-        x-enumType: KalturaTransactionType
-    title: KalturaPurchaseBase
-    type: object
-  KalturaTransactionStatus:
-    properties:
-      adapterTransactionStatus:
-        description: 'Enum Type: `KalturaTransactionAdapterStatus`
+            Package type. Possible values: PPV, Subscription, Collection'
+          enum:
+          - ppv
+          - subscription
+          - collection
+          type: string
+          x-enumLabels:
+          - PPV
+          - SUBSCRIPTION
+          - COLLECTION
+          x-enumType: KalturaTransactionType
+      title: KalturaPurchaseBase
+      type: object
+    KalturaTransaction:
+      properties:
+        createdAt:
+          description: Entitlement creation date
+          type: integer
+        failReasonCode:
+          description: "Adapter failure reason code\n            Insufficient funds = 20, Invalid account = 21, User unknown = 22, Reason unknown = 23, Unknown payment gateway response = 24,\n            No response from payment gateway = 25, Exceeded retry limit = 26, Illegal client request = 27, Expired = 28"
+          type: integer
+        id:
+          description: Kaltura unique ID representing the transaction
+          type: string
+        paymentGatewayReferenceId:
+          description: "Transaction reference ID received from the payment gateway. \n            Value is available only if the payment gateway provides this information."
+          type: string
+        paymentGatewayResponseId:
+          description: "Response ID received from by the payment gateway. \n            Value is available only if the payment gateway provides this information."
+          type: string
+        state:
+          description: 'Transaction state: OK/Pending/Failed'
+          type: string
+      title: KalturaTransaction
+      type: object
+    KalturaTransactionStatus:
+      properties:
+        adapterTransactionStatus:
+          description: 'Enum Type: `KalturaTransactionAdapterStatus`
 
 
-          Payment gateway adapter application state for the transaction to update'
-        enum:
-        - OK
-        - PENDING
-        - FAILED
-        type: string
-        x-enumLabels:
-        - OK
-        - PENDING
-        - FAILED
-        x-enumType: KalturaTransactionAdapterStatus
-      externalId:
-        description: External transaction identifier
-        type: string
-      externalMessage:
-        description: Payment gateway message
-        type: string
-      externalStatus:
-        description: Payment gateway transaction status
-        type: string
-      failReason:
-        description: The reason the transaction failed
-        type: integer
-    title: KalturaTransactionStatus
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Payment gateway adapter application state for the transaction to update'
+          enum:
+          - OK
+          - PENDING
+          - FAILED
+          type: string
+          x-enumLabels:
+          - OK
+          - PENDING
+          - FAILED
+          x-enumType: KalturaTransactionAdapterStatus
+        externalId:
+          description: External transaction identifier
+          type: string
+        externalMessage:
+          description: Payment gateway message
+          type: string
+        externalStatus:
+          description: Payment gateway transaction status
+          type: string
+        failReason:
+          description: The reason the transaction failed
+          type: integer
+      title: KalturaTransactionStatus
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaPurchaseSession:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPurchase'
+      properties:
+        previewModuleId:
+          description: Preview module identifier (relevant only for subscription)
+          type: integer
+      title: KalturaPurchaseSession
+      type: object
+    KalturaPurchase:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPurchaseBase'
+      properties:
+        adapterData:
+          description: Additional data for the adapter
+          type: string
+        coupon:
+          description: Coupon code
+          type: string
+        currency:
+          description: Identifier for paying currency, according to ISO 4217
+          type: string
+        paymentGatewayId:
+          description: Identifier for a pre-associated payment gateway. If not provided – the account’s default payment gateway is used
+          type: integer
+        paymentMethodId:
+          description: Identifier for a pre-entered payment method. If not provided – the household’s default payment method is used
+          type: integer
+        price:
+          description: Net sum to charge – as a one-time transaction. Price must match the previously provided price for the specified content.
+          type: number
+      title: KalturaPurchase
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

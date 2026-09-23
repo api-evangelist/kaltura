@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl paymentGatewayProfile API
+  title: Kaltura OTT Payment Gateway Profile API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Insert new payment gateway for partner
       operationId: paymentGatewayProfile.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            paymentGateway:
-              $ref: '#/definitions/KalturaPaymentGatewayProfile'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPaymentGatewayProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
         x-Errors:
           description: '* `NameRequired`: undefined
 
@@ -50,25 +40,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - paymentGateway
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                paymentGateway:
+                  $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
+              type: object
+      summary: Payment gateway profile add
+      x-summary-source: derived
   /service/paymentgatewayprofile/action/delete:
     post:
       description: Delete payment gateway by payment gateway id
       operationId: paymentGatewayProfile.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            paymentGatewayId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `PaymentGatewayNotExist`: undefined'
       tags:
@@ -76,25 +73,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - paymentGatewayId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                paymentGatewayId:
+                  type: integer
+              type: object
+      summary: Payment gateway profile delete
+      x-summary-source: derived
   /service/paymentgatewayprofile/action/generateSharedSecret:
     post:
       description: Generate payment gateway shared secret
       operationId: paymentGatewayProfile.generateSharedSecret
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            paymentGatewayId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPaymentGatewayProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
         x-Errors:
           description: '* `PaymentGatewayIdRequired`: undefined
 
@@ -104,29 +108,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - paymentGatewayId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                paymentGatewayId:
+                  type: integer
+              type: object
+      summary: Payment gateway profile generate shared secret
+      x-summary-source: derived
   /service/paymentgatewayprofile/action/getConfiguration:
     post:
       description: Gets the Payment Gateway Configuration for the payment gateway identifier given
       operationId: paymentGatewayProfile.getConfiguration
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            alias:
-              type: string
-            extraParameters:
-              type: array
-            intent:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPaymentGatewayConfiguration'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayConfiguration'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayConfiguration'
         x-Errors:
           description: '* `SignatureMismatch`: undefined
 
@@ -138,48 +145,64 @@ paths:
       - alias
       - intent
       - extraParameters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                alias:
+                  type: string
+                extraParameters:
+                  type: array
+                intent:
+                  type: string
+              type: object
+      summary: Payment gateway profile get configuration
+      x-summary-source: derived
   /service/paymentgatewayprofile/action/list:
     post:
       description: 'Returns all payment gateways for partner : id + name'
       operationId: paymentGatewayProfile.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPaymentGatewayProfileListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayProfileListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayProfileListResponse'
       tags:
       - paymentGatewayProfile
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Payment gateway profile list
+      x-summary-source: derived
   /service/paymentgatewayprofile/action/update:
     post:
       description: Update payment gateway details
       operationId: paymentGatewayProfile.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            paymentGateway:
-              $ref: '#/definitions/KalturaPaymentGatewayProfile'
-            paymentGatewayId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaPaymentGatewayProfile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
         x-Errors:
           description: '* `ExternalIdentifierRequired`: undefined
 
@@ -198,241 +221,257 @@ paths:
       x-kaltura-parameters:
       - paymentGatewayId
       - paymentGateway
-definitions:
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaLongValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of longs
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaLongValue
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaIntegerValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of ints
-    properties:
-      value:
-        description: Value
-        type: integer
-    title: KalturaIntegerValue
-    type: object
-  KalturaPaymentGatewayProfile:
-    allOf:
-    - $ref: '#/definitions/KalturaPaymentGatewayBaseProfile'
-    description: Payment gateway profile
-    properties:
-      adapterUrl:
-        description: Payment gateway adapter URL
-        type: string
-      externalIdentifier:
-        description: Payment gateway external identifier
-        type: string
-      externalVerification:
-        description: Payment gateway external verification
-        type: boolean
-      isActive:
-        description: Payment gateway is active status
-        type: integer
-      paymentGatewaySettings:
-        items:
-          $ref: '#/definitions/KalturaStringValue'
-        type: array
-      pendingInterval:
-        description: Pending Interval in minutes
-        type: integer
-      pendingRetries:
-        description: Pending Retries
-        type: integer
-      renewIntervalMinutes:
-        description: Renew Interval Minutes
-        type: integer
-      renewStartMinutes:
-        description: Renew Start Minutes
-        type: integer
-      renewUrl:
-        description: Payment gateway renew URL
-        type: string
-      sharedSecret:
-        description: Shared Secret
-        type: string
-      statusUrl:
-        description: Payment gateway status URL
-        type: string
-      transactUrl:
-        description: Payment gateway transact URL
-        type: string
-    title: KalturaPaymentGatewayProfile
-    type: object
-  KalturaDoubleValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of doubles
-    properties:
-      value:
-        description: Value
-        type: number
-    title: KalturaDoubleValue
-    type: object
-  KalturaMultilingualStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: Array of translated strings
-    properties:
-      multilingualValue:
-        items:
-          $ref: '#/definitions/KalturaTranslationToken'
-        type: array
-      value:
-        description: Value
-        type: string
-    title: KalturaMultilingualStringValue
-    type: object
-  KalturaKeyValue:
-    properties:
-      key:
-        description: Key
-        type: string
-      value:
-        description: Value
-        type: string
-    title: KalturaKeyValue
-    type: object
-  KalturaValue:
-    description: '`abstract`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                paymentGateway:
+                  $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
+                paymentGatewayId:
+                  type: integer
+              type: object
+      summary: Payment gateway profile update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaPaymentGatewayProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: PaymentGatewayProfile list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
+          type: array
+      title: KalturaPaymentGatewayProfileListResponse
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaPaymentGatewayProfile:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPaymentGatewayBaseProfile'
+      description: Payment gateway profile
+      properties:
+        adapterUrl:
+          description: Payment gateway adapter URL
+          type: string
+        externalIdentifier:
+          description: Payment gateway external identifier
+          type: string
+        externalVerification:
+          description: Payment gateway external verification
+          type: boolean
+        isActive:
+          description: Payment gateway is active status
+          type: integer
+        paymentGatewaySettings:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        pendingInterval:
+          description: Pending Interval in minutes
+          type: integer
+        pendingRetries:
+          description: Pending Retries
+          type: integer
+        renewIntervalMinutes:
+          description: Renew Interval Minutes
+          type: integer
+        renewStartMinutes:
+          description: Renew Start Minutes
+          type: integer
+        renewUrl:
+          description: Payment gateway renew URL
+          type: string
+        sharedSecret:
+          description: Shared Secret
+          type: string
+        statusUrl:
+          description: Payment gateway status URL
+          type: string
+        transactUrl:
+          description: Payment gateway transact URL
+          type: string
+      title: KalturaPaymentGatewayProfile
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    KalturaPaymentGatewayConfiguration:
+      properties:
+        paymentGatewayConfiguration:
+          items:
+            $ref: '#/components/schemas/KalturaKeyValue'
+          type: array
+      title: KalturaPaymentGatewayConfiguration
+      type: object
+    KalturaKeyValue:
+      properties:
+        key:
+          description: Key
+          type: string
+        value:
+          description: Value
+          type: string
+      title: KalturaKeyValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaValue:
+      description: '`abstract`
 
 
-      A representation to return an array of values'
-    discriminator: objectType
-    oneOf:
-    - $ref: '#/definitions/KalturaIntegerValue'
-    - $ref: '#/definitions/KalturaMultilingualStringValue'
-    - $ref: '#/definitions/KalturaLongValue'
-    - $ref: '#/definitions/KalturaDoubleValue'
-    - $ref: '#/definitions/KalturaBooleanValue'
-    - $ref: '#/definitions/KalturaStringValue'
-    properties:
-      description:
-        description: Description
-        type: string
-      objectType:
-        enum:
-        - KalturaIntegerValue
-        - KalturaMultilingualStringValue
-        - KalturaLongValue
-        - KalturaDoubleValue
-        - KalturaBooleanValue
-        - KalturaStringValue
-        type: string
-    title: KalturaValue
-    type: object
-  KalturaStringValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of strings
-    properties:
-      value:
-        description: Value
-        type: string
-    title: KalturaStringValue
-    type: object
-  KalturaPaymentGatewayConfiguration:
-    properties:
-      paymentGatewayConfiguration:
-        items:
-          $ref: '#/definitions/KalturaKeyValue'
-        type: array
-    title: KalturaPaymentGatewayConfiguration
-    type: object
-  KalturaTranslationToken:
-    description: Container for translation
-    properties:
-      language:
-        description: Language code
-        type: string
-      value:
-        description: Translated value
-        type: string
-    title: KalturaTranslationToken
-    type: object
-  KalturaBooleanValue:
-    allOf:
-    - $ref: '#/definitions/KalturaValue'
-    description: A string representation to return an array of booleans
-    properties:
-      value:
-        description: Value
-        type: boolean
-    title: KalturaBooleanValue
-    type: object
-  KalturaPaymentGatewayProfileListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: PaymentGatewayProfile list
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaPaymentGatewayProfile'
-        type: array
-    title: KalturaPaymentGatewayProfileListResponse
-    type: object
-  KalturaPaymentGatewayBaseProfile:
-    description: Payment gateway base profile
-    properties:
-      id:
-        description: '`readOnly`
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaPaymentGatewayBaseProfile:
+      description: Payment gateway base profile
+      properties:
+        id:
+          description: '`readOnly`
 
 
-          payment gateway id'
-        readOnly: true
-        type: integer
-      isDefault:
-        description: Payment gateway default (true/false)
-        type: boolean
-      name:
-        description: payment gateway name
-        type: string
-      selectedBy:
-        description: 'Enum Type: `KalturaHouseholdPaymentGatewaySelectedBy`
+            payment gateway id'
+          readOnly: true
+          type: integer
+        isDefault:
+          description: Payment gateway default (true/false)
+          type: boolean
+        name:
+          description: payment gateway name
+          type: string
+        selectedBy:
+          description: 'Enum Type: `KalturaHouseholdPaymentGatewaySelectedBy`
 
 
-          distinction payment gateway selected by account or household'
-        enum:
-        - none
-        - account
-        - household
-        type: string
-        x-enumLabels:
-        - NONE
-        - ACCOUNT
-        - HOUSEHOLD
-        x-enumType: KalturaHouseholdPaymentGatewaySelectedBy
-    title: KalturaPaymentGatewayBaseProfile
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            distinction payment gateway selected by account or household'
+          enum:
+          - none
+          - account
+          - household
+          type: string
+          x-enumLabels:
+          - NONE
+          - ACCOUNT
+          - HOUSEHOLD
+          x-enumType: KalturaHouseholdPaymentGatewaySelectedBy
+      title: KalturaPaymentGatewayBaseProfile
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

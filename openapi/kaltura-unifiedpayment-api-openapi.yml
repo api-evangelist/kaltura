@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl unifiedPayment API
+  title: Kaltura OTT Unified Payment API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,87 +15,95 @@ paths:
     post:
       description: Returns the data about the next renewal
       operationId: unifiedPayment.getNextRenewal
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaUnifiedPaymentRenewal'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaUnifiedPaymentRenewal'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaUnifiedPaymentRenewal'
       tags:
       - unifiedPayment
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
-definitions:
-  KalturaEntitlementRenewalBase:
-    properties:
-      price:
-        description: Price that is going to be paid on the renewal
-        type: number
-      purchaseId:
-        description: Puchase ID
-        type: integer
-      subscriptionId:
-        description: Subscription ID
-        type: integer
-    title: KalturaEntitlementRenewalBase
-    type: object
-  KalturaUnifiedPaymentRenewal:
-    properties:
-      date:
-        description: Next renewal date
-        type: integer
-      entitlements:
-        items:
-          $ref: '#/definitions/KalturaEntitlementRenewalBase'
-        type: array
-      price:
-        $ref: '#/definitions/KalturaPrice'
-      unifiedPaymentId:
-        description: Unified payment ID
-        type: integer
-    title: KalturaUnifiedPaymentRenewal
-    type: object
-  KalturaPrice:
-    description: Price
-    properties:
-      amount:
-        description: Price
-        type: number
-      countryId:
-        description: Country ID
-        type: integer
-      currency:
-        description: Currency
-        type: string
-      currencySign:
-        description: Currency Sign
-        type: string
-    title: KalturaPrice
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Unified payment get next renewal
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaUnifiedPaymentRenewal:
+      properties:
+        date:
+          description: Next renewal date
+          type: integer
+        entitlements:
+          items:
+            $ref: '#/components/schemas/KalturaEntitlementRenewalBase'
+          type: array
+        price:
+          $ref: '#/components/schemas/KalturaPrice'
+        unifiedPaymentId:
+          description: Unified payment ID
+          type: integer
+      title: KalturaUnifiedPaymentRenewal
+      type: object
+    KalturaEntitlementRenewalBase:
+      properties:
+        price:
+          description: Price that is going to be paid on the renewal
+          type: number
+        purchaseId:
+          description: Puchase ID
+          type: integer
+        subscriptionId:
+          description: Subscription ID
+          type: integer
+      title: KalturaEntitlementRenewalBase
+      type: object
+    KalturaPrice:
+      description: Price
+      properties:
+        amount:
+          description: Price
+          type: number
+        countryId:
+          description: Country ID
+          type: integer
+        currency:
+          description: Currency
+          type: string
+        currencySign:
+          description: Currency Sign
+          type: string
+      title: KalturaPrice
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

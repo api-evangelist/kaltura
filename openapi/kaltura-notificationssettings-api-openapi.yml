@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl notificationsSettings API
+  title: Kaltura OTT Notifications Settings API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,70 +15,75 @@ paths:
     post:
       description: Retrieve the user’s notification settings.
       operationId: notificationsSettings.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaNotificationsSettings'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaNotificationsSettings'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaNotificationsSettings'
       tags:
       - notificationsSettings
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Notifications settings get
+      x-summary-source: derived
   /service/notificationssettings/action/update:
     post:
       description: Update the user’s notification settings.
       operationId: notificationsSettings.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            settings:
-              $ref: '#/definitions/KalturaNotificationsSettings'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
       tags:
       - notificationsSettings
       x-kaltura-format: post
       x-kaltura-parameters:
       - settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                settings:
+                  $ref: '#/components/schemas/KalturaNotificationsSettings'
+              type: object
+      summary: Notifications settings update
+      x-summary-source: derived
   /service/notificationssettings/action/updateWithToken:
     post:
       description: Update the user’s notification settings.
       operationId: notificationsSettings.updateWithToken
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            partnerId:
-              type: integer
-            settings:
-              $ref: '#/definitions/KalturaNotificationsSettings'
-            token:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: ''
       tags:
@@ -93,37 +93,54 @@ paths:
       - settings
       - token
       - partnerId
-definitions:
-  KalturaNotificationsSettings:
-    properties:
-      mailEnabled:
-        description: Specify if the user wants to receive mail notifications or not
-        type: boolean
-      pushFollowEnabled:
-        description: Specify if the user will be notified for followed content via push. (requires push_notification_enabled to be enabled)
-        type: boolean
-      pushNotificationEnabled:
-        description: Specify if the user want to receive push notifications or not
-        type: boolean
-      smsEnabled:
-        description: Specify if the user wants to receive SMS notifications or not
-        type: boolean
-    title: KalturaNotificationsSettings
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                partnerId:
+                  type: integer
+                settings:
+                  $ref: '#/components/schemas/KalturaNotificationsSettings'
+                token:
+                  type: string
+              type: object
+      summary: Notifications settings update with token
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaNotificationsSettings:
+      properties:
+        mailEnabled:
+          description: Specify if the user wants to receive mail notifications or not
+          type: boolean
+        pushFollowEnabled:
+          description: Specify if the user will be notified for followed content via push. (requires push_notification_enabled to be enabled)
+          type: boolean
+        pushNotificationEnabled:
+          description: Specify if the user want to receive push notifications or not
+          type: boolean
+        smsEnabled:
+          description: Specify if the user wants to receive SMS notifications or not
+          type: boolean
+      title: KalturaNotificationsSettings
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

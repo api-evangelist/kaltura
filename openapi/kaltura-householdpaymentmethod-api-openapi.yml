@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl householdPaymentMethod API
+  title: Kaltura OTT Household Payment Method API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Add a new payment method for household
       operationId: householdPaymentMethod.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            householdPaymentMethod:
-              $ref: '#/definitions/KalturaHouseholdPaymentMethod'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHouseholdPaymentMethod'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHouseholdPaymentMethod'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHouseholdPaymentMethod'
         x-Errors:
           description: '* `PaymentMethodNotSetForHousehold`: undefined
 
@@ -50,27 +40,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - householdPaymentMethod
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                householdPaymentMethod:
+                  $ref: '#/components/schemas/KalturaHouseholdPaymentMethod'
+              type: object
+      summary: Household payment method add
+      x-summary-source: derived
   /service/householdpaymentmethod/action/forceRemove:
     post:
       description: Force remove of a payment method of the household.
       operationId: householdPaymentMethod.forceRemove
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            paymentGatewayId:
-              type: integer
-            paymentMethodId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `PaymentGatewayNotSetForHousehold`: undefined
 
@@ -83,50 +78,64 @@ paths:
       x-kaltura-parameters:
       - paymentGatewayId
       - paymentMethodId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                paymentGatewayId:
+                  type: integer
+                paymentMethodId:
+                  type: integer
+              type: object
+      summary: Household payment method force remove
+      x-summary-source: derived
   /service/householdpaymentmethod/action/list:
     post:
       description: Get a list of all payment methods of the household.
       operationId: householdPaymentMethod.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHouseholdPaymentMethodListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHouseholdPaymentMethodListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHouseholdPaymentMethodListResponse'
         x-Errors:
           description: '* `UserSuspended`: undefined'
       tags:
       - householdPaymentMethod
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Household payment method list
+      x-summary-source: derived
   /service/householdpaymentmethod/action/remove:
     post:
       description: Removes a payment method of the household.
       operationId: householdPaymentMethod.remove
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            paymentGatewayId:
-              type: integer
-            paymentMethodId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `PaymentMethodNotSetForHousehold`: undefined
 
@@ -141,27 +150,34 @@ paths:
       x-kaltura-parameters:
       - paymentGatewayId
       - paymentMethodId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                paymentGatewayId:
+                  type: integer
+                paymentMethodId:
+                  type: integer
+              type: object
+      summary: Household payment method remove
+      x-summary-source: derived
   /service/householdpaymentmethod/action/setAsDefault:
     post:
       description: Set a payment method as default for the household.
       operationId: householdPaymentMethod.setAsDefault
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            paymentGatewayId:
-              type: integer
-            paymentMethodId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `PaymentGatewayNotSetForHousehold`: undefined
 
@@ -178,73 +194,88 @@ paths:
       x-kaltura-parameters:
       - paymentGatewayId
       - paymentMethodId
-definitions:
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaHouseholdPaymentMethodListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: List of household payment methods.
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaHouseholdPaymentMethod'
-        type: array
-    title: KalturaHouseholdPaymentMethodListResponse
-    type: object
-  KalturaHouseholdPaymentMethod:
-    properties:
-      details:
-        description: Description of the payment method details
-        type: string
-      externalId:
-        description: '`insertOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                paymentGatewayId:
+                  type: integer
+                paymentMethodId:
+                  type: integer
+              type: object
+      summary: Household payment method set as default
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+    KalturaHouseholdPaymentMethodListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of household payment methods.
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaHouseholdPaymentMethod'
+          type: array
+      title: KalturaHouseholdPaymentMethodListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaHouseholdPaymentMethod:
+      properties:
+        details:
+          description: Description of the payment method details
+          type: string
+        externalId:
+          description: '`insertOnly`
 
 
-          External identifier for the household payment method'
-        type: string
-      id:
-        description: '`readOnly`
+            External identifier for the household payment method'
+          type: string
+        id:
+          description: '`readOnly`
 
 
-          Household payment method identifier (internal)'
-        readOnly: true
-        type: integer
-      isDefault:
-        description: '`readOnly`
+            Household payment method identifier (internal)'
+          readOnly: true
+          type: integer
+        isDefault:
+          description: '`readOnly`
 
 
-          indicates whether the payment method is set as default for the household'
-        readOnly: true
-        type: boolean
-      paymentGatewayId:
-        description: Payment-gateway identifier
-        type: integer
-      paymentMethodProfileId:
-        description: Payment method profile identifier
-        type: integer
-    title: KalturaHouseholdPaymentMethod
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            indicates whether the payment method is set as default for the household'
+          readOnly: true
+          type: boolean
+        paymentGatewayId:
+          description: Payment-gateway identifier
+          type: integer
+        paymentMethodProfileId:
+          description: Payment method profile identifier
+          type: integer
+      title: KalturaHouseholdPaymentMethod
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

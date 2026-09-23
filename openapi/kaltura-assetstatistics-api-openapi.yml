@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl assetStatistics API
+  title: Kaltura OTT Asset Statistics API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,124 +15,132 @@ paths:
     post:
       description: Returns statistics for given list of assets by type and / or time period
       operationId: assetStatistics.query
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            query:
-              $ref: '#/definitions/KalturaAssetStatisticsQuery'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaAssetStatisticsListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaAssetStatisticsListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaAssetStatisticsListResponse'
       tags:
       - assetStatistics
       x-kaltura-format: post
       x-kaltura-parameters:
       - query
-definitions:
-  KalturaAssetStatisticsListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: List of assets statistics
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaAssetStatistics'
-        type: array
-    title: KalturaAssetStatisticsListResponse
-    type: object
-  KalturaAssetStatistics:
-    description: Asset statistics
-    properties:
-      assetId:
-        description: Unique identifier for the asset
-        type: integer
-      buzzScore:
-        $ref: '#/definitions/KalturaBuzzScore'
-      likes:
-        description: Total number of likes for this asset
-        type: integer
-      rating:
-        description: Average rating for the asset
-        type: number
-      ratingCount:
-        description: Number of people that rated the asset
-        type: integer
-      views:
-        description: Total number of views for this asset
-        type: integer
-    title: KalturaAssetStatistics
-    type: object
-  KalturaBuzzScore:
-    description: Buzz score
-    properties:
-      avgScore:
-        description: Average score
-        type: number
-      normalizedAvgScore:
-        description: Normalized average score
-        type: number
-      updateDate:
-        description: Update date
-        type: integer
-    title: KalturaBuzzScore
-    type: object
-  KalturaAssetStatisticsQuery:
-    properties:
-      assetIdIn:
-        description: Comma separated list of asset identifiers.
-        type: string
-      assetTypeEqual:
-        description: 'Enum Type: `KalturaAssetType`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                query:
+                  $ref: '#/components/schemas/KalturaAssetStatisticsQuery'
+              type: object
+      summary: Asset statistics query
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaAssetStatisticsQuery:
+      properties:
+        assetIdIn:
+          description: Comma separated list of asset identifiers.
+          type: string
+        assetTypeEqual:
+          description: 'Enum Type: `KalturaAssetType`
 
 
-          Asset type'
-        enum:
-        - media
-        - recording
-        - epg
-        type: string
-        x-enumLabels:
-        - MEDIA
-        - RECORDING
-        - EPG
-        x-enumType: KalturaAssetType
-      endDateGreaterThanOrEqual:
-        description: /// The end of the time window to get the statistics for (in epoch).
-        type: integer
-      startDateGreaterThanOrEqual:
-        description: The beginning of the time window to get the statistics for (in epoch).
-        type: integer
-    title: KalturaAssetStatisticsQuery
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Asset type'
+          enum:
+          - media
+          - recording
+          - epg
+          type: string
+          x-enumLabels:
+          - MEDIA
+          - RECORDING
+          - EPG
+          x-enumType: KalturaAssetType
+        endDateGreaterThanOrEqual:
+          description: /// The end of the time window to get the statistics for (in epoch).
+          type: integer
+        startDateGreaterThanOrEqual:
+          description: The beginning of the time window to get the statistics for (in epoch).
+          type: integer
+      title: KalturaAssetStatisticsQuery
+      type: object
+    KalturaBuzzScore:
+      description: Buzz score
+      properties:
+        avgScore:
+          description: Average score
+          type: number
+        normalizedAvgScore:
+          description: Normalized average score
+          type: number
+        updateDate:
+          description: Update date
+          type: integer
+      title: KalturaBuzzScore
+      type: object
+    KalturaAssetStatisticsListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of assets statistics
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaAssetStatistics'
+          type: array
+      title: KalturaAssetStatisticsListResponse
+      type: object
+    KalturaAssetStatistics:
+      description: Asset statistics
+      properties:
+        assetId:
+          description: Unique identifier for the asset
+          type: integer
+        buzzScore:
+          $ref: '#/components/schemas/KalturaBuzzScore'
+        likes:
+          description: Total number of likes for this asset
+          type: integer
+        rating:
+          description: Average rating for the asset
+          type: number
+        ratingCount:
+          description: Number of people that rated the asset
+          type: integer
+        views:
+          description: Total number of views for this asset
+          type: integer
+      title: KalturaAssetStatistics
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

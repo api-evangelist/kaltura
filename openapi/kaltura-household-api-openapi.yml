@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl household API
+  title: Kaltura OTT Household API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Creates a household for the user
       operationId: household.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            household:
-              $ref: '#/definitions/KalturaHousehold'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHousehold'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHousehold'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHousehold'
         x-Errors:
           description: '* `DomainNotExists`: undefined
 
@@ -44,25 +34,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - household
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                household:
+                  $ref: '#/components/schemas/KalturaHousehold'
+              type: object
+      summary: Household add
+      x-summary-source: derived
   /service/household/action/delete:
     post:
       description: Fully delete a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
       operationId: household.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `DomainNotExists`: undefined'
       tags:
@@ -70,25 +67,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Household delete
+      x-summary-source: derived
   /service/household/action/get:
     post:
       description: Returns the household model
       operationId: household.get
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHousehold'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHousehold'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHousehold'
         x-Errors:
           description: '* `HouseholdUserFailed`: undefined
 
@@ -98,25 +102,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Household get
+      x-summary-source: derived
   /service/household/action/purge:
     post:
       description: Purge a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
       operationId: household.purge
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            id:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `DomainNotExists`: undefined'
       tags:
@@ -124,79 +135,100 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                id:
+                  type: integer
+              type: object
+      summary: Household purge
+      x-summary-source: derived
   /service/household/action/resetFrequency:
     post:
       description: Reset a household’s time limitation for removing user or device
       operationId: household.resetFrequency
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            frequencyType:
-              enum:
-              - devices
-              - users
-              type: string
-              x-enumLabels:
-              - DEVICES
-              - USERS
-              x-enumType: KalturaHouseholdFrequencyType
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHousehold'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHousehold'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHousehold'
       tags:
       - household
       x-kaltura-format: post
       x-kaltura-parameters:
       - frequencyType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                frequencyType:
+                  enum:
+                  - devices
+                  - users
+                  type: string
+                  x-enumLabels:
+                  - DEVICES
+                  - USERS
+                  x-enumType: KalturaHouseholdFrequencyType
+              type: object
+      summary: Household reset frequency
+      x-summary-source: derived
   /service/household/action/resume:
     post:
       description: Resumed a given household service to its previous service settings
       operationId: household.resume
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `DomainAlreadyActive`: undefined'
       tags:
       - household
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Household resume
+      x-summary-source: derived
   /service/household/action/suspend:
     post:
-      description: Suspend a given household service. Sets the household status to “suspended&quot;.The household service settings are maintained for later resume
+      description: Suspend a given household service. Sets the household status to “suspended".The household service settings are maintained for later resume
       operationId: household.suspend
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            roleId:
-              type: integer
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `DomainAlreadySuspended`: undefined'
       tags:
@@ -204,176 +236,196 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - roleId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                roleId:
+                  type: integer
+              type: object
+      summary: Household suspend
+      x-summary-source: derived
   /service/household/action/update:
     post:
       description: Update the household name and description
       operationId: household.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            household:
-              $ref: '#/definitions/KalturaHousehold'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHousehold'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHousehold'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHousehold'
       tags:
       - household
       x-kaltura-format: post
       x-kaltura-parameters:
       - household
-definitions:
-  KalturaHousehold:
-    description: Household details
-    properties:
-      concurrentLimit:
-        description: '`readOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                household:
+                  $ref: '#/components/schemas/KalturaHousehold'
+              type: object
+      summary: Household update
+      x-summary-source: derived
+components:
+  schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaHousehold:
+      description: Household details
+      properties:
+        concurrentLimit:
+          description: '`readOnly`
 
 
-          The max number of concurrent streams in the household'
-        readOnly: true
-        type: integer
-      description:
-        description: Household description
-        type: string
-      devicesLimit:
-        description: '`readOnly`
+            The max number of concurrent streams in the household'
+          readOnly: true
+          type: integer
+        description:
+          description: Household description
+          type: string
+        devicesLimit:
+          description: '`readOnly`
 
 
-          The max number of the devices that can be added to the household'
-        readOnly: true
-        type: integer
-      externalId:
-        description: '`insertOnly`
+            The max number of the devices that can be added to the household'
+          readOnly: true
+          type: integer
+        externalId:
+          description: '`insertOnly`
 
 
-          Household external identifier'
-        type: string
-      frequencyNextDeviceAction:
-        description: '`readOnly`
+            Household external identifier'
+          type: string
+        frequencyNextDeviceAction:
+          description: '`readOnly`
 
 
-          The next time a device is allowed to be removed from the household (epoch)'
-        readOnly: true
-        type: integer
-      frequencyNextUserAction:
-        description: '`readOnly`
+            The next time a device is allowed to be removed from the household (epoch)'
+          readOnly: true
+          type: integer
+        frequencyNextUserAction:
+          description: '`readOnly`
 
 
-          The next time a user is allowed to be removed from the household (epoch)'
-        readOnly: true
-        type: integer
-      householdLimitationsId:
-        description: '`readOnly`
+            The next time a user is allowed to be removed from the household (epoch)'
+          readOnly: true
+          type: integer
+        householdLimitationsId:
+          description: '`readOnly`
 
 
-          Household limitation module identifier'
-        readOnly: true
-        type: integer
-      id:
-        description: '`readOnly`
+            Household limitation module identifier'
+          readOnly: true
+          type: integer
+        id:
+          description: '`readOnly`
 
 
-          Household identifier'
-        readOnly: true
-        type: integer
-      isFrequencyEnabled:
-        description: '`readOnly`
+            Household identifier'
+          readOnly: true
+          type: integer
+        isFrequencyEnabled:
+          description: '`readOnly`
 
 
-          Is household frequency enabled'
-        readOnly: true
-        type: boolean
-      name:
-        description: Household name
-        type: string
-      regionId:
-        description: '`readOnly`
+            Is household frequency enabled'
+          readOnly: true
+          type: boolean
+        name:
+          description: Household name
+          type: string
+        regionId:
+          description: '`readOnly`
 
 
-          The households region identifier'
-        readOnly: true
-        type: integer
-      restriction:
-        description: '`readOnly`
+            The households region identifier'
+          readOnly: true
+          type: integer
+        restriction:
+          description: '`readOnly`
 
 
-          Enum Type: `KalturaHouseholdRestriction`
+            Enum Type: `KalturaHouseholdRestriction`
 
 
-          Household restriction'
-        enum:
-        - not_restricted
-        - user_master_restricted
-        - device_master_restricted
-        - device_user_master_restricted
-        readOnly: true
-        type: string
-        x-enumLabels:
-        - NOT_RESTRICTED
-        - USER_MASTER_RESTRICTED
-        - DEVICE_MASTER_RESTRICTED
-        - DEVICE_USER_MASTER_RESTRICTED
-        x-enumType: KalturaHouseholdRestriction
-      roleId:
-        description: '`readOnly`
+            Household restriction'
+          enum:
+          - not_restricted
+          - user_master_restricted
+          - device_master_restricted
+          - device_user_master_restricted
+          readOnly: true
+          type: string
+          x-enumLabels:
+          - NOT_RESTRICTED
+          - USER_MASTER_RESTRICTED
+          - DEVICE_MASTER_RESTRICTED
+          - DEVICE_USER_MASTER_RESTRICTED
+          x-enumType: KalturaHouseholdRestriction
+        roleId:
+          description: '`readOnly`
 
 
-          suspended roleId'
-        readOnly: true
-        type: integer
-      state:
-        description: '`readOnly`
+            suspended roleId'
+          readOnly: true
+          type: integer
+        state:
+          description: '`readOnly`
 
 
-          Enum Type: `KalturaHouseholdState`
+            Enum Type: `KalturaHouseholdState`
 
 
-          Household state'
-        enum:
-        - ok
-        - created_without_npvr_account
-        - suspended
-        - no_users_in_household
-        - pending
-        readOnly: true
-        type: string
-        x-enumLabels:
-        - OK
-        - CREATED_WITHOUT_NPVR_ACCOUNT
-        - SUSPENDED
-        - NO_USERS_IN_HOUSEHOLD
-        - PENDING
-        x-enumType: KalturaHouseholdState
-      usersLimit:
-        description: '`readOnly`
+            Household state'
+          enum:
+          - ok
+          - created_without_npvr_account
+          - suspended
+          - no_users_in_household
+          - pending
+          readOnly: true
+          type: string
+          x-enumLabels:
+          - OK
+          - CREATED_WITHOUT_NPVR_ACCOUNT
+          - SUSPENDED
+          - NO_USERS_IN_HOUSEHOLD
+          - PENDING
+          x-enumType: KalturaHouseholdState
+        usersLimit:
+          description: '`readOnly`
 
 
-          The max number of the users that can be added to the household'
-        readOnly: true
-        type: integer
-    title: KalturaHousehold
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            The max number of the users that can be added to the household'
+          readOnly: true
+          type: integer
+      title: KalturaHousehold
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:

@@ -1,16 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The Kaltura OTT API
-  title: Kaltura OTT accessControl homeNetwork API
+  title: Kaltura OTT Home Network API
   version: 3.6.287.20720
-host: tvpapi-us-preprod.ott.kaltura.com
-basePath: /api_v3
-schemes:
-- https
-- http
-produces:
-- application/json
-- text/xml
+servers:
+- url: https://tvpapi-us-preprod.ott.kaltura.com/api_v3
+- url: http://tvpapi-us-preprod.ott.kaltura.com/api_v3
 security:
 - ks: []
 tags:
@@ -20,21 +15,16 @@ paths:
     post:
       description: Add a new home network to a household
       operationId: homeNetwork.add
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            homeNetwork:
-              $ref: '#/definitions/KalturaHomeNetwork'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHomeNetwork'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHomeNetwork'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHomeNetwork'
         x-Errors:
           description: '* `ExternalIdentifierRequired`: undefined
 
@@ -46,25 +36,32 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - homeNetwork
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                homeNetwork:
+                  $ref: '#/components/schemas/KalturaHomeNetwork'
+              type: object
+      summary: Home network add
+      x-summary-source: derived
   /service/homenetwork/action/delete:
     post:
       description: Delete household’s existing home network
       operationId: homeNetwork.delete
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            externalId:
-              type: string
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            type: boolean
+          content:
+            application/json:
+              schema:
+                type: boolean
+            text/xml:
+              schema:
+                type: boolean
         x-Errors:
           description: '* `ExternalIdentifierRequired`: undefined
 
@@ -76,48 +73,60 @@ paths:
       x-kaltura-format: post
       x-kaltura-parameters:
       - externalId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                externalId:
+                  type: string
+              type: object
+      summary: Home network delete
+      x-summary-source: derived
   /service/homenetwork/action/list:
     post:
       description: Retrieve the household’s home networks
       operationId: homeNetwork.list
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties: {}
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHomeNetworkListResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHomeNetworkListResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHomeNetworkListResponse'
       tags:
       - homeNetwork
       x-kaltura-format: post
       x-kaltura-parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties: {}
+              type: object
+      summary: Home network list
+      x-summary-source: derived
   /service/homenetwork/action/update:
     post:
       description: Update and existing home network for a household
       operationId: homeNetwork.update
-      parameters:
-      - in: body
-        name: body
-        schema:
-          allOf:
-          - $ref: '#/definitions/OTTRequest'
-          properties:
-            externalId:
-              type: string
-            homeNetwork:
-              $ref: '#/definitions/KalturaHomeNetwork'
-          type: object
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/KalturaHomeNetwork'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalturaHomeNetwork'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KalturaHomeNetwork'
         x-Errors:
           description: '* `HomeNetworkDoesNotExist`: undefined
 
@@ -128,60 +137,75 @@ paths:
       x-kaltura-parameters:
       - externalId
       - homeNetwork
-definitions:
-  KalturaListResponse:
-    description: Base list wrapper
-    properties:
-      totalCount:
-        description: Total items
-        type: integer
-    title: KalturaListResponse
-    type: object
-  KalturaHomeNetworkListResponse:
-    allOf:
-    - $ref: '#/definitions/KalturaListResponse'
-    description: Home networks
-    properties:
-      objects:
-        items:
-          $ref: '#/definitions/KalturaHomeNetwork'
-        type: array
-    title: KalturaHomeNetworkListResponse
-    type: object
-  KalturaHomeNetwork:
-    description: Home network details
-    properties:
-      description:
-        description: Home network description
-        type: string
-      externalId:
-        description: '`insertOnly`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/OTTRequest'
+              properties:
+                externalId:
+                  type: string
+                homeNetwork:
+                  $ref: '#/components/schemas/KalturaHomeNetwork'
+              type: object
+      summary: Home network update
+      x-summary-source: derived
+components:
+  schemas:
+    KalturaHomeNetwork:
+      description: Home network details
+      properties:
+        description:
+          description: Home network description
+          type: string
+        externalId:
+          description: '`insertOnly`
 
 
-          Home network identifier'
-        type: string
-      isActive:
-        description: Is home network is active
-        type: boolean
-      name:
-        description: Home network name
-        type: string
-    title: KalturaHomeNetwork
-    type: object
-  OTTRequest:
-    properties:
-      ks:
-        type: string
-      version:
-        default: 3.6.287.20720
-        type: string
-    type: object
-securityDefinitions:
-  ks:
-    description: A Kaltura session ID
-    in: body
-    name: ks
-    type: apiKey
+            Home network identifier'
+          type: string
+        isActive:
+          description: Is home network is active
+          type: boolean
+        name:
+          description: Home network name
+          type: string
+      title: KalturaHomeNetwork
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaHomeNetworkListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Home networks
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaHomeNetwork'
+          type: array
+      title: KalturaHomeNetworkListResponse
+      type: object
+  securitySchemes:
+    ks:
+      description: A Kaltura session ID
+      in: body
+      name: ks
+      type: apiKey
 x-enums:
   KalturaAdsPolicy:
     oneOf:
