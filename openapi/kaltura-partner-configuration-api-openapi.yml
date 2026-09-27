@@ -60,14 +60,6 @@ components:
           type: string
       title: KalturaPartnerConfiguration
       type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaBillingPartnerConfig:
       allOf:
       - $ref: '#/components/schemas/KalturaPartnerConfiguration'
@@ -92,6 +84,14 @@ components:
           description: configuration value
           type: string
       title: KalturaBillingPartnerConfig
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
   securitySchemes:
     ks:

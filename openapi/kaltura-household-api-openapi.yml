@@ -281,14 +281,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaHousehold:
       description: Household details
       properties:
@@ -419,6 +411,14 @@ components:
           readOnly: true
           type: integer
       title: KalturaHousehold
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
   securitySchemes:
     ks:

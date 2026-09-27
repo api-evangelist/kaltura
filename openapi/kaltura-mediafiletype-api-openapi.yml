@@ -145,25 +145,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaMediaFileTypeListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: Media-file types list
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaMediaFileType'
-          type: array
-      title: KalturaMediaFileTypeListResponse
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaMediaFileType:
       description: Media-file type
       properties:
@@ -263,6 +244,25 @@ components:
           description: Total items
           type: integer
       title: KalturaListResponse
+      type: object
+    KalturaMediaFileTypeListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Media-file types list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaMediaFileType'
+          type: array
+      title: KalturaMediaFileTypeListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
   securitySchemes:
     ks:

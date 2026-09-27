@@ -148,14 +148,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaUserAssetsListItem:
       description: An item of user asset list
       properties:
@@ -203,6 +195,14 @@ components:
           readOnly: true
           type: string
       title: KalturaUserAssetsListItem
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
   securitySchemes:
     ks:

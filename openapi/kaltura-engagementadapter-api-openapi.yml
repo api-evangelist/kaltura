@@ -213,31 +213,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
-      properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
-      type: object
-    KalturaEngagementAdapterBase:
-      description: Engagement adapter basic
-      properties:
-        id:
-          description: '`readOnly`
-
-
-            Engagement adapter id'
-          readOnly: true
-          type: integer
-        name:
-          description: Engagement adapter name
-          type: string
-      title: KalturaEngagementAdapterBase
-      type: object
     KalturaMultilingualStringValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
@@ -252,26 +227,40 @@ components:
           type: string
       title: KalturaMultilingualStringValue
       type: object
-    KalturaEngagementAdapterListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: Engagement adapter list
+    OTTRequest:
       properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaEngagementAdapter'
-          type: array
-      title: KalturaEngagementAdapterListResponse
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
-    KalturaDoubleValue:
+    KalturaEngagementAdapter:
       allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of doubles
+      - $ref: '#/components/schemas/KalturaEngagementAdapterBase'
+      description: Engagement Adapter
       properties:
-        value:
-          description: Value
-          type: number
-      title: KalturaDoubleValue
+        adapterUrl:
+          description: Engagement adapter adapter URL
+          type: string
+        engagementAdapterSettings:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        isActive:
+          description: Engagement adapter active status
+          type: boolean
+        providerUrl:
+          description: Engagement provider adapter URL
+          type: string
+        sharedSecret:
+          description: '`readOnly`
+
+
+            Shared Secret'
+          readOnly: true
+          type: string
+      title: KalturaEngagementAdapter
       type: object
     KalturaIntegerValue:
       allOf:
@@ -282,24 +271,6 @@ components:
           description: Value
           type: integer
       title: KalturaIntegerValue
-      type: object
-    KalturaStringValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of strings
-      properties:
-        value:
-          description: Value
-          type: string
-      title: KalturaStringValue
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
     KalturaValue:
       description: '`abstract`
@@ -330,13 +301,30 @@ components:
           type: string
       title: KalturaValue
       type: object
-    KalturaListResponse:
-      description: Base list wrapper
+    KalturaEngagementAdapterBase:
+      description: Engagement adapter basic
       properties:
-        totalCount:
-          description: Total items
+        id:
+          description: '`readOnly`
+
+
+            Engagement adapter id'
+          readOnly: true
           type: integer
-      title: KalturaListResponse
+        name:
+          description: Engagement adapter name
+          type: string
+      title: KalturaEngagementAdapterBase
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
       type: object
     KalturaLongValue:
       allOf:
@@ -359,32 +347,44 @@ components:
           type: string
       title: KalturaTranslationToken
       type: object
-    KalturaEngagementAdapter:
+    KalturaBooleanValue:
       allOf:
-      - $ref: '#/components/schemas/KalturaEngagementAdapterBase'
-      description: Engagement Adapter
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
       properties:
-        adapterUrl:
-          description: Engagement adapter adapter URL
-          type: string
-        engagementAdapterSettings:
-          items:
-            $ref: '#/components/schemas/KalturaStringValue'
-          type: array
-        isActive:
-          description: Engagement adapter active status
+        value:
+          description: Value
           type: boolean
-        providerUrl:
-          description: Engagement provider adapter URL
-          type: string
-        sharedSecret:
-          description: '`readOnly`
-
-
-            Shared Secret'
-          readOnly: true
-          type: string
-      title: KalturaEngagementAdapter
+      title: KalturaBooleanValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+    KalturaEngagementAdapterListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Engagement adapter list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaEngagementAdapter'
+          type: array
+      title: KalturaEngagementAdapterListResponse
       type: object
   securitySchemes:
     ks:

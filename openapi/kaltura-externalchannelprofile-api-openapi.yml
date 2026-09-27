@@ -173,17 +173,6 @@ components:
           default: 3.6.287.20720
           type: string
       type: object
-    KalturaExternalChannelProfileListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: External channel profiles
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaExternalChannelProfile'
-          type: array
-      title: KalturaExternalChannelProfileListResponse
-      type: object
     KalturaChannelEnrichmentHolder:
       description: Holder object for channel enrichment enum
       properties:
@@ -252,6 +241,17 @@ components:
           description: Recommendation engine id
           type: integer
       title: KalturaExternalChannelProfile
+      type: object
+    KalturaExternalChannelProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: External channel profiles
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaExternalChannelProfile'
+          type: array
+      title: KalturaExternalChannelProfileListResponse
       type: object
     KalturaListResponse:
       description: Base list wrapper

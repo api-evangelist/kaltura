@@ -46,43 +46,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    OTTRequest:
+    KalturaTranslationToken:
+      description: Container for translation
       properties:
-        ks:
+        language:
+          description: Language code
           type: string
-        version:
-          default: 3.6.287.20720
+        value:
+          description: Translated value
           type: string
-      type: object
-    KalturaCoupon:
-      description: Coupon details container
-      properties:
-        couponsGroup:
-          $ref: '#/components/schemas/KalturaCouponsGroup'
-        status:
-          description: '`readOnly`
-
-
-            Enum Type: `KalturaCouponStatus`
-
-
-            Coupon status'
-          enum:
-          - VALID
-          - NOT_EXISTS
-          - ALREADY_USED
-          - EXPIRED
-          - INACTIVE
-          readOnly: true
-          type: string
-          x-enumLabels:
-          - VALID
-          - NOT_EXISTS
-          - ALREADY_USED
-          - EXPIRED
-          - INACTIVE
-          x-enumType: KalturaCouponStatus
-      title: KalturaCoupon
+      title: KalturaTranslationToken
       type: object
     KalturaCouponsGroup:
       description: Coupons group details
@@ -128,16 +101,43 @@ components:
           type: integer
       title: KalturaCouponsGroup
       type: object
-    KalturaTranslationToken:
-      description: Container for translation
+    KalturaCoupon:
+      description: Coupon details container
       properties:
-        language:
-          description: Language code
+        couponsGroup:
+          $ref: '#/components/schemas/KalturaCouponsGroup'
+        status:
+          description: '`readOnly`
+
+
+            Enum Type: `KalturaCouponStatus`
+
+
+            Coupon status'
+          enum:
+          - VALID
+          - NOT_EXISTS
+          - ALREADY_USED
+          - EXPIRED
+          - INACTIVE
+          readOnly: true
           type: string
-        value:
-          description: Translated value
+          x-enumLabels:
+          - VALID
+          - NOT_EXISTS
+          - ALREADY_USED
+          - EXPIRED
+          - INACTIVE
+          x-enumType: KalturaCouponStatus
+      title: KalturaCoupon
+      type: object
+    OTTRequest:
+      properties:
+        ks:
           type: string
-      title: KalturaTranslationToken
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
   securitySchemes:
     ks:

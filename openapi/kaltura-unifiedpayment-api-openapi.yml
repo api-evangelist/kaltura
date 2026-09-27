@@ -44,13 +44,35 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    OTTRequest:
+    KalturaPrice:
+      description: Price
       properties:
-        ks:
+        amount:
+          description: Price
+          type: number
+        countryId:
+          description: Country ID
+          type: integer
+        currency:
+          description: Currency
           type: string
-        version:
-          default: 3.6.287.20720
+        currencySign:
+          description: Currency Sign
           type: string
+      title: KalturaPrice
+      type: object
+    KalturaEntitlementRenewalBase:
+      properties:
+        price:
+          description: Price that is going to be paid on the renewal
+          type: number
+        purchaseId:
+          description: Puchase ID
+          type: integer
+        subscriptionId:
+          description: Subscription ID
+          type: integer
+      title: KalturaEntitlementRenewalBase
       type: object
     KalturaUnifiedPaymentRenewal:
       properties:
@@ -68,35 +90,13 @@ components:
           type: integer
       title: KalturaUnifiedPaymentRenewal
       type: object
-    KalturaEntitlementRenewalBase:
+    OTTRequest:
       properties:
-        price:
-          description: Price that is going to be paid on the renewal
-          type: number
-        purchaseId:
-          description: Puchase ID
-          type: integer
-        subscriptionId:
-          description: Subscription ID
-          type: integer
-      title: KalturaEntitlementRenewalBase
-      type: object
-    KalturaPrice:
-      description: Price
-      properties:
-        amount:
-          description: Price
-          type: number
-        countryId:
-          description: Country ID
-          type: integer
-        currency:
-          description: Currency
+        ks:
           type: string
-        currencySign:
-          description: Currency Sign
+        version:
+          default: 3.6.287.20720
           type: string
-      title: KalturaPrice
       type: object
   securitySchemes:
     ks:

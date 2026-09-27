@@ -181,14 +181,6 @@ components:
           type: integer
       title: KalturaListResponse
       type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaHomeNetworkListResponse:
       allOf:
       - $ref: '#/components/schemas/KalturaListResponse'
@@ -199,6 +191,14 @@ components:
             $ref: '#/components/schemas/KalturaHomeNetwork'
           type: array
       title: KalturaHomeNetworkListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
   securitySchemes:
     ks:

@@ -196,26 +196,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
-      properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
-      type: object
-    KalturaCDNAdapterProfileListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaCDNAdapterProfile'
-          type: array
-      title: KalturaCDNAdapterProfileListResponse
-      type: object
     KalturaMultilingualStringValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
@@ -230,25 +210,15 @@ components:
           type: string
       title: KalturaMultilingualStringValue
       type: object
-    KalturaDoubleValue:
+    KalturaCDNAdapterProfileListResponse:
       allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of doubles
+      - $ref: '#/components/schemas/KalturaListResponse'
       properties:
-        value:
-          description: Value
-          type: number
-      title: KalturaDoubleValue
-      type: object
-    KalturaIntegerValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of ints
-      properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaIntegerValue
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaCDNAdapterProfile'
+          type: array
+      title: KalturaCDNAdapterProfileListResponse
       type: object
     KalturaCDNAdapterProfile:
       description: CDN Adapter
@@ -288,16 +258,6 @@ components:
           type: string
       title: KalturaCDNAdapterProfile
       type: object
-    KalturaStringValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of strings
-      properties:
-        value:
-          description: Value
-          type: string
-      title: KalturaStringValue
-      type: object
     OTTRequest:
       properties:
         ks:
@@ -305,6 +265,16 @@ components:
         version:
           default: 3.6.287.20720
           type: string
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
       type: object
     KalturaValue:
       description: '`abstract`
@@ -335,6 +305,16 @@ components:
           type: string
       title: KalturaValue
       type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
     KalturaLongValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
@@ -355,6 +335,26 @@ components:
           description: Translated value
           type: string
       title: KalturaTranslationToken
+      type: object
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
       type: object
     KalturaListResponse:
       description: Base list wrapper

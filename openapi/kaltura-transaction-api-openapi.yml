@@ -385,31 +385,6 @@ components:
           type: string
       title: KalturaExternalReceipt
       type: object
-    KalturaPurchaseBase:
-      properties:
-        contentId:
-          description: Identifier for the content to purchase. Relevant only if Product type = PPV
-          type: integer
-        productId:
-          description: Identifier for the package from which this content is offered
-          type: integer
-        productType:
-          description: 'Enum Type: `KalturaTransactionType`
-
-
-            Package type. Possible values: PPV, Subscription, Collection'
-          enum:
-          - ppv
-          - subscription
-          - collection
-          type: string
-          x-enumLabels:
-          - PPV
-          - SUBSCRIPTION
-          - COLLECTION
-          x-enumType: KalturaTransactionType
-      title: KalturaPurchaseBase
-      type: object
     KalturaTransaction:
       properties:
         createdAt:
@@ -431,6 +406,14 @@ components:
           description: 'Transaction state: OK/Pending/Failed'
           type: string
       title: KalturaTransaction
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
     KalturaTransactionStatus:
       properties:
@@ -462,14 +445,6 @@ components:
           description: The reason the transaction failed
           type: integer
       title: KalturaTransactionStatus
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
     KalturaPurchaseSession:
       allOf:
@@ -503,6 +478,31 @@ components:
           description: Net sum to charge – as a one-time transaction. Price must match the previously provided price for the specified content.
           type: number
       title: KalturaPurchase
+      type: object
+    KalturaPurchaseBase:
+      properties:
+        contentId:
+          description: Identifier for the content to purchase. Relevant only if Product type = PPV
+          type: integer
+        productId:
+          description: Identifier for the package from which this content is offered
+          type: integer
+        productType:
+          description: 'Enum Type: `KalturaTransactionType`
+
+
+            Package type. Possible values: PPV, Subscription, Collection'
+          enum:
+          - ppv
+          - subscription
+          - collection
+          type: string
+          x-enumLabels:
+          - PPV
+          - SUBSCRIPTION
+          - COLLECTION
+          x-enumType: KalturaTransactionType
+      title: KalturaPurchaseBase
       type: object
   securitySchemes:
     ks:

@@ -400,60 +400,255 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaBookmarkFilter:
+    KalturaTopicFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
-      description: Filtering Assets requests
       properties:
-        assetIdIn:
-          description: Comma separated list of assets identifiers
-          type: string
-        assetTypeEqual:
-          description: 'Enum Type: `KalturaAssetType`
-
-
-            Asset type'
-          enum:
-          - media
-          - recording
-          - epg
-          type: string
-          x-enumLabels:
-          - MEDIA
-          - RECORDING
-          - EPG
-          x-enumType: KalturaAssetType
         orderBy:
           enum:
-          - POSITION_ASC
-          - POSITION_DESC
+          - NONE
           type: string
           x-enumLabels:
-          - POSITION_ASC
-          - POSITION_DESC
-          x-enumType: KalturaBookmarkOrderBy
-      title: KalturaBookmarkFilter
+          - NONE
+          x-enumType: KalturaTopicOrderBy
+      title: KalturaTopicFilter
       type: object
-    KalturaDynamicOrderBy:
-      description: Kaltura Asset Order
+    KalturaLoginSession:
+      description: Login response
       properties:
-        name:
-          description: order by name
+        ks:
+          description: Access token in a KS format
           type: string
+      title: KalturaLoginSession
+      type: object
+    KalturaUserAssetRuleFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: User asset rule filter
+      properties:
+        assetIdEqual:
+          description: Asset identifier to filter by
+          type: integer
+        assetTypeEqual:
+          description: Asset type to filter by - 0 = EPG, 1 = media
+          type: integer
         orderBy:
-          description: 'Enum Type: `KalturaMetaTagOrderBy`
-
-
-            order by meta asc/desc'
           enum:
-          - META_ASC
-          - META_DESC
+          - NAME_ASC
+          - NAME_DESC
           type: string
           x-enumLabels:
-          - META_ASC
-          - META_DESC
-          x-enumType: KalturaMetaTagOrderBy
-      title: KalturaDynamicOrderBy
+          - NAME_ASC
+          - NAME_DESC
+          x-enumType: KalturaUserAssetRuleOrderBy
+      title: KalturaUserAssetRuleFilter
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaBaseOTTUser:
+      description: Slim user data
+      properties:
+        firstName:
+          description: First name
+          type: string
+        id:
+          description: '`readOnly`
+
+
+            User identifier'
+          readOnly: true
+          type: string
+        lastName:
+          description: Last name
+          type: string
+        username:
+          description: Username
+          type: string
+      title: KalturaBaseOTTUser
+      type: object
+    KalturaHouseholdDevice:
+      description: Device details
+      properties:
+        activatedOn:
+          description: Device activation date (epoch)
+          type: integer
+        brandId:
+          description: Device brand identifier
+          type: integer
+        deviceFamilyId:
+          description: '`readOnly`
+
+
+            Device family id'
+          readOnly: true
+          type: integer
+        drm:
+          $ref: '#/components/schemas/KalturaCustomDrmPlaybackPluginData'
+        householdId:
+          description: Household identifier
+          type: integer
+        name:
+          description: Device name
+          type: string
+        status:
+          description: '`readOnly`
+
+
+            Enum Type: `KalturaDeviceStatus`
+
+
+            Device state'
+          enum:
+          - PENDING
+          - ACTIVATED
+          - NOT_ACTIVATED
+          readOnly: true
+          type: string
+          x-enumLabels:
+          - PENDING
+          - ACTIVATED
+          - NOT_ACTIVATED
+          x-enumType: KalturaDeviceStatus
+        udid:
+          description: '`insertOnly`
+
+
+            Device UDID'
+          type: string
+      title: KalturaHouseholdDevice
+      type: object
+    KalturaHouseholdDeviceListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaHouseholdDevice'
+          type: array
+      title: KalturaHouseholdDeviceListResponse
+      type: object
+    KalturaAnnouncementFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: order announcements
+      properties:
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaAnnouncementOrderBy
+      title: KalturaAnnouncementFilter
+      type: object
+    KalturaOTTUser:
+      allOf:
+      - $ref: '#/components/schemas/KalturaBaseOTTUser'
+      description: User
+      properties:
+        address:
+          description: Address
+          type: string
+        affiliateCode:
+          description: '`insertOnly`
+
+
+            Affiliate code'
+          type: string
+        city:
+          description: City
+          type: string
+        countryId:
+          description: Country identifier
+          type: integer
+        dynamicData:
+          items:
+            $ref: '#/components/schemas/KalturaStringValue'
+          type: array
+        email:
+          description: Email
+          type: string
+        externalId:
+          description: External user identifier
+          type: string
+        householdId:
+          description: '`readOnly`
+
+
+            Household identifier'
+          readOnly: true
+          type: integer
+        isHouseholdMaster:
+          description: '`readOnly`
+
+
+            Is the user the household master'
+          readOnly: true
+          type: boolean
+        phone:
+          description: Phone
+          type: string
+        suspensionState:
+          description: '`readOnly`
+
+
+            Enum Type: `KalturaHouseholdSuspensionState`
+
+
+            Suspension state'
+          enum:
+          - NOT_SUSPENDED
+          - SUSPENDED
+          readOnly: true
+          type: string
+          x-enumLabels:
+          - NOT_SUSPENDED
+          - SUSPENDED
+          x-enumType: KalturaHouseholdSuspensionState
+        userState:
+          description: '`readOnly`
+
+
+            Enum Type: `KalturaUserState`
+
+
+            User state'
+          enum:
+          - ok
+          - user_with_no_household
+          - user_created_with_no_role
+          - user_not_activated
+          readOnly: true
+          type: string
+          x-enumLabels:
+          - OK
+          - USER_WITH_NO_HOUSEHOLD
+          - USER_CREATED_WITH_NO_ROLE
+          - USER_NOT_ACTIVATED
+          x-enumType: KalturaUserState
+        userType:
+          $ref: '#/components/schemas/KalturaOTTUserType'
+        zip:
+          description: Zip code
+          type: string
+      title: KalturaOTTUser
       type: object
     KalturaFilter:
       description: '`abstract`'
@@ -571,367 +766,6 @@ components:
           type: string
       title: KalturaFilter
       type: object
-    KalturaCollectionFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Collection Filter
-      properties:
-        collectionIdIn:
-          description: Comma separated collection IDs
-          type: string
-        mediaFileIdEqual:
-          description: Media-file ID to get the subscriptions by
-          type: integer
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaCollectionOrderBy
-      title: KalturaCollectionFilter
-      type: object
-    KalturaConfigurationGroupTagFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Configuration group tag filter
-      properties:
-        configurationGroupIdEqual:
-          description: the ID of the configuration group for which to return related configurations group tags
-          type: string
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaConfigurationGroupTagOrderBy
-      title: KalturaConfigurationGroupTagFilter
-      type: object
-    KalturaSeriesRecordingFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Filtering recordings
-      properties:
-        orderBy:
-          enum:
-          - START_DATE_ASC
-          - START_DATE_DESC
-          - ID_ASC
-          - ID_DESC
-          - SERIES_ID_ASC
-          - SERIES_ID_DESC
-          type: string
-          x-enumLabels:
-          - START_DATE_ASC
-          - START_DATE_DESC
-          - ID_ASC
-          - ID_DESC
-          - SERIES_ID_ASC
-          - SERIES_ID_DESC
-          x-enumType: KalturaSeriesRecordingOrderBy
-      title: KalturaSeriesRecordingFilter
-      type: object
-    KalturaEntitlementFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Entitlements filter
-      properties:
-        entityReferenceEqual:
-          description: 'Enum Type: `KalturaEntityReferenceBy`
-
-
-            Reference type to filter by'
-          enum:
-          - user
-          - household
-          type: string
-          x-enumLabels:
-          - USER
-          - HOUSEHOLD
-          x-enumType: KalturaEntityReferenceBy
-        isExpiredEqual:
-          description: Is expired
-          type: boolean
-        orderBy:
-          enum:
-          - PURCHASE_DATE_ASC
-          - PURCHASE_DATE_DESC
-          type: string
-          x-enumLabels:
-          - PURCHASE_DATE_ASC
-          - PURCHASE_DATE_DESC
-          x-enumType: KalturaEntitlementOrderBy
-        productTypeEqual:
-          description: 'Enum Type: `KalturaTransactionType`
-
-
-            The type of the entitlements to return'
-          enum:
-          - ppv
-          - subscription
-          - collection
-          type: string
-          x-enumLabels:
-          - PPV
-          - SUBSCRIPTION
-          - COLLECTION
-          x-enumType: KalturaTransactionType
-      title: KalturaEntitlementFilter
-      type: object
-    KalturaHouseholdUserFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        householdIdEqual:
-          description: The identifier of the household
-          type: integer
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaHouseholdUserOrderBy
-      title: KalturaHouseholdUserFilter
-      type: object
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
-      properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
-      type: object
-    KalturaCountryFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Country filter
-      properties:
-        idIn:
-          description: Country identifiers
-          type: string
-        ipEqual:
-          description: Ip to identify the country
-          type: string
-        ipEqualCurrent:
-          description: Indicates if to get the IP from the request
-          type: boolean
-        orderBy:
-          enum:
-          - NAME_ASC
-          type: string
-          x-enumLabels:
-          - NAME_ASC
-          x-enumType: KalturaCountryOrderBy
-      title: KalturaCountryFilter
-      type: object
-    KalturaDevicePin:
-      description: Device pin
-      properties:
-        pin:
-          description: Device pin
-          type: string
-      title: KalturaDevicePin
-      type: object
-    KalturaUserRoleFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: User roles filter
-      properties:
-        currentUserRoleIdsContains:
-          description: Indicates whether the results should be filtered by userId using the current
-          type: boolean
-        idIn:
-          description: Comma separated roles identifiers
-          type: string
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaUserRoleOrderBy
-      title: KalturaUserRoleFilter
-      type: object
-    KalturaPluginData:
-      properties: {}
-      title: KalturaPluginData
-      type: object
-    KalturaAssetReminderFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaReminderFilter'
-      properties:
-        orderBy:
-          enum:
-          - RELEVANCY_DESC
-          - NAME_ASC
-          - NAME_DESC
-          - VIEWS_DESC
-          - RATINGS_DESC
-          - VOTES_DESC
-          - START_DATE_DESC
-          - START_DATE_ASC
-          - LIKES_DESC
-          type: string
-          x-enumLabels:
-          - RELEVANCY_DESC
-          - NAME_ASC
-          - NAME_DESC
-          - VIEWS_DESC
-          - RATINGS_DESC
-          - VOTES_DESC
-          - START_DATE_DESC
-          - START_DATE_ASC
-          - LIKES_DESC
-          x-enumType: KalturaAssetReminderOrderBy
-      title: KalturaAssetReminderFilter
-      type: object
-    KalturaRegionFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        externalIdIn:
-          description: List of comma separated regions external identifiers
-          type: string
-        orderBy:
-          enum:
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          type: string
-          x-enumLabels:
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          x-enumType: KalturaRegionOrderBy
-      title: KalturaRegionFilter
-      type: object
-    KalturaFavoriteFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Favorite request filter
-      properties:
-        mediaIdIn:
-          description: Media identifiers from which to filter the favorite assets
-          type: string
-        mediaTypeEqual:
-          description: Media type to filter by the favorite assets
-          type: integer
-        orderBy:
-          enum:
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          type: string
-          x-enumLabels:
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          x-enumType: KalturaFavoriteOrderBy
-        udidEqualCurrent:
-          description: Indicates whether the results should be filtered by origin UDID using the current
-          type: boolean
-      title: KalturaFavoriteFilter
-      type: object
-    KalturaProductPriceFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        collectionIdIn:
-          description: Comma separated collections identifiers
-          type: string
-        couponCodeEqual:
-          description: Discount coupon code
-          type: string
-        fileIdIn:
-          description: Comma separated media files identifiers
-          type: string
-        isLowest:
-          description: A flag that indicates if only the lowest price of an item should return
-          type: boolean
-        orderBy:
-          enum:
-          - PRODUCT_ID_ASC
-          - PRODUCT_ID_DESC
-          type: string
-          x-enumLabels:
-          - PRODUCT_ID_ASC
-          - PRODUCT_ID_DESC
-          x-enumType: KalturaProductPriceOrderBy
-        subscriptionIdIn:
-          description: Comma separated subscriptions identifiers
-          type: string
-      title: KalturaProductPriceFilter
-      type: object
-    KalturaParentalRuleFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        entityReferenceEqual:
-          description: 'Enum Type: `KalturaEntityReferenceBy`
-
-
-            Reference type to filter by'
-          enum:
-          - user
-          - household
-          type: string
-          x-enumLabels:
-          - USER
-          - HOUSEHOLD
-          x-enumType: KalturaEntityReferenceBy
-        orderBy:
-          enum:
-          - PARTNER_SORT_VALUE
-          type: string
-          x-enumLabels:
-          - PARTNER_SORT_VALUE
-          x-enumType: KalturaParentalRuleOrderBy
-      title: KalturaParentalRuleFilter
-      type: object
-    KalturaLoginResponse:
-      properties:
-        loginSession:
-          $ref: '#/components/schemas/KalturaLoginSession'
-        user:
-          $ref: '#/components/schemas/KalturaOTTUser'
-      title: KalturaLoginResponse
-      type: object
-    KalturaStringValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of strings
-      properties:
-        value:
-          description: Value
-          type: string
-      title: KalturaStringValue
-      type: object
-    KalturaRecordingFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Filtering recordings
-      properties:
-        filterExpression:
-          description: KSQL expression
-          type: string
-        orderBy:
-          enum:
-          - TITLE_ASC
-          - TITLE_DESC
-          - START_DATE_ASC
-          - START_DATE_DESC
-          type: string
-          x-enumLabels:
-          - TITLE_ASC
-          - TITLE_DESC
-          - START_DATE_ASC
-          - START_DATE_DESC
-          x-enumType: KalturaRecordingOrderBy
-        statusIn:
-          description: Recording Statuses
-          type: string
-      title: KalturaRecordingFilter
-      type: object
     KalturaTransactionHistoryFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
@@ -967,128 +801,236 @@ components:
           type: integer
       title: KalturaTransactionHistoryFilter
       type: object
-    KalturaHouseholdDeviceListResponse:
+    KalturaAssetFilter:
       allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
+      - $ref: '#/components/schemas/KalturaPersistedFilter'
       properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaHouseholdDevice'
-          type: array
-      title: KalturaHouseholdDeviceListResponse
-      type: object
-    KalturaFollowTvSeriesFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
+        dynamicOrderBy:
+          $ref: '#/components/schemas/KalturaDynamicOrderBy'
         orderBy:
           enum:
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
           - START_DATE_DESC
           - START_DATE_ASC
+          - LIKES_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
           type: string
           x-enumLabels:
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
           - START_DATE_DESC
           - START_DATE_ASC
-          x-enumType: KalturaFollowTvSeriesOrderBy
-      title: KalturaFollowTvSeriesFilter
+          - LIKES_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          x-enumType: KalturaAssetOrderBy
+      title: KalturaAssetFilter
       type: object
-    KalturaSearchHistoryFilter:
+    KalturaParentalRuleFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
       properties:
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaSearchHistoryOrderBy
-      title: KalturaSearchHistoryFilter
-      type: object
-    KalturaReportFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: '`abstract`
+        entityReferenceEqual:
+          description: 'Enum Type: `KalturaEntityReferenceBy`
 
 
-        Report filter'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaDeviceReportFilter'
-      properties:
-        objectType:
+            Reference type to filter by'
           enum:
-          - KalturaDeviceReportFilter
-          type: string
-        orderBy:
-          enum:
-          - NONE
+          - user
+          - household
           type: string
           x-enumLabels:
-          - NONE
-          x-enumType: KalturaReportOrderBy
-      title: KalturaReportFilter
-      type: object
-    KalturaLanguageFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Language filter
-      properties:
-        codeIn:
-          description: Language codes
-          type: string
+          - USER
+          - HOUSEHOLD
+          x-enumType: KalturaEntityReferenceBy
         orderBy:
           enum:
-          - SYSTEM_NAME_ASC
-          - SYSTEM_NAME_DESC
-          - CODE_ASC
-          - CODE_DESC
+          - PARTNER_SORT_VALUE
           type: string
           x-enumLabels:
-          - SYSTEM_NAME_ASC
-          - SYSTEM_NAME_DESC
-          - CODE_ASC
-          - CODE_DESC
-          x-enumType: KalturaLanguageOrderBy
-      title: KalturaLanguageFilter
+          - PARTNER_SORT_VALUE
+          x-enumType: KalturaParentalRuleOrderBy
+      title: KalturaParentalRuleFilter
       type: object
-    KalturaEngagementFilter:
+    KalturaInboxMessageFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
       properties:
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaEngagementOrderBy
-        sendTimeGreaterThanOrEqual:
-          description: SendTime GreaterThanOrEqual
+        createdAtGreaterThanOrEqual:
+          description: createdAtGreaterThanOrEqual
           type: integer
+        createdAtLessThanOrEqual:
+          description: createdAtLessThanOrEqual
+          type: integer
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaInboxMessageOrderBy
         typeIn:
           description: List of inbox message types to search within.
           type: string
-      title: KalturaEngagementFilter
+      title: KalturaInboxMessageFilter
       type: object
-    KalturaPersistedFilter:
+    KalturaDeviceReportFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaReportFilter'
+      description: Report filter
+      properties:
+        lastAccessDateGreaterThanOrEqual:
+          description: Filter device configuration later than specific date
+          type: integer
+      title: KalturaDeviceReportFilter
+      type: object
+    KalturaImageFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
-      description: '`abstract`'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaAssetFilter'
       properties:
-        name:
-          description: Name for the presisted filter. If empty, no action will be done. If has value, the filter will be saved and persisted in user&#39;s search history.
+        idIn:
+          description: IDs to filter by
           type: string
-        objectType:
+        imageObjectIdEqual:
+          description: ID of the object the is related to, to filter by
+          type: integer
+        imageObjectTypeEqual:
+          description: 'Enum Type: `KalturaImageObjectType`
+
+
+            Type of the object the image is related to, to filter by'
           enum:
-          - KalturaAssetFilter
+          - MEDIA_ASSET
+          - PROGRAM_ASSET
+          - CHANNEL
+          - CATEGORY
+          - PARTNER
+          - IMAGE_TYPE
           type: string
-      title: KalturaPersistedFilter
+          x-enumLabels:
+          - MEDIA_ASSET
+          - PROGRAM_ASSET
+          - CHANNEL
+          - CATEGORY
+          - PARTNER
+          - IMAGE_TYPE
+          x-enumType: KalturaImageObjectType
+        isDefaultEqual:
+          description: Filter images that are default on atleast on image type or not default at any
+          type: boolean
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaImageOrderBy
+      title: KalturaImageFilter
+      type: object
+    KalturaProductPriceFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        collectionIdIn:
+          description: Comma separated collections identifiers
+          type: string
+        couponCodeEqual:
+          description: Discount coupon code
+          type: string
+        fileIdIn:
+          description: Comma separated media files identifiers
+          type: string
+        isLowest:
+          description: A flag that indicates if only the lowest price of an item should return
+          type: boolean
+        orderBy:
+          enum:
+          - PRODUCT_ID_ASC
+          - PRODUCT_ID_DESC
+          type: string
+          x-enumLabels:
+          - PRODUCT_ID_ASC
+          - PRODUCT_ID_DESC
+          x-enumType: KalturaProductPriceOrderBy
+        subscriptionIdIn:
+          description: Comma separated subscriptions identifiers
+          type: string
+      title: KalturaProductPriceFilter
+      type: object
+    KalturaHouseholdUserFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        householdIdEqual:
+          description: The identifier of the household
+          type: integer
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaHouseholdUserOrderBy
+      title: KalturaHouseholdUserFilter
+      type: object
+    KalturaSeasonsReminderFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaReminderFilter'
+      properties:
+        epgChannelIdEqual:
+          description: EPG channel ID
+          type: integer
+        seasonNumberIn:
+          description: Comma separated season numbers
+          type: string
+        seriesIdEqual:
+          description: Series ID
+          type: string
+      title: KalturaSeasonsReminderFilter
+      type: object
+    KalturaSocialActionFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        actionTypeIn:
+          description: Comma separated list of social actions to filter by
+          type: string
+        assetIdIn:
+          description: Comma separated list of asset identifiers.
+          type: string
+        assetTypeEqual:
+          description: 'Enum Type: `KalturaAssetType`
+
+
+            Asset Type'
+          enum:
+          - media
+          - recording
+          - epg
+          type: string
+          x-enumLabels:
+          - MEDIA
+          - RECORDING
+          - EPG
+          x-enumType: KalturaAssetType
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaSocialActionOrderBy
+      title: KalturaSocialActionFilter
       type: object
     KalturaMetaFilter:
       allOf:
@@ -1146,20 +1088,15 @@ components:
           x-enumType: KalturaMetaOrderBy
       title: KalturaMetaFilter
       type: object
-    KalturaOTTUserType:
-      description: User type
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
       properties:
-        description:
-          description: User type description
+        value:
+          description: Value
           type: string
-        id:
-          description: '`readOnly`
-
-
-            User type identifier'
-          readOnly: true
-          type: integer
-      title: KalturaOTTUserType
+      title: KalturaStringValue
       type: object
     KalturaSocialFriendActivityFilter:
       allOf:
@@ -1197,32 +1134,234 @@ components:
           x-enumType: KalturaSocialFriendActivityOrderBy
       title: KalturaSocialFriendActivityFilter
       type: object
-    KalturaPersonalFeedFilter:
+    KalturaDynamicOrderBy:
+      description: Kaltura Asset Order
+      properties:
+        name:
+          description: order by name
+          type: string
+        orderBy:
+          description: 'Enum Type: `KalturaMetaTagOrderBy`
+
+
+            order by meta asc/desc'
+          enum:
+          - META_ASC
+          - META_DESC
+          type: string
+          x-enumLabels:
+          - META_ASC
+          - META_DESC
+          x-enumType: KalturaMetaTagOrderBy
+      title: KalturaDynamicOrderBy
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaBookmarkFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Filtering Assets requests
+      properties:
+        assetIdIn:
+          description: Comma separated list of assets identifiers
+          type: string
+        assetTypeEqual:
+          description: 'Enum Type: `KalturaAssetType`
+
+
+            Asset type'
+          enum:
+          - media
+          - recording
+          - epg
+          type: string
+          x-enumLabels:
+          - MEDIA
+          - RECORDING
+          - EPG
+          x-enumType: KalturaAssetType
+        orderBy:
+          enum:
+          - POSITION_ASC
+          - POSITION_DESC
+          type: string
+          x-enumLabels:
+          - POSITION_ASC
+          - POSITION_DESC
+          x-enumType: KalturaBookmarkOrderBy
+      title: KalturaBookmarkFilter
+      type: object
+    KalturaLanguageFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Language filter
+      properties:
+        codeIn:
+          description: Language codes
+          type: string
+        orderBy:
+          enum:
+          - SYSTEM_NAME_ASC
+          - SYSTEM_NAME_DESC
+          - CODE_ASC
+          - CODE_DESC
+          type: string
+          x-enumLabels:
+          - SYSTEM_NAME_ASC
+          - SYSTEM_NAME_DESC
+          - CODE_ASC
+          - CODE_DESC
+          x-enumType: KalturaLanguageOrderBy
+      title: KalturaLanguageFilter
+      type: object
+    KalturaPaymentMethodProfileFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
       properties:
         orderBy:
           enum:
-          - RELEVANCY_DESC
-          - NAME_ASC
-          - NAME_DESC
-          - VIEWS_DESC
-          - RATINGS_DESC
-          - VOTES_DESC
-          - START_DATE_DESC
-          - START_DATE_ASC
+          - NONE
           type: string
           x-enumLabels:
-          - RELEVANCY_DESC
-          - NAME_ASC
-          - NAME_DESC
-          - VIEWS_DESC
-          - RATINGS_DESC
-          - VOTES_DESC
-          - START_DATE_DESC
+          - NONE
+          x-enumType: KalturaPaymentMethodProfileOrderBy
+        paymentGatewayIdEqual:
+          description: Payment gateway identifier to list the payment methods for
+          type: integer
+      title: KalturaPaymentMethodProfileFilter
+      type: object
+    KalturaRecordingFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Filtering recordings
+      properties:
+        filterExpression:
+          description: KSQL expression
+          type: string
+        orderBy:
+          enum:
+          - TITLE_ASC
+          - TITLE_DESC
           - START_DATE_ASC
-          x-enumType: KalturaPersonalFeedOrderBy
-      title: KalturaPersonalFeedFilter
+          - START_DATE_DESC
+          type: string
+          x-enumLabels:
+          - TITLE_ASC
+          - TITLE_DESC
+          - START_DATE_ASC
+          - START_DATE_DESC
+          x-enumType: KalturaRecordingOrderBy
+        statusIn:
+          description: Recording Statuses
+          type: string
+      title: KalturaRecordingFilter
+      type: object
+    KalturaExportTaskFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Bulk export tasks filter
+      properties:
+        idIn:
+          description: Comma separated tasks identifiers
+          type: string
+        orderBy:
+          enum:
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          type: string
+          x-enumLabels:
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          x-enumType: KalturaExportTaskOrderBy
+      title: KalturaExportTaskFilter
+      type: object
+    KalturaEngagementFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaEngagementOrderBy
+        sendTimeGreaterThanOrEqual:
+          description: SendTime GreaterThanOrEqual
+          type: integer
+        typeIn:
+          description: List of inbox message types to search within.
+          type: string
+      title: KalturaEngagementFilter
+      type: object
+    KalturaRelatedObjectFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: '`abstract`
+
+
+        Define KalturaRelatedObjectFilter'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaAggregationCountFilter'
+      properties:
+        objectType:
+          enum:
+          - KalturaAggregationCountFilter
+          type: string
+      title: KalturaRelatedObjectFilter
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaSeriesReminderFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaReminderFilter'
+      properties:
+        epgChannelIdEqual:
+          description: EPG channel ID
+          type: integer
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaSeriesReminderOrderBy
+        seriesIdIn:
+          description: Comma separated series IDs
+          type: string
+      title: KalturaSeriesReminderFilter
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
       type: object
     KalturaAssetCommentFilter:
       allOf:
@@ -1255,63 +1394,253 @@ components:
           x-enumType: KalturaAssetCommentOrderBy
       title: KalturaAssetCommentFilter
       type: object
-    KalturaAssetStructFilter:
+    KalturaRegionFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
-      description: Filtering Asset Structs
       properties:
-        idIn:
-          description: Comma separated identifiers
+        externalIdIn:
+          description: List of comma separated regions external identifiers
           type: string
-        isProtectedEqual:
-          description: Filter Asset Structs by isProtectedEqual value
+        orderBy:
+          enum:
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          type: string
+          x-enumLabels:
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          x-enumType: KalturaRegionOrderBy
+      title: KalturaRegionFilter
+      type: object
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
           type: boolean
-        metaIdEqual:
-          description: Filter Asset Structs that contain a specific meta id
+      title: KalturaBooleanValue
+      type: object
+    KalturaCurrencyFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Currency filter
+      properties:
+        codeIn:
+          description: Currency codes
+          type: string
+        orderBy:
+          enum:
+          - NAME_ASC
+          - NAME_DESC
+          - CODE_ASC
+          - CODE_DESC
+          type: string
+          x-enumLabels:
+          - NAME_ASC
+          - NAME_DESC
+          - CODE_ASC
+          - CODE_DESC
+          x-enumType: KalturaCurrencyOrderBy
+      title: KalturaCurrencyFilter
+      type: object
+    KalturaUserRoleFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: User roles filter
+      properties:
+        currentUserRoleIdsContains:
+          description: Indicates whether the results should be filtered by userId using the current
+          type: boolean
+        idIn:
+          description: Comma separated roles identifiers
+          type: string
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaUserRoleOrderBy
+      title: KalturaUserRoleFilter
+      type: object
+    KalturaPluginData:
+      properties: {}
+      title: KalturaPluginData
+      type: object
+    KalturaDrmPlaybackPluginData:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPluginData'
+      properties:
+        licenseURL:
+          description: License URL
+          type: string
+        scheme:
+          description: 'Enum Type: `KalturaDrmSchemeName`
+
+
+            Scheme'
+          enum:
+          - PLAYREADY_CENC
+          - WIDEVINE_CENC
+          - FAIRPLAY
+          - WIDEVINE
+          - PLAYREADY
+          - CUSTOM_DRM
+          type: string
+          x-enumLabels:
+          - PLAYREADY_CENC
+          - WIDEVINE_CENC
+          - FAIRPLAY
+          - WIDEVINE
+          - PLAYREADY
+          - CUSTOM_DRM
+          x-enumType: KalturaDrmSchemeName
+      title: KalturaDrmPlaybackPluginData
+      type: object
+    KalturaAssetReminderFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaReminderFilter'
+      properties:
+        orderBy:
+          enum:
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
+          - START_DATE_DESC
+          - START_DATE_ASC
+          - LIKES_DESC
+          type: string
+          x-enumLabels:
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
+          - START_DATE_DESC
+          - START_DATE_ASC
+          - LIKES_DESC
+          x-enumType: KalturaAssetReminderOrderBy
+      title: KalturaAssetReminderFilter
+      type: object
+    KalturaConfigurationGroupDeviceFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Configuration group device filter
+      properties:
+        configurationGroupIdEqual:
+          description: the ID of the configuration group for which to return related configurations group devices
+          type: string
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaConfigurationGroupDeviceOrderBy
+      title: KalturaConfigurationGroupDeviceFilter
+      type: object
+    KalturaSubscriptionFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        externalIdIn:
+          description: Comma separated subscription external IDs to get the subscriptions by
+          type: string
+        mediaFileIdEqual:
+          description: Media-file ID to get the subscriptions by
           type: integer
         orderBy:
           enum:
-          - NAME_ASC
-          - NAME_DESC
-          - SYSTEM_NAME_ASC
-          - SYSTEM_NAME_DESC
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          - UPDATE_DATE_ASC
-          - UPDATE_DATE_DESC
+          - START_DATE_ASC
+          - START_DATE_DESC
           type: string
           x-enumLabels:
-          - NAME_ASC
-          - NAME_DESC
-          - SYSTEM_NAME_ASC
-          - SYSTEM_NAME_DESC
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          - UPDATE_DATE_ASC
-          - UPDATE_DATE_DESC
-          x-enumType: KalturaAssetStructOrderBy
-      title: KalturaAssetStructFilter
+          - START_DATE_ASC
+          - START_DATE_DESC
+          x-enumType: KalturaSubscriptionOrderBy
+        subscriptionIdIn:
+          description: Comma separated subscription IDs to get the subscriptions by
+          type: string
+      title: KalturaSubscriptionFilter
       type: object
-    KalturaTopicFilter:
+    KalturaSeriesRecordingFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Filtering recordings
+      properties:
+        orderBy:
+          enum:
+          - START_DATE_ASC
+          - START_DATE_DESC
+          - ID_ASC
+          - ID_DESC
+          - SERIES_ID_ASC
+          - SERIES_ID_DESC
+          type: string
+          x-enumLabels:
+          - START_DATE_ASC
+          - START_DATE_DESC
+          - ID_ASC
+          - ID_DESC
+          - SERIES_ID_ASC
+          - SERIES_ID_DESC
+          x-enumType: KalturaSeriesRecordingOrderBy
+      title: KalturaSeriesRecordingFilter
+      type: object
+    KalturaImageTypeFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
       properties:
+        idIn:
+          description: IDs to filter by
+          type: string
         orderBy:
           enum:
           - NONE
           type: string
           x-enumLabels:
           - NONE
-          x-enumType: KalturaTopicOrderBy
-      title: KalturaTopicFilter
+          x-enumType: KalturaImageTypeOrderBy
+        ratioIdIn:
+          description: Ratio IDs to filter by
+          type: string
+      title: KalturaImageTypeFilter
       type: object
-    KalturaConfigurationsFilter:
+    KalturaHouseholdDeviceFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
-      description: Configuration filter
       properties:
-        configurationGroupIdEqual:
-          description: the ID of the configuration group for which to return related configurations
+        deviceFamilyIdIn:
+          description: Device family Ids
+          type: string
+        householdIdEqual:
+          description: The identifier of the household
+          type: integer
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaHouseholdDeviceOrderBy
+      title: KalturaHouseholdDeviceFilter
+      type: object
+    KalturaOTTUserFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: OTT User filter
+      properties:
+        externalIdEqual:
+          description: User external identifier
+          type: string
+        idIn:
+          description: List of user identifiers separated by &#39;,&#39;
           type: string
         orderBy:
           enum:
@@ -1319,8 +1648,11 @@ components:
           type: string
           x-enumLabels:
           - NONE
-          x-enumType: KalturaConfigurationsOrderBy
-      title: KalturaConfigurationsFilter
+          x-enumType: KalturaOTTUserOrderBy
+        usernameEqual:
+          description: Username
+          type: string
+      title: KalturaOTTUserFilter
       type: object
     KalturaAssetHistoryFilter:
       allOf:
@@ -1356,76 +1688,74 @@ components:
           type: string
       title: KalturaAssetHistoryFilter
       type: object
-    KalturaMultilingualStringValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: Array of translated strings
+    KalturaOTTUserType:
+      description: User type
       properties:
-        multilingualValue:
-          items:
-            $ref: '#/components/schemas/KalturaTranslationToken'
-          type: array
-        value:
-          description: Value
+        description:
+          description: User type description
           type: string
-      title: KalturaMultilingualStringValue
-      type: object
-    KalturaIntegerValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of ints
-      properties:
-        value:
-          description: Value
+        id:
+          description: '`readOnly`
+
+
+            User type identifier'
+          readOnly: true
           type: integer
-      title: KalturaIntegerValue
+      title: KalturaOTTUserType
       type: object
-    OTTRequest:
+    KalturaDevicePin:
+      description: Device pin
       properties:
-        ks:
+        pin:
+          description: Device pin
           type: string
-        version:
-          default: 3.6.287.20720
-          type: string
+      title: KalturaDevicePin
       type: object
-    KalturaCurrencyFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Currency filter
-      properties:
-        codeIn:
-          description: Currency codes
-          type: string
-        orderBy:
-          enum:
-          - NAME_ASC
-          - NAME_DESC
-          - CODE_ASC
-          - CODE_DESC
-          type: string
-          x-enumLabels:
-          - NAME_ASC
-          - NAME_DESC
-          - CODE_ASC
-          - CODE_DESC
-          x-enumType: KalturaCurrencyOrderBy
-      title: KalturaCurrencyFilter
-      type: object
-    KalturaPricePlanFilter:
+    KalturaSearchHistoryFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
       properties:
-        idIn:
-          description: Comma separated price plans identifiers
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaSearchHistoryOrderBy
+      title: KalturaSearchHistoryFilter
+      type: object
+    KalturaLoginResponse:
+      properties:
+        loginSession:
+          $ref: '#/components/schemas/KalturaLoginSession'
+        user:
+          $ref: '#/components/schemas/KalturaOTTUser'
+      title: KalturaLoginResponse
+      type: object
+    KalturaTagFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        languageEqual:
+          description: Language to filter by
           type: string
         orderBy:
           enum:
-          - CREATE_DATE_DESC
+          - NONE
           type: string
           x-enumLabels:
-          - CREATE_DATE_DESC
-          x-enumType: KalturaPricePlanOrderBy
-      title: KalturaPricePlanFilter
+          - NONE
+          x-enumType: KalturaTagOrderBy
+        tagEqual:
+          description: Tag to filter by
+          type: string
+        tagStartsWith:
+          description: Tag to filter by
+          type: string
+        typeEqual:
+          description: Type identifier
+          type: integer
+      title: KalturaTagFilter
       type: object
     KalturaDoubleValue:
       allOf:
@@ -1436,250 +1766,6 @@ components:
           description: Value
           type: number
       title: KalturaDoubleValue
-      type: object
-    KalturaConfigurationGroupDeviceFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Configuration group device filter
-      properties:
-        configurationGroupIdEqual:
-          description: the ID of the configuration group for which to return related configurations group devices
-          type: string
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaConfigurationGroupDeviceOrderBy
-      title: KalturaConfigurationGroupDeviceFilter
-      type: object
-    KalturaExportTaskFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: Bulk export tasks filter
-      properties:
-        idIn:
-          description: Comma separated tasks identifiers
-          type: string
-        orderBy:
-          enum:
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          type: string
-          x-enumLabels:
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          x-enumType: KalturaExportTaskOrderBy
-      title: KalturaExportTaskFilter
-      type: object
-    KalturaChannelsFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        idEqual:
-          description: channel identifier to filter by
-          type: integer
-        nameEqual:
-          description: Exact channel name to filter by
-          type: string
-        nameStartsWith:
-          description: Channel name starts with (autocomplete)
-          type: string
-        orderBy:
-          enum:
-          - NONE
-          - NAME_ASC
-          - NAME_DESC
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          type: string
-          x-enumLabels:
-          - NONE
-          - NAME_ASC
-          - NAME_DESC
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          x-enumType: KalturaChannelsOrderBy
-      title: KalturaChannelsFilter
-      type: object
-    KalturaOTTUserFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: OTT User filter
-      properties:
-        externalIdEqual:
-          description: User external identifier
-          type: string
-        idIn:
-          description: List of user identifiers separated by &#39;,&#39;
-          type: string
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaOTTUserOrderBy
-        usernameEqual:
-          description: Username
-          type: string
-      title: KalturaOTTUserFilter
-      type: object
-    KalturaPaymentMethodProfileFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaPaymentMethodProfileOrderBy
-        paymentGatewayIdEqual:
-          description: Payment gateway identifier to list the payment methods for
-          type: integer
-      title: KalturaPaymentMethodProfileFilter
-      type: object
-    KalturaAssetFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaPersistedFilter'
-      properties:
-        dynamicOrderBy:
-          $ref: '#/components/schemas/KalturaDynamicOrderBy'
-        orderBy:
-          enum:
-          - RELEVANCY_DESC
-          - NAME_ASC
-          - NAME_DESC
-          - VIEWS_DESC
-          - RATINGS_DESC
-          - VOTES_DESC
-          - START_DATE_DESC
-          - START_DATE_ASC
-          - LIKES_DESC
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          type: string
-          x-enumLabels:
-          - RELEVANCY_DESC
-          - NAME_ASC
-          - NAME_DESC
-          - VIEWS_DESC
-          - RATINGS_DESC
-          - VOTES_DESC
-          - START_DATE_DESC
-          - START_DATE_ASC
-          - LIKES_DESC
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          x-enumType: KalturaAssetOrderBy
-      title: KalturaAssetFilter
-      type: object
-    KalturaSubscriptionSetFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        idIn:
-          description: Comma separated identifiers
-          type: string
-        orderBy:
-          enum:
-          - NAME_ASC
-          - NAME_DESC
-          type: string
-          x-enumLabels:
-          - NAME_ASC
-          - NAME_DESC
-          x-enumType: KalturaSubscriptionSetOrderBy
-        subscriptionIdContains:
-          description: Comma separated subscription identifiers
-          type: string
-        typeEqual:
-          description: 'Enum Type: `KalturaSubscriptionSetType`
-
-
-            Subscription Type'
-          enum:
-          - SWITCH
-          - DEPENDENCY
-          type: string
-          x-enumLabels:
-          - SWITCH
-          - DEPENDENCY
-          x-enumType: KalturaSubscriptionSetType
-      title: KalturaSubscriptionSetFilter
-      type: object
-    KalturaHouseholdDevice:
-      description: Device details
-      properties:
-        activatedOn:
-          description: Device activation date (epoch)
-          type: integer
-        brandId:
-          description: Device brand identifier
-          type: integer
-        deviceFamilyId:
-          description: '`readOnly`
-
-
-            Device family id'
-          readOnly: true
-          type: integer
-        drm:
-          $ref: '#/components/schemas/KalturaCustomDrmPlaybackPluginData'
-        householdId:
-          description: Household identifier
-          type: integer
-        name:
-          description: Device name
-          type: string
-        status:
-          description: '`readOnly`
-
-
-            Enum Type: `KalturaDeviceStatus`
-
-
-            Device state'
-          enum:
-          - PENDING
-          - ACTIVATED
-          - NOT_ACTIVATED
-          readOnly: true
-          type: string
-          x-enumLabels:
-          - PENDING
-          - ACTIVATED
-          - NOT_ACTIVATED
-          x-enumType: KalturaDeviceStatus
-        udid:
-          description: '`insertOnly`
-
-
-            Device UDID'
-          type: string
-      title: KalturaHouseholdDevice
-      type: object
-    KalturaImageTypeFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        idIn:
-          description: IDs to filter by
-          type: string
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaImageTypeOrderBy
-        ratioIdIn:
-          description: Ratio IDs to filter by
-          type: string
-      title: KalturaImageTypeFilter
       type: object
     KalturaReminderFilter:
       allOf:
@@ -1700,277 +1786,23 @@ components:
           type: string
       title: KalturaReminderFilter
       type: object
-    KalturaInboxMessageFilter:
+    KalturaPersistedFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        createdAtGreaterThanOrEqual:
-          description: createdAtGreaterThanOrEqual
-          type: integer
-        createdAtLessThanOrEqual:
-          description: createdAtLessThanOrEqual
-          type: integer
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaInboxMessageOrderBy
-        typeIn:
-          description: List of inbox message types to search within.
-          type: string
-      title: KalturaInboxMessageFilter
-      type: object
-    KalturaPriceDetailsFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        idIn:
-          description: Comma separated price identifiers
-          type: string
-        orderBy:
-          enum:
-          - NAME_ASC
-          type: string
-          x-enumLabels:
-          - NAME_ASC
-          x-enumType: KalturaPriceDetailsOrderBy
-      title: KalturaPriceDetailsFilter
-      type: object
-    KalturaSubscriptionFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        externalIdIn:
-          description: Comma separated subscription external IDs to get the subscriptions by
-          type: string
-        mediaFileIdEqual:
-          description: Media-file ID to get the subscriptions by
-          type: integer
-        orderBy:
-          enum:
-          - START_DATE_ASC
-          - START_DATE_DESC
-          type: string
-          x-enumLabels:
-          - START_DATE_ASC
-          - START_DATE_DESC
-          x-enumType: KalturaSubscriptionOrderBy
-        subscriptionIdIn:
-          description: Comma separated subscription IDs to get the subscriptions by
-          type: string
-      title: KalturaSubscriptionFilter
-      type: object
-    KalturaOTTUser:
-      allOf:
-      - $ref: '#/components/schemas/KalturaBaseOTTUser'
-      description: User
-      properties:
-        address:
-          description: Address
-          type: string
-        affiliateCode:
-          description: '`insertOnly`
-
-
-            Affiliate code'
-          type: string
-        city:
-          description: City
-          type: string
-        countryId:
-          description: Country identifier
-          type: integer
-        dynamicData:
-          items:
-            $ref: '#/components/schemas/KalturaStringValue'
-          type: array
-        email:
-          description: Email
-          type: string
-        externalId:
-          description: External user identifier
-          type: string
-        householdId:
-          description: '`readOnly`
-
-
-            Household identifier'
-          readOnly: true
-          type: integer
-        isHouseholdMaster:
-          description: '`readOnly`
-
-
-            Is the user the household master'
-          readOnly: true
-          type: boolean
-        phone:
-          description: Phone
-          type: string
-        suspensionState:
-          description: '`readOnly`
-
-
-            Enum Type: `KalturaHouseholdSuspensionState`
-
-
-            Suspension state'
-          enum:
-          - NOT_SUSPENDED
-          - SUSPENDED
-          readOnly: true
-          type: string
-          x-enumLabels:
-          - NOT_SUSPENDED
-          - SUSPENDED
-          x-enumType: KalturaHouseholdSuspensionState
-        userState:
-          description: '`readOnly`
-
-
-            Enum Type: `KalturaUserState`
-
-
-            User state'
-          enum:
-          - ok
-          - user_with_no_household
-          - user_created_with_no_role
-          - user_not_activated
-          readOnly: true
-          type: string
-          x-enumLabels:
-          - OK
-          - USER_WITH_NO_HOUSEHOLD
-          - USER_CREATED_WITH_NO_ROLE
-          - USER_NOT_ACTIVATED
-          x-enumType: KalturaUserState
-        userType:
-          $ref: '#/components/schemas/KalturaOTTUserType'
-        zip:
-          description: Zip code
-          type: string
-      title: KalturaOTTUser
-      type: object
-    KalturaHouseholdDeviceFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        deviceFamilyIdIn:
-          description: Device family Ids
-          type: string
-        householdIdEqual:
-          description: The identifier of the household
-          type: integer
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaHouseholdDeviceOrderBy
-      title: KalturaHouseholdDeviceFilter
-      type: object
-    KalturaRelatedObjectFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: '`abstract`
-
-
-        Define KalturaRelatedObjectFilter'
+      description: '`abstract`'
       discriminator:
         propertyName: objectType
       oneOf:
-      - $ref: '#/components/schemas/KalturaAggregationCountFilter'
+      - $ref: '#/components/schemas/KalturaAssetFilter'
       properties:
+        name:
+          description: Name for the presisted filter. If empty, no action will be done. If has value, the filter will be saved and persisted in user&#39;s search history.
+          type: string
         objectType:
           enum:
-          - KalturaAggregationCountFilter
+          - KalturaAssetFilter
           type: string
-      title: KalturaRelatedObjectFilter
-      type: object
-    KalturaTranslationToken:
-      description: Container for translation
-      properties:
-        language:
-          description: Language code
-          type: string
-        value:
-          description: Translated value
-          type: string
-      title: KalturaTranslationToken
-      type: object
-    KalturaCustomDrmPlaybackPluginData:
-      allOf:
-      - $ref: '#/components/schemas/KalturaDrmPlaybackPluginData'
-      properties:
-        data:
-          description: Custom DRM license data
-          type: string
-      title: KalturaCustomDrmPlaybackPluginData
-      type: object
-    KalturaUserAssetRuleFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: User asset rule filter
-      properties:
-        assetIdEqual:
-          description: Asset identifier to filter by
-          type: integer
-        assetTypeEqual:
-          description: Asset type to filter by - 0 = EPG, 1 = media
-          type: integer
-        orderBy:
-          enum:
-          - NAME_ASC
-          - NAME_DESC
-          type: string
-          x-enumLabels:
-          - NAME_ASC
-          - NAME_DESC
-          x-enumType: KalturaUserAssetRuleOrderBy
-      title: KalturaUserAssetRuleFilter
-      type: object
-    KalturaDeviceReportFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaReportFilter'
-      description: Report filter
-      properties:
-        lastAccessDateGreaterThanOrEqual:
-          description: Filter device configuration later than specific date
-          type: integer
-      title: KalturaDeviceReportFilter
-      type: object
-    KalturaAnnouncementFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      description: order announcements
-      properties:
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaAnnouncementOrderBy
-      title: KalturaAnnouncementFilter
-      type: object
-    KalturaSeasonsReminderFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaReminderFilter'
-      properties:
-        epgChannelIdEqual:
-          description: EPG channel ID
-          type: integer
-        seasonNumberIn:
-          description: Comma separated season numbers
-          type: string
-        seriesIdEqual:
-          description: Series ID
-          type: string
-      title: KalturaSeasonsReminderFilter
+      title: KalturaPersistedFilter
       type: object
     KalturaSocialCommentFilter:
       allOf:
@@ -2023,49 +1855,130 @@ components:
           x-enumType: KalturaSocialPlatform
       title: KalturaSocialCommentFilter
       type: object
-    KalturaDrmPlaybackPluginData:
+    KalturaPricePlanFilter:
       allOf:
-      - $ref: '#/components/schemas/KalturaPluginData'
+      - $ref: '#/components/schemas/KalturaFilter'
       properties:
-        licenseURL:
-          description: License URL
+        idIn:
+          description: Comma separated price plans identifiers
           type: string
-        scheme:
-          description: 'Enum Type: `KalturaDrmSchemeName`
-
-
-            Scheme'
+        orderBy:
           enum:
-          - PLAYREADY_CENC
-          - WIDEVINE_CENC
-          - FAIRPLAY
-          - WIDEVINE
-          - PLAYREADY
-          - CUSTOM_DRM
+          - CREATE_DATE_DESC
           type: string
           x-enumLabels:
-          - PLAYREADY_CENC
-          - WIDEVINE_CENC
-          - FAIRPLAY
-          - WIDEVINE
-          - PLAYREADY
-          - CUSTOM_DRM
-          x-enumType: KalturaDrmSchemeName
-      title: KalturaDrmPlaybackPluginData
+          - CREATE_DATE_DESC
+          x-enumType: KalturaPricePlanOrderBy
+      title: KalturaPricePlanFilter
       type: object
-    KalturaAggregationCountFilter:
+    KalturaCollectionFilter:
       allOf:
-      - $ref: '#/components/schemas/KalturaRelatedObjectFilter'
-      description: Kaltura Aggregation CountFilter
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Collection Filter
       properties:
+        collectionIdIn:
+          description: Comma separated collection IDs
+          type: string
+        mediaFileIdEqual:
+          description: Media-file ID to get the subscriptions by
+          type: integer
         orderBy:
           enum:
           - NONE
           type: string
           x-enumLabels:
           - NONE
-          x-enumType: KalturaAggregationCountOrderBy
-      title: KalturaAggregationCountFilter
+          x-enumType: KalturaCollectionOrderBy
+      title: KalturaCollectionFilter
+      type: object
+    KalturaAssetStructFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Filtering Asset Structs
+      properties:
+        idIn:
+          description: Comma separated identifiers
+          type: string
+        isProtectedEqual:
+          description: Filter Asset Structs by isProtectedEqual value
+          type: boolean
+        metaIdEqual:
+          description: Filter Asset Structs that contain a specific meta id
+          type: integer
+        orderBy:
+          enum:
+          - NAME_ASC
+          - NAME_DESC
+          - SYSTEM_NAME_ASC
+          - SYSTEM_NAME_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          - UPDATE_DATE_ASC
+          - UPDATE_DATE_DESC
+          type: string
+          x-enumLabels:
+          - NAME_ASC
+          - NAME_DESC
+          - SYSTEM_NAME_ASC
+          - SYSTEM_NAME_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          - UPDATE_DATE_ASC
+          - UPDATE_DATE_DESC
+          x-enumType: KalturaAssetStructOrderBy
+      title: KalturaAssetStructFilter
+      type: object
+    KalturaFavoriteFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Favorite request filter
+      properties:
+        mediaIdIn:
+          description: Media identifiers from which to filter the favorite assets
+          type: string
+        mediaTypeEqual:
+          description: Media type to filter by the favorite assets
+          type: integer
+        orderBy:
+          enum:
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          type: string
+          x-enumLabels:
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          x-enumType: KalturaFavoriteOrderBy
+        udidEqualCurrent:
+          description: Indicates whether the results should be filtered by origin UDID using the current
+          type: boolean
+      title: KalturaFavoriteFilter
+      type: object
+    KalturaPersonalFeedFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        orderBy:
+          enum:
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
+          - START_DATE_DESC
+          - START_DATE_ASC
+          type: string
+          x-enumLabels:
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
+          - START_DATE_DESC
+          - START_DATE_ASC
+          x-enumType: KalturaPersonalFeedOrderBy
+      title: KalturaPersonalFeedFilter
       type: object
     KalturaListResponse:
       description: Base list wrapper
@@ -2075,64 +1988,111 @@ components:
           type: integer
       title: KalturaListResponse
       type: object
-    KalturaTagFilter:
+    KalturaSubscriptionSetFilter:
       allOf:
       - $ref: '#/components/schemas/KalturaFilter'
       properties:
-        languageEqual:
-          description: Language to filter by
+        idIn:
+          description: Comma separated identifiers
           type: string
         orderBy:
           enum:
-          - NONE
+          - NAME_ASC
+          - NAME_DESC
           type: string
           x-enumLabels:
-          - NONE
-          x-enumType: KalturaTagOrderBy
-        tagEqual:
-          description: Tag to filter by
-          type: string
-        tagStartsWith:
-          description: Tag to filter by
+          - NAME_ASC
+          - NAME_DESC
+          x-enumType: KalturaSubscriptionSetOrderBy
+        subscriptionIdContains:
+          description: Comma separated subscription identifiers
           type: string
         typeEqual:
-          description: Type identifier
-          type: integer
-      title: KalturaTagFilter
-      type: object
-    KalturaSocialActionFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        actionTypeIn:
-          description: Comma separated list of social actions to filter by
-          type: string
-        assetIdIn:
-          description: Comma separated list of asset identifiers.
-          type: string
-        assetTypeEqual:
-          description: 'Enum Type: `KalturaAssetType`
+          description: 'Enum Type: `KalturaSubscriptionSetType`
 
 
-            Asset Type'
+            Subscription Type'
           enum:
-          - media
-          - recording
-          - epg
+          - SWITCH
+          - DEPENDENCY
           type: string
           x-enumLabels:
-          - MEDIA
-          - RECORDING
-          - EPG
-          x-enumType: KalturaAssetType
+          - SWITCH
+          - DEPENDENCY
+          x-enumType: KalturaSubscriptionSetType
+      title: KalturaSubscriptionSetFilter
+      type: object
+    KalturaConfigurationGroupTagFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Configuration group tag filter
+      properties:
+        configurationGroupIdEqual:
+          description: the ID of the configuration group for which to return related configurations group tags
+          type: string
         orderBy:
           enum:
           - NONE
           type: string
           x-enumLabels:
           - NONE
-          x-enumType: KalturaSocialActionOrderBy
-      title: KalturaSocialActionFilter
+          x-enumType: KalturaConfigurationGroupTagOrderBy
+      title: KalturaConfigurationGroupTagFilter
+      type: object
+    KalturaConfigurationsFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Configuration filter
+      properties:
+        configurationGroupIdEqual:
+          description: the ID of the configuration group for which to return related configurations
+          type: string
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaConfigurationsOrderBy
+      title: KalturaConfigurationsFilter
+      type: object
+    KalturaCountryFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Country filter
+      properties:
+        idIn:
+          description: Country identifiers
+          type: string
+        ipEqual:
+          description: Ip to identify the country
+          type: string
+        ipEqualCurrent:
+          description: Indicates if to get the IP from the request
+          type: boolean
+        orderBy:
+          enum:
+          - NAME_ASC
+          type: string
+          x-enumLabels:
+          - NAME_ASC
+          x-enumType: KalturaCountryOrderBy
+      title: KalturaCountryFilter
+      type: object
+    KalturaFollowTvSeriesFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        orderBy:
+          enum:
+          - START_DATE_DESC
+          - START_DATE_ASC
+          type: string
+          x-enumLabels:
+          - START_DATE_DESC
+          - START_DATE_ASC
+          x-enumType: KalturaFollowTvSeriesOrderBy
+      title: KalturaFollowTvSeriesFilter
       type: object
     KalturaMediaFileFilter:
       allOf:
@@ -2153,24 +2113,107 @@ components:
           x-enumType: KalturaMediaFileOrderBy
       title: KalturaMediaFileFilter
       type: object
-    KalturaSeriesReminderFilter:
+    KalturaEntitlementFilter:
       allOf:
-      - $ref: '#/components/schemas/KalturaReminderFilter'
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: Entitlements filter
       properties:
-        epgChannelIdEqual:
-          description: EPG channel ID
+        entityReferenceEqual:
+          description: 'Enum Type: `KalturaEntityReferenceBy`
+
+
+            Reference type to filter by'
+          enum:
+          - user
+          - household
+          type: string
+          x-enumLabels:
+          - USER
+          - HOUSEHOLD
+          x-enumType: KalturaEntityReferenceBy
+        isExpiredEqual:
+          description: Is expired
+          type: boolean
+        orderBy:
+          enum:
+          - PURCHASE_DATE_ASC
+          - PURCHASE_DATE_DESC
+          type: string
+          x-enumLabels:
+          - PURCHASE_DATE_ASC
+          - PURCHASE_DATE_DESC
+          x-enumType: KalturaEntitlementOrderBy
+        productTypeEqual:
+          description: 'Enum Type: `KalturaTransactionType`
+
+
+            The type of the entitlements to return'
+          enum:
+          - ppv
+          - subscription
+          - collection
+          type: string
+          x-enumLabels:
+          - PPV
+          - SUBSCRIPTION
+          - COLLECTION
+          x-enumType: KalturaTransactionType
+      title: KalturaEntitlementFilter
+      type: object
+    KalturaChannelsFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        idEqual:
+          description: channel identifier to filter by
           type: integer
+        nameEqual:
+          description: Exact channel name to filter by
+          type: string
+        nameStartsWith:
+          description: Channel name starts with (autocomplete)
+          type: string
         orderBy:
           enum:
           - NONE
+          - NAME_ASC
+          - NAME_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
           type: string
           x-enumLabels:
           - NONE
-          x-enumType: KalturaSeriesReminderOrderBy
-        seriesIdIn:
-          description: Comma separated series IDs
+          - NAME_ASC
+          - NAME_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          x-enumType: KalturaChannelsOrderBy
+      title: KalturaChannelsFilter
+      type: object
+    KalturaCustomDrmPlaybackPluginData:
+      allOf:
+      - $ref: '#/components/schemas/KalturaDrmPlaybackPluginData'
+      properties:
+        data:
+          description: Custom DRM license data
           type: string
-      title: KalturaSeriesReminderFilter
+      title: KalturaCustomDrmPlaybackPluginData
+      type: object
+    KalturaPriceDetailsFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      properties:
+        idIn:
+          description: Comma separated price identifiers
+          type: string
+        orderBy:
+          enum:
+          - NAME_ASC
+          type: string
+          x-enumLabels:
+          - NAME_ASC
+          x-enumType: KalturaPriceDetailsOrderBy
+      title: KalturaPriceDetailsFilter
       type: object
     KalturaRecordingContextFilter:
       allOf:
@@ -2188,6 +2231,45 @@ components:
           - NONE
           x-enumType: KalturaRecordingContextOrderBy
       title: KalturaRecordingContextFilter
+      type: object
+    KalturaAggregationCountFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaRelatedObjectFilter'
+      description: Kaltura Aggregation CountFilter
+      properties:
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaAggregationCountOrderBy
+      title: KalturaAggregationCountFilter
+      type: object
+    KalturaReportFilter:
+      allOf:
+      - $ref: '#/components/schemas/KalturaFilter'
+      description: '`abstract`
+
+
+        Report filter'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaDeviceReportFilter'
+      properties:
+        objectType:
+          enum:
+          - KalturaDeviceReportFilter
+          type: string
+        orderBy:
+          enum:
+          - NONE
+          type: string
+          x-enumLabels:
+          - NONE
+          x-enumType: KalturaReportOrderBy
+      title: KalturaReportFilter
       type: object
     KalturaValue:
       description: '`abstract`
@@ -2217,88 +2299,6 @@ components:
           - KalturaStringValue
           type: string
       title: KalturaValue
-      type: object
-    KalturaBaseOTTUser:
-      description: Slim user data
-      properties:
-        firstName:
-          description: First name
-          type: string
-        id:
-          description: '`readOnly`
-
-
-            User identifier'
-          readOnly: true
-          type: string
-        lastName:
-          description: Last name
-          type: string
-        username:
-          description: Username
-          type: string
-      title: KalturaBaseOTTUser
-      type: object
-    KalturaImageFilter:
-      allOf:
-      - $ref: '#/components/schemas/KalturaFilter'
-      properties:
-        idIn:
-          description: IDs to filter by
-          type: string
-        imageObjectIdEqual:
-          description: ID of the object the is related to, to filter by
-          type: integer
-        imageObjectTypeEqual:
-          description: 'Enum Type: `KalturaImageObjectType`
-
-
-            Type of the object the image is related to, to filter by'
-          enum:
-          - MEDIA_ASSET
-          - PROGRAM_ASSET
-          - CHANNEL
-          - CATEGORY
-          - PARTNER
-          - IMAGE_TYPE
-          type: string
-          x-enumLabels:
-          - MEDIA_ASSET
-          - PROGRAM_ASSET
-          - CHANNEL
-          - CATEGORY
-          - PARTNER
-          - IMAGE_TYPE
-          x-enumType: KalturaImageObjectType
-        isDefaultEqual:
-          description: Filter images that are default on atleast on image type or not default at any
-          type: boolean
-        orderBy:
-          enum:
-          - NONE
-          type: string
-          x-enumLabels:
-          - NONE
-          x-enumType: KalturaImageOrderBy
-      title: KalturaImageFilter
-      type: object
-    KalturaLongValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of longs
-      properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaLongValue
-      type: object
-    KalturaLoginSession:
-      description: Login response
-      properties:
-        ks:
-          description: Access token in a KS format
-          type: string
-      title: KalturaLoginSession
       type: object
   securitySchemes:
     ks:

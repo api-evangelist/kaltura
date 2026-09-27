@@ -44,13 +44,15 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    OTTRequest:
+    KalturaKeyValue:
       properties:
-        ks:
+        key:
+          description: Key
           type: string
-        version:
-          default: 3.6.287.20720
+        value:
+          description: Value
           type: string
+      title: KalturaKeyValue
       type: object
     KalturaEmailMessage:
       properties:
@@ -84,15 +86,13 @@ components:
           type: string
       title: KalturaEmailMessage
       type: object
-    KalturaKeyValue:
+    OTTRequest:
       properties:
-        key:
-          description: Key
+        ks:
           type: string
-        value:
-          description: Value
+        version:
+          default: 3.6.287.20720
           type: string
-      title: KalturaKeyValue
       type: object
   securitySchemes:
     ks:

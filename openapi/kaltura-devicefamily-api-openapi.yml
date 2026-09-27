@@ -56,15 +56,12 @@ components:
           type: string
       title: KalturaDeviceFamilyBase
       type: object
-    KalturaDeviceFamilyListResponse:
+    KalturaDeviceFamily:
       allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaDeviceFamily'
-          type: array
-      title: KalturaDeviceFamilyListResponse
+      - $ref: '#/components/schemas/KalturaDeviceFamilyBase'
+      description: Device family details
+      properties: {}
+      title: KalturaDeviceFamily
       type: object
     OTTRequest:
       properties:
@@ -74,12 +71,15 @@ components:
           default: 3.6.287.20720
           type: string
       type: object
-    KalturaDeviceFamily:
+    KalturaDeviceFamilyListResponse:
       allOf:
-      - $ref: '#/components/schemas/KalturaDeviceFamilyBase'
-      description: Device family details
-      properties: {}
-      title: KalturaDeviceFamily
+      - $ref: '#/components/schemas/KalturaListResponse'
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaDeviceFamily'
+          type: array
+      title: KalturaDeviceFamilyListResponse
       type: object
     KalturaListResponse:
       description: Base list wrapper

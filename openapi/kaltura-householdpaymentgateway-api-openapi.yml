@@ -301,6 +301,24 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    KalturaKeyValue:
+      properties:
+        key:
+          description: Key
+          type: string
+        value:
+          description: Value
+          type: string
+      title: KalturaKeyValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaHouseholdPaymentGateway:
       properties:
         id:
@@ -333,6 +351,22 @@ components:
           x-enumType: KalturaHouseholdPaymentGatewaySelectedBy
       title: KalturaHouseholdPaymentGateway
       type: object
+    KalturaPaymentGatewayConfiguration:
+      properties:
+        paymentGatewayConfiguration:
+          items:
+            $ref: '#/components/schemas/KalturaKeyValue'
+          type: array
+      title: KalturaPaymentGatewayConfiguration
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
     KalturaHouseholdPaymentGatewayListResponse:
       allOf:
       - $ref: '#/components/schemas/KalturaListResponse'
@@ -343,40 +377,6 @@ components:
             $ref: '#/components/schemas/KalturaHouseholdPaymentGateway'
           type: array
       title: KalturaHouseholdPaymentGatewayListResponse
-      type: object
-    KalturaPaymentGatewayConfiguration:
-      properties:
-        paymentGatewayConfiguration:
-          items:
-            $ref: '#/components/schemas/KalturaKeyValue'
-          type: array
-      title: KalturaPaymentGatewayConfiguration
-      type: object
-    KalturaKeyValue:
-      properties:
-        key:
-          description: Key
-          type: string
-        value:
-          description: Value
-          type: string
-      title: KalturaKeyValue
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

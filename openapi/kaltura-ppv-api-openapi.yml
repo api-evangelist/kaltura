@@ -44,16 +44,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
-      properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
-      type: object
     KalturaMultilingualStringValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
@@ -67,92 +57,6 @@ components:
           description: Value
           type: string
       title: KalturaMultilingualStringValue
-      type: object
-    KalturaDiscountModule:
-      description: Discount module
-      properties:
-        endDate:
-          description: The last date the discount is available
-          type: integer
-        percent:
-          description: The discount percentage
-          type: number
-        startDate:
-          description: The first date the discount is available
-          type: integer
-      title: KalturaDiscountModule
-      type: object
-    KalturaDoubleValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of doubles
-      properties:
-        value:
-          description: Value
-          type: number
-      title: KalturaDoubleValue
-      type: object
-    KalturaIntegerValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of ints
-      properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaIntegerValue
-      type: object
-    KalturaPriceDetails:
-      description: Price details
-      properties:
-        descriptions:
-          items:
-            $ref: '#/components/schemas/KalturaTranslationToken'
-          type: array
-        id:
-          description: '`readOnly`
-
-
-            The price code identifier'
-          readOnly: true
-          type: integer
-        multiCurrencyPrice:
-          items:
-            $ref: '#/components/schemas/KalturaPrice'
-          type: array
-        name:
-          description: The price code name
-          type: string
-        price:
-          $ref: '#/components/schemas/KalturaPrice'
-      title: KalturaPriceDetails
-      type: object
-    KalturaPrice:
-      description: Price
-      properties:
-        amount:
-          description: Price
-          type: number
-        countryId:
-          description: Country ID
-          type: integer
-        currency:
-          description: Currency
-          type: string
-        currencySign:
-          description: Currency Sign
-          type: string
-      title: KalturaPrice
-      type: object
-    KalturaStringValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of strings
-      properties:
-        value:
-          description: Value
-          type: string
-      title: KalturaStringValue
       type: object
     KalturaCouponsGroup:
       description: Coupons group details
@@ -205,92 +109,6 @@ components:
         version:
           default: 3.6.287.20720
           type: string
-      type: object
-    KalturaValue:
-      description: '`abstract`
-
-
-        A representation to return an array of values'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaIntegerValue'
-      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
-      - $ref: '#/components/schemas/KalturaLongValue'
-      - $ref: '#/components/schemas/KalturaDoubleValue'
-      - $ref: '#/components/schemas/KalturaBooleanValue'
-      - $ref: '#/components/schemas/KalturaStringValue'
-      properties:
-        description:
-          description: Description
-          type: string
-        objectType:
-          enum:
-          - KalturaIntegerValue
-          - KalturaMultilingualStringValue
-          - KalturaLongValue
-          - KalturaDoubleValue
-          - KalturaBooleanValue
-          - KalturaStringValue
-          type: string
-      title: KalturaValue
-      type: object
-    KalturaPpv:
-      description: PPV details
-      properties:
-        couponsGroup:
-          $ref: '#/components/schemas/KalturaCouponsGroup'
-        descriptions:
-          items:
-            $ref: '#/components/schemas/KalturaTranslationToken'
-          type: array
-        discountModule:
-          $ref: '#/components/schemas/KalturaDiscountModule'
-        fileTypes:
-          items:
-            $ref: '#/components/schemas/KalturaIntegerValue'
-          type: array
-        firstDeviceLimitation:
-          description: Indicates whether or not this ppv can be consumed only on the first device
-          type: boolean
-        id:
-          description: PPV identifier
-          type: string
-        isSubscriptionOnly:
-          description: Indicates whether or not this ppv can be purchased standalone or only as part of a subscription
-          type: boolean
-        name:
-          description: the name for the ppv
-          type: string
-        price:
-          $ref: '#/components/schemas/KalturaPriceDetails'
-        productCode:
-          description: Product code for the ppv
-          type: string
-        usageModule:
-          $ref: '#/components/schemas/KalturaUsageModule'
-      title: KalturaPpv
-      type: object
-    KalturaLongValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of longs
-      properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaLongValue
-      type: object
-    KalturaTranslationToken:
-      description: Container for translation
-      properties:
-        language:
-          description: Language code
-          type: string
-        value:
-          description: Translated value
-          type: string
-      title: KalturaTranslationToken
       type: object
     KalturaUsageModule:
       description: Pricing usage module
@@ -359,6 +177,188 @@ components:
           readOnly: true
           type: integer
       title: KalturaUsageModule
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaDiscountModule:
+      description: Discount module
+      properties:
+        endDate:
+          description: The last date the discount is available
+          type: integer
+        percent:
+          description: The discount percentage
+          type: number
+        startDate:
+          description: The first date the discount is available
+          type: integer
+      title: KalturaDiscountModule
+      type: object
+    KalturaValue:
+      description: '`abstract`
+
+
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    KalturaPrice:
+      description: Price
+      properties:
+        amount:
+          description: Price
+          type: number
+        countryId:
+          description: Country ID
+          type: integer
+        currency:
+          description: Currency
+          type: string
+        currencySign:
+          description: Currency Sign
+          type: string
+      title: KalturaPrice
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaPpv:
+      description: PPV details
+      properties:
+        couponsGroup:
+          $ref: '#/components/schemas/KalturaCouponsGroup'
+        descriptions:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        discountModule:
+          $ref: '#/components/schemas/KalturaDiscountModule'
+        fileTypes:
+          items:
+            $ref: '#/components/schemas/KalturaIntegerValue'
+          type: array
+        firstDeviceLimitation:
+          description: Indicates whether or not this ppv can be consumed only on the first device
+          type: boolean
+        id:
+          description: PPV identifier
+          type: string
+        isSubscriptionOnly:
+          description: Indicates whether or not this ppv can be purchased standalone or only as part of a subscription
+          type: boolean
+        name:
+          description: the name for the ppv
+          type: string
+        price:
+          $ref: '#/components/schemas/KalturaPriceDetails'
+        productCode:
+          description: Product code for the ppv
+          type: string
+        usageModule:
+          $ref: '#/components/schemas/KalturaUsageModule'
+      title: KalturaPpv
+      type: object
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaPriceDetails:
+      description: Price details
+      properties:
+        descriptions:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        id:
+          description: '`readOnly`
+
+
+            The price code identifier'
+          readOnly: true
+          type: integer
+        multiCurrencyPrice:
+          items:
+            $ref: '#/components/schemas/KalturaPrice'
+          type: array
+        name:
+          description: The price code name
+          type: string
+        price:
+          $ref: '#/components/schemas/KalturaPrice'
+      title: KalturaPriceDetails
       type: object
   securitySchemes:
     ks:

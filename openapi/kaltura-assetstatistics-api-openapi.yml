@@ -44,6 +44,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    KalturaBuzzScore:
+      description: Buzz score
+      properties:
+        avgScore:
+          description: Average score
+          type: number
+        normalizedAvgScore:
+          description: Normalized average score
+          type: number
+        updateDate:
+          description: Update date
+          type: integer
+      title: KalturaBuzzScore
+      type: object
     KalturaAssetStatisticsQuery:
       properties:
         assetIdIn:
@@ -72,30 +86,13 @@ components:
           type: integer
       title: KalturaAssetStatisticsQuery
       type: object
-    KalturaBuzzScore:
-      description: Buzz score
+    OTTRequest:
       properties:
-        avgScore:
-          description: Average score
-          type: number
-        normalizedAvgScore:
-          description: Normalized average score
-          type: number
-        updateDate:
-          description: Update date
-          type: integer
-      title: KalturaBuzzScore
-      type: object
-    KalturaAssetStatisticsListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: List of assets statistics
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaAssetStatistics'
-          type: array
-      title: KalturaAssetStatisticsListResponse
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
     KalturaAssetStatistics:
       description: Asset statistics
@@ -119,14 +116,6 @@ components:
           type: integer
       title: KalturaAssetStatistics
       type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaListResponse:
       description: Base list wrapper
       properties:
@@ -134,6 +123,17 @@ components:
           description: Total items
           type: integer
       title: KalturaListResponse
+      type: object
+    KalturaAssetStatisticsListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of assets statistics
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaAssetStatistics'
+          type: array
+      title: KalturaAssetStatisticsListResponse
       type: object
   securitySchemes:
     ks:

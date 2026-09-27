@@ -52,14 +52,6 @@ components:
           type: array
       title: KalturaHouseholdPremiumServiceListResponse
       type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaPremiumService:
       description: Premium service
       properties:
@@ -75,12 +67,13 @@ components:
           type: string
       title: KalturaPremiumService
       type: object
-    KalturaHouseholdPremiumService:
-      allOf:
-      - $ref: '#/components/schemas/KalturaPremiumService'
-      description: Houshold premium service
-      properties: {}
-      title: KalturaHouseholdPremiumService
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
     KalturaListResponse:
       description: Base list wrapper
@@ -89,6 +82,13 @@ components:
           description: Total items
           type: integer
       title: KalturaListResponse
+      type: object
+    KalturaHouseholdPremiumService:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPremiumService'
+      description: Houshold premium service
+      properties: {}
+      title: KalturaHouseholdPremiumService
       type: object
   securitySchemes:
     ks:

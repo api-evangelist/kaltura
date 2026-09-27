@@ -218,25 +218,6 @@ components:
           type: integer
       title: KalturaListResponse
       type: object
-    KalturaHouseholdPaymentMethodListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: List of household payment methods.
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaHouseholdPaymentMethod'
-          type: array
-      title: KalturaHouseholdPaymentMethodListResponse
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaHouseholdPaymentMethod:
       properties:
         details:
@@ -269,6 +250,25 @@ components:
           description: Payment method profile identifier
           type: integer
       title: KalturaHouseholdPaymentMethod
+      type: object
+    KalturaHouseholdPaymentMethodListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of household payment methods.
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaHouseholdPaymentMethod'
+          type: array
+      title: KalturaHouseholdPaymentMethodListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
   securitySchemes:
     ks:
