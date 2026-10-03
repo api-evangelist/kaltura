@@ -41,16 +41,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaRegistrySettingsListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: List of registry settings.
+    OTTRequest:
       properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaRegistrySettings'
-          type: array
-      title: KalturaRegistrySettingsListResponse
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
     KalturaRegistrySettings:
       properties:
@@ -62,21 +67,16 @@ components:
           type: string
       title: KalturaRegistrySettings
       type: object
-    KalturaListResponse:
-      description: Base list wrapper
+    KalturaRegistrySettingsListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of registry settings.
       properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaRegistrySettings'
+          type: array
+      title: KalturaRegistrySettingsListResponse
       type: object
   securitySchemes:
     ks:

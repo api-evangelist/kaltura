@@ -44,22 +44,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaPartnerConfiguration:
-      description: '`abstract`
-
-
-        Partner  base configuration'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaBillingPartnerConfig'
-      properties:
-        objectType:
-          enum:
-          - KalturaBillingPartnerConfig
-          type: string
-      title: KalturaPartnerConfiguration
-      type: object
     KalturaBillingPartnerConfig:
       allOf:
       - $ref: '#/components/schemas/KalturaPartnerConfiguration'
@@ -92,6 +76,22 @@ components:
         version:
           default: 3.6.287.20720
           type: string
+      type: object
+    KalturaPartnerConfiguration:
+      description: '`abstract`
+
+
+        Partner  base configuration'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaBillingPartnerConfig'
+      properties:
+        objectType:
+          enum:
+          - KalturaBillingPartnerConfig
+          type: string
+      title: KalturaPartnerConfiguration
       type: object
   securitySchemes:
     ks:

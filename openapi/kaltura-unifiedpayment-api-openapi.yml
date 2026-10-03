@@ -74,6 +74,14 @@ components:
           type: integer
       title: KalturaEntitlementRenewalBase
       type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaUnifiedPaymentRenewal:
       properties:
         date:
@@ -89,14 +97,6 @@ components:
           description: Unified payment ID
           type: integer
       title: KalturaUnifiedPaymentRenewal
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
   securitySchemes:
     ks:

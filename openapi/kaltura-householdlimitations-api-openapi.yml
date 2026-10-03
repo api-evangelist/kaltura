@@ -44,37 +44,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaHouseholdDeviceFamilyLimitations:
-      allOf:
-      - $ref: '#/components/schemas/KalturaDeviceFamilyBase'
-      description: Device family limitations details
-      properties:
-        concurrentLimit:
-          description: Max number of streams allowed for this family
-          type: integer
-        deviceLimit:
-          description: Max number of devices allowed for this family
-          type: integer
-        frequency:
-          description: Allowed device change frequency code
-          type: integer
-      title: KalturaHouseholdDeviceFamilyLimitations
-      type: object
-    KalturaDeviceFamilyBase:
-      description: Device family details
-      properties:
-        id:
-          description: '`readOnly`
-
-
-            Device family identifier'
-          readOnly: true
-          type: integer
-        name:
-          description: Device family name
-          type: string
-      title: KalturaDeviceFamilyBase
-      type: object
     KalturaHouseholdLimitations:
       description: Household limitations details
       properties:
@@ -161,6 +130,37 @@ components:
         version:
           default: 3.6.287.20720
           type: string
+      type: object
+    KalturaDeviceFamilyBase:
+      description: Device family details
+      properties:
+        id:
+          description: '`readOnly`
+
+
+            Device family identifier'
+          readOnly: true
+          type: integer
+        name:
+          description: Device family name
+          type: string
+      title: KalturaDeviceFamilyBase
+      type: object
+    KalturaHouseholdDeviceFamilyLimitations:
+      allOf:
+      - $ref: '#/components/schemas/KalturaDeviceFamilyBase'
+      description: Device family limitations details
+      properties:
+        concurrentLimit:
+          description: Max number of streams allowed for this family
+          type: integer
+        deviceLimit:
+          description: Max number of devices allowed for this family
+          type: integer
+        frequency:
+          description: Allowed device change frequency code
+          type: integer
+      title: KalturaHouseholdDeviceFamilyLimitations
       type: object
   securitySchemes:
     ks:

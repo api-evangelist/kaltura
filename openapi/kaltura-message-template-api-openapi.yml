@@ -108,6 +108,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaMessageTemplate:
       properties:
         action:
@@ -156,14 +164,6 @@ components:
           description: URL template for deep linking. Example - /app/location/{mediaId}
           type: string
       title: KalturaMessageTemplate
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
   securitySchemes:
     ks:

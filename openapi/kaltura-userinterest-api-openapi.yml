@@ -155,18 +155,13 @@ components:
           default: 3.6.287.20720
           type: string
       type: object
-    KalturaUserInterestTopic:
-      description: User interest topic
+    KalturaListResponse:
+      description: Base list wrapper
       properties:
-        metaId:
-          description: Meta identifier
-          type: string
-        parentTopic:
-          $ref: '#/components/schemas/KalturaUserInterestTopic'
-        value:
-          description: Meta Value
-          type: string
-      title: KalturaUserInterestTopic
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
     KalturaUserInterestListResponse:
       allOf:
@@ -179,13 +174,18 @@ components:
           type: array
       title: KalturaUserInterestListResponse
       type: object
-    KalturaListResponse:
-      description: Base list wrapper
+    KalturaUserInterestTopic:
+      description: User interest topic
       properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
+        metaId:
+          description: Meta identifier
+          type: string
+        parentTopic:
+          $ref: '#/components/schemas/KalturaUserInterestTopic'
+        value:
+          description: Meta Value
+          type: string
+      title: KalturaUserInterestTopic
       type: object
   securitySchemes:
     ks:

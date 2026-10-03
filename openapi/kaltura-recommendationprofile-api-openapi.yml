@@ -196,6 +196,84 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+    KalturaRecommendationProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of recommendation profiles.
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaRecommendationProfile'
+          type: array
+      title: KalturaRecommendationProfileListResponse
+      type: object
     KalturaMultilingualStringValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
@@ -209,35 +287,6 @@ components:
           description: Value
           type: string
       title: KalturaMultilingualStringValue
-      type: object
-    KalturaRecommendationProfileListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: List of recommendation profiles.
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaRecommendationProfile'
-          type: array
-      title: KalturaRecommendationProfileListResponse
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaIntegerValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of ints
-      properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaIntegerValue
       type: object
     KalturaValue:
       description: '`abstract`
@@ -267,6 +316,16 @@ components:
           - KalturaStringValue
           type: string
       title: KalturaValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
       type: object
     KalturaRecommendationProfile:
       description: PaymentGW
@@ -302,65 +361,6 @@ components:
           readOnly: true
           type: string
       title: KalturaRecommendationProfile
-      type: object
-    KalturaStringValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of strings
-      properties:
-        value:
-          description: Value
-          type: string
-      title: KalturaStringValue
-      type: object
-    KalturaLongValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of longs
-      properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaLongValue
-      type: object
-    KalturaTranslationToken:
-      description: Container for translation
-      properties:
-        language:
-          description: Language code
-          type: string
-        value:
-          description: Translated value
-          type: string
-      title: KalturaTranslationToken
-      type: object
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
-      properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
-      type: object
-    KalturaDoubleValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of doubles
-      properties:
-        value:
-          description: Value
-          type: number
-      title: KalturaDoubleValue
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

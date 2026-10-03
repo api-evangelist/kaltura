@@ -165,6 +165,37 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    KalturaExternalChannelProfile:
+      description: OSS Adapter
+      properties:
+        enrichments:
+          items:
+            $ref: '#/components/schemas/KalturaChannelEnrichmentHolder'
+          type: array
+        externalIdentifier:
+          description: External channel external identifier
+          type: string
+        filterExpression:
+          description: Filter expression
+          type: string
+        id:
+          description: '`readOnly`
+
+
+            External channel id'
+          readOnly: true
+          type: integer
+        isActive:
+          description: External channel active status
+          type: boolean
+        name:
+          description: External channel name
+          type: string
+        recommendationEngineId:
+          description: Recommendation engine id
+          type: integer
+      title: KalturaExternalChannelProfile
+      type: object
     OTTRequest:
       properties:
         ks:
@@ -172,6 +203,25 @@ components:
         version:
           default: 3.6.287.20720
           type: string
+      type: object
+    KalturaExternalChannelProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: External channel profiles
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaExternalChannelProfile'
+          type: array
+      title: KalturaExternalChannelProfileListResponse
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
     KalturaChannelEnrichmentHolder:
       description: Holder object for channel enrichment enum
@@ -210,56 +260,6 @@ components:
           - ATHOME
           x-enumType: KalturaChannelEnrichment
       title: KalturaChannelEnrichmentHolder
-      type: object
-    KalturaExternalChannelProfile:
-      description: OSS Adapter
-      properties:
-        enrichments:
-          items:
-            $ref: '#/components/schemas/KalturaChannelEnrichmentHolder'
-          type: array
-        externalIdentifier:
-          description: External channel external identifier
-          type: string
-        filterExpression:
-          description: Filter expression
-          type: string
-        id:
-          description: '`readOnly`
-
-
-            External channel id'
-          readOnly: true
-          type: integer
-        isActive:
-          description: External channel active status
-          type: boolean
-        name:
-          description: External channel name
-          type: string
-        recommendationEngineId:
-          description: Recommendation engine id
-          type: integer
-      title: KalturaExternalChannelProfile
-      type: object
-    KalturaExternalChannelProfileListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: External channel profiles
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaExternalChannelProfile'
-          type: array
-      title: KalturaExternalChannelProfileListResponse
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

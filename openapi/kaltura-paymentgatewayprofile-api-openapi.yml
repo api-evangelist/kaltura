@@ -237,37 +237,15 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaMultilingualStringValue:
+    KalturaBooleanValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
-      description: Array of translated strings
+      description: A string representation to return an array of booleans
       properties:
-        multilingualValue:
-          items:
-            $ref: '#/components/schemas/KalturaTranslationToken'
-          type: array
         value:
           description: Value
-          type: string
-      title: KalturaMultilingualStringValue
-      type: object
-    KalturaKeyValue:
-      properties:
-        key:
-          description: Key
-          type: string
-        value:
-          description: Value
-          type: string
-      title: KalturaKeyValue
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
+          type: boolean
+      title: KalturaBooleanValue
       type: object
     KalturaIntegerValue:
       allOf:
@@ -279,67 +257,26 @@ components:
           type: integer
       title: KalturaIntegerValue
       type: object
-    KalturaPaymentGatewayBaseProfile:
-      description: Payment gateway base profile
+    KalturaPaymentGatewayProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: PaymentGatewayProfile list
       properties:
-        id:
-          description: '`readOnly`
-
-
-            payment gateway id'
-          readOnly: true
-          type: integer
-        isDefault:
-          description: Payment gateway default (true/false)
-          type: boolean
-        name:
-          description: payment gateway name
-          type: string
-        selectedBy:
-          description: 'Enum Type: `KalturaHouseholdPaymentGatewaySelectedBy`
-
-
-            distinction payment gateway selected by account or household'
-          enum:
-          - none
-          - account
-          - household
-          type: string
-          x-enumLabels:
-          - NONE
-          - ACCOUNT
-          - HOUSEHOLD
-          x-enumType: KalturaHouseholdPaymentGatewaySelectedBy
-      title: KalturaPaymentGatewayBaseProfile
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
+          type: array
+      title: KalturaPaymentGatewayProfileListResponse
       type: object
-    KalturaValue:
-      description: '`abstract`
-
-
-        A representation to return an array of values'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaIntegerValue'
-      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
-      - $ref: '#/components/schemas/KalturaLongValue'
-      - $ref: '#/components/schemas/KalturaDoubleValue'
-      - $ref: '#/components/schemas/KalturaBooleanValue'
-      - $ref: '#/components/schemas/KalturaStringValue'
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
       properties:
-        description:
-          description: Description
-          type: string
-        objectType:
-          enum:
-          - KalturaIntegerValue
-          - KalturaMultilingualStringValue
-          - KalturaLongValue
-          - KalturaDoubleValue
-          - KalturaBooleanValue
-          - KalturaStringValue
-          type: string
-      title: KalturaValue
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
       type: object
     KalturaStringValue:
       allOf:
@@ -351,26 +288,40 @@ components:
           type: string
       title: KalturaStringValue
       type: object
-    KalturaLongValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of longs
+    OTTRequest:
       properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaLongValue
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
-    KalturaPaymentGatewayProfileListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: PaymentGatewayProfile list
+    KalturaTranslationToken:
+      description: Container for translation
       properties:
-        objects:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+    KalturaPaymentGatewayConfiguration:
+      properties:
+        paymentGatewayConfiguration:
           items:
-            $ref: '#/components/schemas/KalturaPaymentGatewayProfile'
+            $ref: '#/components/schemas/KalturaKeyValue'
           type: array
-      title: KalturaPaymentGatewayProfileListResponse
+      title: KalturaPaymentGatewayConfiguration
       type: object
     KalturaPaymentGatewayProfile:
       allOf:
@@ -419,52 +370,101 @@ components:
           type: string
       title: KalturaPaymentGatewayProfile
       type: object
-    KalturaTranslationToken:
-      description: Container for translation
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
       properties:
-        language:
-          description: Language code
-          type: string
-        value:
-          description: Translated value
-          type: string
-      title: KalturaTranslationToken
-      type: object
-    KalturaPaymentGatewayConfiguration:
-      properties:
-        paymentGatewayConfiguration:
+        multilingualValue:
           items:
-            $ref: '#/components/schemas/KalturaKeyValue'
+            $ref: '#/components/schemas/KalturaTranslationToken'
           type: array
-      title: KalturaPaymentGatewayConfiguration
-      type: object
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
-      properties:
         value:
           description: Value
-          type: boolean
-      title: KalturaBooleanValue
+          type: string
+      title: KalturaMultilingualStringValue
       type: object
-    KalturaDoubleValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of doubles
+    KalturaValue:
+      description: '`abstract`
+
+
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
       properties:
-        value:
-          description: Value
-          type: number
-      title: KalturaDoubleValue
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
       type: object
-    KalturaListResponse:
-      description: Base list wrapper
+    KalturaPaymentGatewayBaseProfile:
+      description: Payment gateway base profile
       properties:
-        totalCount:
-          description: Total items
+        id:
+          description: '`readOnly`
+
+
+            payment gateway id'
+          readOnly: true
           type: integer
-      title: KalturaListResponse
+        isDefault:
+          description: Payment gateway default (true/false)
+          type: boolean
+        name:
+          description: payment gateway name
+          type: string
+        selectedBy:
+          description: 'Enum Type: `KalturaHouseholdPaymentGatewaySelectedBy`
+
+
+            distinction payment gateway selected by account or household'
+          enum:
+          - none
+          - account
+          - household
+          type: string
+          x-enumLabels:
+          - NONE
+          - ACCOUNT
+          - HOUSEHOLD
+          x-enumType: KalturaHouseholdPaymentGatewaySelectedBy
+      title: KalturaPaymentGatewayBaseProfile
+      type: object
+    KalturaKeyValue:
+      properties:
+        key:
+          description: Key
+          type: string
+        value:
+          description: Value
+          type: string
+      title: KalturaKeyValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
       type: object
   securitySchemes:
     ks:

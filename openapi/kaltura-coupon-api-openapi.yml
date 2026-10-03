@@ -46,17 +46,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaTranslationToken:
-      description: Container for translation
-      properties:
-        language:
-          description: Language code
-          type: string
-        value:
-          description: Translated value
-          type: string
-      title: KalturaTranslationToken
-      type: object
     KalturaCouponsGroup:
       description: Coupons group details
       properties:
@@ -101,6 +90,14 @@ components:
           type: integer
       title: KalturaCouponsGroup
       type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaCoupon:
       description: Coupon details container
       properties:
@@ -131,13 +128,16 @@ components:
           x-enumType: KalturaCouponStatus
       title: KalturaCoupon
       type: object
-    OTTRequest:
+    KalturaTranslationToken:
+      description: Container for translation
       properties:
-        ks:
+        language:
+          description: Language code
           type: string
-        version:
-          default: 3.6.287.20720
+        value:
+          description: Translated value
           type: string
+      title: KalturaTranslationToken
       type: object
   securitySchemes:
     ks:

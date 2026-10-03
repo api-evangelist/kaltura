@@ -373,18 +373,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaExternalReceipt:
-      allOf:
-      - $ref: '#/components/schemas/KalturaPurchaseBase'
-      properties:
-        paymentGatewayName:
-          description: 'The payment gateway name for the In-App billing service to be used. Possible values: Google/Apple'
-          type: string
-        receiptId:
-          description: A unique identifier that was provided by the In-App billing service to validate the purchase
-          type: string
-      title: KalturaExternalReceipt
-      type: object
     KalturaTransaction:
       properties:
         createdAt:
@@ -406,14 +394,6 @@ components:
           description: 'Transaction state: OK/Pending/Failed'
           type: string
       title: KalturaTransaction
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
     KalturaTransactionStatus:
       properties:
@@ -445,6 +425,39 @@ components:
           description: The reason the transaction failed
           type: integer
       title: KalturaTransactionStatus
+      type: object
+    KalturaPurchaseBase:
+      properties:
+        contentId:
+          description: Identifier for the content to purchase. Relevant only if Product type = PPV
+          type: integer
+        productId:
+          description: Identifier for the package from which this content is offered
+          type: integer
+        productType:
+          description: 'Enum Type: `KalturaTransactionType`
+
+
+            Package type. Possible values: PPV, Subscription, Collection'
+          enum:
+          - ppv
+          - subscription
+          - collection
+          type: string
+          x-enumLabels:
+          - PPV
+          - SUBSCRIPTION
+          - COLLECTION
+          x-enumType: KalturaTransactionType
+      title: KalturaPurchaseBase
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
     KalturaPurchaseSession:
       allOf:
@@ -479,30 +492,17 @@ components:
           type: number
       title: KalturaPurchase
       type: object
-    KalturaPurchaseBase:
+    KalturaExternalReceipt:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPurchaseBase'
       properties:
-        contentId:
-          description: Identifier for the content to purchase. Relevant only if Product type = PPV
-          type: integer
-        productId:
-          description: Identifier for the package from which this content is offered
-          type: integer
-        productType:
-          description: 'Enum Type: `KalturaTransactionType`
-
-
-            Package type. Possible values: PPV, Subscription, Collection'
-          enum:
-          - ppv
-          - subscription
-          - collection
+        paymentGatewayName:
+          description: 'The payment gateway name for the In-App billing service to be used. Possible values: Google/Apple'
           type: string
-          x-enumLabels:
-          - PPV
-          - SUBSCRIPTION
-          - COLLECTION
-          x-enumType: KalturaTransactionType
-      title: KalturaPurchaseBase
+        receiptId:
+          description: A unique identifier that was provided by the In-App billing service to validate the purchase
+          type: string
+      title: KalturaExternalReceipt
       type: object
   securitySchemes:
     ks:

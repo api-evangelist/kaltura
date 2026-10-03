@@ -184,27 +184,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaMultilingualStringValue:
+    KalturaBooleanValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
-      description: Array of translated strings
+      description: A string representation to return an array of booleans
       properties:
-        multilingualValue:
-          items:
-            $ref: '#/components/schemas/KalturaTranslationToken'
-          type: array
         value:
           description: Value
-          type: string
-      title: KalturaMultilingualStringValue
+          type: boolean
+      title: KalturaBooleanValue
       type: object
-    OTTRequest:
+    KalturaConfigurationIdentifier:
       properties:
-        ks:
+        id:
+          description: Identifier
           type: string
-        version:
-          default: 3.6.287.20720
+        name:
+          description: Name
           type: string
+      title: KalturaConfigurationIdentifier
       type: object
     KalturaIntegerValue:
       allOf:
@@ -215,66 +213,6 @@ components:
           description: Value
           type: integer
       title: KalturaIntegerValue
-      type: object
-    KalturaValue:
-      description: '`abstract`
-
-
-        A representation to return an array of values'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaIntegerValue'
-      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
-      - $ref: '#/components/schemas/KalturaLongValue'
-      - $ref: '#/components/schemas/KalturaDoubleValue'
-      - $ref: '#/components/schemas/KalturaBooleanValue'
-      - $ref: '#/components/schemas/KalturaStringValue'
-      properties:
-        description:
-          description: Description
-          type: string
-        objectType:
-          enum:
-          - KalturaIntegerValue
-          - KalturaMultilingualStringValue
-          - KalturaLongValue
-          - KalturaDoubleValue
-          - KalturaBooleanValue
-          - KalturaStringValue
-          type: string
-      title: KalturaValue
-      type: object
-    KalturaStringValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of strings
-      properties:
-        value:
-          description: Value
-          type: string
-      title: KalturaStringValue
-      type: object
-    KalturaLongValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of longs
-      properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaLongValue
-      type: object
-    KalturaTranslationToken:
-      description: Container for translation
-      properties:
-        language:
-          description: Language code
-          type: string
-        value:
-          description: Translated value
-          type: string
-      title: KalturaTranslationToken
       type: object
     KalturaConfigurationGroup:
       properties:
@@ -318,15 +256,16 @@ components:
           type: array
       title: KalturaConfigurationGroup
       type: object
-    KalturaBooleanValue:
+    KalturaConfigurationGroupListResponse:
       allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Configuration groups info wrapper
       properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaConfigurationGroup'
+          type: array
+      title: KalturaConfigurationGroupListResponse
       type: object
     KalturaDoubleValue:
       allOf:
@@ -338,6 +277,35 @@ components:
           type: number
       title: KalturaDoubleValue
       type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
     KalturaListResponse:
       description: Base list wrapper
       properties:
@@ -346,26 +314,58 @@ components:
           type: integer
       title: KalturaListResponse
       type: object
-    KalturaConfigurationIdentifier:
-      properties:
-        id:
-          description: Identifier
-          type: string
-        name:
-          description: Name
-          type: string
-      title: KalturaConfigurationIdentifier
-      type: object
-    KalturaConfigurationGroupListResponse:
+    KalturaMultilingualStringValue:
       allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: Configuration groups info wrapper
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
       properties:
-        objects:
+        multilingualValue:
           items:
-            $ref: '#/components/schemas/KalturaConfigurationGroup'
+            $ref: '#/components/schemas/KalturaTranslationToken'
           type: array
-      title: KalturaConfigurationGroupListResponse
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
+      type: object
+    KalturaValue:
+      description: '`abstract`
+
+
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
       type: object
   securitySchemes:
     ks:

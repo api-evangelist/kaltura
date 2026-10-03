@@ -41,16 +41,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaHouseholdPremiumServiceListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: Premium services list
+    OTTRequest:
       properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaHouseholdPremiumService'
-          type: array
-      title: KalturaHouseholdPremiumServiceListResponse
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
     KalturaPremiumService:
       description: Premium service
@@ -67,21 +72,16 @@ components:
           type: string
       title: KalturaPremiumService
       type: object
-    OTTRequest:
+    KalturaHouseholdPremiumServiceListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Premium services list
       properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaHouseholdPremiumService'
+          type: array
+      title: KalturaHouseholdPremiumServiceListResponse
       type: object
     KalturaHouseholdPremiumService:
       allOf:

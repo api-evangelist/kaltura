@@ -196,29 +196,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaMultilingualStringValue:
+    KalturaBooleanValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
-      description: Array of translated strings
+      description: A string representation to return an array of booleans
       properties:
-        multilingualValue:
-          items:
-            $ref: '#/components/schemas/KalturaTranslationToken'
-          type: array
         value:
           description: Value
-          type: string
-      title: KalturaMultilingualStringValue
+          type: boolean
+      title: KalturaBooleanValue
       type: object
-    KalturaCDNAdapterProfileListResponse:
+    KalturaIntegerValue:
       allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
       properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaCDNAdapterProfile'
-          type: array
-      title: KalturaCDNAdapterProfileListResponse
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
       type: object
     KalturaCDNAdapterProfile:
       description: CDN Adapter
@@ -258,6 +254,45 @@ components:
           type: string
       title: KalturaCDNAdapterProfile
       type: object
+    KalturaStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of strings
+      properties:
+        value:
+          description: Value
+          type: string
+      title: KalturaStringValue
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaTranslationToken:
+      description: Container for translation
+      properties:
+        language:
+          description: Language code
+          type: string
+        value:
+          description: Translated value
+          type: string
+      title: KalturaTranslationToken
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
     OTTRequest:
       properties:
         ks:
@@ -266,15 +301,29 @@ components:
           default: 3.6.287.20720
           type: string
       type: object
-    KalturaIntegerValue:
+    KalturaCDNAdapterProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaCDNAdapterProfile'
+          type: array
+      title: KalturaCDNAdapterProfileListResponse
+      type: object
+    KalturaMultilingualStringValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of ints
+      description: Array of translated strings
       properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
         value:
           description: Value
-          type: integer
-      title: KalturaIntegerValue
+          type: string
+      title: KalturaMultilingualStringValue
       type: object
     KalturaValue:
       description: '`abstract`
@@ -305,16 +354,6 @@ components:
           type: string
       title: KalturaValue
       type: object
-    KalturaStringValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of strings
-      properties:
-        value:
-          description: Value
-          type: string
-      title: KalturaStringValue
-      type: object
     KalturaLongValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
@@ -324,45 +363,6 @@ components:
           description: Value
           type: integer
       title: KalturaLongValue
-      type: object
-    KalturaTranslationToken:
-      description: Container for translation
-      properties:
-        language:
-          description: Language code
-          type: string
-        value:
-          description: Translated value
-          type: string
-      title: KalturaTranslationToken
-      type: object
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
-      properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
-      type: object
-    KalturaDoubleValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of doubles
-      properties:
-        value:
-          description: Value
-          type: number
-      title: KalturaDoubleValue
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

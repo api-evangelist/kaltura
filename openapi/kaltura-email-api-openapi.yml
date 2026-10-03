@@ -44,16 +44,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaKeyValue:
-      properties:
-        key:
-          description: Key
-          type: string
-        value:
-          description: Value
-          type: string
-      title: KalturaKeyValue
-      type: object
     KalturaEmailMessage:
       properties:
         bccAddress:
@@ -93,6 +83,16 @@ components:
         version:
           default: 3.6.287.20720
           type: string
+      type: object
+    KalturaKeyValue:
+      properties:
+        key:
+          description: Key
+          type: string
+        value:
+          description: Value
+          type: string
+      title: KalturaKeyValue
       type: object
   securitySchemes:
     ks:

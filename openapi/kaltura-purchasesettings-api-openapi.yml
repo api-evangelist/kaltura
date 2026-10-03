@@ -112,28 +112,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaPurchaseSettings:
-      allOf:
-      - $ref: '#/components/schemas/KalturaPin'
-      description: Purchase settings and PIN
-      properties:
-        permission:
-          description: 'Enum Type: `KalturaPurchaseSettingsType`
-
-
-            Purchase permission - block, ask or allow'
-          enum:
-          - block
-          - ask
-          - allow
-          type: string
-          x-enumLabels:
-          - BLOCK
-          - ASK
-          - ALLOW
-          x-enumType: KalturaPurchaseSettingsType
-      title: KalturaPurchaseSettings
-      type: object
     KalturaPin:
       description: PIN and its origin of definition
       properties:
@@ -179,6 +157,28 @@ components:
         version:
           default: 3.6.287.20720
           type: string
+      type: object
+    KalturaPurchaseSettings:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPin'
+      description: Purchase settings and PIN
+      properties:
+        permission:
+          description: 'Enum Type: `KalturaPurchaseSettingsType`
+
+
+            Purchase permission - block, ask or allow'
+          enum:
+          - block
+          - ask
+          - allow
+          type: string
+          x-enumLabels:
+          - BLOCK
+          - ASK
+          - ALLOW
+          x-enumType: KalturaPurchaseSettingsType
+      title: KalturaPurchaseSettings
       type: object
   securitySchemes:
     ks:

@@ -44,19 +44,54 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaBuzzScore:
-      description: Buzz score
+    KalturaAssetStatistics:
+      description: Asset statistics
       properties:
-        avgScore:
-          description: Average score
-          type: number
-        normalizedAvgScore:
-          description: Normalized average score
-          type: number
-        updateDate:
-          description: Update date
+        assetId:
+          description: Unique identifier for the asset
           type: integer
-      title: KalturaBuzzScore
+        buzzScore:
+          $ref: '#/components/schemas/KalturaBuzzScore'
+        likes:
+          description: Total number of likes for this asset
+          type: integer
+        rating:
+          description: Average rating for the asset
+          type: number
+        ratingCount:
+          description: Number of people that rated the asset
+          type: integer
+        views:
+          description: Total number of views for this asset
+          type: integer
+      title: KalturaAssetStatistics
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaAssetStatisticsListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of assets statistics
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaAssetStatistics'
+          type: array
+      title: KalturaAssetStatisticsListResponse
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
     KalturaAssetStatisticsQuery:
       properties:
@@ -86,54 +121,19 @@ components:
           type: integer
       title: KalturaAssetStatisticsQuery
       type: object
-    OTTRequest:
+    KalturaBuzzScore:
+      description: Buzz score
       properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaAssetStatistics:
-      description: Asset statistics
-      properties:
-        assetId:
-          description: Unique identifier for the asset
-          type: integer
-        buzzScore:
-          $ref: '#/components/schemas/KalturaBuzzScore'
-        likes:
-          description: Total number of likes for this asset
-          type: integer
-        rating:
-          description: Average rating for the asset
+        avgScore:
+          description: Average score
           type: number
-        ratingCount:
-          description: Number of people that rated the asset
+        normalizedAvgScore:
+          description: Normalized average score
+          type: number
+        updateDate:
+          description: Update date
           type: integer
-        views:
-          description: Total number of views for this asset
-          type: integer
-      title: KalturaAssetStatistics
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
-      type: object
-    KalturaAssetStatisticsListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: List of assets statistics
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaAssetStatistics'
-          type: array
-      title: KalturaAssetStatisticsListResponse
+      title: KalturaBuzzScore
       type: object
   securitySchemes:
     ks:

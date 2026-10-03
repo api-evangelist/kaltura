@@ -210,14 +210,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
-      type: object
     KalturaHouseholdPaymentMethod:
       properties:
         details:
@@ -251,6 +243,14 @@ components:
           type: integer
       title: KalturaHouseholdPaymentMethod
       type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaHouseholdPaymentMethodListResponse:
       allOf:
       - $ref: '#/components/schemas/KalturaListResponse'
@@ -262,13 +262,13 @@ components:
           type: array
       title: KalturaHouseholdPaymentMethodListResponse
       type: object
-    OTTRequest:
+    KalturaListResponse:
+      description: Base list wrapper
       properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

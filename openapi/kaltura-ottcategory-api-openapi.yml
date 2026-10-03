@@ -44,34 +44,65 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaDynamicOrderBy:
-      description: Kaltura Asset Order
+    KalturaMediaImage:
+      description: Image details
       properties:
-        name:
-          description: order by name
-          type: string
-        orderBy:
-          description: 'Enum Type: `KalturaMetaTagOrderBy`
+        height:
+          description: Image height
+          type: integer
+        id:
+          description: '`readOnly`
 
 
-            order by meta asc/desc'
-          enum:
-          - META_ASC
-          - META_DESC
+            Image ID'
+          readOnly: true
           type: string
-          x-enumLabels:
-          - META_ASC
-          - META_DESC
-          x-enumType: KalturaMetaTagOrderBy
-      title: KalturaDynamicOrderBy
-      type: object
-    OTTRequest:
-      properties:
-        ks:
+        isDefault:
+          description: Determined whether image was taken from default configuration or not
+          type: boolean
+        ratio:
+          description: Image aspect ratio
+          type: string
+        url:
+          description: Image URL
           type: string
         version:
-          default: 3.6.287.20720
+          description: Image Version
+          type: integer
+        width:
+          description: Image width
+          type: integer
+      title: KalturaMediaImage
+      type: object
+    KalturaOTTCategory:
+      description: Category details
+      properties:
+        channels:
+          items:
+            $ref: '#/components/schemas/KalturaChannel'
+          type: array
+        childCategories:
+          items:
+            $ref: '#/components/schemas/KalturaOTTCategory'
+          type: array
+        id:
+          description: '`readOnly`
+
+
+            Unique identifier for the category'
+          readOnly: true
+          type: integer
+        images:
+          items:
+            $ref: '#/components/schemas/KalturaMediaImage'
+          type: array
+        name:
+          description: Category name
           type: string
+        parentCategoryId:
+          description: Category parent identifier
+          type: integer
+      title: KalturaOTTCategory
       type: object
     KalturaChannel:
       description: Channel details
@@ -121,35 +152,13 @@ components:
           type: integer
       title: KalturaChannel
       type: object
-    KalturaOTTCategory:
-      description: Category details
+    OTTRequest:
       properties:
-        channels:
-          items:
-            $ref: '#/components/schemas/KalturaChannel'
-          type: array
-        childCategories:
-          items:
-            $ref: '#/components/schemas/KalturaOTTCategory'
-          type: array
-        id:
-          description: '`readOnly`
-
-
-            Unique identifier for the category'
-          readOnly: true
-          type: integer
-        images:
-          items:
-            $ref: '#/components/schemas/KalturaMediaImage'
-          type: array
-        name:
-          description: Category name
+        ks:
           type: string
-        parentCategoryId:
-          description: Category parent identifier
-          type: integer
-      title: KalturaOTTCategory
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
     KalturaTranslationToken:
       description: Container for translation
@@ -205,35 +214,26 @@ components:
           type: integer
       title: KalturaChannelOrder
       type: object
-    KalturaMediaImage:
-      description: Image details
+    KalturaDynamicOrderBy:
+      description: Kaltura Asset Order
       properties:
-        height:
-          description: Image height
-          type: integer
-        id:
-          description: '`readOnly`
+        name:
+          description: order by name
+          type: string
+        orderBy:
+          description: 'Enum Type: `KalturaMetaTagOrderBy`
 
 
-            Image ID'
-          readOnly: true
+            order by meta asc/desc'
+          enum:
+          - META_ASC
+          - META_DESC
           type: string
-        isDefault:
-          description: Determined whether image was taken from default configuration or not
-          type: boolean
-        ratio:
-          description: Image aspect ratio
-          type: string
-        url:
-          description: Image URL
-          type: string
-        version:
-          description: Image Version
-          type: integer
-        width:
-          description: Image width
-          type: integer
-      title: KalturaMediaImage
+          x-enumLabels:
+          - META_ASC
+          - META_DESC
+          x-enumType: KalturaMetaTagOrderBy
+      title: KalturaDynamicOrderBy
       type: object
   securitySchemes:
     ks:
