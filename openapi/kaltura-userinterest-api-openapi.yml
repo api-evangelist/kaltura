@@ -137,16 +137,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaUserInterest:
-      description: User Interest
-      properties:
-        id:
-          description: Identifier
-          type: string
-        topic:
-          $ref: '#/components/schemas/KalturaUserInterestTopic'
-      title: KalturaUserInterest
-      type: object
     OTTRequest:
       properties:
         ks:
@@ -154,14 +144,6 @@ components:
         version:
           default: 3.6.287.20720
           type: string
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
       type: object
     KalturaUserInterestListResponse:
       allOf:
@@ -173,6 +155,16 @@ components:
             $ref: '#/components/schemas/KalturaUserInterest'
           type: array
       title: KalturaUserInterestListResponse
+      type: object
+    KalturaUserInterest:
+      description: User Interest
+      properties:
+        id:
+          description: Identifier
+          type: string
+        topic:
+          $ref: '#/components/schemas/KalturaUserInterestTopic'
+      title: KalturaUserInterest
       type: object
     KalturaUserInterestTopic:
       description: User interest topic
@@ -186,6 +178,14 @@ components:
           description: Meta Value
           type: string
       title: KalturaUserInterestTopic
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

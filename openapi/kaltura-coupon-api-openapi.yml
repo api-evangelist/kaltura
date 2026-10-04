@@ -46,6 +46,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaCouponsGroup:
       description: Coupons group details
       properties:
@@ -89,14 +97,6 @@ components:
           description: The first date the coupons in this coupons group are valid
           type: integer
       title: KalturaCouponsGroup
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
     KalturaCoupon:
       description: Coupon details container

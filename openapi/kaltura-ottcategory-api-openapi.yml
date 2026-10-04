@@ -44,65 +44,56 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaMediaImage:
-      description: Image details
+    OTTRequest:
       properties:
-        height:
-          description: Image height
-          type: integer
-        id:
-          description: '`readOnly`
-
-
-            Image ID'
-          readOnly: true
-          type: string
-        isDefault:
-          description: Determined whether image was taken from default configuration or not
-          type: boolean
-        ratio:
-          description: Image aspect ratio
-          type: string
-        url:
-          description: Image URL
+        ks:
           type: string
         version:
-          description: Image Version
-          type: integer
-        width:
-          description: Image width
-          type: integer
-      title: KalturaMediaImage
-      type: object
-    KalturaOTTCategory:
-      description: Category details
-      properties:
-        channels:
-          items:
-            $ref: '#/components/schemas/KalturaChannel'
-          type: array
-        childCategories:
-          items:
-            $ref: '#/components/schemas/KalturaOTTCategory'
-          type: array
-        id:
-          description: '`readOnly`
-
-
-            Unique identifier for the category'
-          readOnly: true
-          type: integer
-        images:
-          items:
-            $ref: '#/components/schemas/KalturaMediaImage'
-          type: array
-        name:
-          description: Category name
+          default: 3.6.287.20720
           type: string
-        parentCategoryId:
-          description: Category parent identifier
+      type: object
+    KalturaChannelOrder:
+      description: Channel order details
+      properties:
+        dynamicOrderBy:
+          $ref: '#/components/schemas/KalturaDynamicOrderBy'
+        orderBy:
+          description: 'Enum Type: `KalturaChannelOrderBy`
+
+
+            Channel order by'
+          enum:
+          - ORDER_NUM
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
+          - START_DATE_DESC
+          - START_DATE_ASC
+          - LIKES_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          type: string
+          x-enumLabels:
+          - ORDER_NUM
+          - RELEVANCY_DESC
+          - NAME_ASC
+          - NAME_DESC
+          - VIEWS_DESC
+          - RATINGS_DESC
+          - VOTES_DESC
+          - START_DATE_DESC
+          - START_DATE_ASC
+          - LIKES_DESC
+          - CREATE_DATE_ASC
+          - CREATE_DATE_DESC
+          x-enumType: KalturaChannelOrderBy
+        period:
+          description: Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
           type: integer
-      title: KalturaOTTCategory
+      title: KalturaChannelOrder
       type: object
     KalturaChannel:
       description: Channel details
@@ -152,13 +143,35 @@ components:
           type: integer
       title: KalturaChannel
       type: object
-    OTTRequest:
+    KalturaMediaImage:
+      description: Image details
       properties:
-        ks:
+        height:
+          description: Image height
+          type: integer
+        id:
+          description: '`readOnly`
+
+
+            Image ID'
+          readOnly: true
+          type: string
+        isDefault:
+          description: Determined whether image was taken from default configuration or not
+          type: boolean
+        ratio:
+          description: Image aspect ratio
+          type: string
+        url:
+          description: Image URL
           type: string
         version:
-          default: 3.6.287.20720
-          type: string
+          description: Image Version
+          type: integer
+        width:
+          description: Image width
+          type: integer
+      title: KalturaMediaImage
       type: object
     KalturaTranslationToken:
       description: Container for translation
@@ -171,48 +184,35 @@ components:
           type: string
       title: KalturaTranslationToken
       type: object
-    KalturaChannelOrder:
-      description: Channel order details
+    KalturaOTTCategory:
+      description: Category details
       properties:
-        dynamicOrderBy:
-          $ref: '#/components/schemas/KalturaDynamicOrderBy'
-        orderBy:
-          description: 'Enum Type: `KalturaChannelOrderBy`
+        channels:
+          items:
+            $ref: '#/components/schemas/KalturaChannel'
+          type: array
+        childCategories:
+          items:
+            $ref: '#/components/schemas/KalturaOTTCategory'
+          type: array
+        id:
+          description: '`readOnly`
 
 
-            Channel order by'
-          enum:
-          - ORDER_NUM
-          - RELEVANCY_DESC
-          - NAME_ASC
-          - NAME_DESC
-          - VIEWS_DESC
-          - RATINGS_DESC
-          - VOTES_DESC
-          - START_DATE_DESC
-          - START_DATE_ASC
-          - LIKES_DESC
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          type: string
-          x-enumLabels:
-          - ORDER_NUM
-          - RELEVANCY_DESC
-          - NAME_ASC
-          - NAME_DESC
-          - VIEWS_DESC
-          - RATINGS_DESC
-          - VOTES_DESC
-          - START_DATE_DESC
-          - START_DATE_ASC
-          - LIKES_DESC
-          - CREATE_DATE_ASC
-          - CREATE_DATE_DESC
-          x-enumType: KalturaChannelOrderBy
-        period:
-          description: Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
+            Unique identifier for the category'
+          readOnly: true
           type: integer
-      title: KalturaChannelOrder
+        images:
+          items:
+            $ref: '#/components/schemas/KalturaMediaImage'
+          type: array
+        name:
+          description: Category name
+          type: string
+        parentCategoryId:
+          description: Category parent identifier
+          type: integer
+      title: KalturaOTTCategory
       type: object
     KalturaDynamicOrderBy:
       description: Kaltura Asset Order

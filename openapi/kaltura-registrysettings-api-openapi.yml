@@ -49,14 +49,6 @@ components:
           default: 3.6.287.20720
           type: string
       type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
-      type: object
     KalturaRegistrySettings:
       properties:
         key:
@@ -66,6 +58,14 @@ components:
           description: Permission item name
           type: string
       title: KalturaRegistrySettings
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
     KalturaRegistrySettingsListResponse:
       allOf:

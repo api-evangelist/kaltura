@@ -235,35 +235,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
+    OTTRequest:
       properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
-    KalturaIntegerValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of ints
+    KalturaListResponse:
+      description: Base list wrapper
       properties:
-        value:
-          description: Value
+        totalCount:
+          description: Total items
           type: integer
-      title: KalturaIntegerValue
-      type: object
-    KalturaDoubleValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of doubles
-      properties:
-        value:
-          description: Value
-          type: number
-      title: KalturaDoubleValue
+      title: KalturaListResponse
       type: object
     KalturaStringValue:
       allOf:
@@ -275,32 +261,20 @@ components:
           type: string
       title: KalturaStringValue
       type: object
-    OTTRequest:
+    KalturaOSSAdapterBaseProfile:
+      description: OSS adapter basic
       properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaOSSAdapterProfileListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: OSS adapter-profiles list
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaOSSAdapterProfile'
-          type: array
-      title: KalturaOSSAdapterProfileListResponse
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
+        id:
+          description: '`readOnly`
+
+
+            OSS adapter id'
+          readOnly: true
           type: integer
-      title: KalturaListResponse
+        name:
+          description: OSS adapter name
+          type: string
+      title: KalturaOSSAdapterBaseProfile
       type: object
     KalturaTranslationToken:
       description: Container for translation
@@ -312,6 +286,75 @@ components:
           description: Translated value
           type: string
       title: KalturaTranslationToken
+      type: object
+    KalturaDoubleValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of doubles
+      properties:
+        value:
+          description: Value
+          type: number
+      title: KalturaDoubleValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
+      type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
+    KalturaValue:
+      description: '`abstract`
+
+
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
       type: object
     KalturaOSSAdapterProfile:
       allOf:
@@ -354,59 +397,16 @@ components:
           type: string
       title: KalturaMultilingualStringValue
       type: object
-    KalturaValue:
-      description: '`abstract`
-
-
-        A representation to return an array of values'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaIntegerValue'
-      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
-      - $ref: '#/components/schemas/KalturaLongValue'
-      - $ref: '#/components/schemas/KalturaDoubleValue'
-      - $ref: '#/components/schemas/KalturaBooleanValue'
-      - $ref: '#/components/schemas/KalturaStringValue'
-      properties:
-        description:
-          description: Description
-          type: string
-        objectType:
-          enum:
-          - KalturaIntegerValue
-          - KalturaMultilingualStringValue
-          - KalturaLongValue
-          - KalturaDoubleValue
-          - KalturaBooleanValue
-          - KalturaStringValue
-          type: string
-      title: KalturaValue
-      type: object
-    KalturaOSSAdapterBaseProfile:
-      description: OSS adapter basic
-      properties:
-        id:
-          description: '`readOnly`
-
-
-            OSS adapter id'
-          readOnly: true
-          type: integer
-        name:
-          description: OSS adapter name
-          type: string
-      title: KalturaOSSAdapterBaseProfile
-      type: object
-    KalturaLongValue:
+    KalturaOSSAdapterProfileListResponse:
       allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of longs
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: OSS adapter-profiles list
       properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaLongValue
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaOSSAdapterProfile'
+          type: array
+      title: KalturaOSSAdapterProfileListResponse
       type: object
   securitySchemes:
     ks:

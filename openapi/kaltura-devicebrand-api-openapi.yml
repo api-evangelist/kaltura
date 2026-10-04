@@ -41,6 +41,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
     KalturaDeviceBrandListResponse:
       allOf:
       - $ref: '#/components/schemas/KalturaListResponse'
@@ -72,22 +88,6 @@ components:
           description: Device brand name
           type: string
       title: KalturaDeviceBrand
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

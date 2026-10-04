@@ -373,27 +373,83 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaTransaction:
+    KalturaPurchase:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPurchaseBase'
       properties:
-        createdAt:
-          description: Entitlement creation date
+        adapterData:
+          description: Additional data for the adapter
+          type: string
+        coupon:
+          description: Coupon code
+          type: string
+        currency:
+          description: Identifier for paying currency, according to ISO 4217
+          type: string
+        paymentGatewayId:
+          description: Identifier for a pre-associated payment gateway. If not provided – the account’s default payment gateway is used
           type: integer
-        failReasonCode:
-          description: "Adapter failure reason code\n            Insufficient funds = 20, Invalid account = 21, User unknown = 22, Reason unknown = 23, Unknown payment gateway response = 24,\n            No response from payment gateway = 25, Exceeded retry limit = 26, Illegal client request = 27, Expired = 28"
+        paymentMethodId:
+          description: Identifier for a pre-entered payment method. If not provided – the household’s default payment method is used
           type: integer
-        id:
-          description: Kaltura unique ID representing the transaction
+        price:
+          description: Net sum to charge – as a one-time transaction. Price must match the previously provided price for the specified content.
+          type: number
+      title: KalturaPurchase
+      type: object
+    OTTRequest:
+      properties:
+        ks:
           type: string
-        paymentGatewayReferenceId:
-          description: "Transaction reference ID received from the payment gateway. \n            Value is available only if the payment gateway provides this information."
+        version:
+          default: 3.6.287.20720
           type: string
-        paymentGatewayResponseId:
-          description: "Response ID received from by the payment gateway. \n            Value is available only if the payment gateway provides this information."
+      type: object
+    KalturaPurchaseBase:
+      properties:
+        contentId:
+          description: Identifier for the content to purchase. Relevant only if Product type = PPV
+          type: integer
+        productId:
+          description: Identifier for the package from which this content is offered
+          type: integer
+        productType:
+          description: 'Enum Type: `KalturaTransactionType`
+
+
+            Package type. Possible values: PPV, Subscription, Collection'
+          enum:
+          - ppv
+          - subscription
+          - collection
           type: string
-        state:
-          description: 'Transaction state: OK/Pending/Failed'
+          x-enumLabels:
+          - PPV
+          - SUBSCRIPTION
+          - COLLECTION
+          x-enumType: KalturaTransactionType
+      title: KalturaPurchaseBase
+      type: object
+    KalturaPurchaseSession:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPurchase'
+      properties:
+        previewModuleId:
+          description: Preview module identifier (relevant only for subscription)
+          type: integer
+      title: KalturaPurchaseSession
+      type: object
+    KalturaExternalReceipt:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPurchaseBase'
+      properties:
+        paymentGatewayName:
+          description: 'The payment gateway name for the In-App billing service to be used. Possible values: Google/Apple'
           type: string
-      title: KalturaTransaction
+        receiptId:
+          description: A unique identifier that was provided by the In-App billing service to validate the purchase
+          type: string
+      title: KalturaExternalReceipt
       type: object
     KalturaTransactionStatus:
       properties:
@@ -426,83 +482,27 @@ components:
           type: integer
       title: KalturaTransactionStatus
       type: object
-    KalturaPurchaseBase:
+    KalturaTransaction:
       properties:
-        contentId:
-          description: Identifier for the content to purchase. Relevant only if Product type = PPV
+        createdAt:
+          description: Entitlement creation date
           type: integer
-        productId:
-          description: Identifier for the package from which this content is offered
+        failReasonCode:
+          description: "Adapter failure reason code\n            Insufficient funds = 20, Invalid account = 21, User unknown = 22, Reason unknown = 23, Unknown payment gateway response = 24,\n            No response from payment gateway = 25, Exceeded retry limit = 26, Illegal client request = 27, Expired = 28"
           type: integer
-        productType:
-          description: 'Enum Type: `KalturaTransactionType`
-
-
-            Package type. Possible values: PPV, Subscription, Collection'
-          enum:
-          - ppv
-          - subscription
-          - collection
+        id:
+          description: Kaltura unique ID representing the transaction
           type: string
-          x-enumLabels:
-          - PPV
-          - SUBSCRIPTION
-          - COLLECTION
-          x-enumType: KalturaTransactionType
-      title: KalturaPurchaseBase
-      type: object
-    OTTRequest:
-      properties:
-        ks:
+        paymentGatewayReferenceId:
+          description: "Transaction reference ID received from the payment gateway. \n            Value is available only if the payment gateway provides this information."
           type: string
-        version:
-          default: 3.6.287.20720
+        paymentGatewayResponseId:
+          description: "Response ID received from by the payment gateway. \n            Value is available only if the payment gateway provides this information."
           type: string
-      type: object
-    KalturaPurchaseSession:
-      allOf:
-      - $ref: '#/components/schemas/KalturaPurchase'
-      properties:
-        previewModuleId:
-          description: Preview module identifier (relevant only for subscription)
-          type: integer
-      title: KalturaPurchaseSession
-      type: object
-    KalturaPurchase:
-      allOf:
-      - $ref: '#/components/schemas/KalturaPurchaseBase'
-      properties:
-        adapterData:
-          description: Additional data for the adapter
+        state:
+          description: 'Transaction state: OK/Pending/Failed'
           type: string
-        coupon:
-          description: Coupon code
-          type: string
-        currency:
-          description: Identifier for paying currency, according to ISO 4217
-          type: string
-        paymentGatewayId:
-          description: Identifier for a pre-associated payment gateway. If not provided – the account’s default payment gateway is used
-          type: integer
-        paymentMethodId:
-          description: Identifier for a pre-entered payment method. If not provided – the household’s default payment method is used
-          type: integer
-        price:
-          description: Net sum to charge – as a one-time transaction. Price must match the previously provided price for the specified content.
-          type: number
-      title: KalturaPurchase
-      type: object
-    KalturaExternalReceipt:
-      allOf:
-      - $ref: '#/components/schemas/KalturaPurchaseBase'
-      properties:
-        paymentGatewayName:
-          description: 'The payment gateway name for the In-App billing service to be used. Possible values: Google/Apple'
-          type: string
-        receiptId:
-          description: A unique identifier that was provided by the In-App billing service to validate the purchase
-          type: string
-      title: KalturaExternalReceipt
+      title: KalturaTransaction
       type: object
   securitySchemes:
     ks:

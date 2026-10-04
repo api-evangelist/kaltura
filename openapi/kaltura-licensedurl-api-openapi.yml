@@ -72,21 +72,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    KalturaLicensedUrlBaseRequest:
-      properties:
-        assetId:
-          description: Asset identifier
-          type: string
-      title: KalturaLicensedUrlBaseRequest
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaLicensedUrl:
       properties:
         altUrl:
@@ -96,6 +81,21 @@ components:
           description: Main licensed URL
           type: string
       title: KalturaLicensedUrl
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaLicensedUrlBaseRequest:
+      properties:
+        assetId:
+          description: Asset identifier
+          type: string
+      title: KalturaLicensedUrlBaseRequest
       type: object
   securitySchemes:
     ks:

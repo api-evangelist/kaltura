@@ -111,6 +111,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaNotificationsSettings:
       properties:
         mailEnabled:
@@ -126,14 +134,6 @@ components:
           description: Specify if the user wants to receive SMS notifications or not
           type: boolean
       title: KalturaNotificationsSettings
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
   securitySchemes:
     ks:

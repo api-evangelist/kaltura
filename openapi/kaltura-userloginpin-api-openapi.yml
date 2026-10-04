@@ -149,6 +149,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaUserLoginPin:
       description: Log in pin code details
       properties:
@@ -166,14 +174,6 @@ components:
           readOnly: true
           type: string
       title: KalturaUserLoginPin
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
   securitySchemes:
     ks:

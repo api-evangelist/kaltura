@@ -112,6 +112,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaPin:
       description: PIN and its origin of definition
       properties:
@@ -149,14 +157,6 @@ components:
           - PARENTAL
           x-enumType: KalturaPinType
       title: KalturaPin
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
     KalturaPurchaseSettings:
       allOf:

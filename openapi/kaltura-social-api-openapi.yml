@@ -348,6 +348,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaLoginResponse:
       properties:
         loginSession:
@@ -364,44 +372,6 @@ components:
           type: string
       title: KalturaLoginSession
       type: object
-    KalturaBooleanValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of booleans
-      properties:
-        value:
-          description: Value
-          type: boolean
-      title: KalturaBooleanValue
-      type: object
-    KalturaIntegerValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of ints
-      properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaIntegerValue
-      type: object
-    KalturaDoubleValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of doubles
-      properties:
-        value:
-          description: Value
-          type: number
-      title: KalturaDoubleValue
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
     KalturaOTTUserType:
       description: User type
       properties:
@@ -417,6 +387,11 @@ components:
           type: integer
       title: KalturaOTTUserType
       type: object
+    KalturaSocialConfig:
+      description: Returns social configuration for the partner
+      properties: {}
+      title: KalturaSocialConfig
+      type: object
     KalturaStringValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
@@ -426,6 +401,16 @@ components:
           description: Value
           type: string
       title: KalturaStringValue
+      type: object
+    KalturaLongValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of longs
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaLongValue
       type: object
     KalturaTranslationToken:
       description: Container for translation
@@ -438,105 +423,15 @@ components:
           type: string
       title: KalturaTranslationToken
       type: object
-    KalturaSocial:
-      description: '`abstract`'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaFacebookSocial'
-      properties:
-        birthday:
-          description: User birthday
-          type: string
-        email:
-          description: User email
-          type: string
-        firstName:
-          description: First name
-          type: string
-        gender:
-          description: Gender
-          type: string
-        id:
-          description: '`readOnly`
-
-
-            Facebook identifier'
-          readOnly: true
-          type: string
-        lastName:
-          description: Last name
-          type: string
-        name:
-          description: Full name
-          type: string
-        objectType:
-          enum:
-          - KalturaFacebookSocial
-          type: string
-        pictureUrl:
-          description: Profile picture URL
-          type: string
-        status:
-          description: "`readOnly`\n\nUser model status\n            Possible values: UNKNOWN, OK, ERROR, NOACTION, NOTEXIST, CONFLICT, MERGE, MERGEOK, NEWUSER, MINFRIENDS, INVITEOK, INVITEERROR, ACCESSDENIED, WRONGPASSWORDORUSERNAME, UNMERGEOK, USEREMAILISMISSING"
-          readOnly: true
-          type: string
-        userId:
-          description: '`readOnly`
-
-
-            User identifier'
-          readOnly: true
-          type: string
-      title: KalturaSocial
-      type: object
-    KalturaSocialConfig:
-      description: Returns social configuration for the partner
-      properties: {}
-      title: KalturaSocialConfig
-      type: object
-    KalturaMultilingualStringValue:
+    KalturaDoubleValue:
       allOf:
       - $ref: '#/components/schemas/KalturaValue'
-      description: Array of translated strings
+      description: A string representation to return an array of doubles
       properties:
-        multilingualValue:
-          items:
-            $ref: '#/components/schemas/KalturaTranslationToken'
-          type: array
         value:
           description: Value
-          type: string
-      title: KalturaMultilingualStringValue
-      type: object
-    KalturaValue:
-      description: '`abstract`
-
-
-        A representation to return an array of values'
-      discriminator:
-        propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/KalturaIntegerValue'
-      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
-      - $ref: '#/components/schemas/KalturaLongValue'
-      - $ref: '#/components/schemas/KalturaDoubleValue'
-      - $ref: '#/components/schemas/KalturaBooleanValue'
-      - $ref: '#/components/schemas/KalturaStringValue'
-      properties:
-        description:
-          description: Description
-          type: string
-        objectType:
-          enum:
-          - KalturaIntegerValue
-          - KalturaMultilingualStringValue
-          - KalturaLongValue
-          - KalturaDoubleValue
-          - KalturaBooleanValue
-          - KalturaStringValue
-          type: string
-      title: KalturaValue
+          type: number
+      title: KalturaDoubleValue
       type: object
     KalturaOTTUser:
       allOf:
@@ -630,21 +525,73 @@ components:
           type: string
       title: KalturaOTTUser
       type: object
+    KalturaIntegerValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of ints
+      properties:
+        value:
+          description: Value
+          type: integer
+      title: KalturaIntegerValue
+      type: object
     KalturaFacebookSocial:
       allOf:
       - $ref: '#/components/schemas/KalturaSocial'
       properties: {}
       title: KalturaFacebookSocial
       type: object
-    KalturaLongValue:
-      allOf:
-      - $ref: '#/components/schemas/KalturaValue'
-      description: A string representation to return an array of longs
+    KalturaSocial:
+      description: '`abstract`'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaFacebookSocial'
       properties:
-        value:
-          description: Value
-          type: integer
-      title: KalturaLongValue
+        birthday:
+          description: User birthday
+          type: string
+        email:
+          description: User email
+          type: string
+        firstName:
+          description: First name
+          type: string
+        gender:
+          description: Gender
+          type: string
+        id:
+          description: '`readOnly`
+
+
+            Facebook identifier'
+          readOnly: true
+          type: string
+        lastName:
+          description: Last name
+          type: string
+        name:
+          description: Full name
+          type: string
+        objectType:
+          enum:
+          - KalturaFacebookSocial
+          type: string
+        pictureUrl:
+          description: Profile picture URL
+          type: string
+        status:
+          description: "`readOnly`\n\nUser model status\n            Possible values: UNKNOWN, OK, ERROR, NOACTION, NOTEXIST, CONFLICT, MERGE, MERGEOK, NEWUSER, MINFRIENDS, INVITEOK, INVITEERROR, ACCESSDENIED, WRONGPASSWORDORUSERNAME, UNMERGEOK, USEREMAILISMISSING"
+          readOnly: true
+          type: string
+        userId:
+          description: '`readOnly`
+
+
+            User identifier'
+          readOnly: true
+          type: string
+      title: KalturaSocial
       type: object
     KalturaBaseOTTUser:
       description: Slim user data
@@ -666,6 +613,59 @@ components:
           description: Username
           type: string
       title: KalturaBaseOTTUser
+      type: object
+    KalturaValue:
+      description: '`abstract`
+
+
+        A representation to return an array of values'
+      discriminator:
+        propertyName: objectType
+      oneOf:
+      - $ref: '#/components/schemas/KalturaIntegerValue'
+      - $ref: '#/components/schemas/KalturaMultilingualStringValue'
+      - $ref: '#/components/schemas/KalturaLongValue'
+      - $ref: '#/components/schemas/KalturaDoubleValue'
+      - $ref: '#/components/schemas/KalturaBooleanValue'
+      - $ref: '#/components/schemas/KalturaStringValue'
+      properties:
+        description:
+          description: Description
+          type: string
+        objectType:
+          enum:
+          - KalturaIntegerValue
+          - KalturaMultilingualStringValue
+          - KalturaLongValue
+          - KalturaDoubleValue
+          - KalturaBooleanValue
+          - KalturaStringValue
+          type: string
+      title: KalturaValue
+      type: object
+    KalturaBooleanValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: A string representation to return an array of booleans
+      properties:
+        value:
+          description: Value
+          type: boolean
+      title: KalturaBooleanValue
+      type: object
+    KalturaMultilingualStringValue:
+      allOf:
+      - $ref: '#/components/schemas/KalturaValue'
+      description: Array of translated strings
+      properties:
+        multilingualValue:
+          items:
+            $ref: '#/components/schemas/KalturaTranslationToken'
+          type: array
+        value:
+          description: Value
+          type: string
+      title: KalturaMultilingualStringValue
       type: object
   securitySchemes:
     ks:

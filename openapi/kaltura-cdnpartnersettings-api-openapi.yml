@@ -76,6 +76,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaCDNPartnerSettings:
       properties:
         defaultAdapterId:
@@ -85,14 +93,6 @@ components:
           description: Default recording CDN adapter identifier
           type: integer
       title: KalturaCDNPartnerSettings
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
   securitySchemes:
     ks:

@@ -72,24 +72,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaRatioListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaRatio'
-          type: array
-      title: KalturaRatioListResponse
-      type: object
     KalturaListResponse:
       description: Base list wrapper
       properties:
@@ -97,6 +79,14 @@ components:
           description: Total items
           type: integer
       title: KalturaListResponse
+      type: object
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
       type: object
     KalturaRatio:
       properties:
@@ -120,6 +110,16 @@ components:
           description: Width
           type: integer
       title: KalturaRatio
+      type: object
+    KalturaRatioListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaRatio'
+          type: array
+      title: KalturaRatioListResponse
       type: object
   securitySchemes:
     ks:

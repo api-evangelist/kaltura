@@ -44,6 +44,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaAssetStatisticsListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: List of assets statistics
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaAssetStatistics'
+          type: array
+      title: KalturaAssetStatisticsListResponse
+      type: object
     KalturaAssetStatistics:
       description: Asset statistics
       properties:
@@ -66,32 +85,19 @@ components:
           type: integer
       title: KalturaAssetStatistics
       type: object
-    OTTRequest:
+    KalturaBuzzScore:
+      description: Buzz score
       properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaAssetStatisticsListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: List of assets statistics
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaAssetStatistics'
-          type: array
-      title: KalturaAssetStatisticsListResponse
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
+        avgScore:
+          description: Average score
+          type: number
+        normalizedAvgScore:
+          description: Normalized average score
+          type: number
+        updateDate:
+          description: Update date
           type: integer
-      title: KalturaListResponse
+      title: KalturaBuzzScore
       type: object
     KalturaAssetStatisticsQuery:
       properties:
@@ -121,19 +127,13 @@ components:
           type: integer
       title: KalturaAssetStatisticsQuery
       type: object
-    KalturaBuzzScore:
-      description: Buzz score
+    KalturaListResponse:
+      description: Base list wrapper
       properties:
-        avgScore:
-          description: Average score
-          type: number
-        normalizedAvgScore:
-          description: Normalized average score
-          type: number
-        updateDate:
-          description: Update date
+        totalCount:
+          description: Total items
           type: integer
-      title: KalturaBuzzScore
+      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

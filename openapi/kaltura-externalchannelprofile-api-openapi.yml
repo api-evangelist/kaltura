@@ -165,6 +165,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
+    KalturaExternalChannelProfileListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: External channel profiles
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaExternalChannelProfile'
+          type: array
+      title: KalturaExternalChannelProfileListResponse
+      type: object
     KalturaExternalChannelProfile:
       description: OSS Adapter
       properties:
@@ -195,33 +214,6 @@ components:
           description: Recommendation engine id
           type: integer
       title: KalturaExternalChannelProfile
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaExternalChannelProfileListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: External channel profiles
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaExternalChannelProfile'
-          type: array
-      title: KalturaExternalChannelProfileListResponse
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
       type: object
     KalturaChannelEnrichmentHolder:
       description: Holder object for channel enrichment enum
@@ -260,6 +252,14 @@ components:
           - ATHOME
           x-enumType: KalturaChannelEnrichment
       title: KalturaChannelEnrichmentHolder
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

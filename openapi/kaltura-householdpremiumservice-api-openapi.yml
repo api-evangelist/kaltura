@@ -57,6 +57,13 @@ components:
           type: integer
       title: KalturaListResponse
       type: object
+    KalturaHouseholdPremiumService:
+      allOf:
+      - $ref: '#/components/schemas/KalturaPremiumService'
+      description: Houshold premium service
+      properties: {}
+      title: KalturaHouseholdPremiumService
+      type: object
     KalturaPremiumService:
       description: Premium service
       properties:
@@ -82,13 +89,6 @@ components:
             $ref: '#/components/schemas/KalturaHouseholdPremiumService'
           type: array
       title: KalturaHouseholdPremiumServiceListResponse
-      type: object
-    KalturaHouseholdPremiumService:
-      allOf:
-      - $ref: '#/components/schemas/KalturaPremiumService'
-      description: Houshold premium service
-      properties: {}
-      title: KalturaHouseholdPremiumService
       type: object
   securitySchemes:
     ks:

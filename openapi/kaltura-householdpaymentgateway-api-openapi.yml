@@ -301,6 +301,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaHouseholdPaymentGateway:
       properties:
         id:
@@ -333,22 +341,6 @@ components:
           x-enumType: KalturaHouseholdPaymentGatewaySelectedBy
       title: KalturaHouseholdPaymentGateway
       type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
-      type: object
     KalturaPaymentGatewayConfiguration:
       properties:
         paymentGatewayConfiguration:
@@ -377,6 +369,14 @@ components:
           description: Value
           type: string
       title: KalturaKeyValue
+      type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:

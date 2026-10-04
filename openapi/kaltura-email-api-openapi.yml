@@ -44,6 +44,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OTTRequest:
+      properties:
+        ks:
+          type: string
+        version:
+          default: 3.6.287.20720
+          type: string
+      type: object
     KalturaEmailMessage:
       properties:
         bccAddress:
@@ -75,14 +83,6 @@ components:
           description: email template name
           type: string
       title: KalturaEmailMessage
-      type: object
-    OTTRequest:
-      properties:
-        ks:
-          type: string
-        version:
-          default: 3.6.287.20720
-          type: string
       type: object
     KalturaKeyValue:
       properties:

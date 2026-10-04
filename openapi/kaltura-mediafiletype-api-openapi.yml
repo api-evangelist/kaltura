@@ -153,6 +153,25 @@ components:
           default: 3.6.287.20720
           type: string
       type: object
+    KalturaListResponse:
+      description: Base list wrapper
+      properties:
+        totalCount:
+          description: Total items
+          type: integer
+      title: KalturaListResponse
+      type: object
+    KalturaMediaFileTypeListResponse:
+      allOf:
+      - $ref: '#/components/schemas/KalturaListResponse'
+      description: Media-file types list
+      properties:
+        objects:
+          items:
+            $ref: '#/components/schemas/KalturaMediaFileType'
+          type: array
+      title: KalturaMediaFileTypeListResponse
+      type: object
     KalturaMediaFileType:
       description: Media-file type
       properties:
@@ -244,25 +263,6 @@ components:
           description: List of comma separated video codecs
           type: string
       title: KalturaMediaFileType
-      type: object
-    KalturaMediaFileTypeListResponse:
-      allOf:
-      - $ref: '#/components/schemas/KalturaListResponse'
-      description: Media-file types list
-      properties:
-        objects:
-          items:
-            $ref: '#/components/schemas/KalturaMediaFileType'
-          type: array
-      title: KalturaMediaFileTypeListResponse
-      type: object
-    KalturaListResponse:
-      description: Base list wrapper
-      properties:
-        totalCount:
-          description: Total items
-          type: integer
-      title: KalturaListResponse
       type: object
   securitySchemes:
     ks:
